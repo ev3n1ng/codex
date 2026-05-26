@@ -20,7 +20,7 @@ function fetchWithCurl(url) {
     "-L",
     "--compressed",
     "--max-time",
-    "25",
+    "8",
     "-A",
     "Mozilla/5.0",
     url,
@@ -109,10 +109,20 @@ async function refresh() {
   const overrides = {};
   let directUpdates = 0;
   let searchUpdates = 0;
+  let directBlocked = false;
 
   for (const product of products) {
-    let update = parseDirectPage(fetchWithCurl(product.url));
-    if (update.price) directUpdates += 1;
+    let update = {};
+    if (!directBlocked) {
+      const html = fetchWithCurl(product.url);
+      update = parseDirectPage(html);
+      if (update.price) {
+        directUpdates += 1;
+      } else if (!html) {
+        directBlocked = true;
+        console.log("Currys direct consumer fetch appears blocked; skipping direct fetch for remaining models.");
+      }
+    }
 
     if (!update.price && process.env.SERPAPI_KEY) {
       update = await fetchSerpApi(product);
