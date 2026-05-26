@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { spawnSync } = require("child_process");
+const { execFile } = require("child_process");
 
 const sourceFiles = [
   "johnlewis-lg-oled.html",
@@ -32,26 +32,28 @@ function productRows() {
 }
 
 function fetchHtml(url) {
-  const result = spawnSync("curl", [
-    "--http1.1",
-    "-L",
-    "--compressed",
-    "--max-time",
-    "15",
-    "--retry",
-    "2",
-    "-A",
-    "Mozilla/5.0",
-    url,
-  ], {
-    encoding: "utf8",
-    maxBuffer: 10 * 1024 * 1024,
+  return new Promise((resolve, reject) => {
+    execFile("curl", [
+      "--http1.1",
+      "-L",
+      "--compressed",
+      "--max-time",
+      "10",
+      "-A",
+      "Mozilla/5.0",
+      url,
+    ], {
+      encoding: "utf8",
+      maxBuffer: 10 * 1024 * 1024,
+      timeout: 12000,
+    }, (error, stdout, stderr) => {
+      if (error) {
+        reject(new Error(`curl failed for ${url}: ${stderr || error.message}`));
+        return;
+      }
+      resolve(stdout);
+    });
   });
-
-  if (result.status !== 0) {
-    throw new Error(`curl failed for ${url}: ${result.stderr}`);
-  }
-  return result.stdout;
 }
 
 function extractServices(html) {
@@ -75,21 +77,62 @@ function hasFreeWallInstall(service) {
     && (value === "0" || display === "£0.00" || display === "GBP 0.00");
 }
 
-const results = {};
-let freeCount = 0;
-
-for (const product of productRows()) {
-  const html = fetchHtml(product.url);
-  const services = extractServices(html);
-  const freeWallInstall = services.some(hasFreeWallInstall);
-  results[product.id] = {
-    model: product.model,
-    url: product.url,
-    freeWallInstall,
-  };
-  if (freeWallInstall) freeCount += 1;
-  console.log(`${freeWallInstall ? "yes" : "no "} ${product.model}`);
+async function mapLimit(items, limit, worker) {
+  const results = new Array(items.length);
+  let next = 0;
+  const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next;
+      next += 1;
+      results[index] = await worker(items[index], index);
+    }
+  });
+  await Promise.all(runners);
+  return results;
 }
 
-fs.writeFileSync("product-service-offers.json", JSON.stringify(results, null, 2));
-console.log(`Wrote product-service-offers.json. Free wall install services: ${freeCount}.`);
+async function checkProduct(product) {
+  try {
+    const html = await fetchHtml(product.url);
+    const services = extractServices(html);
+    const freeWallInstall = services.some(hasFreeWallInstall);
+    console.log(`${freeWallInstall ? "yes" : "no "} ${product.model}`);
+    return {
+      id: product.id,
+      data: {
+        model: product.model,
+        url: product.url,
+        freeWallInstall,
+      },
+    };
+  } catch (error) {
+    console.log(`err ${product.model}: ${error.message}`);
+    return {
+      id: product.id,
+      data: {
+        model: product.model,
+        url: product.url,
+        freeWallInstall: false,
+        error: error.message,
+      },
+    };
+  }
+}
+
+(async () => {
+  const rows = productRows();
+  const checked = await mapLimit(rows, 8, checkProduct);
+  const results = {};
+  let freeCount = 0;
+
+  for (const row of checked) {
+    results[row.id] = row.data;
+    if (row.data.freeWallInstall) freeCount += 1;
+  }
+
+  fs.writeFileSync("product-service-offers.json", JSON.stringify(results, null, 2));
+  console.log(`Wrote product-service-offers.json. Free wall install services: ${freeCount}.`);
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
