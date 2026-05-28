@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Wordplay is a quiet web app for discovering interesting English words, one by one."
+    >
+    <title>Wordplay | Alberto Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;650&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="word-stage" aria-label="Word discovery">
+        <article class="word-card" aria-live="polite">
+          <div class="word-heading">
+            <button class="theme-button" id="themeToggle" type="button" aria-label="Use dark mode" title="Use dark mode">
+              <span aria-hidden="true">◐</span>
+            </button>
+            <div>
+              <h2 id="wordText">Apricity</h2>
+              <p class="phonetic" id="wordPronunciation">uh-PRIS-i-tee</p>
+            </div>
+            <button class="save-button" id="saveButton" type="button" aria-label="Save word" aria-pressed="false" title="Save word">
+              <span aria-hidden="true">☆</span>
+            </button>
+          </div>
+
+          <dl class="word-details">
+            <div>
+              <dt>Description</dt>
+              <dd id="wordDescription">The warmth of sunlight in winter; a small, bright comfort on a cold day.</dd>
+            </div>
+            <div>
+              <dt>Usage</dt>
+              <dd id="wordUsage">We sat by the window, borrowing a little apricity from the pale afternoon.</dd>
+            </div>
+            <div>
+              <dt>Etymology</dt>
+              <dd id="wordEtymology">Latin - apricitas, warmth of the sun - apricus, sunny or sunlit - English apricity.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <div class="controls" aria-label="Word controls">
+          <button class="control-button primary" id="shuffleButton" type="button">
+            <span>Next</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-label="Word tools">
+        <div class="panel-section">
+          <p class="section-title">Level</p>
+          <div class="level-switch" id="levelSwitch" aria-label="Choose word level">
+            <button class="level-option active" type="button" data-level="everyday">Everyday</button>
+            <button class="level-option" type="button" data-level="polished">Polished</button>
+            <button class="level-option" type="button" data-level="rare">Rarer</button>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <p class="section-title">Saved words</p>
+          <ul class="saved-list" id="savedList"></ul>
+          <p class="empty-state" id="savedEmpty">Save words you want to revisit.</p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f7f6;
+  --panel: #fffefd;
+  --panel-strong: #ffffff;
+  --text: #1f2523;
+  --muted: #68716d;
+  --line: #ddd7ca;
+  --accent: #b9382f;
+  --accent-2: #196a72;
+  --accent-3: #6a4b8f;
+  --shadow: 0 24px 70px rgba(47, 38, 26, 0.14);
+  --radius: 8px;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #171a19;
+  --panel: #202421;
+  --panel-strong: #262b27;
+  --text: #f0ede5;
+  --muted: #a9b0aa;
+  --line: #3a403b;
+  --accent: #f06f5f;
+  --accent-2: #70c4c8;
+  --accent-3: #c0a1e8;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(25, 106, 114, 0.12), transparent 31rem),
+    linear-gradient(135deg, rgba(185, 56, 47, 0.06), transparent 34rem),
+    linear-gradient(180deg, rgba(106, 75, 143, 0.04), transparent 28rem),
+    var(--bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 24rem);
+  gap: clamp(1rem, 3vw, 2rem);
+  width: min(1060px, calc(100% - 2rem));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) 0;
+}
+
+.word-stage,
+.side-panel {
+  min-width: 0;
+}
+
+.word-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.word-card,
+.side-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel), transparent 5%);
+  box-shadow: var(--shadow);
+}
+
+.word-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.6rem, 5vw, 3.2rem);
+  min-height: min(38rem, calc(100vh - 10rem));
+  padding: clamp(1.4rem, 5vw, 3rem);
+}
+
+.word-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(12rem, 30vw, 18rem);
+  padding: 0 clamp(3.25rem, 7vw, 4.5rem);
+  text-align: center;
+}
+
+.word-heading > div {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+h2 {
+  display: inline-block;
+  overflow-wrap: normal;
+  margin: 0;
+  font-family: "Playpen Sans", "Segoe Print", "Bradley Hand", cursive;
+  font-size: clamp(4.5rem, 12vw, 9.5rem);
+  font-weight: 650;
+  line-height: 0.95;
+  letter-spacing: 0;
+  word-break: normal;
+  hyphens: none;
+  white-space: nowrap;
+}
+
+.phonetic {
+  margin: 0.8rem 0 0;
+  color: var(--accent-2);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-family: "Playpen Sans", "Segoe Print", "Bradley Hand", cursive;
+  font-weight: 400;
+}
+
+.theme-button,
+.save-button,
+.control-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-strong);
+}
+
+.theme-button,
+.save-button {
+  position: absolute;
+  top: 0.25rem;
+  flex: 0 0 auto;
+  width: 2.9rem;
+  height: 2.9rem;
+  padding: 0;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.theme-button {
+  left: 0;
+  color: var(--accent-2);
+}
+
+.save-button {
+  right: 0;
+}
+
+.save-button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--accent), var(--line) 30%);
+  color: var(--accent);
+}
+
+.word-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.word-details div,
+.panel-section {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+dt {
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+  font-size: 0.83rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+dd,
+.panel-section p:last-child {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.control-button {
+  gap: 0.45rem;
+  padding: 0.2rem 0.9rem;
+  min-height: 3.15rem;
+  font-weight: 700;
+}
+
+.control-button.primary {
+  border-color: color-mix(in srgb, var(--accent-2), var(--line) 35%);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+}
+
+.side-panel {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding: 1rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.saved-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.level-switch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.level-option {
+  min-height: 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-strong);
+  font-weight: 700;
+}
+
+.level-option.active {
+  border-color: color-mix(in srgb, var(--accent-2), var(--line) 25%);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+}
+
+.saved-list button {
+  width: 100%;
+  min-height: 2.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-strong);
+  text-align: left;
+  padding: 0 0.7rem;
+}
+
+.empty-state {
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    position: static;
+  }
+
+  .word-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 1rem, 1060px);
+    padding: 0.75rem 0 1rem;
+  }
+
+  .word-heading {
+    min-height: 14rem;
+    padding: 0 3rem;
+  }
+
+  .theme-button,
+  .save-button {
+    width: 2.9rem;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: clamp(3.5rem, 17vw, 5.8rem);
+  }
+}
