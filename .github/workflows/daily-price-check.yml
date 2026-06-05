@@ -33,11 +33,11 @@ jobs:
 
       - name: Checkout
         if: steps.gate.outputs.run == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
         if: steps.gate.outputs.run == 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
 
@@ -49,11 +49,28 @@ jobs:
 
       - name: Refresh John Lewis
         if: steps.gate.outputs.run == 'true'
-        run: node refresh_john_lewis_official.js 2>&1 | tee john-lewis-refresh.log
+        shell: bash
+        run: |
+          set -o pipefail
+          if node refresh_john_lewis_official.js 2>&1 | tee john-lewis-refresh.log; then
+            echo "John Lewis live refresh completed."
+          else
+            echo "John Lewis live refresh failed; regenerating from cached baseline data." | tee -a john-lewis-refresh.log
+            node generate_upload_index.js 2>&1 | tee -a john-lewis-refresh.log
+            node generate_retailer_portal.js 2>&1 | tee -a john-lewis-refresh.log
+          fi
 
       - name: Refresh Currys
         if: steps.gate.outputs.run == 'true'
-        run: node refresh_currys_official.js --generate 2>&1 | tee currys-refresh.log
+        shell: bash
+        run: |
+          set -o pipefail
+          if node refresh_currys_official.js --generate 2>&1 | tee currys-refresh.log; then
+            echo "Currys live refresh completed."
+          else
+            echo "Currys live refresh failed; regenerating from cached baseline data." | tee -a currys-refresh.log
+            node generate_retailer_portal.js 2>&1 | tee -a currys-refresh.log
+          fi
 
       - name: Write run summary
         if: steps.gate.outputs.run == 'true'
@@ -63,10 +80,10 @@ jobs:
             echo "## LG OLED price check"
             echo
             echo "### John Lewis"
-            grep -E "^(Change report:|- |John Lewis report:|John Lewis listing:|John Lewis services:)" john-lewis-refresh.log || true
+            grep -E "^(Change report:|- |John Lewis report:|John Lewis listing:|John Lewis services:|John Lewis live refresh failed;)" john-lewis-refresh.log || true
             echo
             echo "### Currys"
-            grep -E "^(Change report:|- |Currys refreshed:)" currys-refresh.log || true
+            grep -E "^(Change report:|- |Currys refreshed:|Currys live refresh failed;)" currys-refresh.log || true
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit website update

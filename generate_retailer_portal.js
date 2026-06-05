@@ -319,7 +319,7 @@ function normalizeReportHtml(html, retailer) {
 
   const report = JSON.parse(html.slice(start, end));
   const products = normalizeToBaseline(report.groups.flatMap((group) => group.products), retailer);
-  const normalized = JSON.stringify({ ...report, groups: groupProducts(products) });
+  const normalized = JSON.stringify({ ...report, runDate, groups: groupProducts(products) });
   return html.slice(0, start) + normalized + html.slice(end);
 }
 
