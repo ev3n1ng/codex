@@ -1,0 +1,9 @@
+band*.html
+johnlewis-lg-oled*.html
+product-*.html
+page*.json
+currys-pages/
+node_modules/
+npm-debug.log*
+upload-index.html
+*-refresh.log

@@ -1,0 +1,94 @@
+name: Daily LG OLED price check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *"
+    - cron: "0 9 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-lg-oled-price-check
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check London run window
+        id: gate
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$(TZ=Europe/London date +%H)" = "09" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Configure Git author
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Refresh John Lewis
+        if: steps.gate.outputs.run == 'true'
+        run: node refresh_john_lewis_official.js 2>&1 | tee john-lewis-refresh.log
+
+      - name: Refresh Currys
+        if: steps.gate.outputs.run == 'true'
+        run: node refresh_currys_official.js --generate 2>&1 | tee currys-refresh.log
+
+      - name: Write run summary
+        if: steps.gate.outputs.run == 'true'
+        shell: bash
+        run: |
+          {
+            echo "## LG OLED price check"
+            echo
+            echo "### John Lewis"
+            grep -E "^(Change report:|- |John Lewis report:|John Lewis listing:|John Lewis services:)" john-lewis-refresh.log || true
+            echo
+            echo "### Currys"
+            grep -E "^(Change report:|- |Currys refreshed:)" currys-refresh.log || true
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit website update
+        if: steps.gate.outputs.run == 'true'
+        shell: bash
+        run: |
+          git add \
+            index.html \
+            retailers/index.html \
+            john-lewis/index.html \
+            john-lewis/retailer-info/index.html \
+            currys/index.html \
+            currys/retailer-info/index.html \
+            retailer-info.html \
+            retailer-info/index.html \
+            generate_retailer_portal.js \
+            product-service-offers.json
+
+          if git diff --cached --quiet; then
+            echo "No website changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Automated LG OLED price refresh"
+          git push
