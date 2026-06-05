@@ -56,7 +56,7 @@ jobs:
             echo "John Lewis live refresh completed."
           else
             echo "John Lewis live refresh failed; regenerating from cached baseline data." | tee -a john-lewis-refresh.log
-            node generate_retailer_portal.js 2>&1 | tee -a john-lewis-refresh.log
+            DATA_REFRESH_MODE=cached-fallback node generate_retailer_portal.js 2>&1 | tee -a john-lewis-refresh.log
           fi
 
       - name: Refresh Currys
@@ -68,7 +68,7 @@ jobs:
             echo "Currys live refresh completed."
           else
             echo "Currys live refresh failed; regenerating from cached baseline data." | tee -a currys-refresh.log
-            node generate_retailer_portal.js 2>&1 | tee -a currys-refresh.log
+            DATA_REFRESH_MODE=cached-fallback node generate_retailer_portal.js 2>&1 | tee -a currys-refresh.log
           fi
 
       - name: Write run summary
