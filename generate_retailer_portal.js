@@ -62,6 +62,267 @@ function generationOf(model) {
   return model.match(/OLED\d*[A-Z](\d)/i)?.[1] || "";
 }
 
+const baselineModelFamilies = [
+  { family: "B5", models: ["OLED48B56LA", "OLED65B56LA", "OLED77B56LA", "OLED83B56LA"] },
+  {
+    family: "C5",
+    models: [
+      "OLED42C54LA",
+      "OLED48C54LA",
+      "OLED55C54LA",
+      "OLED65C54LA",
+      "OLED77C54LA",
+      "OLED83C54LA",
+      "OLED48C56LB",
+      "OLED55C56LB",
+      "OLED65C56LB",
+      "OLED77C56LB",
+    ],
+  },
+  {
+    family: "G5",
+    models: [
+      "OLED48G56LS",
+      "OLED55G56LS",
+      "OLED65G56LS",
+      "OLED55G54LW",
+      "OLED65G54LW",
+      "OLED77G54LW",
+      "OLED83G54LW",
+    ],
+  },
+  { family: "B6", models: ["OLED48B65LA", "OLED55B65LA", "OLED65B65LA", "OLED77B65LA"] },
+  {
+    family: "C6",
+    models: ["OLED42C64LA", "OLED48C64LA", "OLED55C64LA", "OLED65C64LA", "OLED77C64LA", "OLED83C64LA"],
+  },
+  {
+    family: "G6",
+    models: [
+      "OLED48G66LS",
+      "OLED55G66LS",
+      "OLED65G66LS",
+      "OLED55G64LW",
+      "OLED65G64LW",
+      "OLED77G64LW",
+      "OLED83G64LW",
+    ],
+  },
+  { family: "M5", models: ["OLED65M59LA"] },
+  { family: "W6", models: ["OLED77W69LA", "OLED83W69LA"] },
+];
+
+const baselineModels = baselineModelFamilies.flatMap((family) => family.models);
+
+const knownBaselineUrls = {
+  "John Lewis": {
+    OLED48B56LA:
+      "https://www.johnlewis.com/lg-oled48b56la-2025-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p113525052",
+    OLED65B56LA:
+      "https://www.johnlewis.com/lg-oled65b56la-2025-oled-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p113530628",
+    OLED77B56LA:
+      "https://www.johnlewis.com/lg-oled77b56la-2025-oled-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-umber-brown/p113536858",
+    OLED83B56LA:
+      "https://www.johnlewis.com/lg-oled83b56la-2025-oled-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-umber-brown/p113513354",
+    OLED42C54LA:
+      "https://www.johnlewis.com/lg-oled42c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-42-inch-with-dolby-atmos-dark-titan-silver/p113530622",
+    OLED48C54LA:
+      "https://www.johnlewis.com/lg-oled48c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p113513363",
+    OLED55C54LA:
+      "https://www.johnlewis.com/lg-oled55c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-dark-titan-silver/p113530623",
+    OLED65C54LA:
+      "https://www.johnlewis.com/lg-oled65c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-dark-titan-silver/p113530624",
+    OLED77C54LA:
+      "https://www.johnlewis.com/lg-oled77c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p113530625",
+    OLED83C54LA:
+      "https://www.johnlewis.com/lg-oled83c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-dark-titan-silver/p113678676",
+    OLED48C56LB:
+      "https://www.johnlewis.com/lg-oled48c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p113744965",
+    OLED55C56LB:
+      "https://www.johnlewis.com/lg-oled55c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p113744966",
+    OLED65C56LB:
+      "https://www.johnlewis.com/lg-oled65c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p113744967",
+    OLED77C56LB:
+      "https://www.johnlewis.com/lg-oled77c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-umber-brown/p113742830",
+    OLED48G56LS:
+      "https://www.johnlewis.com/lg-oled48g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-stand-version-black/p113460227",
+    OLED55G56LS:
+      "https://www.johnlewis.com/lg-oled55g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-stand-version-satin-silver/p113362525",
+    OLED65G56LS:
+      "https://www.johnlewis.com/lg-oled65g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-stand-version-satin-silver/p113362528",
+    OLED55G54LW:
+      "https://www.johnlewis.com/lg-oled55g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362526",
+    OLED65G54LW:
+      "https://www.johnlewis.com/lg-oled65g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362527",
+    OLED77G54LW:
+      "https://www.johnlewis.com/lg-oled77g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362529",
+    OLED83G54LW:
+      "https://www.johnlewis.com/lg-oled83g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-one-wall-design-light-satin-silver/p113362530",
+    OLED48B65LA:
+      "https://www.johnlewis.com/lg-oled48b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p115232088",
+    OLED55B65LA:
+      "https://www.johnlewis.com/lg-oled55b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p115232122",
+    OLED65B65LA:
+      "https://www.johnlewis.com/lg-oled65b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p115232147",
+    OLED77B65LA:
+      "https://www.johnlewis.com/lg-oled77b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-umber-brown/p115232495",
+    OLED42C64LA:
+      "https://www.johnlewis.com/lg-oled42c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-42-inch-with-dolby-atmos-dark-titan-silver/p115239735",
+    OLED48C64LA:
+      "https://www.johnlewis.com/lg-oled48c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p115239963",
+    OLED55C64LA:
+      "https://www.johnlewis.com/lg-oled55c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-dark-titan-silver/p115240000",
+    OLED65C64LA:
+      "https://www.johnlewis.com/lg-oled65c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-dark-titan-silver/p115240023",
+    OLED77C64LA:
+      "https://www.johnlewis.com/lg-oled77c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p115240028",
+    OLED83C64LA:
+      "https://www.johnlewis.com/lg-oled83c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-dark-titan-silver/p115240037",
+    OLED48G66LS:
+      "https://www.johnlewis.com/lg-oled48g66ls-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-stand-version-black/p115239985",
+    OLED55G66LS:
+      "https://www.johnlewis.com/lg-oled55g66ls-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-stand-version-satin-silver/p115240018",
+    OLED65G66LS:
+      "https://www.johnlewis.com/lg-oled65g66ls-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-stand-version-satin-silver/p115240027",
+    OLED55G64LW:
+      "https://www.johnlewis.com/lg-oled55g64lw-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-one-wall-design-satin-silver/p115240002",
+    OLED65G64LW:
+      "https://www.johnlewis.com/lg-oled65g64lw-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-one-wall-design-satin-silver/p115240026",
+    OLED77G64LW:
+      "https://www.johnlewis.com/lg-oled77g64lw-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-one-wall-design-satin-silver/p115240031",
+    OLED83G64LW:
+      "https://www.johnlewis.com/lg-oled83g64lw-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-one-wall-design-light-satin-silver/p115240040",
+    OLED65M59LA:
+      "https://www.johnlewis.com/lg-oled65m59la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-one-wall-design-zero-connect-box-satin-silver/p113905725",
+    OLED77W69LA:
+      "https://www.johnlewis.com/lg-oled77w69la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-wallpaper-design-zero-connect-box-umber-brown/p115281106",
+    OLED83W69LA:
+      "https://www.johnlewis.com/lg-oled83w69la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-wallpaper-design-zero-connect-box-umber-brown/p115301780",
+  },
+  Currys: {
+    OLED48B56LA: "https://www.currys.co.uk/products/lg-b5-48-oled-ai-4k-hdr-smart-tv-2025-oled48b56la-10282097.html",
+    OLED65B56LA: "https://www.currys.co.uk/products/lg-b5-65-oled-ai-4k-hdr-smart-tv-2025-oled65b56la-10281772.html",
+    OLED77B56LA: "https://www.currys.co.uk/products/lg-b5-77-oled-ai-4k-hdr-smart-tv-2025-oled77b56la-10281774.html",
+    OLED83B56LA:
+      "https://www.currys.co.uk/products/lg-b5-83-oled-ai-4k-ultra-hd-hdr-smart-tv-2025-oled83b56la-10282099.html",
+    OLED42C54LA: "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
+    OLED48C54LA: "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c54la-10281782.html",
+    OLED55C54LA: "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c54la-10281549.html",
+    OLED65C54LA: "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c54la-10281777.html",
+    OLED77C54LA: "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c54la-10281779.html",
+    OLED83C54LA: "https://www.currys.co.uk/products/lg-c5-83-oled-evo-ai-4k-hdr-smart-tv-2025-oled83c54la-10282101.html",
+    OLED48C56LB: "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c56lb-10282100.html",
+    OLED55C56LB: "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c56lb-10281769.html",
+    OLED65C56LB: "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c56lb-10281775.html",
+    OLED77C56LB: "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c56lb-10281778.html",
+    OLED48G56LS:
+      "https://www.currys.co.uk/products/lg-g5-48-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled48g56ls-10281558.html",
+    OLED55G56LS:
+      "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled55g56ls-10282094.html",
+    OLED65G56LS:
+      "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled65g56ls-10282093.html",
+    OLED55G54LW:
+      "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled55g54lw-10280772.html",
+    OLED65G54LW:
+      "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled65g54lw-10280771.html",
+    OLED77G54LW:
+      "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
+    OLED83G54LW:
+      "https://www.currys.co.uk/products/lg-g5-83-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled83g54lw-10282103.html",
+    OLED48B65LA: "https://www.currys.co.uk/search?q=OLED48B65LA",
+    OLED55B65LA: "https://www.currys.co.uk/products/lg-b6-55-oled-ai-4k-hdr-smart-tv-2026-oled55b65la-10301871.html",
+    OLED65B65LA: "https://www.currys.co.uk/search?q=OLED65B65LA",
+    OLED77B65LA: "https://www.currys.co.uk/search?q=OLED77B65LA",
+    OLED42C64LA: "https://www.currys.co.uk/search?q=OLED42C64LA",
+    OLED48C64LA: "https://www.currys.co.uk/products/lg-c6-48-oled-ai-4k-hdr-smart-tv-2026-oled48c64la-10301976.html",
+    OLED55C64LA: "https://www.currys.co.uk/products/lg-c6-55-oled-ai-4k-hdr-smart-tv-2026-oled55c64la-10301942.html",
+    OLED65C64LA: "https://www.currys.co.uk/products/lg-c6-65-oled-ai-4k-hdr-smart-tv-2026-oled65c64la-10301788.html",
+    OLED77C64LA: "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c64la-10302008.html",
+    OLED83C64LA: "https://www.currys.co.uk/search?q=OLED83C64LA",
+    OLED48G66LS: "https://www.currys.co.uk/search?q=OLED48G66LS",
+    OLED55G66LS:
+      "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled55g66ls-10301989.html",
+    OLED65G66LS:
+      "https://www.currys.co.uk/products/lg-g6-65-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled65g66ls-10301977.html",
+    OLED55G64LW:
+      "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled55g64lw-10301338.html",
+    OLED65G64LW:
+      "https://www.currys.co.uk/products/lg-g6-65-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled65g64lw-10301388.html",
+    OLED77G64LW: "https://www.currys.co.uk/search?q=OLED77G64LW",
+    OLED83G64LW: "https://www.currys.co.uk/search?q=OLED83G64LW",
+    OLED65M59LA:
+      "https://www.currys.co.uk/products/lg-m5-65-oled-evo-ai-4k-hdr-true-wireless-smart-tv-2025-oled65m59la-10282096.html",
+    OLED77W69LA: "https://www.currys.co.uk/search?q=OLED77W69LA",
+    OLED83W69LA: "https://www.currys.co.uk/search?q=OLED83W69LA",
+  },
+};
+
+function baselineFamilyOf(model) {
+  return baselineModelFamilies.find((family) => family.models.includes(model))?.family || "";
+}
+
+function sizeOf(model) {
+  return Number(model.match(/^OLED(\d+)/i)?.[1] || 0);
+}
+
+function seriesLabel(family) {
+  const series = family[0];
+  if (series === "M") return "M5 True Wireless";
+  if (series === "W") return "W6 Wallpaper";
+  return `${family} series`;
+}
+
+function titleForModel(model) {
+  const family = baselineFamilyOf(model);
+  const year = family.endsWith("6") ? "2026" : "2025";
+  return `LG ${seriesLabel(family)} ${sizeOf(model)}" OLED TV ${year} - ${model}`;
+}
+
+function retailerSearchUrl(retailer, model) {
+  const query = encodeURIComponent(model);
+  if (retailer === "Currys") return `https://www.currys.co.uk/search?q=${query}`;
+  return `https://www.johnlewis.com/search?search-term=${query}`;
+}
+
+function unavailableProduct(model, retailer) {
+  const family = baselineFamilyOf(model);
+  return {
+    year: family.endsWith("6") ? "2026" : "2025",
+    title: titleForModel(model),
+    size: sizeOf(model),
+    price: "Not available",
+    availability: "Not available at the moment",
+    offers: ["No current retailer data found for this baseline model"],
+    url: knownBaselineUrls[retailer]?.[model] || retailerSearchUrl(retailer, model),
+    model,
+    baselineMissing: true,
+  };
+}
+
+function normalizeToBaseline(products, retailer) {
+  const byModel = new Map();
+  for (const product of products) {
+    const model = product.model || modelOf(product.title);
+    if (baselineModels.includes(model) && !byModel.has(model)) {
+      byModel.set(model, { ...product, model, size: product.size || sizeOf(model) });
+    }
+  }
+  return baselineModels.map((model) => byModel.get(model) || unavailableProduct(model, retailer));
+}
+
+function normalizeReportHtml(html, retailer) {
+  const marker = "const D=";
+  const start = html.indexOf(marker) + marker.length;
+  let end = html.indexOf(";\nconst ", start);
+  if (end < 0) end = html.indexOf(";const ", start);
+  if (start < marker.length || end < 0) return html;
+
+  const report = JSON.parse(html.slice(start, end));
+  const products = normalizeToBaseline(report.groups.flatMap((group) => group.products), retailer);
+  const normalized = JSON.stringify({ ...report, groups: groupProducts(products) });
+  return html.slice(0, start) + normalized + html.slice(end);
+}
+
 function category(product) {
   const series = product.series;
   const gen = product.gen;
@@ -539,36 +800,7 @@ const currysProducts = [
   }
 ].map((product) => ({ ...product, model: modelOf(product.title) }));
 const currysWatchlistModels = [
-  "OLED65G64LW",
-  "OLED65G66LS",
-  "OLED55G64LW",
-  "OLED55G66LS",
-  "OLED55C64LA",
-  "OLED65B6ELC",
-  "OLED55B6ELC",
-  "OLED83G54LW",
-  "OLED83M59LA",
-  "OLED77G54LW",
-  "OLED77M59LA",
-  "OLED65G54LW",
-  "OLED65G56LS",
-  "OLED55G56LS",
-  "OLED55G54LW",
-  "OLED48G56LS",
-  "OLED83C54LA",
-  "OLED77C56LB",
-  "OLED77C54LA",
-  "OLED65C54LA",
-  "OLED65C56LB",
-  "OLED55C54LA",
-  "OLED55C56LB",
-  "OLED42C54LA",
-  "OLED48C54LA",
-  "OLED48C56LB",
-  "OLED77B56LA",
-  "OLED65B56LA",
-  "OLED55B56LA",
-  "OLED48B56LA",
+  ...baselineModels,
 ];
 
 function assertWatchlistPresent(products, watchlist, retailer) {
@@ -609,10 +841,11 @@ function currysInfoPage() {
 :root{--r:#4c12a1;--i:#151817;--m:#6d7773;--l:#dfe5e2;--p:#f7f8f7}*{box-sizing:border-box}body{margin:0;background:var(--p);color:var(--i);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}.wrap{width:min(1120px,calc(100vw - 32px));margin:auto}.hero{background:var(--i);color:white;border-bottom:10px solid var(--r)}.hero .wrap{min-height:300px;padding:48px 0 32px;display:grid;align-content:space-between;gap:32px}.brand{display:grid;gap:22px;align-items:flex-start}.logo{width:82px;height:82px;border-radius:8px;display:grid;place-items:center;background:var(--r);font-size:22px;font-weight:950}h1{margin:0;max-width:840px;font-size:clamp(36px,5vw,62px);line-height:.98;text-transform:uppercase}.copy{max-width:780px;color:#e7ece9;font-size:18px}.toplinks{display:flex;gap:10px;flex-wrap:wrap}.toplinks a{display:inline-flex;align-items:center;min-height:38px;text-decoration:none;background:white;color:var(--i);border:1px solid var(--l);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:900}.toplinks a:first-child{background:var(--r);border-color:var(--r);color:white}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0}.card{background:white;border:1px solid var(--l);border-radius:8px;padding:20px;box-shadow:0 16px 36px #0e12110f}h2{margin:0 0 10px;font-size:24px}.kicker{margin:0 0 8px;color:var(--r);font-size:12px;font-weight:950;text-transform:uppercase}.links{display:grid;gap:8px;margin-top:14px}.links a{color:var(--r);font-weight:900}.address{font-size:20px;font-weight:900}.note{background:#eef2f1;border-left:5px solid var(--r);padding:16px 18px;margin:28px 0;border-radius:8px}.small{font-size:13px;color:var(--m)}footer{border-top:1px solid var(--l);padding:26px 0 36px;color:var(--m);font-size:13px}@media(max-width:760px){.grid{grid-template-columns:1fr}}</style></head><body><header class=hero><div class=wrap><div class=brand><div class=logo>Currys</div><div><h1>Currys Retailer Information</h1><p class=copy>Useful Currys links for contact, support, price match, delivery, returns and guarantee information.</p></div></div><div class=toplinks><a href=../>Back to Currys report</a><a href=https://www.currys.co.uk/services/contact-us.html target=_blank rel=noopener>Contact Currys</a><a href=https://www.currys.co.uk/services/shopping-with-us/price-promise.html target=_blank rel=noopener>Price promise</a><a href=https://www.currys.co.uk/services/repair-and-support.html target=_blank rel=noopener>Repairs and support</a></div></div></header><main class=wrap><section class=note><strong>Last checked:</strong> ${runDate} Europe/London. Please confirm policy details on the linked Currys pages before customer-facing use.</section><div class=grid><article class=card><p class=kicker>Customer support</p><h2>Contact and help</h2><p>Currys provides support routes for orders, repairs, returns, delivery, installation and product advice.</p><div class=links><a href=https://www.currys.co.uk/services/contact-us.html target=_blank rel=noopener>Contact Currys</a><a href=https://www.currys.co.uk/services/help-and-services.html target=_blank rel=noopener>Help and services</a><a href=https://www.currys.co.uk/services/repair-and-support.html target=_blank rel=noopener>Repair and support</a><a href=https://www.currys.co.uk/store-finder target=_blank rel=noopener>Store finder</a></div></article><article class=card><p class=kicker>Company details</p><h2>Head office</h2><p class=address>Currys Group Limited<br>1 Portal Way<br>London W3 6RS</p><p class=small>Company number 00504877.</p><div class=links><a href=https://find-and-update.company-information.service.gov.uk/company/00504877 target=_blank rel=noopener>Companies House profile</a><a href=https://www.currysplc.com target=_blank rel=noopener>Currys plc</a></div></article><article class=card><p class=kicker>Pricing policy</p><h2>Price promise</h2><p>Currys product pages state that if a customer finds the same product cheaper at another UK retailer online or in-store, Currys can match it, subject to exclusions and conditions.</p><div class=links><a href=https://www.currys.co.uk/services/shopping-with-us/price-promise.html target=_blank rel=noopener>Price promise details</a></div></article><article class=card><p class=kicker>Delivery and services</p><h2>Delivery, installation and returns</h2><p>Useful operational links for checking delivery, installation and aftercare policy around TV purchases.</p><div class=links><a href=https://www.currys.co.uk/services/delivery-installation.html target=_blank rel=noopener>Delivery and installation</a><a href=https://www.currys.co.uk/services/shopping-with-us/returns-refunds.html target=_blank rel=noopener>Returns and refunds</a><a href=https://www.currys.co.uk/services/repair-and-support.html target=_blank rel=noopener>Repairs and support</a></div></article></div></main><footer><div class=wrap>Created as a secondary page for the Currys LG OLED pricing report.</div></footer></body></html>`;
 }
 
-const johnLewisReport = footballReportTheme(read("upload-index.html"), "John Lewis");
+const johnLewisReport = footballReportTheme(normalizeReportHtml(read("upload-index.html"), "John Lewis"), "John Lewis");
 const johnLewisInfo = read("retailer-info/index.html");
-assertWatchlistPresent(currysProducts, currysWatchlistModels, "Currys");
-const currysGroups = groupProducts(currysProducts);
+const normalizedCurrysProducts = normalizeToBaseline(currysProducts, "Currys");
+assertWatchlistPresent(normalizedCurrysProducts, currysWatchlistModels, "Currys");
+const currysGroups = groupProducts(normalizedCurrysProducts);
 
 write("index.html", portfolioPage());
 write("retailers/index.html", footballChooserTheme(splashPage()));
@@ -624,6 +857,6 @@ write("currys/index.html", footballReportTheme(reportPage({
   accent: "#4c12a1",
   retailerInfoHref: "retailer-info/",
   groups: currysGroups,
-  sourceNote: "Source: official Currys consumer product pages only. This report keeps a fixed 30-model Currys watchlist so a model is not removed just because a fresh update cannot read it.",
+  sourceNote: "Source: official Currys consumer product pages and exact model-code search. This report keeps the fixed 41-model LG OLED baseline visible even when a retailer has no current data.",
 }), "Currys"));
 write("currys/retailer-info/index.html", currysInfoPage());
