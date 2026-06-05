@@ -3,8 +3,8 @@ name: Daily LG OLED price check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * *"
-    - cron: "0 9 * * *"
+    - cron: "15 5 * * *"
+    - cron: "15 6 * * *"
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
             echo "run=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if [ "$(TZ=Europe/London date +%H)" = "09" ]; then
+          if [ "$(TZ=Europe/London date +%H%M)" = "0615" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"

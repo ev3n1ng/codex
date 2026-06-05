@@ -361,6 +361,7 @@ const currysProducts = [
     "offers": [
       "Save £200.00",
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-65-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled65g64lw-10301388.html",
@@ -374,6 +375,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-65-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled65g66ls-10301977.html",
@@ -388,6 +390,7 @@ const currysProducts = [
     "offers": [
       "Save £200.00",
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled55g64lw-10301338.html",
@@ -401,6 +404,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled55g66ls-10301989.html",
@@ -415,6 +419,7 @@ const currysProducts = [
     "offers": [
       "Save £19.01",
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-55-oled-ai-4k-hdr-smart-tv-2026-oled55c64la-10301942.html",
@@ -429,6 +434,7 @@ const currysProducts = [
     "offers": [
       "Save £19.01",
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b6-65-oled-ai-4k-hdr-smart-tv-2026-oled65b6elc-10301905.html",
@@ -443,6 +449,7 @@ const currysProducts = [
     "offers": [
       "Save £150.00",
       "20% off marked price with code 20OFFVIS",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b6-55-oled-ai-4k-hdr-smart-tv-2026-oled55b6elc-10301907.html",
@@ -603,6 +610,7 @@ const currysProducts = [
     "price": "£2,399.99",
     "availability": "Listed",
     "offers": [
+      "Save £199.01",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -726,7 +734,7 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C56LB",
     "size": 48,
-    "price": "£849.00",
+    "price": "£949.00",
     "availability": "Listed",
     "offers": [
       "Save £150.00",
@@ -735,7 +743,8 @@ const currysProducts = [
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c56lb-10282100.html",
-    "model": "OLED48C56LB"
+    "model": "OLED48C56LB",
+    "previousPrice": "£849.00"
   },
   {
     "year": "2025",
