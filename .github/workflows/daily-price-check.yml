@@ -56,7 +56,6 @@ jobs:
             echo "John Lewis live refresh completed."
           else
             echo "John Lewis live refresh failed; regenerating from cached baseline data." | tee -a john-lewis-refresh.log
-            node generate_upload_index.js 2>&1 | tee -a john-lewis-refresh.log
             node generate_retailer_portal.js 2>&1 | tee -a john-lewis-refresh.log
           fi
 
