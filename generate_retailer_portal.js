@@ -552,7 +552,7 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED65G56LS",
     "size": 65,
-    "price": "£2,299.00",
+    "price": "£1,999.00",
     "availability": "Listed",
     "offers": [
       "Save £200.00",
@@ -561,7 +561,8 @@ const currysProducts = [
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled65g56ls-10282093.html",
-    "model": "OLED65G56LS"
+    "model": "OLED65G56LS",
+    "previousPrice": "£2,299.00"
   },
   {
     "year": "2025",
@@ -727,7 +728,7 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
-    "price": "£849.00",
+    "price": "£729.00",
     "availability": "Listed",
     "offers": [
       "Save £19.01",
@@ -736,7 +737,8 @@ const currysProducts = [
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
-    "model": "OLED42C54LA"
+    "model": "OLED42C54LA",
+    "previousPrice": "£849.00"
   },
   {
     "year": "2025",
@@ -773,7 +775,7 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 77\" OLED AI 4K HDR Smart TV 2025 - OLED77B56LA",
     "size": 77,
-    "price": "£1,799.00",
+    "price": "£1,679.00",
     "availability": "Listed",
     "offers": [
       "Save £900.00",
@@ -782,7 +784,8 @@ const currysProducts = [
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-77-oled-ai-4k-hdr-smart-tv-2025-oled77b56la-10281774.html",
-    "model": "OLED77B56LA"
+    "model": "OLED77B56LA",
+    "previousPrice": "£1,799.00"
   },
   {
     "year": "2025",
