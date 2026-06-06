@@ -15,16 +15,13 @@ const push = args.has("--push");
 const verbose = args.has("--verbose");
 const maxNotListed = Number(process.env.CURRYS_MAX_NOT_LISTED || 5);
 
-const correctedUrls = {
-  OLED77C54LA:
-    "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c54la-10281779.html",
-  OLED65C56LB:
-    "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c56lb-10281775.html",
-};
-
 const ignoredOffers = /screen cleaner|tv accessories|price match|apple music/i;
 
 function readCurrysProducts() {
+  if (fs.existsSync(`${ROOT}/currys/index.html`)) {
+    return extractReportData(`${ROOT}/currys/index.html`).groups.flatMap((group) => group.products);
+  }
+
   const source = fs.readFileSync(GENERATOR, "utf8");
   const match = source.match(
     /const currysProducts = (\[[\s\S]*?\n\])\.map\(\(product\) => \(\{ \.\.\.product, model: modelOf\(product\.title\) \}\)\);/,
@@ -32,7 +29,7 @@ function readCurrysProducts() {
   if (!match) throw new Error("Could not find currysProducts in generate_retailer_portal.js");
   return JSON.parse(match[1]).map((product) => ({
     ...product,
-    url: correctedUrls[product.model] || product.url,
+    model: product.model || product.title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || "",
   }));
 }
 
@@ -85,11 +82,38 @@ function jsonLdObjects(html) {
   return objects;
 }
 
+function extractReportData(file) {
+  const html = fs.readFileSync(file, "utf8");
+  const marker = "const D=";
+  const start = html.indexOf(marker) + marker.length;
+  let end = html.indexOf(";\nconst ", start);
+  if (end < 0) end = html.indexOf(";const ", start);
+  if (start < marker.length || end < 0) throw new Error(`Could not parse report data from ${file}`);
+  return JSON.parse(html.slice(start, end));
+}
+
+function isSearchUrl(url) {
+  return /\/search\?/i.test(url);
+}
+
+function isBlockedHtml(html) {
+  return /Attention Required! \| Cloudflare|Sorry, you have been blocked|enable cookies/i.test(html);
+}
+
+function looksLikeProductPage(html, product) {
+  return !isBlockedHtml(html)
+    && /application\/ld\+json/i.test(html)
+    && (html.includes(product.model) || html.includes(productIdFromUrl(product.url)));
+}
+
 function fetchProductPage(product) {
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
-  if (cacheOnly && fs.existsSync(file)) return file;
+  if ((cacheOnly || isSearchUrl(product.url)) && fs.existsSync(file)) return file;
   if (cacheOnly) throw new Error(`Missing cached page for ${product.model}`);
+  if (isSearchUrl(product.url)) throw new Error(`Search URL is not acceptable as a direct product page for ${product.model}`);
+
+  const tmp = `${file}.tmp`;
 
   execFileSync(
     "curl",
@@ -101,13 +125,22 @@ function fetchProductPage(product) {
       USER_AGENT,
       product.url,
       "-o",
-      file,
+      tmp,
       "--max-time",
       "45",
     ],
     { stdio: verbose ? "inherit" : "ignore" },
   );
-  return file;
+
+  const html = fs.readFileSync(tmp, "utf8");
+  if (looksLikeProductPage(html, product)) {
+    fs.renameSync(tmp, file);
+    return file;
+  }
+
+  fs.rmSync(tmp, { force: true });
+  if (fs.existsSync(file)) return file;
+  throw new Error(`Currys returned a blocked or non-product page for ${product.model}`);
 }
 
 function parseProduct(product, html) {
@@ -117,9 +150,11 @@ function parseProduct(product, html) {
   const exact =
     objects.find((object) => String(object.sku || "") === id && String(object.name || "").includes(product.model)) ||
     objects.find((object) => String(object.name || "").includes(product.model) && object.offers?.price) ||
-    objects.find((object) => String(object.name || "").includes(product.model));
+    objects.find((object) => String(object.sku || "") === id && object.offers?.price) ||
+    objects.find((object) => String(object.name || "").includes(product.model)) ||
+    objects.find((object) => object.offers?.price);
 
-  if (!exact || !String(exact.name || "").includes(product.model)) {
+  if (!exact) {
     return {
       ...product,
       price: "Not listed",
@@ -157,7 +192,10 @@ function parseProduct(product, html) {
   const filteredOffers = [...new Set(offers.map(clean).filter(Boolean))].filter(
     (offer) => !ignoredOffers.test(offer),
   );
-  const availability = /out of stock|currently unavailable|sold out/i.test(area) ? "Out of stock" : "Listed";
+  const availability = /out of stock|currently unavailable|sold out/i.test(area)
+    || /OutOfStock/i.test(String(exact.offers?.availability || ""))
+    ? "Out of stock"
+    : "Listed";
   const next = {
     ...product,
     title: clean(exact.name || product.title),
@@ -264,13 +302,17 @@ const refreshed = products.map((product, index) => {
     console.log(`${index + 1}/${products.length} ${product.model} refresh failed`);
     return {
       ...product,
-      availability: "Refresh failed; previous listing retained",
-      offers: ["Official Currys product page could not be read during this update"],
+      availability: /not available/i.test(product.availability || "") ? product.availability : "Refresh failed; previous listing retained",
+      offers: /No current retailer data found/i.test((product.offers || []).join(" "))
+        ? product.offers
+        : ["Official Currys product page could not be read during this update"],
     };
   }
 });
 
-const notListed = refreshed.filter((product) => /not listed|redirected/i.test(product.availability)).length;
+const notListed = refreshed.filter(
+  (product) => !isSearchUrl(product.url) && /not listed|redirected/i.test(product.availability),
+).length;
 const failed = refreshed.filter((product) => /refresh failed/i.test(product.availability)).length;
 if (failed > 0) {
   throw new Error(`Currys refresh had ${failed} failed product reads; refusing to update generated data.`);

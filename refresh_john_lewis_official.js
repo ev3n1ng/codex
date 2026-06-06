@@ -4,6 +4,8 @@ const { spawnSync } = require("child_process");
 const ROOT = __dirname;
 const LISTING_URL =
   "https://www.johnlewis.com/browse/electricals/televisions/lg/oled/televisions/_/N-alkZ1z13wsdZ1z0rgkwZ1yzz00g";
+const PAGE_DIR = "/tmp/john-lewis-pages";
+const PRODUCT_DATA_JSON = "john-lewis-product-pages.json";
 const LISTING_FILES = [
   "johnlewis-lg-oled.html",
   "band1.html",
@@ -118,6 +120,171 @@ function flatProducts(report) {
   return report.groups.flatMap((group) => group.products);
 }
 
+function clean(value = "") {
+  return String(value).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function money(value) {
+  const amount = Number(String(value).replace(/[^0-9.]/g, ""));
+  if (!Number.isFinite(amount)) return "";
+  return `£${amount.toLocaleString("en-GB", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
+
+function loadBaselineProducts() {
+  if (fs.existsSync("john-lewis/index.html")) return flatProducts(extractReportData("john-lewis/index.html"));
+  return listingProducts().map((product) => ({
+    id: product.productId,
+    model: product.title.match(/LG\s+([A-Z0-9]+)/i)?.[1] || product.productId,
+    title: product.title,
+    year: product.title.match(/\((\d{4})\)/)?.[1] || "",
+    size: Number(product.title.match(/(\d+) inch/)?.[1] || 0),
+    price: product.variantPriceRange?.display?.min || "",
+    availability: product.outOfStock ? "Out of stock" : product.isAvailableToOrder ? "Available to order" : "Availability unclear",
+    offers: [],
+    url: `https://www.johnlewis.com${product.url}`,
+  }));
+}
+
+function fetchProductPage(product) {
+  fs.mkdirSync(PAGE_DIR, { recursive: true });
+  const file = `${PAGE_DIR}/${product.model}.html`;
+  const tmp = `${file}.tmp`;
+
+  run("curl", [
+    "--http1.1",
+    "-L",
+    "--compressed",
+    "-A",
+    USER_AGENT,
+    product.url,
+    "-o",
+    tmp,
+    "--max-time",
+    "90",
+  ]);
+
+  const html = fs.readFileSync(tmp, "utf8");
+  if (!html.includes("__NEXT_DATA__")) {
+    fs.rmSync(tmp, { force: true });
+    if (fs.existsSync(file)) return file;
+    throw new Error(`John Lewis page did not contain expected product data for ${product.model}`);
+  }
+
+  fs.renameSync(tmp, file);
+  return file;
+}
+
+function parseNextData(html) {
+  const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/);
+  if (!match) throw new Error("Missing __NEXT_DATA__ payload");
+  return JSON.parse(match[1]);
+}
+
+function productJsonLd(html) {
+  for (const match of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const data = JSON.parse(match[1].trim());
+      if (data?.["@type"] === "Product") return data;
+    } catch {
+      // Ignore malformed non-product blocks.
+    }
+  }
+  return null;
+}
+
+function hasFreeWallInstall(service) {
+  const title = service?.title || "";
+  const value = String(service?.price?.value ?? "");
+  const display = String(service?.price?.display ?? "");
+  return /Free Wall Mount Installation,\s*TV Set up & Demo/i.test(title)
+    && (value === "0" || display === "£0.00" || display === "GBP 0.00");
+}
+
+function normaliseOffer(offer) {
+  const text = clean(offer)
+    .replace(/ for new & existing My John Lewis members/g, "")
+    .replace(/ \(via promo code, see product page for details\)/g, "")
+    .replace(/ \(via redemption\)/g, "")
+    .replace(/ at no extra cost/g, "");
+  if (/free wall mount installation/i.test(text)) return "Free wall install (GBP 135 value)";
+  let match = text.match(/Claim GBP\s*([0-9.,]+) John Lewis E-Gift Card/i);
+  if (match) return `GBP ${match[1]} John Lewis e-gift card`;
+  match = text.match(/Save\s+([0-9]+)% on price shown/i);
+  if (match) return `${match[1]}% MyJL member discount`;
+  match = text.match(/Save GBP\s*([0-9.,]+) on a LG ([A-Z0-9]+).*Soundbar/i);
+  if (match) return `Soundbar saving: GBP ${match[1]} on LG ${match[2]}`;
+  match = text.match(/Price matched:\s*save GBP\s*([0-9.,]+)/i);
+  if (match) return `Price matched: save GBP ${match[1]}`;
+  if (/Free Standard Delivery/i.test(text)) return "Free standard delivery";
+  return text;
+}
+
+function offerRank(offer) {
+  if (/wall install/i.test(offer)) return 0;
+  if (/discount/i.test(offer)) return 1;
+  if (/e-gift card/i.test(offer)) return 2;
+  if (/Price matched/i.test(offer)) return 3;
+  if (/Soundbar/i.test(offer)) return 4;
+  if (/delivery/i.test(offer)) return 5;
+  return 9;
+}
+
+function availabilityFromPage(html, schemaAvailability) {
+  const text = clean(html);
+  if (/No longer available online/i.test(text) && /unlikely to receive more stock/i.test(text)) {
+    return "No longer available online";
+  }
+  if (/Pre-orders are now sold out/i.test(text)) return "Pre-orders are now sold out";
+  if (/Currently out of stock online/i.test(text)) return "Currently out of stock online";
+  if (/Coming soon/i.test(text)) return "Coming soon";
+  if (/OutOfStock/i.test(schemaAvailability || "")) return "Out of stock";
+  if (/InStock/i.test(schemaAvailability || "")) return "Available to order";
+  return "Availability unclear";
+}
+
+function parseProductPage(product, html) {
+  const nextData = parseNextData(html);
+  const pageProduct = nextData.props?.pageProps?.product || {};
+  const jsonLd = productJsonLd(html) || {};
+  const title = clean(jsonLd.name || pageProduct.title || product.title);
+  const model = title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || product.model;
+  const year = title.match(/\((\d{4})\)/)?.[1] || product.year || "";
+  const size = Number(title.match(/(\d+)\s*inch/i)?.[1] || product.size || 0);
+  const offers = [...new Set(
+    (pageProduct.messaging || [])
+      .filter((message) => message.type === "promotional")
+      .map((message) => normaliseOffer(message.title))
+      .filter(Boolean),
+  )];
+  const services = [
+    ...(pageProduct.variants || []).flatMap((variant) => variant.services || []),
+    ...(pageProduct.variantGroups || []).flatMap((group) => group.services || []),
+  ];
+  if (services.some(hasFreeWallInstall)) offers.unshift("Free wall install (GBP 135 value)");
+  const availability = availabilityFromPage(html, jsonLd.offers?.availability);
+  const parsedPrice = money(jsonLd.offers?.price);
+  const price = /^£0\.00$/.test(parsedPrice) && /No longer available|out of stock|Coming soon/i.test(availability)
+    ? "Not listed"
+    : (parsedPrice || product.price || "Not listed");
+
+  return {
+    id: String(pageProduct.productId || jsonLd.productId || product.id || ""),
+    model,
+    title,
+    year,
+    series: model.match(/OLED\d+([A-Z])/i)?.[1] || "",
+    gen: model.match(/OLED\d+[A-Z](\d)/i)?.[1] || "",
+    size,
+    price,
+    availability,
+    offers: [...new Set(offers)].sort((a, b) => offerRank(a) - offerRank(b) || a.localeCompare(b)),
+    url: product.url,
+  };
+}
+
 function sortedOffers(product) {
   return [...(product.offers || [])].sort();
 }
@@ -178,14 +345,16 @@ if (liveProducts.length < minLiveProducts) {
   throw new Error(`John Lewis listing only returned ${liveProducts.length} products; refusing to update generated data.`);
 }
 
-if (cacheOnly && fs.existsSync("product-service-offers.json")) {
-  console.log("John Lewis services: using cached product-service-offers.json.");
-} else {
-  run("node", ["fetch_product_service_offers.js"]);
-}
-const services = JSON.parse(fs.readFileSync("product-service-offers.json", "utf8"));
-const freeInstall = Object.values(services).filter((service) => service.freeWallInstall).length;
-console.log(`John Lewis services: ${freeInstall} free wall install.`);
+const baselineProducts = loadBaselineProducts();
+const pageProducts = baselineProducts.map((product, index) => {
+  const html = fs.readFileSync(fetchProductPage(product), "utf8");
+  const parsed = parseProductPage(product, html);
+  console.log(`${index + 1}/${baselineProducts.length} ${parsed.model} ${parsed.price} ${parsed.availability}`);
+  return parsed;
+});
+fs.writeFileSync(PRODUCT_DATA_JSON, JSON.stringify(pageProducts, null, 2));
+const freeInstall = pageProducts.filter((product) => product.offers.some((offer) => /wall install/i.test(offer))).length;
+console.log(`John Lewis pages: ${pageProducts.length} product pages, ${freeInstall} free wall install.`);
 
 run("node", ["generate_upload_index.js"]);
 run("node", ["generate_retailer_portal.js"]);

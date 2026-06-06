@@ -1,7 +1,10 @@
 const fs = require("fs");
 const sourceFiles = ["johnlewis-lg-oled.html", "band1.html", "band2.html", "band3.html", "band4.html", "band5.html"];
+const productPagesFile = "john-lewis-product-pages.json";
 const wallInstallValue = "GBP 135";
-const serviceOffers = JSON.parse(fs.readFileSync("product-service-offers.json", "utf8"));
+const serviceOffers = fs.existsSync("product-service-offers.json")
+  ? JSON.parse(fs.readFileSync("product-service-offers.json", "utf8"))
+  : {};
 
 function extractProducts(file) {
   const html = fs.readFileSync(file, "utf8");
@@ -59,32 +62,44 @@ const watchlistFallbacks = [
     url: "https://www.johnlewis.com/lg-oled55b56la-2025-oled-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p113530627",
   },
 ];
-const byId = new Map();
-for (const file of sourceFiles) for (const product of extractProducts(file)) byId.set(product.productId, product);
-let products = [...byId.values()].map((product) => {
-  const model = modelOf(product.title);
-  const year = product.title.match(/\((\d{4})\)/)?.[1] || "";
-  const series = seriesOf(model);
-  const gen = genOf(model);
-  const offers = [...new Set((product.messaging || []).filter((m) => m.type === "promotional").map((m) => normaliseOffer(m.title)))];
-  if (serviceOffers[product.productId]?.freeWallInstall) offers.unshift(`Free wall install (${wallInstallValue} value)`);
-  const title = product.title.replace(/\s*\(\d{4}\)\s*/, " ");
-  return {
-    id: product.productId,
-    model,
-    title,
-    year,
-    series,
-    gen,
-    size: Number(product.title.match(/(\d+) inch/)?.[1] || 0),
-    price: product.variantPriceRange?.display?.min || "",
-    availability: product.outOfStock ? "Out of stock" : product.isAvailableToOrder ? "Available to order" : "Availability unclear",
-    offers: [...new Set(offers)].sort((a, b) => offerRank(a) - offerRank(b) || a.localeCompare(b)),
-    url: `https://www.johnlewis.com${product.url}`,
-  };
-});
-for (const fallback of watchlistFallbacks) {
-  if (!products.some((product) => product.model === fallback.model)) products.push(fallback);
+let products;
+if (fs.existsSync(productPagesFile)) {
+  products = JSON.parse(fs.readFileSync(productPagesFile, "utf8")).map((product) => ({
+    ...product,
+    series: product.series || seriesOf(product.model),
+    gen: product.gen || genOf(product.model),
+    offers: [...new Set((product.offers || []).map(normaliseOffer))].sort(
+      (a, b) => offerRank(a) - offerRank(b) || a.localeCompare(b),
+    ),
+  }));
+} else {
+  const byId = new Map();
+  for (const file of sourceFiles) for (const product of extractProducts(file)) byId.set(product.productId, product);
+  products = [...byId.values()].map((product) => {
+    const model = modelOf(product.title);
+    const year = product.title.match(/\((\d{4})\)/)?.[1] || "";
+    const series = seriesOf(model);
+    const gen = genOf(model);
+    const offers = [...new Set((product.messaging || []).filter((m) => m.type === "promotional").map((m) => normaliseOffer(m.title)))];
+    if (serviceOffers[product.productId]?.freeWallInstall) offers.unshift(`Free wall install (${wallInstallValue} value)`);
+    const title = product.title.replace(/\s*\(\d{4}\)\s*/, " ");
+    return {
+      id: product.productId,
+      model,
+      title,
+      year,
+      series,
+      gen,
+      size: Number(product.title.match(/(\d+) inch/)?.[1] || 0),
+      price: product.variantPriceRange?.display?.min || "",
+      availability: product.outOfStock ? "Out of stock" : product.isAvailableToOrder ? "Available to order" : "Availability unclear",
+      offers: [...new Set(offers)].sort((a, b) => offerRank(a) - offerRank(b) || a.localeCompare(b)),
+      url: `https://www.johnlewis.com${product.url}`,
+    };
+  });
+  for (const fallback of watchlistFallbacks) {
+    if (!products.some((product) => product.model === fallback.model)) products.push(fallback);
+  }
 }
 products = products.sort((a, b) => category(a).rank - category(b).rank || b.size - a.size || a.model.localeCompare(b.model));
 const groups = [];
