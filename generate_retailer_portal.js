@@ -555,7 +555,7 @@ const currysProducts = [
     "price": "£1,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £500.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -731,7 +731,7 @@ const currysProducts = [
     "price": "£729.00",
     "availability": "Listed",
     "offers": [
-      "Save £19.01",
+      "Save £120.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -762,7 +762,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £150.00",
+      "Save £9.01",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -778,7 +778,7 @@ const currysProducts = [
     "price": "£1,679.00",
     "availability": "Listed",
     "offers": [
-      "Save £900.00",
+      "Save £320.99",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
