@@ -198,13 +198,16 @@ function parseProduct(product, html) {
     : "Listed";
   const next = {
     ...product,
+    baselineMissing: undefined,
     title: clean(exact.name || product.title),
     price,
     availability,
     offers: filteredOffers.length ? filteredOffers : ["No current offer shown on official Currys product page"],
   };
 
-  if (product.price && product.price !== price && product.price !== "Not listed") next.previousPrice = product.price;
+  if (product.price && product.price !== price && !/not (listed|available)/i.test(product.price)) {
+    next.previousPrice = product.price;
+  }
   else if (product.previousPrice && product.previousPrice !== price) next.previousPrice = product.previousPrice;
   else delete next.previousPrice;
   return next;
