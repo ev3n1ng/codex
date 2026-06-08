@@ -952,9 +952,8 @@ const currysProducts = [
     "title": "LG C6 55\" OLED AI 4K HDR Smart TV 2026 - OLED55C64LA",
     "size": 55,
     "price": "£1,799.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
-      "Save £19.01",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
