@@ -504,6 +504,7 @@ const currysProducts = [
     "price": "£1,099.99",
     "availability": "Listed",
     "offers": [
+      "Save £20.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -661,7 +662,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
+      "Save £70.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -710,7 +711,7 @@ const currysProducts = [
     "title": "LG B5 77\" OLED AI 4K HDR Smart TV 2025 - OLED77B56LA",
     "size": 77,
     "price": "£1,679.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £320.99",
       "10% off marked price with code TV10",
@@ -920,6 +921,7 @@ const currysProducts = [
     "price": "£3,599.99",
     "availability": "Listed",
     "offers": [
+      "Save £100.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -937,6 +939,7 @@ const currysProducts = [
     "price": "£2,599.99",
     "availability": "Listed",
     "offers": [
+      "Save £10.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -970,6 +973,7 @@ const currysProducts = [
     "price": "£1,399.99",
     "availability": "Listed",
     "offers": [
+      "Save £100.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -1032,6 +1036,7 @@ const currysProducts = [
     "price": "£1,599.99",
     "availability": "Listed",
     "offers": [
+      "Save £70.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
