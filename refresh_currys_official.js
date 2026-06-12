@@ -109,7 +109,7 @@ function looksLikeProductPage(html, product) {
 function fetchProductPage(product) {
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
-  if ((cacheOnly || isSearchUrl(product.url)) && fs.existsSync(file)) return file;
+  if (cacheOnly && fs.existsSync(file)) return file;
   if (cacheOnly) throw new Error(`Missing cached page for ${product.model}`);
   if (isSearchUrl(product.url)) throw new Error(`Search URL is not acceptable as a direct product page for ${product.model}`);
 

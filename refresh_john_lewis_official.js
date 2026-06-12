@@ -222,6 +222,36 @@ function normaliseOffer(offer) {
   return text;
 }
 
+function parseRetailerDate(value) {
+  const match = String(value || "").match(/(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)\s+(\d{4})/);
+  if (!match) return null;
+  const months = {
+    january: 0,
+    february: 1,
+    march: 2,
+    april: 3,
+    may: 4,
+    june: 5,
+    july: 6,
+    august: 7,
+    september: 8,
+    october: 9,
+    november: 10,
+    december: 11,
+  };
+  const month = months[match[2].toLowerCase()];
+  if (month == null) return null;
+  return new Date(Date.UTC(Number(match[3]), month, Number(match[1]), 23, 59, 59));
+}
+
+function promotionalMessageIsCurrent(message) {
+  const text = clean(`${message.title || ""} ${message.description || ""}`);
+  const purchaseWindow = text.match(/purchase this item between .*? and (\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+\s+\d{4})/i);
+  const endDate = parseRetailerDate(purchaseWindow?.[1]);
+  if (!endDate) return true;
+  return Date.now() <= endDate.getTime();
+}
+
 function offerRank(offer) {
   if (/wall install/i.test(offer)) return 0;
   if (/discount/i.test(offer)) return 1;
@@ -256,6 +286,7 @@ function parseProductPage(product, html) {
   const offers = [...new Set(
     (pageProduct.messaging || [])
       .filter((message) => message.type === "promotional")
+      .filter(promotionalMessageIsCurrent)
       .map((message) => normaliseOffer(message.title))
       .filter(Boolean),
   )];
