@@ -732,6 +732,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £300.00",
+      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -748,6 +749,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £120.00",
+      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -853,9 +855,8 @@ const currysProducts = [
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED55G64LW",
     "size": 55,
     "price": "£2,299.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
-      "Save £200.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -918,7 +919,7 @@ const currysProducts = [
     "price": "£3,599.99",
     "availability": "Listed",
     "offers": [
-      "Save £20.00",
+      "Save £200.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -936,7 +937,6 @@ const currysProducts = [
     "price": "£2,599.99",
     "availability": "Listed",
     "offers": [
-      "Save £10.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -952,8 +952,9 @@ const currysProducts = [
     "title": "LG C6 55\" OLED AI 4K HDR Smart TV 2026 - OLED55C64LA",
     "size": 55,
     "price": "£1,799.99",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
+      "Save £20.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -968,9 +969,8 @@ const currysProducts = [
     "title": "LG C6 48\" OLED AI 4K HDR Smart TV 2026 - OLED48C64LA",
     "size": 48,
     "price": "£1,399.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
-      "Save £100.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -1033,7 +1033,7 @@ const currysProducts = [
     "price": "£1,599.99",
     "availability": "Listed",
     "offers": [
-      "Save £70.00",
+      "Save £150.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
