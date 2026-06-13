@@ -303,6 +303,14 @@ const refreshed = products.map((product, index) => {
     return parsed;
   } catch (error) {
     console.log(`${index + 1}/${products.length} ${product.model} refresh failed`);
+    if (/blocked or non-product page|Search URL is not acceptable/i.test(error.message || "")) {
+      return {
+        ...product,
+        price: "Not listed",
+        availability: "Product page redirected",
+        offers: ["Official Currys product page did not expose matching model data during this update"],
+      };
+    }
     return {
       ...product,
       availability: /not available/i.test(product.availability || "") ? product.availability : "Refresh failed; previous listing retained",

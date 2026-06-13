@@ -398,7 +398,6 @@ const currysProducts = [
     "price": "£3,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -555,13 +554,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 77\" OLED evo AI 4K HDR Smart TV 2025 - OLED77C56LB",
     "size": 77,
-    "price": "£2,399.99",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £199.01",
-      "10% off marked price with code TV10",
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c56lb-10281778.html",
     "model": "OLED77C56LB",
@@ -576,7 +572,6 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -593,7 +588,7 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
+      "Save £200.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -645,7 +640,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
+      "Save £20.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -695,10 +690,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 series 83\" OLED TV 2025 - OLED83B56LA",
     "size": 83,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-83-oled-ai-4k-ultra-hd-hdr-smart-tv-2025-oled83b56la-10282099.html",
     "model": "OLED83B56LA",
@@ -762,10 +757,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG G6 series 83\" OLED TV 2026 - OLED83G64LW",
     "size": 83,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED83G64LW",
     "model": "OLED83G64LW",
@@ -777,10 +772,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG W6 Wallpaper 83\" OLED TV 2026 - OLED83W69LA",
     "size": 83,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED83W69LA",
     "model": "OLED83W69LA",
@@ -792,10 +787,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG G6 series 77\" OLED TV 2026 - OLED77G64LW",
     "size": 77,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED77G64LW",
     "model": "OLED77G64LW",
@@ -807,10 +802,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG W6 Wallpaper 77\" OLED TV 2026 - OLED77W69LA",
     "size": 77,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED77W69LA",
     "model": "OLED77W69LA",
@@ -886,10 +881,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG G6 series 48\" OLED TV 2026 - OLED48G66LS",
     "size": 48,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED48G66LS",
     "model": "OLED48G66LS",
@@ -901,10 +896,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 series 83\" OLED TV 2026 - OLED83C64LA",
     "size": 83,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED83C64LA",
     "model": "OLED83C64LA",
@@ -985,10 +980,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 series 42\" OLED TV 2026 - OLED42C64LA",
     "size": 42,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED42C64LA",
     "model": "OLED42C64LA",
@@ -1000,10 +995,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG B6 series 77\" OLED TV 2026 - OLED77B65LA",
     "size": 77,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED77B65LA",
     "model": "OLED77B65LA",
@@ -1015,10 +1010,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG B6 series 65\" OLED TV 2026 - OLED65B65LA",
     "size": 65,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED65B65LA",
     "model": "OLED65B65LA",
@@ -1048,10 +1043,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG B6 series 48\" OLED TV 2026 - OLED48B65LA",
     "size": 48,
-    "price": "Not available",
-    "availability": "Not available at the moment",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "No current retailer data found for this baseline model"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED48B65LA",
     "model": "OLED48B65LA",

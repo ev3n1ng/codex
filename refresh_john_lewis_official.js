@@ -14,6 +14,7 @@ const LISTING_FILES = [
   "band4.html",
   "band5.html",
 ];
+const RANGE_LABELS = new Set(["B56", "B6", "C5", "C6", "G5", "G6", "W6", "M4", "M5"]);
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
 
@@ -43,22 +44,33 @@ function fetchListing() {
     return;
   }
 
+  fs.mkdirSync(PAGE_DIR, { recursive: true });
+  fetchUrl(LISTING_URL, "johnlewis-lg-oled.html");
+
+  // The base PLP currently embeds only the first chunk of products. Series-filter
+  // PLPs are official John Lewis pages and expose the complete model set per range.
+  const ranges = rangeFacetUrls("johnlewis-lg-oled.html");
+  for (const { label, url } of ranges) {
+    fetchUrl(url, rangeFile(label));
+  }
+
+  // The older parser reads band files too, so mirror the fresh listing to avoid stale band data.
+  for (const file of LISTING_FILES.slice(1)) fs.copyFileSync("johnlewis-lg-oled.html", file);
+}
+
+function fetchUrl(url, file) {
   run("curl", [
     "--http1.1",
     "-L",
     "--compressed",
     "-A",
     USER_AGENT,
-    LISTING_URL,
+    url,
     "-o",
-    "johnlewis-lg-oled.html",
+    file,
     "--max-time",
     "90",
   ]);
-
-  // The current official listing exposes the full LG OLED set in one page.
-  // The older parser reads band files too, so mirror the fresh listing to avoid stale band data.
-  for (const file of LISTING_FILES.slice(1)) fs.copyFileSync("johnlewis-lg-oled.html", file);
 }
 
 function extractProducts(file) {
@@ -70,11 +82,37 @@ function extractProducts(file) {
 
 function listingProducts() {
   const byId = new Map();
-  for (const file of LISTING_FILES) {
+  for (const file of listingFiles()) {
     if (!fs.existsSync(file)) continue;
     for (const product of extractProducts(file)) byId.set(product.productId, product);
   }
   return [...byId.values()];
+}
+
+function rangeFile(label) {
+  return `${PAGE_DIR}/johnlewis-range-${label}.html`;
+}
+
+function listingFiles() {
+  return [
+    ...LISTING_FILES,
+    ...[...RANGE_LABELS].map(rangeFile),
+  ];
+}
+
+function rangeFacetUrls(file) {
+  const html = fs.readFileSync(file, "utf8");
+  const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/);
+  if (!match) return [];
+  const data = JSON.parse(match[1]);
+  const facets = data.props?.pageProps?.productListingData?.facets || [];
+  const rangeFacet = facets.find((facet) => facet.dimensionName === "range");
+  return (rangeFacet?.details || [])
+    .filter((detail) => RANGE_LABELS.has(detail.label) && detail.facetUrl)
+    .map((detail) => ({
+      label: detail.label,
+      url: `https://www.johnlewis.com${detail.facetUrl}`,
+    }));
 }
 
 function publish() {
@@ -316,6 +354,37 @@ function parseProductPage(product, html) {
   };
 }
 
+function parseListingProduct(product) {
+  const title = clean(product.title);
+  const model = title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || product.productId;
+  const year = title.match(/\((\d{4})\)/)?.[1] || "";
+  const size = Number(title.match(/(\d+)\s*inch/i)?.[1] || 0);
+  const offers = [...new Set(
+    (product.messaging || [])
+      .filter((message) => message.type === "promotional")
+      .filter(promotionalMessageIsCurrent)
+      .map((message) => normaliseOffer(message.title))
+      .filter(Boolean),
+  )].sort((a, b) => offerRank(a) - offerRank(b) || a.localeCompare(b));
+  const availability = product.outOfStock
+    ? "Currently out of stock online"
+    : product.isAvailableToOrder ? "Available to order" : "Availability unclear";
+
+  return {
+    id: String(product.productId || ""),
+    model,
+    title,
+    year,
+    series: model.match(/OLED\d+([A-Z])/i)?.[1] || "",
+    gen: model.match(/OLED\d+[A-Z](\d)/i)?.[1] || "",
+    size,
+    price: product.variantPriceRange?.display?.min || "Not listed",
+    availability,
+    offers,
+    url: `https://www.johnlewis.com${product.url}`,
+  };
+}
+
 function sortedOffers(product) {
   return [...(product.offers || [])].sort();
 }
@@ -377,9 +446,14 @@ if (liveProducts.length < minLiveProducts) {
 }
 
 const baselineProducts = loadBaselineProducts();
+const liveByModel = new Map(listingProducts().map(parseListingProduct).map((product) => [product.model, product]));
 const pageProducts = baselineProducts.map((product, index) => {
-  const html = fs.readFileSync(fetchProductPage(product), "utf8");
-  const parsed = parseProductPage(product, html);
+  const parsed = liveByModel.get(product.model) || {
+    ...product,
+    price: product.price || "Not available",
+    availability: product.availability || "Not available at the moment",
+    offers: product.offers?.length ? product.offers : ["No current retailer data found for this baseline model"],
+  };
   console.log(`${index + 1}/${baselineProducts.length} ${parsed.model} ${parsed.price} ${parsed.availability}`);
   return parsed;
 });
