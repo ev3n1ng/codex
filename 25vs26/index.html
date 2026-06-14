@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LG OLED 2026 improvement guide covering what G6, C6 and B6 improve over the 2025 G5, C5 and B5 models.">
+    <title>LG OLED 2026 Improvements | Alberto Scott</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;650;760;820&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f6f1eb'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23a50034'/%3E%3Ctext x='32' y='39' font-size='18' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='700'%3ELG%3C/text%3E%3C/svg%3E">
+    <style>
+      :root{
+        --lg:#a50034;
+        --lg-dark:#5f001e;
+        --ink:#16110f;
+        --muted:#625955;
+        --line:#ddd3cb;
+        --paper:#f6f1eb;
+        --surface:#fffdfa;
+        --wash:#ece4dc;
+        --charcoal:#1b1716;
+        --gold:#b48a48;
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        background:var(--paper);
+        color:var(--ink);
+        font-family:Manrope, "Helvetica Neue", sans-serif;
+        font-size:16px;
+        line-height:1.55;
+      }
+      img{display:block;max-width:100%}
+      button,input{font:inherit}
+      a{color:inherit}
+      .wrap{width:min(1180px,calc(100vw - 36px));margin:0 auto}
+
+      .site-header{
+        background:var(--charcoal);
+        color:#fff;
+        border-bottom:1px solid #3c3330;
+      }
+      .header-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:24px;
+        min-height:72px;
+      }
+      .brand{
+        display:flex;
+        align-items:center;
+        gap:14px;
+        text-decoration:none;
+      }
+      .brand-logo{
+        display:flex;
+        align-items:center;
+        width:108px;
+        min-height:40px;
+        padding:9px 12px;
+        border-radius:7px;
+        background:var(--lg);
+      }
+      .brand-logo img{width:100%;filter:brightness(0) invert(1)}
+      .brand span{
+        color:#d6ccc5;
+        font-family:"IBM Plex Mono", monospace;
+        font-size:12px;
+        letter-spacing:.02em;
+      }
+      .top-nav{display:flex;gap:18px;flex-wrap:wrap}
+      .top-nav a{
+        color:#eee7e1;
+        text-decoration:none;
+        font-size:14px;
+        font-weight:650;
+        border-bottom:1px solid transparent;
+      }
+      .top-nav a:hover{border-bottom-color:#fff}
+
+      .hero{
+        position:relative;
+        overflow:hidden;
+        background:
+          linear-gradient(115deg,rgba(165,0,52,.09),transparent 42%),
+          linear-gradient(180deg,var(--surface),var(--paper));
+        border-bottom:1px solid var(--line);
+      }
+      .hero-inner{
+        display:grid;
+        grid-template-columns:minmax(0,1.03fr) minmax(340px,.72fr);
+        gap:48px;
+        align-items:end;
+        padding:54px 0 42px;
+      }
+      .hero-copy p{
+        max-width:680px;
+        margin:18px 0 0;
+        color:var(--muted);
+        font-size:18px;
+      }
+      h1{
+        max-width:820px;
+        margin:0;
+        font-size:clamp(42px,6vw,82px);
+        line-height:.96;
+        letter-spacing:-.035em;
+        font-weight:820;
+      }
+      .hero-mark{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        margin-bottom:20px;
+        color:var(--lg);
+        font-family:"IBM Plex Mono", monospace;
+        font-size:13px;
+        font-weight:600;
+      }
+      .hero-mark:before{
+        content:"";
+        width:36px;
+        height:2px;
+        background:var(--lg);
+      }
+      .hero-stage{
+        align-self:stretch;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+        align-items:end;
+      }
+      .stage-image{
+        min-height:238px;
+        border:1px solid var(--line);
+        border-radius:10px;
+        background:#fff;
+        overflow:hidden;
+      }
+      .stage-image:first-child{grid-column:1 / -1}
+      .stage-image img{
+        width:100%;
+        height:100%;
+        min-height:inherit;
+        object-fit:contain;
+        padding:14px;
+      }
+
+      .fact-strip{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        margin-top:34px;
+        border-top:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+      }
+      .fact-strip div{
+        padding:16px 18px;
+        border-right:1px solid var(--line);
+      }
+      .fact-strip div:last-child{border-right:0}
+      .fact-strip dt{
+        margin:0 0 5px;
+        color:var(--lg);
+        font-family:"IBM Plex Mono", monospace;
+        font-size:22px;
+        line-height:1;
+        font-weight:600;
+      }
+      .fact-strip dd{
+        margin:0;
+        color:var(--muted);
+        font-size:14px;
+      }
+
+      .guide-bar{
+        position:sticky;
+        top:0;
+        z-index:10;
+        background:rgba(246,241,235,.96);
+        border-bottom:1px solid var(--line);
+        backdrop-filter:blur(12px);
+      }
+      .guide-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:20px;
+        padding:12px 0;
+      }
+      .model-switcher{display:flex;gap:6px;flex-wrap:wrap}
+      .model-switcher button,
+      .benefit-switch{
+        min-height:36px;
+        border:1px solid var(--line);
+        border-radius:8px;
+        background:rgba(255,253,250,.72);
+        color:#332b28;
+        padding:7px 12px;
+        font-size:14px;
+        font-weight:650;
+        cursor:pointer;
+      }
+      .model-switcher button[aria-pressed="true"]{
+        border-color:var(--lg);
+        background:var(--lg);
+        color:#fff;
+      }
+      .benefit-switch{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        user-select:none;
+      }
+      .benefit-switch input{accent-color:var(--lg)}
+
+      .model{
+        padding:44px 0;
+        border-bottom:1px solid var(--line);
+      }
+      .model[hidden]{display:none}
+      .model-head{
+        display:grid;
+        grid-template-columns:minmax(0,1fr) 340px;
+        gap:42px;
+        align-items:end;
+        margin-bottom:28px;
+      }
+      .model-title h2{
+        margin:0;
+        font-size:clamp(30px,3.7vw,48px);
+        line-height:1.06;
+        letter-spacing:-.025em;
+      }
+      .model-title p{
+        max-width:760px;
+        margin:12px 0 0;
+        color:var(--muted);
+        font-size:17px;
+      }
+      .model-specs{
+        display:flex;
+        gap:18px;
+        flex-wrap:wrap;
+        margin-top:18px;
+      }
+      .model-specs span{
+        color:#514944;
+        font-family:"IBM Plex Mono", monospace;
+        font-size:13px;
+      }
+      .model-visual{
+        margin:0;
+        border:1px solid var(--line);
+        border-radius:10px;
+        background:var(--surface);
+        overflow:hidden;
+      }
+      .model-visual img{
+        width:100%;
+        aspect-ratio:4/3;
+        object-fit:contain;
+        background:#fff;
+      }
+      .visual-caption{
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        padding:11px 13px;
+        border-top:1px solid var(--line);
+        color:#403734;
+        font-size:14px;
+      }
+      .upgrade-list{border-top:1px solid var(--line)}
+      .upgrade{
+        display:grid;
+        grid-template-columns:64px minmax(0,1fr) minmax(280px,.92fr);
+        gap:26px;
+        padding:25px 0;
+        border-bottom:1px solid var(--line);
+        cursor:pointer;
+        transition:background-color .16s ease, box-shadow .16s ease;
+      }
+      .upgrade:hover,
+      .upgrade.is-active{background:rgba(255,253,250,.66)}
+      .upgrade.is-active{box-shadow:inset 4px 0 0 var(--lg)}
+      .upgrade-number{
+        color:var(--lg);
+        font-family:"IBM Plex Mono", monospace;
+        font-size:14px;
+        font-weight:600;
+      }
+      .upgrade h3{
+        margin:0 0 7px;
+        font-size:21px;
+        line-height:1.2;
+        letter-spacing:-.012em;
+      }
+      .upgrade p{
+        margin:0;
+        color:var(--muted);
+      }
+      .row-fact{
+        margin-top:10px;
+        color:#3b3431;
+        font-family:"IBM Plex Mono", monospace;
+        font-size:13px;
+      }
+      .row-fact strong{color:var(--lg)}
+      .benefit{
+        padding-left:17px;
+        border-left:3px solid var(--lg);
+      }
+      .benefit h3{
+        margin-bottom:7px;
+        color:#332b28;
+        font-size:15px;
+      }
+      body.benefit-mode .upgrade{grid-template-columns:52px minmax(0,.82fr) minmax(330px,1.18fr)}
+      body.benefit-mode .benefit{
+        background:#fff7f8;
+        border:1px solid #ead1d8;
+        border-left:4px solid var(--lg);
+        border-radius:8px;
+        padding:15px 17px;
+      }
+
+      .summary{
+        padding:42px 0 52px;
+        background:var(--surface);
+        border-bottom:1px solid var(--line);
+      }
+      .summary h2{
+        margin:0 0 18px;
+        font-size:32px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+      }
+      .summary-table{
+        width:100%;
+        border-collapse:collapse;
+      }
+      .summary-table th,
+      .summary-table td{
+        padding:16px 0;
+        border-top:1px solid var(--line);
+        text-align:left;
+        vertical-align:top;
+      }
+      .summary-table th{
+        width:150px;
+        color:var(--lg);
+        font-size:18px;
+      }
+      .summary-table td{color:var(--muted)}
+      .source-note{
+        max-width:760px;
+        margin:18px 0 0;
+        color:var(--muted);
+        font-size:14px;
+      }
+
+      footer{
+        padding:24px 0 38px;
+        color:#6d635f;
+        font-size:14px;
+      }
+      .footer-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:16px;
+        flex-wrap:wrap;
+      }
+      .footer-links{display:flex;gap:18px}
+      .footer-links a{text-decoration:none}
+      .footer-links a:hover{text-decoration:underline}
+
+      @media(max-width:860px){
+        .hero-inner,.model-head{grid-template-columns:1fr}
+        .hero-stage{max-width:560px}
+        .fact-strip{grid-template-columns:1fr 1fr}
+        .fact-strip div:nth-child(2){border-right:0}
+        .fact-strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+        .guide-inner{align-items:flex-start;flex-direction:column}
+        body.benefit-mode .upgrade,
+        .upgrade{grid-template-columns:1fr;gap:10px}
+        .benefit{margin-top:4px}
+      }
+      @media(max-width:560px){
+        .wrap{width:min(100vw - 24px,1180px)}
+        .header-inner{align-items:flex-start;flex-direction:column;padding:16px 0}
+        .top-nav{gap:12px}
+        .hero-inner{padding:34px 0 28px}
+        .hero-stage{grid-template-columns:1fr}
+        .stage-image{min-height:190px}
+        h1{font-size:38px}
+        .fact-strip{grid-template-columns:1fr}
+        .fact-strip div{border-right:0}
+        .fact-strip div:nth-child(-n+3){border-bottom:1px solid var(--line)}
+        .model{padding:32px 0}
+        .model-specs{gap:10px}
+        .summary-table th,
+        .summary-table td{display:block;width:auto}
+        .summary-table th{padding-bottom:4px}
+        .summary-table td{padding-top:0}
+      }
+
+      :root{
+        --lg:#a50034;
+        --lg-hot:#e31b5f;
+        --ink:#f7efe8;
+        --muted:#c7b9b2;
+        --line:rgba(255,255,255,.14);
+        --paper:#070605;
+        --surface:#14100f;
+        --wash:#201817;
+        --charcoal:#050404;
+        --gold:#ffc56f;
+      }
+      body{
+        background:
+          radial-gradient(circle at 78% 8%,rgba(227,27,95,.35),transparent 34rem),
+          radial-gradient(circle at 12% 24%,rgba(255,197,111,.12),transparent 28rem),
+          linear-gradient(180deg,#090706 0%,#120d0c 42%,#070605 100%);
+        color:var(--ink);
+      }
+      body:before{
+        content:"";
+        position:fixed;
+        inset:0;
+        pointer-events:none;
+        z-index:-1;
+        opacity:.22;
+        background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+        background-size:44px 44px;
+        mask-image:linear-gradient(180deg,#000,transparent 86%);
+      }
+      .site-header{
+        position:relative;
+        background:rgba(5,4,4,.9);
+        border-bottom:1px solid rgba(255,255,255,.12);
+        backdrop-filter:blur(18px);
+      }
+      .brand-logo{
+        box-shadow:0 0 0 1px rgba(255,255,255,.18),0 16px 38px rgba(165,0,52,.35);
+      }
+      .brand span,.top-nav a{color:#f4e9e3}
+      .top-nav a:hover{border-bottom-color:var(--lg-hot)}
+
+      .hero{
+        min-height:calc(100svh - 72px);
+        display:grid;
+        align-items:center;
+        border-bottom:1px solid rgba(255,255,255,.12);
+        background:
+          linear-gradient(100deg,rgba(7,6,5,.96),rgba(20,12,14,.82) 52%,rgba(89,0,28,.56)),
+          radial-gradient(circle at 70% 30%,rgba(227,27,95,.44),transparent 28rem);
+      }
+      .hero:after{
+        content:"OLED";
+        position:absolute;
+        right:-.12em;
+        bottom:-.24em;
+        color:rgba(255,255,255,.045);
+        font-size:clamp(9rem,24vw,24rem);
+        font-weight:820;
+        line-height:.8;
+        letter-spacing:-.08em;
+        pointer-events:none;
+      }
+      .hero-inner{
+        position:relative;
+        z-index:1;
+        grid-template-columns:minmax(0,.92fr) minmax(390px,1.08fr);
+        gap:52px;
+        align-items:center;
+        padding:72px 0 64px;
+      }
+      .hero-mark{
+        color:#ffc9d8;
+        margin-bottom:18px;
+      }
+      .hero-mark:before{background:var(--lg-hot)}
+      h1{
+        max-width:900px;
+        color:#fff9f4;
+        text-wrap:balance;
+        text-shadow:0 18px 60px rgba(0,0,0,.45);
+      }
+      .hero-copy p{
+        color:#e1d1ca;
+        font-size:20px;
+      }
+      .hero-stage{
+        position:relative;
+        display:grid;
+        grid-template-columns:1.05fr .95fr;
+        gap:14px;
+        align-items:stretch;
+      }
+      .hero-stage:before{
+        content:"";
+        position:absolute;
+        inset:8% -5% -5% 10%;
+        background:radial-gradient(circle,rgba(227,27,95,.42),transparent 62%);
+        filter:blur(34px);
+      }
+      .stage-image{
+        position:relative;
+        min-height:220px;
+        border:1px solid rgba(255,255,255,.16);
+        border-radius:18px;
+        background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(255,255,255,.78));
+        box-shadow:0 26px 80px rgba(0,0,0,.42);
+      }
+      .stage-image:first-child{
+        grid-column:1 / -1;
+        min-height:350px;
+        background:
+          linear-gradient(145deg,#fff,#f5edf0),
+          radial-gradient(circle at 50% 25%,rgba(227,27,95,.18),transparent 48%);
+      }
+      .stage-image img{
+        filter:drop-shadow(0 22px 24px rgba(0,0,0,.22));
+        padding:18px;
+      }
+      .fact-strip{
+        overflow:hidden;
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:16px;
+        background:rgba(255,255,255,.06);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+        backdrop-filter:blur(12px);
+      }
+      .fact-strip div{
+        border-right:1px solid rgba(255,255,255,.13);
+        background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+      }
+      .fact-strip dt{
+        color:#fff;
+        font-size:clamp(22px,2.6vw,36px);
+      }
+      .fact-strip dd{color:#d8c9c3}
+
+      .guide-bar{
+        background:rgba(8,6,5,.86);
+        border-bottom:1px solid rgba(255,255,255,.13);
+        backdrop-filter:blur(18px);
+      }
+      .model-switcher button,
+      .benefit-switch{
+        border-color:rgba(255,255,255,.14);
+        background:rgba(255,255,255,.06);
+        color:#f5e9e3;
+      }
+      .model-switcher button:hover,
+      .benefit-switch:hover{background:rgba(255,255,255,.1)}
+      .model-switcher button[aria-pressed="true"]{
+        border-color:rgba(255,255,255,.2);
+        background:linear-gradient(135deg,var(--lg),var(--lg-hot));
+        box-shadow:0 10px 26px rgba(165,0,52,.35);
+      }
+
+      .model{
+        position:relative;
+        padding:58px 0;
+        border-bottom:1px solid rgba(255,255,255,.1);
+        scroll-margin-top:76px;
+      }
+      .model:nth-of-type(odd){
+        background:linear-gradient(90deg,rgba(255,255,255,.025),transparent);
+      }
+      .model-head{
+        grid-template-columns:minmax(0,1fr) minmax(320px,420px);
+        align-items:center;
+        gap:44px;
+        margin-bottom:30px;
+        padding:24px;
+        border:1px solid rgba(255,255,255,.13);
+        border-radius:22px;
+        background:
+          linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025)),
+          radial-gradient(circle at 78% 20%,rgba(227,27,95,.14),transparent 24rem);
+      }
+      .model-title h2{
+        color:#fff9f4;
+        font-size:clamp(34px,4.6vw,64px);
+        text-wrap:balance;
+      }
+      .model-title p{color:#d9c9c1;font-size:18px}
+      .model-specs span{
+        display:inline-flex;
+        align-items:center;
+        min-height:30px;
+        padding:5px 9px;
+        border:1px solid rgba(255,255,255,.13);
+        border-radius:8px;
+        color:#f5d5de;
+        background:rgba(165,0,52,.18);
+      }
+      .model-visual{
+        border:1px solid rgba(255,255,255,.16);
+        border-radius:18px;
+        background:#fff;
+        box-shadow:0 22px 70px rgba(0,0,0,.32);
+      }
+      .model-visual img{
+        background:
+          radial-gradient(circle at 50% 25%,rgba(227,27,95,.12),transparent 45%),
+          #fff;
+        padding:12px;
+      }
+      .visual-caption{
+        border-top:1px solid rgba(0,0,0,.1);
+        color:#211917;
+        font-weight:760;
+      }
+      .upgrade-list{
+        display:grid;
+        gap:12px;
+        border-top:0;
+      }
+      .upgrade{
+        grid-template-columns:72px minmax(0,1fr) minmax(300px,.86fr);
+        padding:20px;
+        border:1px solid rgba(255,255,255,.12);
+        border-radius:18px;
+        background:rgba(255,255,255,.055);
+        box-shadow:0 18px 54px rgba(0,0,0,.16);
+      }
+      .upgrade:hover,
+      .upgrade.is-active{
+        background:rgba(255,255,255,.092);
+        border-color:rgba(227,27,95,.42);
+      }
+      .upgrade.is-active{
+        box-shadow:inset 4px 0 0 var(--lg-hot),0 18px 54px rgba(0,0,0,.22);
+      }
+      .upgrade-number{
+        display:grid;
+        place-items:center;
+        width:48px;
+        height:48px;
+        border-radius:14px;
+        color:#fff;
+        background:linear-gradient(135deg,var(--lg),var(--lg-hot));
+        box-shadow:0 14px 28px rgba(165,0,52,.28);
+      }
+      .upgrade h3{
+        color:#fff9f4;
+        font-size:23px;
+      }
+      .upgrade p{color:#d2c2bb}
+      .row-fact{
+        color:#f3d6df;
+        padding-top:10px;
+        border-top:1px solid rgba(255,255,255,.1);
+      }
+      .row-fact strong{color:#fff}
+      .benefit{
+        border-left:0;
+        padding:16px;
+        border-radius:16px;
+        background:rgba(255,255,255,.07);
+      }
+      .benefit h3{color:#fff}
+      body.benefit-mode .benefit{
+        background:linear-gradient(135deg,rgba(165,0,52,.34),rgba(227,27,95,.18));
+        border:1px solid rgba(255,255,255,.16);
+        border-left:4px solid var(--lg-hot);
+      }
+      body.benefit-mode .upgrade{grid-template-columns:60px minmax(0,.78fr) minmax(330px,1.22fr)}
+
+      .summary{
+        background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+        border-bottom:1px solid rgba(255,255,255,.1);
+      }
+      .summary h2{color:#fff9f4}
+      .summary-table th,
+      .summary-table td{border-top:1px solid rgba(255,255,255,.14)}
+      .summary-table th{color:#ffbfd1}
+      .summary-table td,.source-note,footer{color:#cabbb4}
+      .footer-links a{color:#fff}
+
+      @media(max-width:860px){
+        .hero{min-height:auto}
+        .hero-inner,.model-head{grid-template-columns:1fr}
+        .hero-stage{max-width:none}
+        body.benefit-mode .upgrade,
+        .upgrade{grid-template-columns:1fr}
+        .upgrade-number{place-self:start}
+      }
+      @media(max-width:560px){
+        .hero-inner{padding:38px 0 30px}
+        .stage-image:first-child{min-height:245px}
+        .stage-image{border-radius:14px}
+        .fact-strip{border-radius:14px}
+        .model-head{padding:16px;border-radius:18px}
+        .upgrade{padding:16px;border-radius:16px}
+      }
+
+      .hero{min-height:auto}
+      .hero-inner{padding:52px 0 44px}
+      .stage-image{min-height:0;aspect-ratio:16 / 8.2}
+      .stage-image:first-child{min-height:0;aspect-ratio:16 / 7.7}
+      .stage-image img{height:100%;min-height:0}
+      .hero-stage{gap:10px}
+      .stage-image{
+        border:1px solid rgba(255,255,255,.075);
+        border-radius:14px;
+        background:rgba(255,255,255,.08);
+        box-shadow:0 18px 48px rgba(0,0,0,.22);
+        backdrop-filter:blur(8px);
+        padding:10px;
+      }
+      .stage-image:first-child{
+        background:rgba(255,255,255,.09);
+      }
+      .stage-image img{
+        padding:0;
+        opacity:.96;
+        filter:drop-shadow(0 18px 22px rgba(0,0,0,.18));
+      }
+      .hero-stage .stage-image{
+        display:block;
+        overflow:hidden;
+      }
+      .hero-stage .stage-image img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        transform:scale(1.2);
+      }
+      .hero-stage .stage-image:first-child img{transform:scale(1.28)}
+      @media(max-width:860px){
+        .hero-inner{padding:42px 0 34px}
+      }
+      @media(max-width:560px){
+        .hero-stage{grid-template-columns:1fr 1fr}
+        .stage-image:first-child{grid-column:1 / -1;min-height:0;aspect-ratio:16 / 9.2}
+        .stage-image:not(:first-child){display:none}
+        .stage-image{min-height:0}
+        .stage-image img{padding:0}
+        .hero-stage .stage-image:first-child img{transform:scale(1.24)}
+        .fact-strip{grid-template-columns:1fr 1fr}
+        .fact-strip div{border-right:1px solid rgba(255,255,255,.13)}
+        .fact-strip div:nth-child(2n){border-right:0}
+        .fact-strip div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.13)}
+        .fact-strip div:nth-child(3){border-bottom:0}
+      }
+
+      .hero-stage{
+        display:block;
+        position:relative;
+        min-height:520px;
+      }
+      .hero-stage:before{
+        inset:12% 0 2% 12%;
+      }
+      .hero-stage .stage-image{
+        position:absolute;
+        width:auto;
+        height:auto;
+        min-height:0;
+        aspect-ratio:auto;
+        padding:10px;
+        border:1px solid rgba(255,255,255,.09);
+        border-radius:16px;
+        background:rgba(255,255,255,.045);
+        box-shadow:0 24px 70px rgba(0,0,0,.32);
+        backdrop-filter:blur(10px);
+      }
+      .hero-stage .stage-image:first-child{
+        inset:auto 0 96px 5%;
+        z-index:3;
+        width:min(88%,680px);
+        min-height:0;
+        aspect-ratio:auto;
+        background:rgba(255,255,255,.055);
+      }
+      .hero-stage .stage-image:nth-child(2){
+        left:0;
+        bottom:0;
+        z-index:2;
+        width:min(43%,330px);
+      }
+      .hero-stage .stage-image:nth-child(3){
+        right:4%;
+        bottom:0;
+        z-index:2;
+        width:min(45%,350px);
+      }
+      .hero-stage .stage-image img,
+      .hero-stage .stage-image:first-child img{
+        width:100%;
+        height:auto;
+        min-height:0;
+        object-fit:contain;
+        object-position:center;
+        padding:0;
+        transform:none;
+        filter:drop-shadow(0 18px 24px rgba(0,0,0,.26));
+      }
+      @media(max-width:860px){
+        .hero-stage{min-height:430px}
+        .hero-stage .stage-image:first-child{width:min(92%,620px);left:3%;bottom:78px}
+      }
+      @media(max-width:560px){
+        .hero-stage{display:block;min-height:300px}
+        .hero-stage .stage-image:first-child{
+          display:block;
+          position:relative;
+          inset:auto;
+          width:100%;
+        }
+        .hero-stage .stage-image:not(:first-child){display:none}
+      }
+
+      .hero-stage{
+        min-height:0;
+        display:grid;
+        place-items:center;
+      }
+      .hero-stage:before{
+        inset:18% 4% 8%;
+      }
+      .hero-stage .stage-image,
+      .hero-stage .stage-image:first-child{
+        position:relative;
+        inset:auto;
+        width:min(100%,760px);
+        padding:8px;
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:16px;
+        background:
+          radial-gradient(circle at 52% 42%,rgba(255,255,255,.1),transparent 56%),
+          linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+        box-shadow:0 30px 90px rgba(0,0,0,.38);
+      }
+      .hero-stage .stage-image:not(:first-child){display:none}
+      .hero-stage .stage-image img,
+      .hero-stage .stage-image:first-child img{
+        width:100%;
+        height:auto;
+        display:block;
+        transform:none;
+        object-fit:contain;
+        filter:drop-shadow(0 24px 28px rgba(0,0,0,.32));
+      }
+      @media(max-width:860px){
+        .hero-stage{min-height:0}
+        .hero-stage .stage-image:first-child{width:min(100%,620px)}
+      }
+      @media(max-width:560px){
+        .hero-stage{min-height:0}
+        .hero-stage .stage-image:first-child{width:100%}
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="../" aria-label="Alberto Scott home">
+          <span class="brand-logo"><img src="https://cdn.prod.website-files.com/69d4b36a4667cc9872d9e016/69e1ecce1fc97b717bbde740_5e246bd41ada001f5e6e0fcfad0e37e4_LGE_Logo_Mono_White_RGB.svg" alt="LG Life's Good"></span>
+          <span>OLED upgrade guide</span>
+        </a>
+        <nav class="top-nav" aria-label="Page sections">
+          <a href="#g6">G6</a>
+          <a href="#c6">C6</a>
+          <a href="#b6">B6</a>
+          <a href="#summary">Summary</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-inner">
+          <div class="hero-copy">
+            <div class="hero-mark">2025 to 2026 sales reference</div>
+            <h1>What improved on LG OLED for 2026</h1>
+            <p>A sharper sales guide for the G6, C6 and B6 upgrades, focused on the changes customers can actually feel in the room.</p>
+            <dl class="fact-strip" aria-label="Key 2026 facts">
+              <div><dt>165Hz</dt><dd>C6 PC gaming ceiling, up from 144Hz on C5.</dd></div>
+              <div><dt>0.1ms</dt><dd>OLED response-time class for fast gaming motion.</dd></div>
+              <div><dt>20%</dt><dd>G6 peak-highlight lift noted in the supplied research.</dd></div>
+              <div><dt>0.5%</dt><dd>Under 0.5% reflection claim for G6 Reflection Free Premium.</dd></div>
+            </dl>
+          </div>
+          <div class="hero-stage" aria-label="LG OLED 2026 model images">
+            <div class="stage-image"><img src="assets/hero/lg-g6-front-clean.png" alt="LG G6 OLED 2026 front-facing screen"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-bar" aria-label="Guide controls">
+        <div class="wrap guide-inner">
+          <div class="model-switcher" aria-label="Choose a model">
+            <button type="button" data-model-filter="all" aria-pressed="true">All models</button>
+            <button type="button" data-model-filter="g6" aria-pressed="false">G6</button>
+            <button type="button" data-model-filter="c6" aria-pressed="false">C6</button>
+            <button type="button" data-model-filter="b6" aria-pressed="false">B6</button>
+          </div>
+          <label class="benefit-switch">
+            <input type="checkbox" id="benefitMode">
+            Customer benefit view
+          </label>
+        </div>
+      </section>
+
+      <section class="model" id="g6" data-model="g6">
+        <div class="wrap">
+          <div class="model-head">
+            <div class="model-title">
+              <h2>LG G6 improvements over G5</h2>
+              <p>The G6 is the flagship refinement story: lower reflections, brighter highlights, smoother gradation and fuller built-in sound.</p>
+              <div class="model-specs"><span>Reflection Free Premium</span><span>Primary RGB Tandem 2.0</span><span>13-bit luminance</span></div>
+            </div>
+            <figure class="model-visual">
+              <img src="assets/lg-g6-2026.jpg" alt="LG G6 OLED evo AI 2026 front view with Hyper Radiant Color display" loading="eager">
+              <figcaption class="visual-caption"><span>LG G6</span><span>Flagship picture</span></figcaption>
+            </figure>
+          </div>
+          <div class="upgrade-list">
+            <article class="upgrade"><div class="upgrade-number">01</div><div><h3>Reflection Free Premium coating</h3><p>G6 adds an ultra-low-reflection surface treatment on key sizes, reducing distracting reflections in bright rooms.</p><p class="row-fact"><strong>Fact:</strong> The supplied research notes list reflection handling at under 0.5% on 55-inch to 83-inch models.</p></div><div class="benefit"><h3>Customer benefit</h3><p>They can watch in a bright lounge without seeing as much window glare, lamp glare or room reflection on the screen.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">02</div><div><h3>Primary RGB Tandem 2.0</h3><p>G6 moves to the next generation of tandem panel technology, improving the flagship brightness and colour story.</p><p class="row-fact"><strong>Fact:</strong> Tandem OLED stacks light-emitting layers so the brightness workload is shared across the panel.</p></div><div class="benefit"><h3>Customer benefit</h3><p>The picture has more punch while still keeping the deep OLED black level customers expect from a premium TV.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">03</div><div><h3>Hyper Radiant Color</h3><p>The Tandem 2.0 system is paired with Hyper Radiant Color for a more vivid and lifelike colour presentation.</p><p class="row-fact"><strong>Fact:</strong> The colour upgrade is tied to the panel generation, not just a picture-mode preset.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Nature programmes, animation, sport kits and bright HDR scenes look richer without needing customers to understand panel technology.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">04</div><div><h3>Higher peak highlights</h3><p>The supplied research notes describe a substantial 20% increase in peak highlight brightness over the previous generation.</p><p class="row-fact"><strong>Fact:</strong> Peak highlight brightness is what gives stars, headlights and sun glints their sparkle in HDR.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Small bright details such as stars, car headlights, sunlight and explosions have more sparkle and realism.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">05</div><div><h3>13-bit luminance processing</h3><p>G6 adds a 13-bit luminance processor for more precise control of brightness steps and highlight detail.</p><p class="row-fact"><strong>Fact:</strong> 13-bit luminance allows finer brightness-step control than 12-bit luminance handling.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Bright scenes hold more detail, so clouds, snow and reflections are less likely to look washed out.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">06</div><div><h3>Improved gradation</h3><p>12-bit colour and 13-bit luma processing help create smoother transitions in smoke, fog, sunsets and other difficult gradients.</p><p class="row-fact"><strong>Fact:</strong> The supplied notes describe the processing precision as four times the mathematical colour-and-light step handling.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Slow, cinematic scenes look cleaner because colour transitions appear smoother and less digital.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">07</div><div><h3>Cleaner shadow detail</h3><p>The more precise processing improves dark-scene refinement, helping reduce blocky artefacts and reveal fine shadow detail.</p><p class="row-fact"><strong>Fact:</strong> OLED can turn pixels off for black, but processing decides how much texture is preserved just above black.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Night scenes are easier to follow, with more visible texture in dark clothing, rooms and backgrounds.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">08</div><div><h3>Newer Alpha 11 processor</h3><p>G6 moves from Alpha 11 AI Processor Gen 2 to Alpha 11 AI Processor Gen 3.</p><p class="row-fact"><strong>Fact:</strong> The processor upgrade supports the G6's picture, upscaling and acoustic tuning changes.</p></div><div class="benefit"><h3>Customer benefit</h3><p>The flagship model gets the newest picture engine, so processing, upscaling and image refinement are all more future-facing.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">09</div><div><h3>Richer acoustic tuning</h3><p>G6 adds a warmer audio profile with stronger low-end bass and more forward vocal frequencies.</p><p class="row-fact"><strong>Fact:</strong> The speaker array remains a 4.2-channel, 60W class system, but the tuning is warmer and more vocal-forward.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Dialogue is easier to hear and action scenes feel fuller before the customer adds a separate soundbar.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="model" id="c6" data-model="c6">
+        <div class="wrap">
+          <div class="model-head">
+            <div class="model-title">
+              <h2>LG C6 improvements over C5</h2>
+              <p>The C6 is the performance leap: flagship Alpha 11 processing, stronger upscaling, selected tandem panels and a higher PC refresh ceiling.</p>
+              <div class="model-specs"><span>Alpha 11 Gen 3</span><span>Dual AI Super Resolution</span><span>Up to 165Hz VRR</span></div>
+            </div>
+            <figure class="model-visual">
+              <img src="assets/lg-c6-2026.jpg" alt="LG C6 OLED 2026 on stand with colourful OLED artwork" loading="eager">
+              <figcaption class="visual-caption"><span>LG C6</span><span>Processing and gaming</span></figcaption>
+            </figure>
+          </div>
+          <div class="upgrade-list">
+            <article class="upgrade"><div class="upgrade-number">01</div><div><h3>Flagship Alpha 11 processor</h3><p>C6 moves from the Alpha 9 AI Processor Gen 8 to the flagship Alpha 11 AI Processor Gen 3.</p><p class="row-fact"><strong>Fact:</strong> LG positions Alpha 11 Gen 3 as the 2026 flagship processing platform, previously reserved for higher-tier picture performance.</p></div><div class="benefit"><h3>Customer benefit</h3><p>The TV has more processing power to improve picture detail, motion and streaming quality before the image reaches the screen.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">02</div><div><h3>Dual AI Super Resolution</h3><p>The new processor enables a dual-pass approach that cleans noise and enhances texture detail more strongly than C5.</p><p class="row-fact"><strong>Fact:</strong> Two processing passes means noise clean-up and texture enhancement are handled as separate jobs.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Older shows, broadcast TV and lower-quality streams can look sharper and less noisy, so more of their content library benefits.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">03</div><div><h3>12-bit processing pipeline</h3><p>C6 adds more precise internal picture processing, helping reduce colour banding in gradients such as sunsets, fog and skies.</p><p class="row-fact"><strong>Fact:</strong> Higher internal precision helps smooth subtle steps between similar shades.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Scenes with skies, smoke or shadows look smoother and more natural, with fewer obvious stripes or blocks.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">04</div><div><h3>165Hz PC gaming</h3><p>C6 increases the PC gaming ceiling from the C5's 144Hz VRR support to up to 165Hz on compatible setups.</p><p class="row-fact"><strong>Fact:</strong> 165Hz refreshes the image up to 165 times per second; LG OLED gaming response is rated in the 0.1ms class.</p></div><div class="benefit"><h3>Customer benefit</h3><p>PC gamers get smoother motion and a more responsive feel in fast games when paired with a compatible gaming PC.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">05</div><div><h3>Tandem OLED on selected sizes</h3><p>Selected C6 models add dual-stacked Tandem OLED panel technology, distributing workload across the panel for improved long-term durability.</p><p class="row-fact"><strong>Fact:</strong> The supplied notes call out 48-inch, 77-inch and 83-inch C6 variants for tandem panel technology.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Customers buying a larger screen get extra reassurance for long-term use, especially in busy homes where the TV is on for hours.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">06</div><div><h3>Better near-black desktop clarity</h3><p>Advanced spatial-temporal dithering helps refine near-black grey tones, improving dark interfaces, menus and desktop monitor use.</p><p class="row-fact"><strong>Fact:</strong> Near-black control matters most when viewing close up, where desktop menus and dark game screens reveal panel handling.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Dark menus, game loading screens and computer desktops look cleaner when viewed up close.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">07</div><div><h3>Stronger streaming clean-up</h3><p>The dual-engine upscaling and flagship processor give C6 a stronger story for improving lower-quality streaming and broadcast sources.</p><p class="row-fact"><strong>Fact:</strong> Upscaling is most valuable for live TV, YouTube and older HD content, not pristine native 4K sources.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Netflix, YouTube, live TV and compressed streams are more forgiving, so customers are not only relying on pristine 4K discs to see a good picture.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="model" id="b6" data-model="b6">
+        <div class="wrap">
+          <div class="model-head">
+            <div class="model-title">
+              <h2>LG B6 improvements over B5</h2>
+              <p>The B6 story is a brighter entry OLED with newer Alpha 8 processing and a panel structure designed to handle everyday room light better.</p>
+              <div class="model-specs"><span>Alpha 8 Gen 3</span><span>Brightness Booster</span><span>4K 120Hz HDMI 2.1</span></div>
+            </div>
+            <figure class="model-visual">
+              <img src="assets/lg-b6-2026.jpg" alt="LG B6 OLED 2026 front view with colourful OLED artwork" loading="eager">
+              <figcaption class="visual-caption"><span>LG B6</span><span>Brightness and processing</span></figcaption>
+            </figure>
+          </div>
+          <div class="upgrade-list">
+            <article class="upgrade"><div class="upgrade-number">01</div><div><h3>Higher brightness</h3><p>B6 adds Brightness Booster and a high-output panel structure, giving it a stronger brightness story than B5.</p><p class="row-fact"><strong>Fact:</strong> B6 moves the entry line from Perfect Black and Wide Color Gamut messaging into Brightness Booster territory.</p></div><div class="benefit"><h3>Customer benefit</h3><p>The picture is easier to enjoy in normal living rooms, especially when lamps are on or daylight is coming in.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">02</div><div><h3>More impactful HDR highlights</h3><p>The brightness improvement helps sunlight, reflections and special effects look punchier in HDR content.</p><p class="row-fact"><strong>Fact:</strong> HDR is most noticeable in small bright details, not just whole-screen brightness.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Movies, sport and games feel more dramatic because bright moments stand out instead of looking flat.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">03</div><div><h3>Better suited to everyday room lighting</h3><p>The brighter B6 panel helps the picture stay more vibrant in moderately lit living spaces.</p><p class="row-fact"><strong>Fact:</strong> OLED black level is strongest when the screen can also keep highlights visible in ambient light.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Customers do not have to make the room dark every time they want a rich OLED picture.</p></div></article>
+            <article class="upgrade"><div class="upgrade-number">04</div><div><h3>Newer Alpha 8 processor</h3><p>B6 moves from Alpha 8 AI Processor Gen 2 to Alpha 8 AI Processor Gen 3, giving it the newer 2026 processing platform.</p><p class="row-fact"><strong>Fact:</strong> Processing affects streamed TV, older broadcasts, motion and picture clean-up before the image reaches the panel.</p></div><div class="benefit"><h3>Customer benefit</h3><p>Everyday viewing should look cleaner and more polished, particularly with apps and mixed-quality content.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary" id="summary">
+        <div class="wrap">
+          <h2>2026 improvements by model</h2>
+          <table class="summary-table">
+            <tbody>
+              <tr><th>LG G6</th><td>Reflection Free Premium coating, Primary RGB Tandem 2.0, Hyper Radiant Color, 20% peak-highlight brightness increase, 13-bit luminance processing, smoother gradation, cleaner shadow detail and warmer audio tuning.</td></tr>
+              <tr><th>LG C6</th><td>Alpha 11 Gen 3 flagship processing, Dual AI Super Resolution, 12-bit processing pipeline, up to 165Hz PC gaming, selected Tandem OLED panels, improved near-black clarity and stronger streaming clean-up.</td></tr>
+              <tr><th>LG B6</th><td>Brightness Booster, high-output panel, brighter HDR highlights, better performance in moderately lit rooms and Alpha 8 Gen 3 processing.</td></tr>
+            </tbody>
+          </table>
+          <p class="source-note">Stats are based on the supplied research notes and LG OLED model information already used for this page. The page stays focused on improvements over the 2025 equivalents.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span>LG OLED 2026 improvement guide for Alberto Scott.</span>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="../retailers/">Pricing checker</a>
+          <a href="../">Back to portfolio</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      const filterButtons = document.querySelectorAll("[data-model-filter]");
+      const models = document.querySelectorAll("[data-model]");
+      const benefitMode = document.querySelector("#benefitMode");
+      const upgrades = document.querySelectorAll(".upgrade");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.modelFilter;
+          filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+          models.forEach((model) => {
+            model.hidden = filter !== "all" && model.dataset.model !== filter;
+          });
+          const firstVisible = document.querySelector("[data-model]:not([hidden])");
+          firstVisible?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      benefitMode?.addEventListener("change", () => {
+        document.body.classList.toggle("benefit-mode", benefitMode.checked);
+      });
+
+      upgrades.forEach((upgrade) => {
+        upgrade.tabIndex = 0;
+        upgrade.setAttribute("role", "button");
+        upgrade.setAttribute("aria-pressed", "false");
+        const activate = () => {
+          upgrades.forEach((item) => {
+            item.classList.remove("is-active");
+            item.setAttribute("aria-pressed", "false");
+          });
+          upgrade.classList.add("is-active");
+          upgrade.setAttribute("aria-pressed", "true");
+        };
+        upgrade.addEventListener("click", activate);
+        upgrade.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            activate();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
