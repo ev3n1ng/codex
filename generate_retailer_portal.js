@@ -588,7 +588,7 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £150.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -640,7 +640,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £20.00",
+      "Save £150.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -657,7 +657,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £70.00",
+      "Save £9.01",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -705,13 +705,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 77\" OLED AI 4K HDR Smart TV 2025 - OLED77B56LA",
     "size": 77,
-    "price": "£1,679.00",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £320.99",
-      "10% off marked price with code TV10",
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-77-oled-ai-4k-hdr-smart-tv-2025-oled77b56la-10281774.html",
     "model": "OLED77B56LA",
@@ -818,7 +815,7 @@ const currysProducts = [
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED65G64LW",
     "size": 65,
     "price": "£3,099.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -932,6 +929,7 @@ const currysProducts = [
     "price": "£2,599.99",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
