@@ -831,7 +831,7 @@ const currysProducts = [
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED65G66LS",
     "size": 65,
     "price": "£3,099.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
