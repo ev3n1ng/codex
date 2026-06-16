@@ -503,7 +503,6 @@ const currysProducts = [
     "price": "£1,099.99",
     "availability": "Listed",
     "offers": [
-      "Save £20.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -588,7 +587,6 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £150.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -640,7 +638,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £150.00",
+      "Save £20.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -657,7 +655,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
+      "Save £70.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -831,7 +829,7 @@ const currysProducts = [
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED65G66LS",
     "size": 65,
     "price": "£3,099.99",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -929,7 +927,6 @@ const currysProducts = [
     "price": "£2,599.99",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
