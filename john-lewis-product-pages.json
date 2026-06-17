@@ -335,7 +335,7 @@
     "gen": "5",
     "size": 77,
     "price": "£1,799.00",
-    "availability": "Currently out of stock online",
+    "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
       "Save £350 on the LG US70TR Soundbar when you purchase it with this item",
@@ -693,5 +693,33 @@
       "Free standard delivery"
     ],
     "url": "https://www.johnlewis.com/lg-oled48b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p115232088"
+  },
+  {
+    "id": "115308528",
+    "model": "OLED83B65LA",
+    "title": "LG OLED83B65LA (2026) OLED HDR 4K Ultra HD Smart AI TV, 83 inch with Dolby Atmos, Umber Brown",
+    "year": "2026",
+    "series": "B",
+    "gen": "6",
+    "size": 83,
+    "price": "£3,599.00",
+    "availability": "Available to order",
+    "offers": [
+      "Free standard delivery"
+    ],
+    "url": "https://www.johnlewis.com/lg-oled83b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-umber-brown/p115308528"
+  },
+  {
+    "id": "112024111",
+    "model": "OLED65M49LA",
+    "title": "LG OLED65M49LA (2024) OLED HDR 4K Ultra HD Smart TV, 65 inch with Freeview Play/Freesat HD, Dolby Atmos, One Wall Design & Wireless 4K Connectivity, Light Satin Silver",
+    "year": "2024",
+    "series": "M",
+    "gen": "4",
+    "size": 65,
+    "price": "£2,499.00",
+    "availability": "Available to order",
+    "offers": [],
+    "url": "https://www.johnlewis.com/lg-oled65m49la-2024-oled-hdr-4k-ultra-hd-smart-tv-65-inch-with-freeview-play-freesat-hd-dolby-atmos-one-wall-design-wireless-4k-connectivity-light-satin-silver/p112024111"
   }
 ]
