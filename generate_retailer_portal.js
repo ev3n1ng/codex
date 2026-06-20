@@ -456,7 +456,6 @@ const currysProducts = [
     "price": "£2,299.00",
     "availability": "Listed",
     "offers": [
-      "Save £500.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -575,10 +574,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C54LA",
     "size": 65,
-    "price": "£1,599.00",
+    "price": "£1,499.00",
     "availability": "Listed",
     "offers": [
-      "Save £40.00",
+      "Save £200.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -586,15 +585,17 @@ const currysProducts = [
     "url": "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c54la-10281777.html",
     "model": "OLED65C54LA",
     "series": "C",
-    "gen": "5"
+    "gen": "5",
+    "previousPrice": "£1,599.00"
   },
   {
     "year": "2025",
     "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C56LB",
     "size": 65,
-    "price": "£1,599.00",
+    "price": "£1,499.00",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -602,7 +603,8 @@ const currysProducts = [
     "url": "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c56lb-10281775.html",
     "model": "OLED65C56LB",
     "series": "C",
-    "gen": "5"
+    "gen": "5",
+    "previousPrice": "£1,599.00"
   },
   {
     "year": "2025",
@@ -870,7 +872,7 @@ const currysProducts = [
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED55G66LS",
     "size": 55,
     "price": "£2,299.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
