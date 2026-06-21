@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A polished interactive quiz night experience with five themed rounds, live scoring, section progress, and final results."
+    />
+    <title>Quiz Night Studio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23fff7e3'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-size='18' font-family='Arial,sans-serif' font-weight='700' fill='%23070706'%3EQN%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <img src="assets/quiz-night-backdrop.png" alt="" />
+      <span class="scanline"></span>
+    </div>
+
+    <main class="shell">
+      <header class="topbar" aria-label="Quiz status">
+        <a class="brand" href="#" aria-label="Quiz Night Studio home">
+          <span class="brand-mark">QN</span>
+          <span>Quiz Night<br />Studio</span>
+        </a>
+        <div class="status-strip">
+          <div>
+            <span class="label">Score</span>
+            <strong id="scoreDisplay">0</strong>
+          </div>
+          <div>
+            <span class="label">Round</span>
+            <strong id="roundDisplay">0/5</strong>
+          </div>
+          <div>
+            <span class="label">Question</span>
+            <strong id="questionDisplay">0/25</strong>
+          </div>
+        </div>
+      </header>
+
+      <section id="app" class="stage" aria-live="polite"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
