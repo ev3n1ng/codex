@@ -386,7 +386,6 @@ const currysProducts = [
     "price": "£5,499.00",
     "availability": "Listed",
     "offers": [
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -402,7 +401,6 @@ const currysProducts = [
     "price": "£3,599.00",
     "availability": "Listed",
     "offers": [
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -419,7 +417,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £500.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -436,7 +433,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £500.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -453,7 +449,6 @@ const currysProducts = [
     "price": "£2,299.00",
     "availability": "Listed",
     "offers": [
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -471,7 +466,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £199.01",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -489,7 +483,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £299.01",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -524,7 +517,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £299.01",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -542,7 +534,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £199.01",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -575,7 +566,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £200.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -593,7 +583,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £200.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -610,7 +599,6 @@ const currysProducts = [
     "price": "£1,099.99",
     "availability": "Listed",
     "offers": [
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -628,7 +616,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £99.01",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -662,7 +649,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
+      "Save £70.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -681,7 +668,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £120.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -822,7 +808,6 @@ const currysProducts = [
     "price": "£3,099.99",
     "availability": "Out of stock",
     "offers": [
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -838,7 +823,6 @@ const currysProducts = [
     "price": "£3,099.99",
     "availability": "Listed",
     "offers": [
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -854,7 +838,6 @@ const currysProducts = [
     "price": "£2,299.99",
     "availability": "Out of stock",
     "offers": [
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -868,9 +851,8 @@ const currysProducts = [
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED55G66LS",
     "size": 55,
     "price": "£2,299.99",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -934,8 +916,6 @@ const currysProducts = [
     "price": "£2,599.99",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -953,7 +933,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £40.00",
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -969,7 +948,6 @@ const currysProducts = [
     "price": "£1,399.99",
     "availability": "Out of stock",
     "offers": [
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1047,7 +1025,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £30.00",
-      "20% off marked price with code 20OFFVIS",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
