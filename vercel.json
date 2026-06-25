@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/murdermystery/:path*",
+      "destination": "/murdermystery/index.html"
+    }
+  ]
+}
