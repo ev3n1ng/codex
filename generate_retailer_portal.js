@@ -502,7 +502,6 @@ const currysProducts = [
     "price": "£1,099.99",
     "availability": "Listed",
     "offers": [
-      "Save £50.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -517,7 +516,7 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 83\" OLED evo AI 4K HDR Smart TV 2025 - OLED83C54LA",
     "size": 83,
-    "price": "£3,499.99",
+    "price": "£2,734.00",
     "availability": "Listed",
     "offers": [
       "Save £1,065.00",
@@ -526,7 +525,7 @@ const currysProducts = [
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-83-oled-evo-ai-4k-hdr-smart-tv-2025-oled83c54la-10282101.html",
     "model": "OLED83C54LA",
-    "previousPrice": "£3,608.94",
+    "previousPrice": "£3,499.99",
     "series": "C",
     "gen": "5"
   },
@@ -537,7 +536,7 @@ const currysProducts = [
     "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £199.01",
+      "Save £400.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -636,7 +635,6 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £20.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -974,7 +972,7 @@ const currysProducts = [
     "title": "LG C6 48\" OLED AI 4K HDR Smart TV 2026 - OLED48C64LA",
     "size": 48,
     "price": "£1,199.99",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
