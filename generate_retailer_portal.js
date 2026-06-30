@@ -517,7 +517,7 @@ const currysProducts = [
     "title": "LG C5 83\" OLED evo AI 4K HDR Smart TV 2025 - OLED83C54LA",
     "size": 83,
     "price": "£2,734.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £1,065.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -651,7 +651,7 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
+      "Save £70.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -823,7 +823,7 @@ const currysProducts = [
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED65G64LW",
     "size": 65,
     "price": "£2,699.99",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £400.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
