@@ -451,12 +451,19 @@ const baselineModels = new Set(baselineProducts.map((product) => product.model))
 const newLiveProducts = [...liveByModel.values()].filter((product) => !baselineModels.has(product.model));
 const refreshProducts = [...baselineProducts, ...newLiveProducts];
 const pageProducts = refreshProducts.map((product, index) => {
-  const parsed = liveByModel.get(product.model) || {
+  const listingProduct = liveByModel.get(product.model) || {
     ...product,
     price: product.price || "Not available",
     availability: product.availability || "Not available at the moment",
     offers: product.offers?.length ? product.offers : ["No current retailer data found for this baseline model"],
   };
+  let parsed = listingProduct;
+  try {
+    const html = fs.readFileSync(fetchProductPage(listingProduct), "utf8");
+    parsed = parseProductPage(listingProduct, html);
+  } catch (error) {
+    if (verbose) console.warn(`${listingProduct.model}: product-page refresh failed: ${error.message}`);
+  }
   console.log(`${index + 1}/${refreshProducts.length} ${parsed.model} ${parsed.price} ${parsed.availability}`);
   return parsed;
 });

@@ -517,7 +517,7 @@ const currysProducts = [
     "title": "LG C5 83\" OLED evo AI 4K HDR Smart TV 2025 - OLED83C54LA",
     "size": 83,
     "price": "£2,734.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £1,065.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -717,7 +717,6 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £300.00",
-      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
