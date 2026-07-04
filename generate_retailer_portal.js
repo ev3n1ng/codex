@@ -416,9 +416,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED65G54LW",
     "size": 65,
-    "price": "£2,499.00",
+    "price": "£1,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £500.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -426,21 +427,22 @@ const currysProducts = [
     "model": "OLED65G54LW",
     "series": "G",
     "gen": "5",
-    "previousPrice": "£1,999.00"
+    "previousPrice": "£2,499.00"
   },
   {
     "year": "2025",
     "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED65G56LS",
     "size": 65,
-    "price": "£2,499.00",
+    "price": "£2,299.00",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled65g56ls-10282093.html",
     "model": "OLED65G56LS",
-    "previousPrice": "£1,999.00",
+    "previousPrice": "£2,499.00",
     "series": "G",
     "gen": "5"
   },
@@ -481,16 +483,16 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED55G56LS",
     "size": 55,
-    "price": "£1,499.99",
+    "price": "£1,299.00",
     "availability": "Listed",
     "offers": [
-      "Save £299.01",
+      "Save £500.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled55g56ls-10282094.html",
     "model": "OLED55G56LS",
-    "previousPrice": "£1,599.00",
+    "previousPrice": "£1,499.99",
     "series": "G",
     "gen": "5"
   },
@@ -581,7 +583,7 @@ const currysProducts = [
     "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C56LB",
     "size": 65,
     "price": "£1,599.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -596,15 +598,16 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 55\" OLED evo AI 4K HDR Smart TV 2025 - OLED55C54LA",
     "size": 55,
-    "price": "£1,099.00",
+    "price": "£999.00",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c54la-10281549.html",
     "model": "OLED55C54LA",
-    "previousPrice": "£999.00",
+    "previousPrice": "£1,099.00",
     "series": "C",
     "gen": "5"
   },
@@ -612,12 +615,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 55\" OLED evo AI 4K HDR Smart TV 2025 - OLED55C56LB",
     "size": 55,
-    "price": "£999.99",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £100.00",
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c56lb-10281769.html",
     "model": "OLED55C56LB",
@@ -646,17 +647,17 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C56LB",
     "size": 48,
-    "price": "£1,049.00",
+    "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
+      "Save £100.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c56lb-10282100.html",
     "model": "OLED48C56LB",
-    "previousPrice": "£949.00",
+    "previousPrice": "£1,049.00",
     "series": "C",
     "gen": "5"
   },
@@ -664,16 +665,16 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
-    "price": "£949.00",
+    "price": "£849.00",
     "availability": "Listed",
     "offers": [
-      "Save £19.01",
+      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
     "model": "OLED42C54LA",
-    "previousPrice": "£729.00",
+    "previousPrice": "£949.00",
     "series": "C",
     "gen": "5"
   },
@@ -742,10 +743,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 48\" OLED AI 4K HDR Smart TV 2025 - OLED48B56LA",
     "size": 48,
-    "price": "£829.00",
+    "price": "£650.00",
     "availability": "Listed",
     "offers": [
-      "Save £30.00",
+      "Save £149.00",
       "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -754,7 +755,7 @@ const currysProducts = [
     "model": "OLED48B56LA",
     "series": "B",
     "gen": "5",
-    "previousPrice": "£679.00"
+    "previousPrice": "£829.00"
   },
   {
     "year": "2026",
