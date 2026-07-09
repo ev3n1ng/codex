@@ -1,0 +1,8 @@
+html:not(.js-enabled) [style*="opacity:0"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html {
+  scroll-padding-top: 76px;
+}
