@@ -518,11 +518,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 83\" OLED evo AI 4K HDR Smart TV 2025 - OLED83C54LA",
     "size": 83,
-    "price": "£3,599.00",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-83-oled-evo-ai-4k-hdr-smart-tv-2025-oled83c54la-10282101.html",
     "model": "OLED83C54LA",
@@ -583,11 +582,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C56LB",
     "size": 65,
-    "price": "£1,599.00",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c56lb-10281775.html",
     "model": "OLED65C56LB",
