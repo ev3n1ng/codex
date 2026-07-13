@@ -25,7 +25,7 @@
     "series": "G",
     "gen": "5",
     "size": 77,
-    "price": "£3,299.00",
+    "price": "£3,279.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -144,12 +144,9 @@
     "series": "C",
     "gen": "5",
     "size": 83,
-    "price": "£2,999.00",
-    "availability": "Currently out of stock online",
-    "offers": [
-      "Free wall install (GBP 135 value)",
-      "Free standard delivery"
-    ],
+    "price": "Not listed",
+    "availability": "No longer available online",
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled83c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-dark-titan-silver/p113678676"
   },
   {
@@ -165,8 +162,7 @@
     "offers": [
       "Free wall install (GBP 135 value)",
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
-      "Free standard delivery",
-      "Save £100"
+      "Free standard delivery"
     ],
     "url": "https://www.johnlewis.com/lg-oled77c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p113530625"
   },
@@ -197,8 +193,7 @@
       "Free wall install (GBP 135 value)",
       "Get the LG US60T Bluetooth Soundbar for free when bought with this item",
       "Save £400 on the LG USC9S Bluetooth Wi-Fi Soundbar when bought with this item",
-      "Free standard delivery",
-      "Save £100"
+      "Free standard delivery"
     ],
     "url": "https://www.johnlewis.com/lg-oled65c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-dark-titan-silver/p113530624"
   },
@@ -214,8 +209,7 @@
     "availability": "Available to order",
     "offers": [
       "Save £400 on the LG USC9S Bluetooth Wi-Fi Soundbar when bought with this item",
-      "Free standard delivery",
-      "Save £100"
+      "Free standard delivery"
     ],
     "url": "https://www.johnlewis.com/lg-oled65c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p113744967"
   },
@@ -248,8 +242,7 @@
     "availability": "Available to order",
     "offers": [
       "Save £400 on the LG USC9S Bluetooth Wi-Fi Soundbar when bought with this item",
-      "Free standard delivery",
-      "Save £100"
+      "Free standard delivery"
     ],
     "url": "https://www.johnlewis.com/lg-oled55c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p113744966"
   },
@@ -361,7 +354,7 @@
     "series": "B",
     "gen": "5",
     "size": 48,
-    "price": "£729.00",
+    "price": "£649.00",
     "availability": "Available to order",
     "offers": [
       "Free standard delivery"
@@ -495,7 +488,7 @@
     "gen": "6",
     "size": 55,
     "price": "£2,199.00",
-    "availability": "Currently out of stock online",
+    "availability": "Available to order",
     "offers": [
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
       "Free standard delivery"
