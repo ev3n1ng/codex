@@ -144,9 +144,12 @@
     "series": "C",
     "gen": "5",
     "size": 83,
-    "price": "Not listed",
-    "availability": "No longer available online",
-    "offers": [],
+    "price": "£2,999.00",
+    "availability": "Available to order",
+    "offers": [
+      "Free wall install (GBP 135 value)",
+      "Free standard delivery"
+    ],
     "url": "https://www.johnlewis.com/lg-oled83c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-dark-titan-silver/p113678676"
   },
   {
@@ -436,7 +439,7 @@
     "series": "G",
     "gen": "6",
     "size": 65,
-    "price": "£2,999.00",
+    "price": "£2,699.00",
     "availability": "Available to order",
     "offers": [
       "Free standard delivery",
@@ -470,7 +473,7 @@
     "series": "G",
     "gen": "6",
     "size": 55,
-    "price": "£2,199.00",
+    "price": "£2,099.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -487,7 +490,7 @@
     "series": "G",
     "gen": "6",
     "size": 55,
-    "price": "£2,199.00",
+    "price": "£2,099.00",
     "availability": "Available to order",
     "offers": [
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
@@ -520,7 +523,7 @@
     "gen": "6",
     "size": 83,
     "price": "£4,299.00",
-    "availability": "Currently out of stock online",
+    "availability": "Available to order",
     "offers": [
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
       "Free standard delivery"
@@ -535,7 +538,7 @@
     "series": "C",
     "gen": "6",
     "size": 77,
-    "price": "£3,499.00",
+    "price": "£2,899.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -552,7 +555,7 @@
     "series": "C",
     "gen": "6",
     "size": 65,
-    "price": "£2,299.00",
+    "price": "£2,099.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -569,7 +572,7 @@
     "series": "C",
     "gen": "6",
     "size": 55,
-    "price": "£1,599.00",
+    "price": "£1,499.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -586,7 +589,7 @@
     "series": "C",
     "gen": "6",
     "size": 48,
-    "price": "£1,299.00",
+    "price": "£1,199.00",
     "availability": "Available to order",
     "offers": [
       "Free standard delivery",
@@ -602,7 +605,7 @@
     "series": "C",
     "gen": "6",
     "size": 42,
-    "price": "£1,199.00",
+    "price": "£1,099.00",
     "availability": "Available to order",
     "offers": [
       "Free standard delivery",
@@ -634,7 +637,7 @@
     "series": "B",
     "gen": "6",
     "size": 77,
-    "price": "£2,299.00",
+    "price": "£2,799.00",
     "availability": "Currently out of stock online",
     "offers": [
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item"
