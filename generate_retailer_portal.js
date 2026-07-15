@@ -453,7 +453,7 @@ const currysProducts = [
     "title": "LG M5 65\" OLED evo AI 4K HDR True Wireless Smart TV 2025 - OLED65M59LA",
     "size": 65,
     "price": "£2,299.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -927,7 +927,7 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 65\" OLED AI 4K HDR Smart TV 2026 - OLED65C64LA",
     "size": 65,
-    "price": "£2,299.00",
+    "price": "£2,099.00",
     "availability": "Listed",
     "offers": [
       "Save £500.99",
@@ -938,7 +938,7 @@ const currysProducts = [
     "model": "OLED65C64LA",
     "series": "C",
     "gen": "6",
-    "previousPrice": "£2,099.99"
+    "previousPrice": "£2,299.00"
   },
   {
     "year": "2026",
