@@ -12,9 +12,10 @@
 <header class="hero"><div class="wrap"><div class="brand"><div class="lg-badge">LG</div><span>Currys report</span></div><div class="hero-grid"><div class="stats"><div class="stat"><b>125</b><span>tracked rows</span></div><div class="stat"><b>125</b><span>priced rows</span></div><div class="stat"><b>125</b><span>offer rows</span></div><div class="stat"><b>124</b><span>finance offers</span></div></div><div><p class="marker">LG price checker</p><h1>Currys LG Price Checker</h1><p class="copy">LG TVs and soundbars currently tracked from official Currys product and listing pages.</p><div class="actions"><a class="btn primary" href="../">Retailer chooser</a><a class="btn" href="../john-lewis/">John Lewis</a><a class="btn" href="/">Portfolio</a></div></div></div></div></header>
 <nav class="toolbar"><div class="wrap">
   <a href="#top" aria-label="Top">Top</a>
+  <button type="button" id="showAllModels">All models</button>
   <a href="#oled">OLED</a><a href="#mrgb">MRGB</a><a href="#qned">QNED</a><a href="#led">LED</a><a href="#soundbars">Soundbars</a>
 </div></nav>
-<section class="search"><div class="wrap"><div class="searchbox"><input id="reportSearch" type="search" placeholder="Search model, category, price or offer" aria-label="Search Currys report"><span class="result-count"></span></div></div></section>
+<section class="search"><div class="wrap"><div class="searchbox"><input id="reportSearch" type="search" autocomplete="off" value="" placeholder="Search model, category, price or offer" aria-label="Search Currys report"><span class="result-count"></span></div></div></section>
 <main id="top" class="wrap">
   <section class="summary panel">
     <p class="marker" style="color:#4c12a1;margin:0 0 14px">Official Currys website</p>
@@ -1044,6 +1045,6 @@
 </section>
 </main>
 <footer><div class="wrap">Currys report generated from official retailer URLs. Product links open the retailer page in a new tab.</div></footer>
-<script>const input=document.querySelector("#reportSearch"),result=document.querySelector(".result-count"),total=125;function applyFilter(){const q=input.value.trim().toLowerCase();let shown=0;document.querySelectorAll(".section").forEach(section=>{let sectionShown=0;section.querySelectorAll(".product").forEach(row=>{const ok=!q||row.dataset.search.includes(q);row.hidden=!ok;if(ok){shown++;sectionShown++;}});section.hidden=sectionShown===0;const count=section.querySelector(".count");count.textContent=(q?sectionShown:count.dataset.total)+" rows";});result.textContent=(q?shown:total)+" of "+total+" rows shown";}input.addEventListener("input",applyFilter);applyFilter();</script>
+<script>const input=document.querySelector("#reportSearch"),result=document.querySelector(".result-count"),showAll=document.querySelector("#showAllModels"),total=125;input.value="";function applyFilter(){const q=input.value.trim().toLowerCase();let shown=0;document.querySelectorAll(".section").forEach(section=>{let sectionShown=0;section.querySelectorAll(".product").forEach(row=>{const ok=!q||row.dataset.search.includes(q);row.hidden=!ok;if(ok){shown++;sectionShown++;}});section.hidden=sectionShown===0;const count=section.querySelector(".count");count.textContent=(q?sectionShown:count.dataset.total)+" rows";});result.textContent=(q?shown:total)+" of "+total+" rows shown";}showAll.addEventListener("click",()=>{input.value="";applyFilter();location.hash="top";});input.addEventListener("input",applyFilter);applyFilter();</script>
 </body>
 </html>
