@@ -403,16 +403,18 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
     "size": 77,
-    "price": "£3,599.00",
+    "price": "£3,279.00",
     "availability": "Listed",
     "offers": [
+      "Save £320.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-77-oled-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
     "model": "OLED77G54LW",
     "series": "G",
-    "gen": "5"
+    "gen": "5",
+    "previousPrice": "£3,599.00"
   },
   {
     "year": "2025",
@@ -739,10 +741,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 48\" OLED AI 4K HDR Smart TV 2025 - OLED48B56LA",
     "size": 48,
-    "price": "£729.00",
+    "price": "£649.00",
     "availability": "Listed",
     "offers": [
-      "Save £30.00",
+      "Save £150.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -750,7 +752,7 @@ const currysProducts = [
     "model": "OLED48B56LA",
     "series": "B",
     "gen": "5",
-    "previousPrice": "£650.00"
+    "previousPrice": "£729.00"
   },
   {
     "year": "2026",
@@ -817,7 +819,7 @@ const currysProducts = [
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED65G64LW",
     "size": 65,
     "price": "£2,999.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -835,6 +837,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -851,7 +854,7 @@ const currysProducts = [
     "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £300.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -866,8 +869,9 @@ const currysProducts = [
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED55G66LS",
     "size": 55,
     "price": "£2,199.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
+      "Save £300.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
