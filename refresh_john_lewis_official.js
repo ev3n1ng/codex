@@ -307,9 +307,9 @@ function availabilityFromPage(html, schemaAvailability) {
   }
   if (/Pre-orders are now sold out/i.test(text)) return "Pre-orders are now sold out";
   if (/Currently out of stock online/i.test(text)) return "Currently out of stock online";
-  if (/Coming soon/i.test(text)) return "Coming soon";
   if (/OutOfStock/i.test(schemaAvailability || "")) return "Out of stock";
   if (/InStock/i.test(schemaAvailability || "")) return "Available to order";
+  if (/Coming soon/i.test(text)) return "Coming soon";
   return "Availability unclear";
 }
 
