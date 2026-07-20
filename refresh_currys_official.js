@@ -100,10 +100,31 @@ function isBlockedHtml(html) {
   return /Attention Required! \| Cloudflare|Sorry, you have been blocked|enable cookies/i.test(html);
 }
 
+function canonicalProductUrl(html) {
+  const match = html.match(/rel=["']canonical["'][^>]+href=["']([^"']*\/products\/[^"']+\.html)["']/i);
+  return match?.[1] || "";
+}
+
+function searchResultProductUrl(html, product) {
+  const urls = [];
+  for (const match of html.matchAll(/"url"\s*:\s*"([^"]*\/products\/[^"]+\.html)"/gi)) urls.push(match[1]);
+  for (const match of html.matchAll(/href=["']([^"']*\/products\/[^"']+\.html)["']/gi)) urls.push(match[1]);
+  const exact = urls.find((url) => url.toLowerCase().includes(product.model.toLowerCase()));
+  if (!exact) return "";
+  return exact.startsWith("http") ? exact : `https://www.currys.co.uk${exact}`;
+}
+
+function hasProductIdentity(html, product) {
+  if (canonicalProductUrl(html).toLowerCase().includes(product.model.toLowerCase())) return true;
+  return jsonLdObjects(html).some((object) => String(object.name || "").includes(product.model));
+}
+
 function looksLikeProductPage(html, product) {
   return !isBlockedHtml(html)
     && /application\/ld\+json/i.test(html)
-    && (html.includes(product.model) || html.includes(productIdFromUrl(product.url)));
+    && (isSearchUrl(product.url)
+      ? canonicalProductUrl(html).toLowerCase().includes(product.model.toLowerCase())
+      : (hasProductIdentity(html, product) || html.includes(productIdFromUrl(product.url))));
 }
 
 function fetchProductPage(product) {
@@ -111,8 +132,6 @@ function fetchProductPage(product) {
   const file = `${PAGE_DIR}/${product.model}.html`;
   if (cacheOnly && fs.existsSync(file)) return file;
   if (cacheOnly) throw new Error(`Missing cached page for ${product.model}`);
-  if (isSearchUrl(product.url)) throw new Error(`Search URL is not acceptable as a direct product page for ${product.model}`);
-
   const tmp = `${file}.tmp`;
 
   execFileSync(
@@ -138,6 +157,31 @@ function fetchProductPage(product) {
     return file;
   }
 
+  const resultUrl = searchResultProductUrl(html, product);
+  if (resultUrl) {
+    execFileSync(
+      "curl",
+      [
+        "--http1.1",
+        "-L",
+        "--compressed",
+        "-A",
+        USER_AGENT,
+        resultUrl,
+        "-o",
+        tmp,
+        "--max-time",
+        "45",
+      ],
+      { stdio: verbose ? "inherit" : "ignore" },
+    );
+    const resultHtml = fs.readFileSync(tmp, "utf8");
+    if (looksLikeProductPage(resultHtml, { ...product, url: resultUrl })) {
+      fs.renameSync(tmp, file);
+      return file;
+    }
+  }
+
   fs.rmSync(tmp, { force: true });
   if (fs.existsSync(file)) return file;
   throw new Error(`Currys returned a blocked or non-product page for ${product.model}`);
@@ -151,8 +195,7 @@ function parseProduct(product, html) {
     objects.find((object) => String(object.sku || "") === id && String(object.name || "").includes(product.model)) ||
     objects.find((object) => String(object.name || "").includes(product.model) && object.offers?.price) ||
     objects.find((object) => String(object.sku || "") === id && object.offers?.price) ||
-    objects.find((object) => String(object.name || "").includes(product.model)) ||
-    objects.find((object) => object.offers?.price);
+    objects.find((object) => String(object.name || "").includes(product.model));
 
   if (!exact) {
     return {
@@ -163,7 +206,10 @@ function parseProduct(product, html) {
     };
   }
 
-  const price = exact.offers?.price ? money(exact.offers.price) : product.price;
+  const pricedExact =
+    objects.find((object) => String(object.name || "").includes(product.model) && object.offers?.price) ||
+    objects.find((object) => String(object.sku || "") === id && object.offers?.price);
+  const price = pricedExact?.offers?.price ? money(pricedExact.offers.price) : product.price;
   const idIndex = html.indexOf(`&quot;parentProductId&quot;:&quot;${id}&quot;`);
   const modelIndex = html.indexOf(product.model);
   const start = idIndex >= 0 ? idIndex : modelIndex;
@@ -204,6 +250,8 @@ function parseProduct(product, html) {
     availability,
     offers: filteredOffers.length ? filteredOffers : ["No current offer shown on official Currys product page"],
   };
+  const canonical = canonicalProductUrl(html);
+  if (canonical.toLowerCase().includes(product.model.toLowerCase())) next.url = canonical;
 
   if (product.price && product.price !== price && !/not (listed|available)/i.test(product.price)) {
     next.previousPrice = product.price;

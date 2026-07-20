@@ -410,7 +410,7 @@ const currysProducts = [
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/products/lg-g5-77-oled-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
+    "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
     "model": "OLED77G54LW",
     "series": "G",
     "gen": "5",
@@ -724,16 +724,17 @@ const currysProducts = [
   },
   {
     "year": "2025",
-    "title": "LG B5 series 55\" OLED TV 2025 - OLED55B56LA",
+    "title": "LG B5 55\" OLED AI 4K HDR Smart TV 2025 - OLED55B56LA",
     "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£899.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save £100.00",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED55B56LA",
+    "url": "https://www.currys.co.uk/products/lg-b5-55-oled-ai-4k-hdr-smart-tv-2025-oled55b56la-10281768.html",
     "model": "OLED55B56LA",
-    "baselineMissing": true,
     "series": "B",
     "gen": "5"
   },
@@ -756,61 +757,59 @@ const currysProducts = [
   },
   {
     "year": "2026",
-    "title": "LG G6 series 83\" OLED TV 2026 - OLED83G64LW",
+    "title": "LG G6 83\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED83G64LW",
     "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£5,499.99",
+    "availability": "Out of stock",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED83G64LW",
+    "url": "https://www.currys.co.uk/products/lg-g6-83-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled83g64lw-10301433.html",
     "model": "OLED83G64LW",
-    "baselineMissing": true,
     "series": "G",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG W6 Wallpaper 83\" OLED TV 2026 - OLED83W69LA",
+    "title": "OLED83W69LA",
     "size": 83,
     "price": "Not listed",
-    "availability": "Product page redirected",
+    "availability": "Out of stock",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "No current offer shown on official Currys product page"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED83W69LA",
     "model": "OLED83W69LA",
-    "baselineMissing": true,
     "series": "W",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG G6 series 77\" OLED TV 2026 - OLED77G64LW",
+    "title": "LG G6 77\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED77G64LW",
     "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£3,899.99",
+    "availability": "Out of stock",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED77G64LW",
+    "url": "https://www.currys.co.uk/products/lg-g6-77-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled77g64lw-10301402.html",
     "model": "OLED77G64LW",
-    "baselineMissing": true,
     "series": "G",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG W6 Wallpaper 77\" OLED TV 2026 - OLED77W69LA",
+    "title": "OLED77W69LA",
     "size": 77,
     "price": "Not listed",
-    "availability": "Product page redirected",
+    "availability": "Out of stock",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "No current offer shown on official Currys product page"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED77W69LA",
     "model": "OLED77W69LA",
-    "baselineMissing": true,
     "series": "W",
     "gen": "6"
   },
@@ -882,31 +881,31 @@ const currysProducts = [
   },
   {
     "year": "2026",
-    "title": "LG G6 series 48\" OLED TV 2026 - OLED48G66LS",
+    "title": "LG G6 48\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED48G66LS",
     "size": 48,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,599.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED48G66LS",
+    "url": "https://www.currys.co.uk/products/lg-g6-48-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled48g66ls-10301802.html",
     "model": "OLED48G66LS",
-    "baselineMissing": true,
     "series": "G",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG C6 series 83\" OLED TV 2026 - OLED83C64LA",
+    "title": "LG C6 83\" OLED AI 4K HDR Smart TV 2026 - OLED83C64LA",
     "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£3,999.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED83C64LA",
+    "url": "https://www.currys.co.uk/products/lg-c6-83-oled-ai-4k-hdr-smart-tv-2026-oled83c64la-10301872.html",
     "model": "OLED83C64LA",
-    "baselineMissing": true,
     "series": "C",
     "gen": "6"
   },
@@ -980,61 +979,63 @@ const currysProducts = [
   },
   {
     "year": "2026",
-    "title": "LG C6 series 42\" OLED TV 2026 - OLED42C64LA",
+    "title": "LG C6 42\" OLED AI 4K HDR Smart TV 2026 - OLED42C64LA",
     "size": 42,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,199.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED42C64LA",
+    "url": "https://www.currys.co.uk/products/lg-c6-42-oled-ai-4k-hdr-smart-tv-2026-oled42c64la-10301785.html",
     "model": "OLED42C64LA",
-    "baselineMissing": true,
     "series": "C",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG B6 series 83\" OLED TV 2026 - OLED83B65LA",
+    "title": "LG B6 83\" OLED AI 4K HDR Smart TV 2026 - OLED83B65LA",
     "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£2,999.99",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save £200.00",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED83B65LA",
+    "url": "https://www.currys.co.uk/products/lg-b6-83-oled-ai-4k-hdr-smart-tv-2026-oled83b65la-10301911.html",
     "model": "OLED83B65LA",
-    "baselineMissing": true,
     "series": "B",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG B6 series 77\" OLED TV 2026 - OLED77B65LA",
+    "title": "LG B6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77B65LA",
     "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£2,799.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED77B65LA",
+    "url": "https://www.currys.co.uk/products/lg-b6-77-oled-ai-4k-hdr-smart-tv-2026-oled77b65la-10301868.html",
     "model": "OLED77B65LA",
-    "baselineMissing": true,
     "series": "B",
     "gen": "6"
   },
   {
     "year": "2026",
-    "title": "LG B6 series 65\" OLED TV 2026 - OLED65B65LA",
+    "title": "LG B6 65\" OLED AI 4K HDR Smart TV 2026 - OLED65B65LA",
     "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,899.99",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save £9.01",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED65B65LA",
+    "url": "https://www.currys.co.uk/products/lg-b6-65-oled-ai-4k-hdr-smart-tv-2026-oled65b65la-10301900.html",
     "model": "OLED65B65LA",
-    "baselineMissing": true,
     "series": "B",
     "gen": "6"
   },
@@ -1057,16 +1058,17 @@ const currysProducts = [
   },
   {
     "year": "2026",
-    "title": "LG B6 series 48\" OLED TV 2026 - OLED48B65LA",
+    "title": "LG B6 48\" OLED AI 4K HDR Smart TV 2026 - OLED48B65LA",
     "size": 48,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,099.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save £30.00",
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED48B65LA",
+    "url": "https://www.currys.co.uk/products/lg-b6-48-oled-ai-4k-hdr-smart-tv-2026-oled48b65la-10301903.html",
     "model": "OLED48B65LA",
-    "baselineMissing": true,
     "series": "B",
     "gen": "6"
   },
