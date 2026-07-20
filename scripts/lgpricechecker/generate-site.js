@@ -340,8 +340,9 @@ function offerChipClass(offer) {
 }
 
 function shouldShowOfferItem(offer) {
+  if (offer.length > 180) return false;
   if (/^£[\d,.]+.*Save/i.test(offer)) return false;
-  if (/Exclusions \(eg\. ink\)|How to request a price match|Representative example|Assumed Credit Limit/i.test(offer)) return false;
+  if (/Exclusions \(eg\. ink\)|How to request a price match|Representative example|Assumed Credit Limit|Image gallery|Viewing image|previous image|next image|Browse all electrical offers|Burberry|Calvin Klein|Joseph Joseph|West Elm|Product description|View product des|Shop all LG/i.test(offer)) return false;
   return true;
 }
 

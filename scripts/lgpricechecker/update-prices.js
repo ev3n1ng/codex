@@ -177,6 +177,18 @@ function textWindow(text, regex, before = 80, after = 180) {
   return cleanText(text.slice(Math.max(0, match.index - before), match.index + match[0].length + after));
 }
 
+function firstPattern(text, patterns) {
+  for (const regex of patterns) {
+    const match = text.match(regex);
+    if (match) return cleanText(match[0]);
+  }
+  return "";
+}
+
+function offerPatterns(text, patterns) {
+  return uniq(patterns.flatMap((regex) => [...text.matchAll(regex)].map((match) => match[0]))).slice(0, 4);
+}
+
 function parseCommon(html, product) {
   const text = cleanText(html);
   const strings = collectStrings(nextData(html) || {}).map(cleanText);
@@ -184,19 +196,41 @@ function parseCommon(html, product) {
   const jsonPrice = priceFromJsonLd(html);
   const firstPrice = jsonPrice || money(joined)[0] || product.priceText || "";
   const finance = uniq([
-    textWindow(joined, /interest free|pay\s+£[\d,.]+\s+per month|per month for \d+ months|representative apr/i, 60, 220),
+    firstPattern(joined, [
+      /From £[\d,.]+ per month for \d+ months\*?/i,
+      /£[\d,.]+ per month for \d+ months, interest free\*?/i,
+      /Pay £[\d,.]+ interest free over \d+ months/i,
+      /Pay £[\d,.]+ per month over \d+ months at [\d.]+% APR/i,
+      /Buy now, pay later/i,
+    ]),
     product.financeText,
   ]).slice(0, 2).join(" | ");
-  const availability = cleanText(
-    textWindow(joined, /in stock|out of stock|add to basket|currently unavailable|delivery available|collection available|email when available|no longer available/i, 40, 120)
-  ) || product.availabilityText || "";
+  const availability = firstPattern(joined, [
+    /Currently in stock online/i,
+    /Currently out of stock online/i,
+    /No longer available online/i,
+    /Email when available/i,
+    /Delivery available/i,
+    /Collection available/i,
+    /Add to basket/i,
+    /Currently unavailable/i,
+    /Out of stock/i,
+  ]) || product.availabilityText || "";
   return { firstPrice, finance, availability, joined };
 }
 
 function parseCurrys(html, product) {
   const common = parseCommon(html, product);
   const offers = uniq([
-    textWindow(common.joined, /save\s+£[\d,.]+|was\s+£[\d,.]+|get free delivery|price match|use code|selected .*?off|when bought with/i, 30, 180),
+    ...offerPatterns(common.joined, [
+      /Save £[\d,.]+/gi,
+      /Was £[\d,.]+/gi,
+      /Get Free Delivery/gi,
+      /Price match/gi,
+      /Save up to \d+% on the purchase of selected LG soundbars/gi,
+      /Save up to \d+% off selected TV accessories/gi,
+      /When Bought With any LG TV/gi,
+    ]),
     product.offerText,
   ]).slice(0, 4).join(" | ");
   return {
@@ -210,10 +244,19 @@ function parseCurrys(html, product) {
 function parseJohnLewis(html, product) {
   const common = parseCommon(html, product);
   const offers = uniq([
-    textWindow(common.joined, /price promise|claim|cashback|free standard delivery|reduced to clear|save\s+£[\d,.]+|\d+\s+year guarantee included/i, 30, 180),
+    ...offerPatterns(common.joined, [
+      /Price promise/gi,
+      /\d+ year guarantee included/gi,
+      /Free standard delivery/gi,
+      /Free Click & Collect/gi,
+      /Up to \d+% cashback on LG TVs/gi,
+      /Claim [^.]{1,80}/gi,
+      /Reduced to clear/gi,
+      /Save £[\d,.]+/gi,
+    ]),
     product.offerText,
   ]).slice(0, 4).join(" | ");
-  const guarantee = textWindow(common.joined, /\d+\s+year guarantee included/i, 10, 60);
+  const guarantee = firstPattern(common.joined, [/\d+\s+year guarantee included/i]);
   return {
     priceText: common.firstPrice,
     financeText: common.finance,
