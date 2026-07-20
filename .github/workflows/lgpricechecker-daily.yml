@@ -1,0 +1,90 @@
+name: LG price checker daily update
+
+on:
+  schedule:
+    # GitHub cron is UTC. Run at both possible UTC hours and gate below so
+    # the real update only runs at 05:00 Europe/London in GMT and BST.
+    - cron: "0 4,5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lgpricechecker-daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Check 5am London gate
+        id: gate
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          london_hour="$(TZ=Europe/London date +%H)"
+          if [ "$london_hour" = "05" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.gate.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        if: steps.gate.outputs.should_run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Refresh official retailer prices slowly
+        if: steps.gate.outputs.should_run == 'true'
+        env:
+          LG_PRICECHECK_DELAY_MIN_MS: "9000"
+          LG_PRICECHECK_DELAY_MAX_MS: "15000"
+          LG_PRICECHECK_TIMEOUT_MS: "25000"
+          LG_PRICECHECK_MAX_FETCH_FAILURE_RATE: "0.25"
+          LG_PRICECHECK_MAX_BLANK_PRICE_INCREASE: "12"
+        run: node scripts/lgpricechecker/update-prices.js
+
+      - name: Generate LG price checker pages
+        if: steps.gate.outputs.should_run == 'true'
+        run: node scripts/lgpricechecker/generate-site.js
+
+      - name: Validate generated pages
+        if: steps.gate.outputs.should_run == 'true'
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          const checks = [
+            ["LGpricechecker/index.html", 0],
+            ["LGpricechecker/currys/index.html", 125],
+            ["LGpricechecker/john-lewis/index.html", 95],
+          ];
+          for (const [file, minModels] of checks) {
+            const html = fs.readFileSync(file, "utf8");
+            const modelCount = (html.match(/<h3 class="model">/g) || []).length;
+            if (modelCount < minModels) throw new Error(`${file} model count dropped to ${modelCount}`);
+            if (/Model TBC/.test(html)) throw new Error(`${file} contains Model TBC`);
+          }
+          NODE
+
+      - name: Commit update
+        if: steps.gate.outputs.should_run == 'true'
+        run: |
+          git add LGpricechecker data/lgpricechecker
+          if git diff --cached --quiet; then
+            echo "No LG price checker changes to commit."
+            exit 0
+          fi
+          git commit -m "Update LG price checker prices $(TZ=Europe/London date +%Y-%m-%d)"
+          git push origin HEAD:main
