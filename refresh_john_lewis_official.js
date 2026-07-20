@@ -242,13 +242,18 @@ function hasFreeWallInstall(service) {
 }
 
 function normaliseOffer(offer) {
-  const text = clean(offer)
+  const rawText = clean(offer);
+  let match = rawText.match(/(?:Get|Save)\s+(?:GBP|£)\s*([0-9.,]+)\s+off price shown.*?My John Lewis members(?:\.\s*Offer ends\s*([0-9.]+))?/i);
+  if (match) {
+    return `GBP ${match[1]} MyJL member discount${match[2] ? ` (ends ${match[2]})` : ""}`;
+  }
+  const text = rawText
     .replace(/ for new & existing My John Lewis members/g, "")
     .replace(/ \(via promo code, see product page for details\)/g, "")
     .replace(/ \(via redemption\)/g, "")
     .replace(/ at no extra cost/g, "");
   if (/free wall mount installation/i.test(text)) return "Free wall install (GBP 135 value)";
-  let match = text.match(/Claim GBP\s*([0-9.,]+) John Lewis E-Gift Card/i);
+  match = text.match(/Claim GBP\s*([0-9.,]+) John Lewis E-Gift Card/i);
   if (match) return `GBP ${match[1]} John Lewis e-gift card`;
   match = text.match(/Save\s+([0-9]+)% on price shown/i);
   if (match) return `${match[1]}% MyJL member discount`;
