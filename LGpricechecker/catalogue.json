@@ -2185,6 +2185,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "johnlewis_structured_checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.809Z",
+      "displayModel": "65LX7B6LA",
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
     {
@@ -2245,6 +2246,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "johnlewis_structured_checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.653Z",
+      "displayModel": "55LX7B6LA",
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
     {
@@ -3201,7 +3203,8 @@
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "currys_listing_checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
-      "cleanRebuildAt": "2026-07-17T13:03:33.717Z"
+      "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
+      "displayModel": "27LX6TDGA"
     },
     {
       "retailer": "Currys",
@@ -4133,7 +4136,8 @@
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "currys_listing_checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
-      "cleanRebuildAt": "2026-07-17T13:03:33.717Z"
+      "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
+      "displayModel": "27TQ615S-PZ"
     },
     {
       "retailer": "Currys",
@@ -4150,7 +4154,8 @@
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "currys_listing_checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
-      "cleanRebuildAt": "2026-07-17T13:03:33.717Z"
+      "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
+      "displayModel": "27TQ615S-WZ"
     },
     {
       "retailer": "Currys",
@@ -4167,7 +4172,8 @@
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "currys_listing_checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
-      "cleanRebuildAt": "2026-07-17T13:03:33.717Z"
+      "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
+      "displayModel": "24TQ510S-PZ"
     },
     {
       "retailer": "John Lewis",
@@ -4189,6 +4195,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "johnlewis_structured_checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.789Z",
+      "displayModel": "S95TR",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
     {
@@ -4601,6 +4608,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "johnlewis_structured_checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.635Z",
+      "displayModel": "G1",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
     {
@@ -4618,7 +4626,8 @@
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "currys_listing_checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
-      "cleanRebuildAt": "2026-07-17T13:03:33.718Z"
+      "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
+      "displayModel": "Sound Suite H7"
     },
     {
       "retailer": "John Lewis",
@@ -4640,6 +4649,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "johnlewis_structured_checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.946Z",
+      "displayModel": "Sound Suite H7",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     }
   ]
