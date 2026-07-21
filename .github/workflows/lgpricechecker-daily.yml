@@ -2,9 +2,10 @@ name: LG price checker daily update
 
 on:
   schedule:
-    # GitHub cron is UTC. Run at both possible UTC hours and gate below so
-    # the real update only runs at 05:00 Europe/London in GMT and BST.
-    - cron: "0 4,5 * * *"
+    # GitHub cron is UTC. Keep these as separate entries so the gate can use
+    # the intended schedule time, not the delayed runner start time.
+    - cron: "0 4 * * *"
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,8 +28,10 @@ jobs:
             echo "should_run=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          london_hour="$(TZ=Europe/London date +%H)"
-          if [ "$london_hour" = "05" ]; then
+          scheduled_hour="$(printf '%s' "${{ github.event.schedule }}" | awk '{print $2}')"
+          scheduled_london_hour="$(node -e "const hour=Number(process.argv[1]); const date=new Date(); date.setUTCHours(hour,0,0,0); console.log(new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',hourCycle:'h23'}).format(date));" "$scheduled_hour")"
+          echo "Scheduled UTC hour: ${scheduled_hour}; intended London hour: ${scheduled_london_hour}"
+          if [ "$scheduled_london_hour" = "05" ]; then
             echo "should_run=true" >> "$GITHUB_OUTPUT"
           else
             echo "should_run=false" >> "$GITHUB_OUTPUT"
