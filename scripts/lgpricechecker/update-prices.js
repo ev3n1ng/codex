@@ -189,6 +189,15 @@ function offerPatterns(text, patterns) {
   return uniq(patterns.flatMap((regex) => [...text.matchAll(regex)].map((match) => match[0]))).slice(0, 4);
 }
 
+function storedOfferItems(text) {
+  return String(text || "")
+    .split(/\s+\|\s+/)
+    .map(cleanText)
+    .filter(Boolean)
+    .filter((item) => item.length <= 140)
+    .filter((item) => !/For full terms|Claim Claims|How to claim|Terms and conditions|promotional Claim/i.test(item));
+}
+
 function parseCommon(html, product) {
   const text = cleanText(html);
   const strings = collectStrings(nextData(html) || {}).map(cleanText);
@@ -231,7 +240,7 @@ function parseCurrys(html, product) {
       /Save up to \d+% off selected TV accessories/gi,
       /When Bought With any LG TV/gi,
     ]),
-    product.offerText,
+    ...storedOfferItems(product.offerText),
   ]).slice(0, 4).join(" | ");
   return {
     priceText: common.firstPrice,
@@ -250,11 +259,11 @@ function parseJohnLewis(html, product) {
       /Free standard delivery/gi,
       /Free Click & Collect/gi,
       /Up to \d+% cashback on LG TVs/gi,
-      /Claim [^.]{1,80}/gi,
+      /Claim \d+% cashback(?: \(Via Redemption\))?/gi,
       /Reduced to clear/gi,
       /Save £[\d,.]+/gi,
     ]),
-    product.offerText,
+    ...storedOfferItems(product.offerText),
   ]).slice(0, 4).join(" | ");
   const guarantee = firstPattern(common.joined, [/\d+\s+year guarantee included/i]);
   return {
