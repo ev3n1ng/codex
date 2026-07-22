@@ -666,7 +666,7 @@ const currysProducts = [
     "price": "£849.00",
     "availability": "Listed",
     "offers": [
-      "Save £19.01",
+      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -789,7 +789,7 @@ const currysProducts = [
     "title": "LG G6 77\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED77G64LW",
     "size": 77,
     "price": "£3,899.99",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -820,6 +820,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -836,7 +837,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £30.00",
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1000,7 +1001,7 @@ const currysProducts = [
     "price": "£2,999.99",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1064,7 +1065,6 @@ const currysProducts = [
     "price": "£1,099.00",
     "availability": "Listed",
     "offers": [
-      "Save £9.01",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
