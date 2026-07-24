@@ -212,7 +212,7 @@ function parseCommon(html, product) {
       /Pay £[\d,.]+ per month over \d+ months at [\d.]+% APR/i,
       /Buy now, pay later/i,
     ]),
-    product.financeText,
+    ...storedOfferItems(product.financeText),
   ]).slice(0, 2).join(" | ");
   const availability = firstPattern(joined, [
     /Currently in stock online/i,
