@@ -386,12 +386,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 83\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED83G54LW",
     "size": 83,
-    "price": "£2,999.97",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £2,499.03",
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-83-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled83g54lw-10282103.html",
     "model": "OLED83G54LW",
@@ -454,11 +452,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG M5 65\" OLED evo AI 4K HDR True Wireless Smart TV 2025 - OLED65M59LA",
     "size": 65,
-    "price": "£2,299.00",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-m5-65-oled-evo-ai-4k-hdr-true-wireless-smart-tv-2025-oled65m59la-10282096.html",
     "model": "OLED65M59LA",
@@ -775,9 +772,9 @@ const currysProducts = [
     "title": "OLED83W69LA",
     "size": 83,
     "price": "Not listed",
-    "availability": "Out of stock",
+    "availability": "Product page redirected",
     "offers": [
-      "No current offer shown on official Currys product page"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED83W69LA",
     "model": "OLED83W69LA",
@@ -804,9 +801,9 @@ const currysProducts = [
     "title": "OLED77W69LA",
     "size": 77,
     "price": "Not listed",
-    "availability": "Out of stock",
+    "availability": "Product page redirected",
     "offers": [
-      "No current offer shown on official Currys product page"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/search?q=OLED77W69LA",
     "model": "OLED77W69LA",
@@ -920,6 +917,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £700.99",
+      "15% off marked price with code VIS15OFF",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -937,6 +935,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £500.99",
+      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -954,6 +953,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £300.99",
+      "10% off marked price with code TV10",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1002,6 +1002,7 @@ const currysProducts = [
     "price": "£2,999.99",
     "availability": "Listed",
     "offers": [
+      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
