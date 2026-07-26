@@ -102,7 +102,8 @@ class YoshiBirdGame {
       if (this.state === "playing") this.setState("paused");
     });
     ["pointerdown", "touchstart"].forEach((eventName) => {
-      this.canvas.addEventListener(eventName, (event) => {
+      this.ui.root.addEventListener(eventName, (event) => {
+        if (!["ready", "playing"].includes(this.state) || event.target.closest("button, input, label, table")) return;
         event.preventDefault();
         this.primaryAction();
       }, { passive: false });
