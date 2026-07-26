@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#8fd7ee" />
+    <meta name="description" content="Yoshi Bird, an original pastel storybook endless flying arcade game." />
+    <title>Yoshi Bird</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%238fd7ee'/%3E%3Ccircle cx='31' cy='34' r='19' fill='%2372d58a' stroke='%2331515a' stroke-width='4'/%3E%3Ccircle cx='41' cy='27' r='4' fill='%2331515a'/%3E%3Cpath d='M15 36q10-12 24 0' fill='none' stroke='%23ffe36f' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="game-root" class="game-shell" data-state="loading">
+      <canvas id="game-canvas" aria-label="Yoshi Bird game canvas" role="img"></canvas>
+
+      <section class="hud" aria-label="Run statistics">
+        <div class="hud-score"><span id="hud-score">0</span></div>
+        <div class="hud-strip">
+          <span><b id="hud-distance">0 m</b> distance</span>
+          <span><b id="hud-speed">0</b> speed</span>
+          <button class="icon-button" type="button" data-action="pause" aria-label="Pause game">II</button>
+        </div>
+      </section>
+
+      <section class="screen loading-screen" data-screen="loading" aria-live="polite">
+        <div class="storybook-mark" aria-hidden="true">YB</div>
+        <p>Sharpening coloured pencils...</p>
+      </section>
+
+      <section class="screen menu-screen" data-screen="title" hidden>
+        <div class="brand-lockup" aria-label="Yoshi Bird">
+          <span class="logo-word logo-yoshi">Yoshi</span>
+          <span class="logo-word logo-bird">Bird</span>
+        </div>
+        <div class="menu-dino" aria-hidden="true">
+          <span></span>
+        </div>
+        <p class="best-line">Best score: <strong data-best-score>0</strong></p>
+        <div class="button-row">
+          <button class="primary-button" type="button" data-action="play">Play</button>
+          <button type="button" data-action="leaderboard">Leaderboard</button>
+          <button type="button" data-action="settings">Settings</button>
+        </div>
+        <div class="control-card" aria-label="Controls">
+          Tap, click, Space, Up Arrow, Enter, or gamepad face button to flap.
+        </div>
+        <div class="toggle-note">
+          Local leaderboard only. Audio starts after your first interaction.
+        </div>
+      </section>
+
+      <section class="screen ready-screen" data-screen="ready" hidden>
+        <div class="ready-card">
+          <h1>Tap to flap</h1>
+          <p>Thread the opening. Keep it smooth.</p>
+        </div>
+      </section>
+
+      <section class="screen pause-screen" data-screen="paused" hidden>
+        <div class="panel">
+          <h1>Paused</h1>
+          <div class="button-stack">
+            <button class="primary-button" type="button" data-action="resume">Resume</button>
+            <button type="button" data-action="restart">Restart</button>
+            <button type="button" data-action="menu">Main menu</button>
+            <button type="button" data-action="settings">Sound and settings</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen gameover-screen" data-screen="gameover" hidden>
+        <div class="panel">
+          <p class="celebration" id="final-celebration" hidden>New local high score</p>
+          <h1>Game over</h1>
+          <div class="result-grid">
+            <span>Score <b id="final-score">0</b></span>
+            <span>Best <b id="final-best">0</b></span>
+            <span>Distance <b id="final-distance">0 m</b></span>
+            <span>Max speed <b id="final-speed">0</b></span>
+          </div>
+          <p class="rank-pill" id="final-rank">Fresh hatchling</p>
+          <form class="name-panel" id="name-panel">
+            <label for="name-input">Save name or initials</label>
+            <div>
+              <input id="name-input" maxlength="8" autocomplete="off" inputmode="text" placeholder="PAL" />
+              <button type="button" data-action="submitScore">Save</button>
+            </div>
+          </form>
+          <div class="button-row">
+            <button class="primary-button" type="button" data-action="restart">Restart</button>
+            <button type="button" data-action="leaderboard">Leaderboard</button>
+            <button type="button" data-action="menu">Main menu</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen leaderboard-screen" data-screen="leaderboard" hidden>
+        <div class="wide-panel">
+          <h1>Local leaderboard</h1>
+          <p class="toggle-note">Saved on this device with score, distance, date, and maximum speed.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Score</th>
+                  <th>Distance</th>
+                  <th>Speed</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard-body"></tbody>
+            </table>
+          </div>
+          <div class="button-row">
+            <button class="primary-button" type="button" data-action="play">Play</button>
+            <button type="button" data-action="back">Back</button>
+            <button class="danger-button" type="button" data-action="resetScores">Reset scores</button>
+          </div>
+          <div class="confirm-reset" id="reset-confirm" hidden>
+            <p>Reset all local Yoshi Bird runs on this device?</p>
+            <button class="danger-button" type="button" data-action="confirmReset">Reset</button>
+            <button type="button" data-action="cancelReset">Cancel</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen settings-screen" data-screen="settings" hidden>
+        <div class="wide-panel" id="settings-panel">
+          <h1>Settings</h1>
+          <div class="settings-grid">
+            <label>Music volume <input id="music-volume" data-setting="musicVolume" type="range" min="0" max="1" step="0.01" /></label>
+            <label>Sound effects <input id="sfx-volume" data-setting="sfxVolume" type="range" min="0" max="1" step="0.01" /></label>
+            <label class="check-line"><input id="mute-toggle" data-setting="mute" type="checkbox" /> Mute all audio</label>
+            <label class="check-line"><input id="reduced-motion-toggle" data-setting="reducedMotion" type="checkbox" /> Reduced motion</label>
+            <label class="check-line"><input id="contrast-toggle" data-setting="highContrast" type="checkbox" /> High-contrast obstacles</label>
+            <label class="check-line"><input id="shake-toggle" data-setting="screenShake" type="checkbox" /> Screen shake</label>
+            <label class="check-line"><input id="particles-toggle" data-setting="particles" type="checkbox" /> Particle effects</label>
+          </div>
+          <div class="button-row">
+            <button class="primary-button" type="button" data-action="back">Done</button>
+            <button type="button" data-action="play">Play</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/game.js"></script>
+  </body>
+</html>

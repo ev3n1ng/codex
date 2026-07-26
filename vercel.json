@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/yoshibird/:path*",
+      "destination": "/yoshibird/index.html"
+    },
+    {
       "source": "/murdermystery/:path*",
       "destination": "/murdermystery/index.html"
     }
