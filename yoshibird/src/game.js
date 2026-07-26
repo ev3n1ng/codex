@@ -117,8 +117,7 @@ class YoshiBirdGame {
     });
     document.querySelectorAll("[data-action]").forEach((button) => {
       button.addEventListener("click", () => {
-        this.audio.unlock();
-        this.audio.playSfx("button");
+        this.afterUserAudio("button");
         this.handleAction(button.dataset.action);
       });
     });
@@ -146,7 +145,7 @@ class YoshiBirdGame {
       screen.hidden = screen.dataset.screen !== state;
     });
     this.updateStaticUi();
-    if (state === "title") this.audio.playMusic("menu");
+    if (state === "title" || state === "ready") this.audio.playMusic("menu");
     if (state === "playing") this.audio.playMusic("gameplay");
     if (state === "paused") this.audio.playSfx("pause");
   }
@@ -212,7 +211,7 @@ class YoshiBirdGame {
   }
 
   primaryAction() {
-    this.audio.unlock();
+    this.afterUserAudio();
     if (this.state === "title" || this.state === "gameover") {
       this.readyRun();
       return;
@@ -223,6 +222,14 @@ class YoshiBirdGame {
       return;
     }
     if (this.state === "playing") this.flap();
+  }
+
+  afterUserAudio(sfxName) {
+    this.audio.unlock().then(() => {
+      if (sfxName) this.audio.playSfx(sfxName);
+      if (this.state === "ready" || this.state === "title") this.audio.playMusic("menu");
+      if (this.state === "playing") this.audio.playMusic("gameplay");
+    }).catch(() => {});
   }
 
   readyRun() {

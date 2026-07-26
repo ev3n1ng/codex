@@ -10,9 +10,9 @@ export const GAME_CONFIG = Object.freeze({
     metresPerPixel: 0.055
   },
   physics: {
-    gravity: 1660,
-    flapVelocity: -520,
-    terminalVelocity: 780,
+    gravity: 1500,
+    flapVelocity: -390,
+    terminalVelocity: 720,
     riseRotation: -0.34,
     fallRotation: 0.82,
     rotationLerp: 10,

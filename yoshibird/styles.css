@@ -94,6 +94,15 @@ input:focus-visible {
   touch-action: none;
 }
 
+@media (min-aspect-ratio: 1/1) {
+  #game-canvas {
+    width: min(100vw, calc(100dvh * 9 / 16));
+    height: 100dvh;
+    border-inline: 3px solid rgba(49, 81, 90, 0.36);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.38), 0 24px 70px rgba(49, 81, 90, 0.28);
+  }
+}
+
 .hud {
   position: fixed;
   inset: calc(env(safe-area-inset-top) + 12px) calc(env(safe-area-inset-right) + 12px) auto calc(env(safe-area-inset-left) + 12px);
