@@ -282,9 +282,9 @@ class YoshiBirdGame {
     const difficulty = getDifficulty(this.score, this.elapsed);
     this.maxSpeed = Math.max(this.maxSpeed, difficulty.speed);
     this.distance += difficulty.speed * dt * GAME_CONFIG.world.metresPerPixel;
-    this.player.vy = clamp(this.player.vy + GAME_CONFIG.physics.gravity * dt, -720, GAME_CONFIG.physics.terminalVelocity);
+    this.player.vy = clamp(this.player.vy + GAME_CONFIG.physics.gravity * dt, -420, GAME_CONFIG.physics.terminalVelocity);
     this.player.y += this.player.vy * dt;
-    const targetRotation = this.player.vy < 0 ? GAME_CONFIG.physics.riseRotation : clamp(this.player.vy / 720, 0, 1) * GAME_CONFIG.physics.fallRotation;
+    const targetRotation = this.player.vy < 0 ? GAME_CONFIG.physics.riseRotation : clamp(this.player.vy / GAME_CONFIG.physics.terminalVelocity, 0, 1) * GAME_CONFIG.physics.fallRotation;
     this.player.rotation += (targetRotation - this.player.rotation) * Math.min(1, GAME_CONFIG.physics.rotationLerp * dt);
     this.player.wing += dt * (this.player.flapPulse > 0 ? 28 : 12);
     this.player.flapPulse = Math.max(0, this.player.flapPulse - dt * 5);
