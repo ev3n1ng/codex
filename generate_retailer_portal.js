@@ -1004,7 +1004,7 @@ const currysProducts = [
     "price": "£2,999.99",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
