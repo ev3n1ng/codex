@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T04:47:34.929Z",
+  "generatedAt": "2026-07-28T04:47:18.068Z",
   "products": [
     {
       "retailer": "John Lewis",
@@ -21,7 +21,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.495Z",
-      "priceCheckedAt": "2026-07-27T04:40:49.973Z",
+      "priceCheckedAt": "2026-07-28T04:40:21.204Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -45,7 +45,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.711Z",
-      "priceCheckedAt": "2026-07-27T04:39:42.286Z",
+      "priceCheckedAt": "2026-07-28T04:39:10.953Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -65,7 +65,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:14:44.201Z",
+      "priceCheckedAt": "2026-07-28T04:13:57.730Z",
       "httpStatus": 200
     },
     {
@@ -100,7 +100,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.770Z",
-      "priceCheckedAt": "2026-07-27T04:38:26.620Z",
+      "priceCheckedAt": "2026-07-28T04:37:55.911Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -124,7 +124,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.612Z",
-      "priceCheckedAt": "2026-07-27T04:38:16.673Z",
+      "priceCheckedAt": "2026-07-28T04:37:44.751Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled65m49la-2024-oled-hdr-4k-ultra-hd-smart-tv-65-inch-with-freeview-play-freesat-hd-dolby-atmos-one-wall-design-wireless-4k-connectivity-light-satin-silver/p112024111"
     },
@@ -144,7 +144,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:17:26.240Z",
+      "priceCheckedAt": "2026-07-28T04:16:25.706Z",
       "httpStatus": 200
     },
     {
@@ -163,7 +163,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:17:12.239Z",
+      "priceCheckedAt": "2026-07-28T04:16:14.122Z",
       "httpStatus": 200
     },
     {
@@ -172,7 +172,7 @@
       "model": "OLED83G64LW",
       "category": "OLED",
       "priceText": "£5499.00",
-      "offerText": "Price promise | 5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £300",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Claim 15% cashback (Via Redemption)",
       "financeText": "Pay £305.49 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -186,7 +186,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.338Z",
-      "priceCheckedAt": "2026-07-27T04:40:36.096Z",
+      "priceCheckedAt": "2026-07-28T04:40:08.720Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -206,7 +206,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:16:58.631Z",
+      "priceCheckedAt": "2026-07-28T04:16:01.077Z",
       "httpStatus": 200
     },
     {
@@ -229,7 +229,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.180Z",
-      "priceCheckedAt": "2026-07-27T04:40:22.633Z",
+      "priceCheckedAt": "2026-07-28T04:39:57.034Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -249,7 +249,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:16:03.411Z",
+      "priceCheckedAt": "2026-07-28T04:15:09.733Z",
       "httpStatus": 200
     },
     {
@@ -272,7 +272,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.554Z",
-      "priceCheckedAt": "2026-07-27T04:39:30.487Z",
+      "priceCheckedAt": "2026-07-28T04:38:56.125Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled77g64lw-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-one-wall-design-satin-silver/p115240031"
     },
@@ -292,7 +292,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:15:48.784Z",
+      "priceCheckedAt": "2026-07-28T04:14:54.676Z",
       "httpStatus": 200
     },
     {
@@ -301,7 +301,7 @@
       "model": "OLED77G54LW",
       "category": "OLED",
       "priceText": "£3279.00",
-      "offerText": "Price promise | 5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £650",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Claim 15% cashback (Via Redemption)",
       "financeText": "Pay £136.62 interest free over 24 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -327,7 +327,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.395Z",
-      "priceCheckedAt": "2026-07-27T04:39:18.848Z",
+      "priceCheckedAt": "2026-07-28T04:38:44.794Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -347,7 +347,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:14:16.718Z",
+      "priceCheckedAt": "2026-07-28T04:13:33.202Z",
       "httpStatus": 200
     },
     {
@@ -366,7 +366,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:14:29.506Z",
+      "priceCheckedAt": "2026-07-28T04:13:47.402Z",
       "httpStatus": 200
     },
     {
@@ -403,7 +403,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.457Z",
-      "priceCheckedAt": "2026-07-27T04:38:01.287Z",
+      "priceCheckedAt": "2026-07-28T04:37:31.964Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -423,7 +423,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:13:48.981Z",
+      "priceCheckedAt": "2026-07-28T04:13:08.714Z",
       "httpStatus": 200
     },
     {
@@ -458,7 +458,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.143Z",
-      "priceCheckedAt": "2026-07-27T04:37:34.872Z",
+      "priceCheckedAt": "2026-07-28T04:37:05.105Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -478,7 +478,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:14:03.421Z",
+      "priceCheckedAt": "2026-07-28T04:13:21.917Z",
       "httpStatus": 200
     },
     {
@@ -515,7 +515,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.299Z",
-      "priceCheckedAt": "2026-07-27T04:37:49.686Z",
+      "priceCheckedAt": "2026-07-28T04:37:20.248Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -535,7 +535,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:12:22.065Z",
+      "priceCheckedAt": "2026-07-28T04:11:37.051Z",
       "httpStatus": 200
     },
     {
@@ -562,7 +562,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.040Z",
-      "priceCheckedAt": "2026-07-27T04:36:08.268Z",
+      "priceCheckedAt": "2026-07-28T04:35:32.950Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -582,7 +582,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:12:32.417Z",
+      "priceCheckedAt": "2026-07-28T04:11:49.216Z",
       "httpStatus": 200
     },
     {
@@ -619,7 +619,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.198Z",
-      "priceCheckedAt": "2026-07-27T04:36:18.128Z",
+      "priceCheckedAt": "2026-07-28T04:35:50.685Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -639,7 +639,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:58.757Z",
+      "priceCheckedAt": "2026-07-28T04:11:12.278Z",
       "httpStatus": 200
     },
     {
@@ -674,7 +674,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.725Z",
-      "priceCheckedAt": "2026-07-27T04:35:37.963Z",
+      "priceCheckedAt": "2026-07-28T04:35:07.960Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -694,7 +694,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:12:12.027Z",
+      "priceCheckedAt": "2026-07-28T04:11:27.137Z",
       "httpStatus": 200
     },
     {
@@ -705,7 +705,7 @@
       "priceText": "£1299.00",
       "offerText": "Price promise | 5 year guarantee included | Save £350 | Up to 15% cashback on LG TVs",
       "financeText": "Pay £54.12 interest free over 24 months",
-      "availabilityText": "Add to basket",
+      "availabilityText": "Currently out of stock online",
       "guaranteeText": "5 year guarantee included",
       "sourceFiles": [
         "tvs.md",
@@ -733,7 +733,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.885Z",
-      "priceCheckedAt": "2026-07-27T04:35:53.229Z",
+      "priceCheckedAt": "2026-07-28T04:35:21.779Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -743,7 +743,7 @@
       "model": "OLED48G66LS",
       "category": "OLED",
       "priceText": "£1599.00",
-      "offerText": "Save £8.00 | price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV",
+      "offerText": "Save £4.80 | price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV",
       "financeText": "From £64.80 per month for 36 months* | £66.62 per month for 24 months, interest free",
       "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=40&sz=20",
@@ -753,7 +753,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:10:50.866Z",
+      "priceCheckedAt": "2026-07-28T04:09:55.644Z",
       "httpStatus": 200
     },
     {
@@ -790,7 +790,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.789Z",
-      "priceCheckedAt": "2026-07-27T04:34:22.182Z",
+      "priceCheckedAt": "2026-07-28T04:33:53.852Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -811,7 +811,7 @@
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
       "priceCheckError": "HTTP 403",
-      "priceCheckedAt": "2026-07-27T04:10:36.410Z",
+      "priceCheckedAt": "2026-07-28T04:09:39.875Z",
       "httpStatus": 200
     },
     {
@@ -850,7 +850,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.630Z",
-      "priceCheckedAt": "2026-07-27T04:34:07.175Z",
+      "priceCheckedAt": "2026-07-28T04:33:37.102Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -870,7 +870,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:16:45.184Z",
+      "priceCheckedAt": "2026-07-28T04:15:48.401Z",
       "httpStatus": 200
     },
     {
@@ -879,7 +879,7 @@
       "model": "OLED83C64LA",
       "category": "OLED",
       "priceText": "£3999.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £650 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £650",
       "financeText": "Pay £166.62 interest free over 24 months",
       "availabilityText": "Currently out of stock online",
       "guaranteeText": "5 year guarantee included",
@@ -893,7 +893,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.024Z",
-      "priceCheckedAt": "2026-07-27T04:40:10.164Z",
+      "priceCheckedAt": "2026-07-28T04:39:42.283Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free"
     },
@@ -913,7 +913,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:15:22.747Z",
+      "priceCheckedAt": "2026-07-28T04:14:31.234Z",
       "httpStatus": 200
     },
     {
@@ -922,7 +922,7 @@
       "model": "OLED77C64LA",
       "category": "OLED",
       "priceText": "£2899.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £650 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £650",
       "financeText": "Pay £161.05 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -950,7 +950,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.238Z",
-      "priceCheckedAt": "2026-07-27T04:39:06.972Z",
+      "priceCheckedAt": "2026-07-28T04:38:31.336Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -970,7 +970,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:15:33.920Z",
+      "priceCheckedAt": "2026-07-28T04:14:41.263Z",
       "httpStatus": 200
     },
     {
@@ -1007,7 +1007,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:41.926Z",
-      "priceCheckedAt": "2026-07-27T04:38:39.849Z",
+      "priceCheckedAt": "2026-07-28T04:38:10.191Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1031,7 +1031,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.082Z",
-      "priceCheckedAt": "2026-07-27T04:38:52.000Z",
+      "priceCheckedAt": "2026-07-28T04:38:21.162Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled77c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-umber-brown/p113742830"
     },
@@ -1051,7 +1051,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:13:24.367Z",
+      "priceCheckedAt": "2026-07-28T04:12:39.770Z",
       "httpStatus": 200
     },
     {
@@ -1088,7 +1088,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.829Z",
-      "priceCheckedAt": "2026-07-27T04:37:08.090Z",
+      "priceCheckedAt": "2026-07-28T04:36:36.529Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1108,7 +1108,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:13:36.351Z",
+      "priceCheckedAt": "2026-07-28T04:12:54.596Z",
       "httpStatus": 200
     },
     {
@@ -1131,7 +1131,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.986Z",
-      "priceCheckedAt": "2026-07-27T04:37:19.560Z",
+      "priceCheckedAt": "2026-07-28T04:36:49.938Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled65c66lb-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-dark-titan-silver/p115240025"
     },
@@ -1151,7 +1151,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:13:10.929Z",
+      "priceCheckedAt": "2026-07-28T04:12:26.206Z",
       "httpStatus": 200
     },
     {
@@ -1188,7 +1188,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.514Z",
-      "priceCheckedAt": "2026-07-27T04:36:42.063Z",
+      "priceCheckedAt": "2026-07-28T04:36:15.325Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1226,7 +1226,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.672Z",
-      "priceCheckedAt": "2026-07-27T04:36:56.407Z",
+      "priceCheckedAt": "2026-07-28T04:36:25.442Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1246,7 +1246,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:37.771Z",
+      "priceCheckedAt": "2026-07-28T04:10:49.722Z",
       "httpStatus": 200
     },
     {
@@ -1283,7 +1283,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.415Z",
-      "priceCheckedAt": "2026-07-27T04:35:07.940Z",
+      "priceCheckedAt": "2026-07-28T04:34:44.196Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1303,7 +1303,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:49.336Z",
+      "priceCheckedAt": "2026-07-28T04:11:00.439Z",
       "httpStatus": 200
     },
     {
@@ -1326,7 +1326,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.571Z",
-      "priceCheckedAt": "2026-07-27T04:35:22.459Z",
+      "priceCheckedAt": "2026-07-28T04:34:53.813Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled55c66lb-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-dark-titan-silver/p115240001"
     },
@@ -1346,7 +1346,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:23.613Z",
+      "priceCheckedAt": "2026-07-28T04:10:33.894Z",
       "httpStatus": 200
     },
     {
@@ -1354,7 +1354,7 @@
       "title": "LG OLED55C54LA (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 55 inch with Dolby Atmos, Dark Titan Silver",
       "model": "OLED55C54LA",
       "category": "OLED",
-      "priceText": "£1099.00",
+      "priceText": "£999.00",
       "offerText": "Price promise | 5 year guarantee included | Save £400 | Up to 15% cashback on LG TVs",
       "financeText": "Pay £41.62 interest free over 24 months",
       "availabilityText": "Add to basket",
@@ -1385,7 +1385,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.103Z",
-      "priceCheckedAt": "2026-07-27T04:34:45.862Z",
+      "priceCheckedAt": "2026-07-28T04:34:18.416Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -1423,7 +1423,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:39.260Z",
-      "priceCheckedAt": "2026-07-27T04:34:58.284Z",
+      "priceCheckedAt": "2026-07-28T04:34:31.390Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1443,7 +1443,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:10:21.250Z",
+      "priceCheckedAt": "2026-07-28T04:09:27.062Z",
       "httpStatus": 200
     },
     {
@@ -1480,7 +1480,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.472Z",
-      "priceCheckedAt": "2026-07-27T04:33:55.185Z",
+      "priceCheckedAt": "2026-07-28T04:33:23.593Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1500,7 +1500,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:09:51.111Z",
+      "priceCheckedAt": "2026-07-28T04:09:01.200Z",
       "httpStatus": 200
     },
     {
@@ -1509,7 +1509,7 @@
       "model": "OLED48C54LA",
       "category": "OLED",
       "priceText": "£949.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £40 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £40",
       "financeText": "Pay £39.54 interest free over 24 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -1537,7 +1537,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.158Z",
-      "priceCheckedAt": "2026-07-27T04:33:30.054Z",
+      "priceCheckedAt": "2026-07-28T04:32:56.073Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1557,7 +1557,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:10:05.978Z",
+      "priceCheckedAt": "2026-07-28T04:09:14.800Z",
       "httpStatus": 200
     },
     {
@@ -1566,7 +1566,7 @@
       "model": "OLED48C56LB",
       "category": "OLED",
       "priceText": "£949.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £40 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £40",
       "financeText": "Pay £39.54 interest free over 24 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -1594,7 +1594,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.317Z",
-      "priceCheckedAt": "2026-07-27T04:33:39.790Z",
+      "priceCheckedAt": "2026-07-28T04:33:10.634Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -1614,7 +1614,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:09:39.727Z",
+      "priceCheckedAt": "2026-07-28T04:08:49.014Z",
       "httpStatus": 200
     },
     {
@@ -1633,7 +1633,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:09:04.567Z",
+      "priceCheckedAt": "2026-07-28T04:08:14.274Z",
       "httpStatus": 200
     },
     {
@@ -1656,7 +1656,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.687Z",
-      "priceCheckedAt": "2026-07-27T04:32:50.829Z",
+      "priceCheckedAt": "2026-07-28T04:32:17.983Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled42c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-42-inch-with-dolby-atmos-dark-titan-silver/p115239735"
     },
@@ -1676,7 +1676,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:08:48.997Z",
+      "priceCheckedAt": "2026-07-28T04:07:59.694Z",
       "httpStatus": 200
     },
     {
@@ -1715,7 +1715,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.529Z",
-      "priceCheckedAt": "2026-07-27T04:32:39.521Z",
+      "priceCheckedAt": "2026-07-28T04:32:08.336Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -1735,7 +1735,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:16:15.488Z",
+      "priceCheckedAt": "2026-07-28T04:15:20.383Z",
       "httpStatus": 200
     },
     {
@@ -1758,7 +1758,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:42.867Z",
-      "priceCheckedAt": "2026-07-27T04:39:55.807Z",
+      "priceCheckedAt": "2026-07-28T04:39:25.808Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled83b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-umber-brown/p115308528"
     },
@@ -1778,7 +1778,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:16:29.814Z",
+      "priceCheckedAt": "2026-07-28T04:15:34.000Z",
       "httpStatus": 200
     },
     {
@@ -1797,7 +1797,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:14:56.741Z",
+      "priceCheckedAt": "2026-07-28T04:14:10.746Z",
       "httpStatus": 200
     },
     {
@@ -1805,18 +1805,18 @@
       "title": "LG B6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77B6ELC",
       "model": "OLED77B6ELC",
       "category": "OLED",
-      "priceText": "£1760.00",
-      "offerText": "price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | Save £439.00",
-      "financeText": "From £71.33 per month for 36 months* | £73.33 per month for 24 months, interest free",
-      "availabilityText": "",
+      "priceText": "£99",
+      "offerText": "Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | price match | Save £439.00",
+      "financeText": "From £40.48 per month for 36 months* | From £71.33 per month for 36 months*",
+      "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=100&sz=20",
       "sourceFile": "tvs-100.md",
-      "directProductUrl": "https://www.currys.co.uk/products/lg-b6-77-oled-ai-4k-hdr-smart-tv-2026-oled77b6elc-10301906.html",
+      "directProductUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs",
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:15:06.976Z",
+      "priceCheckedAt": "2026-07-28T04:14:21.025Z",
       "httpStatus": 200
     },
     {
@@ -1835,7 +1835,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:12:55.888Z",
+      "priceCheckedAt": "2026-07-28T04:12:15.635Z",
       "httpStatus": 200
     },
     {
@@ -1843,8 +1843,8 @@
       "title": "LG OLED65B65LA (2026) OLED HDR 4K Ultra HD Smart AI TV, 65 inch with Dolby Atmos, Umber Brown",
       "model": "OLED65B65LA",
       "category": "OLED",
-      "priceText": "£1899.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £500 | Save £350",
+      "priceText": "£1799.99",
+      "offerText": "Price promise | 5 year guarantee included | Save £350 | Save £500",
       "financeText": "Pay £105.49 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -1858,7 +1858,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:40.357Z",
-      "priceCheckedAt": "2026-07-27T04:36:29.756Z",
+      "priceCheckedAt": "2026-07-28T04:36:00.488Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled65b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p115232147"
     },
@@ -1878,7 +1878,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:12:42.037Z",
+      "priceCheckedAt": "2026-07-28T04:12:02.586Z",
       "httpStatus": 200
     },
     {
@@ -1897,7 +1897,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:13.028Z",
+      "priceCheckedAt": "2026-07-28T04:10:22.481Z",
       "httpStatus": 200
     },
     {
@@ -1905,8 +1905,8 @@
       "title": "LG OLED55B65LA (2026) OLED HDR 4K Ultra HD Smart AI TV, 55 inch with Dolby Atmos, Umber Brown",
       "model": "OLED55B65LA",
       "category": "OLED",
-      "priceText": "£1299.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £300 | Up to 15% cashback on LG TVs",
+      "priceText": "£1199.99",
+      "offerText": "Price promise | 5 year guarantee included | save £399.01 | Save £300",
       "financeText": "Pay £72.16 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -1920,7 +1920,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.946Z",
-      "priceCheckedAt": "2026-07-27T04:34:32.423Z",
+      "priceCheckedAt": "2026-07-28T04:34:08.891Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled55b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p115232122"
     },
@@ -1940,7 +1940,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:11:01.706Z",
+      "priceCheckedAt": "2026-07-28T04:10:10.428Z",
       "httpStatus": 200
     },
     {
@@ -1959,7 +1959,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:09:28.024Z",
+      "priceCheckedAt": "2026-07-28T04:08:37.845Z",
       "httpStatus": 200
     },
     {
@@ -1982,7 +1982,7 @@
       "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:38.002Z",
-      "priceCheckedAt": "2026-07-27T04:33:14.745Z",
+      "priceCheckedAt": "2026-07-28T04:32:45.630Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/lg-oled48b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p115232088"
     },
@@ -2002,7 +2002,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:09:16.479Z",
+      "priceCheckedAt": "2026-07-28T04:08:27.496Z",
       "httpStatus": 200
     },
     {
@@ -2039,7 +2039,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.845Z",
-      "priceCheckedAt": "2026-07-27T04:33:04.428Z",
+      "priceCheckedAt": "2026-07-28T04:32:32.734Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-474pZ1z13wsdZ1z0rgkw?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/oled/_/N-6srfZ1z13wsdZ1z0rgkw?codexfresh=20260716full | https://www.johnlewis.com/brand/lg/oled/view-all-tvs/_/N-1z13wsdZ1z0rgkwZ474p?codexfresh=20260716text"
     },
@@ -2049,7 +2049,7 @@
       "model": "86MRGB96B6B",
       "category": "MRGB",
       "priceText": "£5799.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £100 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £100",
       "financeText": "Pay £222.79 per month over 36 months at 24.9% APR",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2063,7 +2063,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.373Z",
-      "priceCheckedAt": "2026-07-27T04:32:27.740Z",
+      "priceCheckedAt": "2026-07-28T04:31:58.000Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/televisions/view-all-tvs/mrgb96/_/N-6srfZq5w8?codexfresh=20260716"
     },
@@ -2084,7 +2084,7 @@
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
       "priceCheckError": "HTTP 403",
-      "priceCheckedAt": "2026-07-27T04:08:38.753Z",
+      "priceCheckedAt": "2026-07-28T04:07:46.437Z",
       "httpStatus": 200
     },
     {
@@ -2103,7 +2103,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:08:03.403Z",
+      "priceCheckedAt": "2026-07-28T04:07:11.817Z",
       "httpStatus": 200
     },
     {
@@ -2122,7 +2122,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:08:13.778Z",
+      "priceCheckedAt": "2026-07-28T04:07:21.832Z",
       "httpStatus": 200
     },
     {
@@ -2141,7 +2141,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:08:25.581Z",
+      "priceCheckedAt": "2026-07-28T04:07:33.529Z",
       "httpStatus": 200
     },
     {
@@ -2160,7 +2160,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:07:51.870Z",
+      "priceCheckedAt": "2026-07-28T04:06:58.390Z",
       "httpStatus": 200
     },
     {
@@ -2179,7 +2179,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:07:40.903Z",
+      "priceCheckedAt": "2026-07-28T04:06:47.644Z",
       "httpStatus": 200
     },
     {
@@ -2202,7 +2202,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.216Z",
-      "priceCheckedAt": "2026-07-27T04:32:16.354Z",
+      "priceCheckedAt": "2026-07-28T04:31:46.999Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/televisions/view-all-tvs/freestanding/mrgb86/_/N-6srfZ1z0rkphZq6ae?codexfresh=20260716"
     },
@@ -2226,7 +2226,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:37.059Z",
-      "priceCheckedAt": "2026-07-27T04:32:06.030Z",
+      "priceCheckedAt": "2026-07-28T04:31:35.145Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/televisions/view-all-tvs/freestanding/mrgb86/_/N-6srfZ1z0rkphZq6ae?codexfresh=20260716"
     },
@@ -2252,7 +2252,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.901Z",
-      "priceCheckedAt": "2026-07-27T04:31:51.143Z",
+      "priceCheckedAt": "2026-07-28T04:31:20.842Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/televisions/view-all-tvs/freestanding/mrgb86/_/N-6srfZ1z0rkphZq6ae?codexfresh=20260716 | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -2276,7 +2276,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.746Z",
-      "priceCheckedAt": "2026-07-27T04:31:40.052Z",
+      "priceCheckedAt": "2026-07-28T04:31:10.395Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/televisions/view-all-tvs/freestanding/mrgb86/_/N-6srfZ1z0rkphZq6ae?codexfresh=20260716"
     },
@@ -2286,7 +2286,7 @@
       "model": "86QNED9MA6B",
       "category": "QNED",
       "priceText": "£2199.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £600 | Save £650",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £600",
       "financeText": "Pay £91.62 interest free over 24 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2304,7 +2304,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.478Z",
-      "priceCheckedAt": "2026-07-27T04:44:48.881Z",
+      "priceCheckedAt": "2026-07-28T04:44:22.183Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -2324,7 +2324,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:25:10.154Z",
+      "priceCheckedAt": "2026-07-28T04:24:43.294Z",
       "httpStatus": 200
     },
     {
@@ -2333,7 +2333,7 @@
       "model": "75QNED9MA6B",
       "category": "QNED",
       "priceText": "£1299.00",
-      "offerText": "Price promise | 5 year guarantee included | save £700 | Save £650",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | save £700",
       "financeText": "Pay £54.12 interest free over 24 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2349,7 +2349,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.009Z",
-      "priceCheckedAt": "2026-07-27T04:44:16.127Z",
+      "priceCheckedAt": "2026-07-28T04:43:43.868Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2375,7 +2375,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.809Z",
-      "priceCheckedAt": "2026-07-27T04:41:15.660Z",
+      "priceCheckedAt": "2026-07-28T04:40:50.058Z",
       "httpStatus": 200,
       "displayModel": "65LX7B6LA",
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
@@ -2414,7 +2414,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.380Z",
-      "priceCheckedAt": "2026-07-27T04:43:21.016Z",
+      "priceCheckedAt": "2026-07-28T04:42:54.523Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-474pZ1z13wsd?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/_/N-6srfZ1z13wsd?codexfresh=20260716full | https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/show-in-stock-items-only/_/N-474pZ1z13wsdZ1z0wxdt?codexfresh=20260716stock | https://www.johnlewis.com/brand/view-all-tvs/lg/all-offers/_/N-474pZ1z13wsdZ1yzvw1q?codexfresh=20260716 | https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -2440,7 +2440,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.653Z",
-      "priceCheckedAt": "2026-07-27T04:41:03.429Z",
+      "priceCheckedAt": "2026-07-28T04:40:34.314Z",
       "httpStatus": 200,
       "displayModel": "55LX7B6LA",
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
@@ -2461,7 +2461,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:24:58.739Z",
+      "priceCheckedAt": "2026-07-28T04:24:31.388Z",
       "httpStatus": 200
     },
     {
@@ -2470,7 +2470,7 @@
       "model": "75QNED87A6B",
       "category": "QNED",
       "priceText": "£1149.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £350",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £350",
       "financeText": "Pay £63.83 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2488,7 +2488,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.851Z",
-      "priceCheckedAt": "2026-07-27T04:44:02.153Z",
+      "priceCheckedAt": "2026-07-28T04:43:30.195Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2516,7 +2516,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.597Z",
-      "priceCheckedAt": "2026-07-27T04:42:15.063Z",
+      "priceCheckedAt": "2026-07-28T04:41:51.122Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2536,7 +2536,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:24:48.189Z",
+      "priceCheckedAt": "2026-07-28T04:24:16.934Z",
       "httpStatus": 200
     },
     {
@@ -2555,7 +2555,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:24:38.141Z",
+      "priceCheckedAt": "2026-07-28T04:24:01.365Z",
       "httpStatus": 200
     },
     {
@@ -2580,7 +2580,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.694Z",
-      "priceCheckedAt": "2026-07-27T04:43:49.877Z",
+      "priceCheckedAt": "2026-07-28T04:43:16.970Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2600,7 +2600,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:23:46.260Z",
+      "priceCheckedAt": "2026-07-28T04:23:10.283Z",
       "httpStatus": 200
     },
     {
@@ -2627,7 +2627,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.223Z",
-      "priceCheckedAt": "2026-07-27T04:43:06.703Z",
+      "priceCheckedAt": "2026-07-28T04:42:41.289Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text | https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657?codexfresh=20260716"
     },
@@ -2647,7 +2647,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:24:14.411Z",
+      "priceCheckedAt": "2026-07-28T04:23:36.890Z",
       "httpStatus": 200
     },
     {
@@ -2666,7 +2666,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:23:21.858Z",
+      "priceCheckedAt": "2026-07-28T04:22:44.528Z",
       "httpStatus": 200
     },
     {
@@ -2675,7 +2675,7 @@
       "model": "55QNED86B6B",
       "category": "QNED",
       "priceText": "£799.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £100 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £100",
       "financeText": "Pay £266.33 interest free over 2 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2691,7 +2691,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.909Z",
-      "priceCheckedAt": "2026-07-27T04:42:42.313Z",
+      "priceCheckedAt": "2026-07-28T04:42:12.003Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2701,7 +2701,7 @@
       "model": "QNED86",
       "category": "QNED",
       "priceText": "£799.99",
-      "offerText": "price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | Save £5.00",
+      "offerText": "Save £5.00 | price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV",
       "financeText": "From £32.42 per month for 36 months*",
       "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=60&sz=20",
@@ -2711,7 +2711,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:24:27.506Z",
+      "priceCheckedAt": "2026-07-28T04:23:51.554Z",
       "httpStatus": 200
     },
     {
@@ -2730,7 +2730,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:23:35.648Z",
+      "priceCheckedAt": "2026-07-28T04:22:55.752Z",
       "httpStatus": 200
     },
     {
@@ -2755,7 +2755,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.439Z",
-      "priceCheckedAt": "2026-07-27T04:42:04.921Z",
+      "priceCheckedAt": "2026-07-28T04:41:39.535Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2775,7 +2775,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:23:59.086Z",
+      "priceCheckedAt": "2026-07-28T04:23:20.927Z",
       "httpStatus": 200
     },
     {
@@ -2794,7 +2794,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:23:10.466Z",
+      "priceCheckedAt": "2026-07-28T04:22:34.714Z",
       "httpStatus": 200
     },
     {
@@ -2819,7 +2819,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.124Z",
-      "priceCheckedAt": "2026-07-27T04:41:38.035Z",
+      "priceCheckedAt": "2026-07-28T04:41:13.721Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2839,7 +2839,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:22:57.301Z",
+      "priceCheckedAt": "2026-07-28T04:22:20.209Z",
       "httpStatus": 200
     },
     {
@@ -2864,7 +2864,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.320Z",
-      "priceCheckedAt": "2026-07-27T04:44:38.845Z",
+      "priceCheckedAt": "2026-07-28T04:44:08.631Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2873,18 +2873,18 @@
       "title": "LG QNED85 86\" QNED evo AI Mini LED 4K HDR Smart TV 2025 - 86QNED85A6C",
       "model": "QNED85",
       "category": "QNED",
-      "priceText": "£1699.00",
-      "offerText": "price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | Save £360.00",
-      "financeText": "From £68.85 per month for 36 months* | £70.79 per month for 24 months, interest free",
+      "priceText": "£99",
+      "offerText": "Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | price match | Save £360.00",
+      "financeText": "From £40.48 per month for 36 months* | From £68.85 per month for 36 months*",
       "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=60&sz=20",
       "sourceFile": "tvs-60.md",
-      "directProductUrl": "https://www.currys.co.uk/products/lg-qned85-86-qned-evo-ai-mini-led-4k-hdr-smart-tv-2025-86qned85a6c-10284938.html",
+      "directProductUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs",
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:22:45.826Z",
+      "priceCheckedAt": "2026-07-28T04:22:06.050Z",
       "httpStatus": 200
     },
     {
@@ -2893,7 +2893,7 @@
       "model": "86QNED82A6B",
       "category": "QNED",
       "priceText": "£1499.00",
-      "offerText": "Price promise | 5 year guarantee included | Save £650 | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs | Save £650",
       "financeText": "Pay £83.27 interest free over 18 months",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
@@ -2909,7 +2909,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.166Z",
-      "priceCheckedAt": "2026-07-27T04:44:27.794Z",
+      "priceCheckedAt": "2026-07-28T04:43:57.696Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2935,7 +2935,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.536Z",
-      "priceCheckedAt": "2026-07-27T04:43:36.679Z",
+      "priceCheckedAt": "2026-07-28T04:43:05.157Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -2955,7 +2955,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:22:18.017Z",
+      "priceCheckedAt": "2026-07-28T04:21:38.632Z",
       "httpStatus": 200
     },
     {
@@ -2980,7 +2980,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:45.065Z",
-      "priceCheckedAt": "2026-07-27T04:42:54.516Z",
+      "priceCheckedAt": "2026-07-28T04:42:26.554Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -3000,7 +3000,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:22:30.801Z",
+      "priceCheckedAt": "2026-07-28T04:21:50.250Z",
       "httpStatus": 200
     },
     {
@@ -3025,7 +3025,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.753Z",
-      "priceCheckedAt": "2026-07-27T04:42:28.579Z",
+      "priceCheckedAt": "2026-07-28T04:42:01.355Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -3045,7 +3045,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:22:05.805Z",
+      "priceCheckedAt": "2026-07-28T04:21:27.065Z",
       "httpStatus": 200
     },
     {
@@ -3072,7 +3072,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:44.281Z",
-      "priceCheckedAt": "2026-07-27T04:41:51.755Z",
+      "priceCheckedAt": "2026-07-28T04:41:28.107Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/freestanding/_/N-474pZ1z13wsdZ1z0rkph?codexfresh=20260716free | https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -3092,7 +3092,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:21:36.383Z",
+      "priceCheckedAt": "2026-07-28T04:20:58.913Z",
       "httpStatus": 200
     },
     {
@@ -3117,7 +3117,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:43.966Z",
-      "priceCheckedAt": "2026-07-27T04:41:25.332Z",
+      "priceCheckedAt": "2026-07-28T04:41:03.684Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/qned/_/N-474pZ1z13wsdZmuux?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/qned/view-all-tvs/_/N-1z13wsdZmuuxZ474p?codexfresh=20260716text"
     },
@@ -3137,7 +3137,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:21:51.656Z",
+      "priceCheckedAt": "2026-07-28T04:21:11.950Z",
       "httpStatus": 200
     },
     {
@@ -3156,7 +3156,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:21:21.450Z",
+      "priceCheckedAt": "2026-07-28T04:20:16.532Z",
       "httpStatus": 200
     },
     {
@@ -3175,7 +3175,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:19:57.178Z",
+      "priceCheckedAt": "2026-07-28T04:19:01.521Z",
       "httpStatus": 200
     },
     {
@@ -3194,7 +3194,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:19:30.756Z",
+      "priceCheckedAt": "2026-07-28T04:18:32.376Z",
       "httpStatus": 200
     },
     {
@@ -3213,7 +3213,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:19:46.324Z",
+      "priceCheckedAt": "2026-07-28T04:18:48.361Z",
       "httpStatus": 200
     },
     {
@@ -3232,7 +3232,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:19:15.401Z",
+      "priceCheckedAt": "2026-07-28T04:18:18.042Z",
       "httpStatus": 200
     },
     {
@@ -3251,7 +3251,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:19:03.471Z",
+      "priceCheckedAt": "2026-07-28T04:18:04.578Z",
       "httpStatus": 200
     },
     {
@@ -3270,7 +3270,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:18:51.426Z",
+      "priceCheckedAt": "2026-07-28T04:17:49.569Z",
       "httpStatus": 200
     },
     {
@@ -3289,7 +3289,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:18:38.581Z",
+      "priceCheckedAt": "2026-07-28T04:17:39.964Z",
       "httpStatus": 200
     },
     {
@@ -3308,7 +3308,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:18:01.071Z",
+      "priceCheckedAt": "2026-07-28T04:17:07.688Z",
       "httpStatus": 200
     },
     {
@@ -3327,7 +3327,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:18:23.694Z",
+      "priceCheckedAt": "2026-07-28T04:17:27.937Z",
       "httpStatus": 200
     },
     {
@@ -3346,7 +3346,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:18:11.280Z",
+      "priceCheckedAt": "2026-07-28T04:17:17.488Z",
       "httpStatus": 200
     },
     {
@@ -3365,7 +3365,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:17:49.887Z",
+      "priceCheckedAt": "2026-07-28T04:16:53.454Z",
       "httpStatus": 200
     },
     {
@@ -3384,7 +3384,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:17:38.962Z",
+      "priceCheckedAt": "2026-07-28T04:16:39.452Z",
       "httpStatus": 200
     },
     {
@@ -3403,7 +3403,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:20:28.026Z",
+      "priceCheckedAt": "2026-07-28T04:19:25.895Z",
       "httpStatus": 200
     },
     {
@@ -3422,7 +3422,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:20:42.532Z",
+      "priceCheckedAt": "2026-07-28T04:19:37.062Z",
       "httpStatus": 200
     },
     {
@@ -3441,7 +3441,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:20:52.173Z",
+      "priceCheckedAt": "2026-07-28T04:19:50.526Z",
       "httpStatus": 200
     },
     {
@@ -3460,7 +3460,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:21:05.788Z",
+      "priceCheckedAt": "2026-07-28T04:20:03.216Z",
       "httpStatus": 200
     },
     {
@@ -3479,7 +3479,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:20:12.757Z",
+      "priceCheckedAt": "2026-07-28T04:19:11.815Z",
       "httpStatus": 200
     },
     {
@@ -3487,18 +3487,18 @@
       "title": "LG StanbyME 2 27LX6TDGA 27\" Smart Quad HD HDR LED Portable TV - Beige",
       "model": "",
       "category": "LED",
-      "priceText": "£999.99",
-      "offerText": "price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV",
-      "financeText": "From £40.52 per month for 36 months*",
-      "availabilityText": "",
+      "priceText": "£99",
+      "offerText": "Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | price match",
+      "financeText": "From £40.48 per month for 36 months* | From £40.52 per month for 36 months*",
+      "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=80&sz=20",
       "sourceFile": "tvs-80.md",
-      "directProductUrl": "https://www.currys.co.uk/products/lg-stanbyme-2-27lx6tdga-27-smart-quad-hd-hdr-led-portable-tv-beige-10303099.html",
+      "directProductUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs",
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:01:38.415Z",
+      "priceCheckedAt": "2026-07-28T04:01:11.100Z",
       "httpStatus": 200,
       "displayModel": "27LX6TDGA"
     },
@@ -3518,7 +3518,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:03:15.893Z",
+      "priceCheckedAt": "2026-07-28T04:02:50.264Z",
       "httpStatus": 200
     },
     {
@@ -3543,7 +3543,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.116Z",
-      "priceCheckedAt": "2026-07-27T04:30:37.384Z",
+      "priceCheckedAt": "2026-07-28T04:30:15.064Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3569,7 +3569,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.646Z",
-      "priceCheckedAt": "2026-07-27T04:30:00.663Z",
+      "priceCheckedAt": "2026-07-28T04:29:42.720Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3589,7 +3589,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:02:52.923Z",
+      "priceCheckedAt": "2026-07-28T04:02:23.801Z",
       "httpStatus": 200
     },
     {
@@ -3614,7 +3614,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.015Z",
-      "priceCheckedAt": "2026-07-27T04:29:12.422Z",
+      "priceCheckedAt": "2026-07-28T04:28:47.633Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3634,7 +3634,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:02:40.516Z",
+      "priceCheckedAt": "2026-07-28T04:02:11.161Z",
       "httpStatus": 200
     },
     {
@@ -3653,7 +3653,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:03:03.108Z",
+      "priceCheckedAt": "2026-07-28T04:02:35.972Z",
       "httpStatus": 200
     },
     {
@@ -3661,7 +3661,7 @@
       "title": "LG 50NANO80A6B (2025) LED HDR NanoCell 4K Ultra HD Smart AI TV, 50 inch, Ashed Blue",
       "model": "50NANO80A6B",
       "category": "LED",
-      "priceText": "£279.00",
+      "priceText": "£20",
       "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs",
       "financeText": "Pay £10.71 per month over 36 months at 24.9% APR | Pay £92.99 interest free over 2 months",
       "availabilityText": "No longer available online",
@@ -3678,7 +3678,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.548Z",
-      "priceCheckedAt": "2026-07-27T04:28:35.952Z",
+      "priceCheckedAt": "2026-07-28T04:28:07.397Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3687,18 +3687,18 @@
       "title": "LG NANO81A 50\" NanoCell AI 4K HDR Smart TV 2025 - 50NANO81A6A",
       "model": "NANO81A",
       "category": "LED",
-      "priceText": "£379.00",
-      "offerText": "price match | Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | Get Free Delivery",
-      "financeText": "From £12.11 per month for 36 months*",
-      "availabilityText": "FREE in-store collection",
+      "priceText": "£99",
+      "offerText": "Save up to 50% on the purchase of selected LG soundbars | When Bought With any LG TV | price match | Get Free Delivery",
+      "financeText": "From £40.48 per month for 36 months* | From £12.11 per month for 36 months*",
+      "availabilityText": "Delivery available",
       "sourceListingUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs/lg?start=80&sz=20",
       "sourceFile": "tvs-80.md",
-      "directProductUrl": "https://www.currys.co.uk/products/lg-nano81a-50-nanocell-ai-4k-hdr-smart-tv-2025-50nano81a6a-10282148.html",
+      "directProductUrl": "https://www.currys.co.uk/tv-and-audio/televisions/tvs",
       "directProductUrlStatus": "verified_from_currys_rendered_listing",
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:03:29.853Z",
+      "priceCheckedAt": "2026-07-28T04:03:05.551Z",
       "httpStatus": 200
     },
     {
@@ -3717,7 +3717,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:02:26.826Z",
+      "priceCheckedAt": "2026-07-28T04:01:58.354Z",
       "httpStatus": 200
     },
     {
@@ -3742,7 +3742,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.432Z",
-      "priceCheckedAt": "2026-07-27T04:31:12.851Z",
+      "priceCheckedAt": "2026-07-28T04:30:40.844Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3763,7 +3763,7 @@
       "checkedSource": "work/currys-rendered-pages/tvs-100.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
       "priceCheckError": "HTTP 403",
-      "priceCheckedAt": "2026-07-27T04:06:39.361Z",
+      "priceCheckedAt": "2026-07-28T04:05:48.682Z",
       "httpStatus": 200
     },
     {
@@ -3782,7 +3782,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:07:17.770Z",
+      "priceCheckedAt": "2026-07-28T04:06:22.507Z",
       "httpStatus": 200
     },
     {
@@ -3801,7 +3801,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:06:52.373Z",
+      "priceCheckedAt": "2026-07-28T04:05:59.044Z",
       "httpStatus": 200
     },
     {
@@ -3820,7 +3820,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:07:30.018Z",
+      "priceCheckedAt": "2026-07-28T04:06:35.763Z",
       "httpStatus": 200
     },
     {
@@ -3839,7 +3839,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:06:26.196Z",
+      "priceCheckedAt": "2026-07-28T04:05:38.705Z",
       "httpStatus": 200
     },
     {
@@ -3858,7 +3858,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:07:04.657Z",
+      "priceCheckedAt": "2026-07-28T04:06:12.467Z",
       "httpStatus": 200
     },
     {
@@ -3883,7 +3883,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.488Z",
-      "priceCheckedAt": "2026-07-27T04:29:48.266Z",
+      "priceCheckedAt": "2026-07-28T04:29:30.730Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3903,7 +3903,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:04:36.380Z",
+      "priceCheckedAt": "2026-07-28T04:04:04.217Z",
       "httpStatus": 200
     },
     {
@@ -3928,7 +3928,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.589Z",
-      "priceCheckedAt": "2026-07-27T04:31:27.231Z",
+      "priceCheckedAt": "2026-07-28T04:30:55.351Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -3948,7 +3948,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:06:12.838Z",
+      "priceCheckedAt": "2026-07-28T04:05:28.897Z",
       "httpStatus": 200
     },
     {
@@ -3967,7 +3967,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:03:57.884Z",
+      "priceCheckedAt": "2026-07-28T04:03:28.549Z",
       "httpStatus": 200
     },
     {
@@ -3992,7 +3992,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:36.274Z",
-      "priceCheckedAt": "2026-07-27T04:30:58.221Z",
+      "priceCheckedAt": "2026-07-28T04:30:29.809Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4012,7 +4012,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:05:47.548Z",
+      "priceCheckedAt": "2026-07-28T04:05:05.230Z",
       "httpStatus": 200
     },
     {
@@ -4031,7 +4031,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:04:24.600Z",
+      "priceCheckedAt": "2026-07-28T04:03:52.067Z",
       "httpStatus": 200
     },
     {
@@ -4056,7 +4056,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.803Z",
-      "priceCheckedAt": "2026-07-27T04:30:14.064Z",
+      "priceCheckedAt": "2026-07-28T04:29:55.149Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4076,7 +4076,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:05:33.616Z",
+      "priceCheckedAt": "2026-07-28T04:04:53.550Z",
       "httpStatus": 200
     },
     {
@@ -4101,7 +4101,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.960Z",
-      "priceCheckedAt": "2026-07-27T04:30:26.158Z",
+      "priceCheckedAt": "2026-07-28T04:30:04.829Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4121,7 +4121,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:04:52.061Z",
+      "priceCheckedAt": "2026-07-28T04:04:15.586Z",
       "httpStatus": 200
     },
     {
@@ -4146,7 +4146,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.171Z",
-      "priceCheckedAt": "2026-07-27T04:29:25.278Z",
+      "priceCheckedAt": "2026-07-28T04:29:06.176Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4166,7 +4166,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:05:18.966Z",
+      "priceCheckedAt": "2026-07-28T04:04:40.567Z",
       "httpStatus": 200
     },
     {
@@ -4191,7 +4191,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:35.331Z",
-      "priceCheckedAt": "2026-07-27T04:29:36.800Z",
+      "priceCheckedAt": "2026-07-28T04:29:19.268Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4211,7 +4211,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:04:13.341Z",
+      "priceCheckedAt": "2026-07-28T04:03:41.277Z",
       "httpStatus": 200
     },
     {
@@ -4219,9 +4219,9 @@
       "title": "LG 50NU800B6LC (2026) LED HDR 4K Ultra HD Smart AI TV, 50 inch, Black",
       "model": "50NU800B6LC",
       "category": "LED",
-      "priceText": "£329.00",
+      "priceText": "£319.00",
       "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs",
-      "financeText": "Pay £12.63 per month over 36 months at 24.9% APR | Pay £109.66 interest free over 2 months",
+      "financeText": "Pay £12.25 per month over 36 months at 24.9% APR | Pay £12.63 per month over 36 months at 24.9% APR",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
       "sourceFiles": [
@@ -4236,7 +4236,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.703Z",
-      "priceCheckedAt": "2026-07-27T04:28:48.358Z",
+      "priceCheckedAt": "2026-07-28T04:28:23.455Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4256,7 +4256,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-60.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:05:59.939Z",
+      "priceCheckedAt": "2026-07-28T04:05:16.701Z",
       "httpStatus": 200
     },
     {
@@ -4264,9 +4264,9 @@
       "title": "LG 50NU850B6LA (2026) LED HDR 4K Ultra HD Smart AI TV, 50 inch, Charcoal Black",
       "model": "50NU850B6LA",
       "category": "LED",
-      "priceText": "£339.00",
+      "priceText": "£329.00",
       "offerText": "Price promise | 5 year guarantee included | Up to 15% cashback on LG TVs",
-      "financeText": "Pay £13.02 per month over 36 months at 24.9% APR | Pay £112.99 interest free over 2 months",
+      "financeText": "Pay £12.63 per month over 36 months at 24.9% APR | Pay £13.02 per month over 36 months at 24.9% APR",
       "availabilityText": "Add to basket",
       "guaranteeText": "5 year guarantee included",
       "sourceFiles": [
@@ -4281,7 +4281,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.858Z",
-      "priceCheckedAt": "2026-07-27T04:28:59.899Z",
+      "priceCheckedAt": "2026-07-28T04:28:34.543Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4301,7 +4301,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:03:42.406Z",
+      "priceCheckedAt": "2026-07-28T04:03:17.029Z",
       "httpStatus": 200
     },
     {
@@ -4326,7 +4326,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.231Z",
-      "priceCheckedAt": "2026-07-27T04:28:16.804Z",
+      "priceCheckedAt": "2026-07-28T04:27:39.752Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4346,7 +4346,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-40.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:05:07.237Z",
+      "priceCheckedAt": "2026-07-28T04:04:25.303Z",
       "httpStatus": 200
     },
     {
@@ -4371,7 +4371,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.389Z",
-      "priceCheckedAt": "2026-07-27T04:28:26.222Z",
+      "priceCheckedAt": "2026-07-28T04:27:53.798Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4397,7 +4397,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:34.073Z",
-      "priceCheckedAt": "2026-07-27T04:28:02.785Z",
+      "priceCheckedAt": "2026-07-28T04:27:26.734Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4417,7 +4417,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-80.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:01:51.185Z",
+      "priceCheckedAt": "2026-07-28T04:01:25.310Z",
       "httpStatus": 200
     },
     {
@@ -4436,7 +4436,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:02:15.910Z",
+      "priceCheckedAt": "2026-07-28T04:01:44.766Z",
       "httpStatus": 200
     },
     {
@@ -4461,7 +4461,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:33.759Z",
-      "priceCheckedAt": "2026-07-27T04:27:42.960Z",
+      "priceCheckedAt": "2026-07-28T04:26:58.700Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4481,7 +4481,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:02:04.057Z",
+      "priceCheckedAt": "2026-07-28T04:01:34.847Z",
       "httpStatus": 200
     },
     {
@@ -4506,7 +4506,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:33.916Z",
-      "priceCheckedAt": "2026-07-27T04:27:52.696Z",
+      "priceCheckedAt": "2026-07-28T04:27:09.492Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/brand/view-all-tvs/lg/led/_/N-474pZ1z13wsdZ1z0ro6u?codexfresh=20260716 | https://www.johnlewis.com/brand/lg/led/view-all-tvs/_/N-1z13wsdZ1z0ro6uZ474p?codexfresh=20260716text"
     },
@@ -4526,7 +4526,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:00:56.910Z",
+      "priceCheckedAt": "2026-07-28T04:00:36.080Z",
       "httpStatus": 200,
       "displayModel": "27TQ615S-PZ"
     },
@@ -4546,7 +4546,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-20.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:01:26.912Z",
+      "priceCheckedAt": "2026-07-28T04:00:57.386Z",
       "httpStatus": 200,
       "displayModel": "27TQ615S-WZ"
     },
@@ -4566,7 +4566,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/tvs-0.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-      "priceCheckedAt": "2026-07-27T04:01:11.566Z",
+      "priceCheckedAt": "2026-07-28T04:00:46.331Z",
       "httpStatus": 200,
       "displayModel": "24TQ510S-PZ"
     },
@@ -4590,7 +4590,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.789Z",
-      "priceCheckedAt": "2026-07-27T04:45:11.514Z",
+      "priceCheckedAt": "2026-07-28T04:44:47.322Z",
       "httpStatus": 200,
       "displayModel": "S95TR",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
@@ -4611,7 +4611,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:27:30.305Z",
+      "priceCheckedAt": "2026-07-28T04:26:47.418Z",
       "httpStatus": 200
     },
     {
@@ -4634,7 +4634,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:48.517Z",
-      "priceCheckedAt": "2026-07-27T04:47:34.928Z",
+      "priceCheckedAt": "2026-07-28T04:47:18.068Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4654,7 +4654,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:27:01.488Z",
+      "priceCheckedAt": "2026-07-28T04:26:25.333Z",
       "httpStatus": 200
     },
     {
@@ -4674,7 +4674,7 @@
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
       "priceCheckError": "HTTP 403",
-      "priceCheckedAt": "2026-07-27T04:26:47.505Z",
+      "priceCheckedAt": "2026-07-28T04:26:12.371Z",
       "httpStatus": 200
     },
     {
@@ -4697,7 +4697,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:48.043Z",
-      "priceCheckedAt": "2026-07-27T04:46:52.686Z",
+      "priceCheckedAt": "2026-07-28T04:46:41.010Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4721,7 +4721,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:48.201Z",
-      "priceCheckedAt": "2026-07-27T04:47:07.918Z",
+      "priceCheckedAt": "2026-07-28T04:46:56.465Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4742,7 +4742,7 @@
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
       "priceCheckError": "HTTP 403",
-      "priceCheckedAt": "2026-07-27T04:26:36.715Z",
+      "priceCheckedAt": "2026-07-28T04:25:59.508Z",
       "httpStatus": 200
     },
     {
@@ -4761,7 +4761,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:26:26.539Z",
+      "priceCheckedAt": "2026-07-28T04:25:46.411Z",
       "httpStatus": 200
     },
     {
@@ -4769,8 +4769,8 @@
       "title": "LG US70TR Bluetooth Soundbar with Dolby Atmos, DTS:X, Wireless Subwoofer & Rear Speakers, Black",
       "model": "US70TR",
       "category": "Soundbars",
-      "priceText": "£20",
-      "offerText": "Price promise | 2 year guarantee included | Up to 15% cashback on LG TVs | Free Standard Delivery",
+      "priceText": "£699.00",
+      "offerText": "Price promise | 2 year guarantee included | free standard delivery | Up to 15% cashback on LG TVs",
       "financeText": "Pay £232.99 interest free over 2 months",
       "availabilityText": "No longer available online",
       "guaranteeText": "2 year guarantee included",
@@ -4784,7 +4784,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.887Z",
-      "priceCheckedAt": "2026-07-27T04:46:39.569Z",
+      "priceCheckedAt": "2026-07-28T04:46:26.257Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4794,7 +4794,7 @@
       "model": "US60T",
       "category": "Soundbars",
       "priceText": "£199.00",
-      "offerText": "Price promise | 2 year guarantee included | free standard delivery | Up to 15% cashback on LG TVs",
+      "offerText": "Price promise | 2 year guarantee included | Up to 15% cashback on LG TVs | free standard delivery",
       "financeText": "Pay £66.33 interest free over 2 months",
       "availabilityText": "Currently out of stock online",
       "guaranteeText": "2 year guarantee included",
@@ -4808,7 +4808,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.731Z",
-      "priceCheckedAt": "2026-07-27T04:46:26.940Z",
+      "priceCheckedAt": "2026-07-28T04:46:12.966Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4828,7 +4828,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:26:16.716Z",
+      "priceCheckedAt": "2026-07-28T04:25:36.886Z",
       "httpStatus": 200
     },
     {
@@ -4847,7 +4847,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:26:01.600Z",
+      "priceCheckedAt": "2026-07-28T04:25:26.636Z",
       "httpStatus": 200
     },
     {
@@ -4870,7 +4870,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.575Z",
-      "priceCheckedAt": "2026-07-27T04:46:13.073Z",
+      "priceCheckedAt": "2026-07-28T04:46:00.448Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4890,7 +4890,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:25:47.582Z",
+      "priceCheckedAt": "2026-07-28T04:25:14.115Z",
       "httpStatus": 200
     },
     {
@@ -4913,7 +4913,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.416Z",
-      "priceCheckedAt": "2026-07-27T04:46:02.233Z",
+      "priceCheckedAt": "2026-07-28T04:45:48.969Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4933,7 +4933,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:27:16.601Z",
+      "priceCheckedAt": "2026-07-28T04:26:36.545Z",
       "httpStatus": 200
     },
     {
@@ -4956,7 +4956,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:48.358Z",
-      "priceCheckedAt": "2026-07-27T04:47:21.073Z",
+      "priceCheckedAt": "2026-07-28T04:47:07.317Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -4980,7 +4980,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.102Z",
-      "priceCheckedAt": "2026-07-27T04:45:37.542Z",
+      "priceCheckedAt": "2026-07-28T04:45:14.951Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -5000,7 +5000,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:25:37.974Z",
+      "priceCheckedAt": "2026-07-28T04:25:04.606Z",
       "httpStatus": 200
     },
     {
@@ -5023,7 +5023,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:47.260Z",
-      "priceCheckedAt": "2026-07-27T04:45:49.734Z",
+      "priceCheckedAt": "2026-07-28T04:45:34.879Z",
       "httpStatus": 200,
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
     },
@@ -5047,7 +5047,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.635Z",
-      "priceCheckedAt": "2026-07-27T04:44:58.679Z",
+      "priceCheckedAt": "2026-07-28T04:44:37.523Z",
       "httpStatus": 200,
       "displayModel": "G1",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
@@ -5068,7 +5068,7 @@
       "priceCheckStatus": "checked",
       "checkedSource": "work/currys-rendered-pages/soundbars.md",
       "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-      "priceCheckedAt": "2026-07-27T04:25:22.658Z",
+      "priceCheckedAt": "2026-07-28T04:24:54.444Z",
       "httpStatus": 200,
       "displayModel": "Sound Suite H7"
     },
@@ -5092,7 +5092,7 @@
       "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
       "priceCheckStatus": "checked",
       "cleanRebuildAt": "2026-07-17T13:03:46.946Z",
-      "priceCheckedAt": "2026-07-27T04:45:23.977Z",
+      "priceCheckedAt": "2026-07-28T04:45:02.215Z",
       "httpStatus": 200,
       "displayModel": "Sound Suite H7",
       "sourceListingUrl": "https://www.johnlewis.com/browse/electricals/dvd-blu-ray-home-cinema-soundbars/soundbars/lg/sound-bar/_/N-7htcZ1z13wsdZ1z0rl45?codexfresh=20260716"
