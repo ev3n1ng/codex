@@ -1,17 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
+/* Self-hosted variable fonts (OFL license) — see assets/fonts/CREDITS.md.
+   No external font CDN calls, so the game works offline like the rest of
+   this static site. */
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 500 800;
+  font-display: swap;
+  src: url("./assets/fonts/baloo2-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("./assets/fonts/quicksand-variable.woff2") format("woff2");
+}
 
 :root {
   color-scheme: light;
-  --ink: #244452;
-  --paper: rgba(255, 249, 221, 0.9);
-  --paper-strong: #fff6c9;
-  --green: #37b96f;
-  --coral: #f66f9b;
-  --sky: #9ee8fa;
-  --gold: #ffda5d;
-  --focus: #0e4d6b;
-  --shadow-ink: rgba(35, 78, 91, 0.22);
-  font-family: "Nunito", "Avenir Next", Verdana, sans-serif;
+  /* Yoshi's Island-inspired storybook palette: warm parchment, leaf green,
+     pastel sky, soft orange/yellow accents — no cool teal/blue UI chrome. */
+  --ink: #4a3728;
+  --paper: #fbf1d9;
+  --paper-strong: #f4dfa8;
+  --paper-deep: #e8cf93;
+  --green: #58a848;
+  --green-deep: #2f7d3d;
+  --coral: #ff8a68;
+  --sky: #bfe9f7;
+  --sky-deep: #8ad4ea;
+  --gold: #ffce54;
+  --focus: #b23b2e;
+  --danger-ink: #a13b2e;
+  --danger-bg: #ffe1d2;
+  --shadow-ink: rgba(74, 55, 40, 0.24);
+  font-family: "Quicksand", "Nunito", "Avenir Next", Verdana, sans-serif;
 }
 
 * {
@@ -25,7 +49,7 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background: #8fd7ee;
+  background: var(--sky);
   color: var(--ink);
   touch-action: none;
   overscroll-behavior: none;
@@ -39,30 +63,34 @@ input {
 
 button {
   min-height: 44px;
-  border: 2px solid rgba(36, 68, 82, 0.72);
-  border-radius: 8px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
   padding: 0.76rem 1.08rem;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 239, 152, 0.18)),
-    #fff8d1;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 206, 84, 0.22)),
+    var(--paper-strong);
   color: var(--ink);
-  box-shadow: 0 4px 0 rgba(36, 68, 82, 0.76), 0 14px 28px var(--shadow-ink);
+  box-shadow: 0 4px 0 var(--ink), 0 14px 28px var(--shadow-ink);
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 700;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 @media (hover: hover) {
   button:hover {
     transform: translateY(-2px);
-    background: #fff3a4;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 206, 84, 0.3)),
+      #ffe4a0;
   }
 }
 
 button:active {
   transform: translateY(3px);
-  background: #fff3a4;
-  box-shadow: 0 1px 0 rgba(36, 68, 82, 0.78), 0 8px 14px rgba(49, 81, 90, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 206, 84, 0.3)),
+    #ffe4a0;
+  box-shadow: 0 1px 0 var(--ink), 0 8px 14px rgba(74, 55, 40, 0.16);
 }
 
 button:focus-visible,
@@ -73,13 +101,22 @@ input:focus-visible {
 
 .primary-button {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(19, 129, 75, 0.18)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(47, 125, 61, 0.2)),
     var(--green);
   color: #fffef4;
 }
 
+@media (hover: hover) {
+  .primary-button:hover {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(47, 125, 61, 0.16)),
+      #63b752;
+  }
+}
+
 .danger-button {
-  background: #ffd1d1;
+  background: var(--danger-bg);
+  color: var(--danger-ink);
 }
 
 .game-shell {
@@ -89,10 +126,10 @@ input:focus-visible {
   display: grid;
   place-items: center;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 18px),
-    radial-gradient(circle at 10% 15%, rgba(255, 244, 153, 0.52), transparent 24rem),
-    radial-gradient(circle at 90% 5%, rgba(248, 135, 171, 0.36), transparent 22rem),
-    #85d7e9;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 10% 15%, rgba(255, 206, 84, 0.4), transparent 24rem),
+    radial-gradient(circle at 90% 5%, rgba(255, 138, 104, 0.28), transparent 22rem),
+    linear-gradient(180deg, var(--sky) 0%, var(--sky-deep) 100%);
 }
 
 #game-canvas {
@@ -108,8 +145,8 @@ input:focus-visible {
 }
 
 #game-canvas {
-  border-inline: 3px solid rgba(49, 81, 90, 0.36);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42), 0 24px 70px rgba(49, 81, 90, 0.28);
+  border-inline: 3px solid var(--ink);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5), 0 24px 70px rgba(74, 55, 40, 0.32);
 }
 
 .hud {
@@ -126,23 +163,24 @@ input:focus-visible {
 .hud-score {
   min-width: 70px;
   text-align: center;
-  font-family: "Fredoka", "Nunito", sans-serif;
+  font-family: "Baloo 2", "Quicksand", sans-serif;
+  font-weight: 700;
   font-size: clamp(2.5rem, 9vw, 5.2rem);
   line-height: 0.95;
   color: white;
-  text-shadow: 0 4px 0 #31515a, 0 8px 18px rgba(0, 0, 0, 0.22);
+  text-shadow: 0 4px 0 var(--ink), 0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
 .hud-strip {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 2px solid rgba(49, 81, 90, 0.34);
-  border-radius: 8px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
   padding: 0.45rem;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.56), rgba(255,246,201,0.72)),
-    rgba(255, 251, 231, 0.78);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(244, 223, 168, 0.8)),
+    var(--paper);
   backdrop-filter: blur(8px);
   pointer-events: auto;
 }
@@ -152,7 +190,7 @@ input:focus-visible {
   min-width: 70px;
   font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
 }
 
 .hud-strip b {
@@ -162,7 +200,7 @@ input:focus-visible {
 .icon-button {
   width: 44px;
   padding: 0;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .screen {
@@ -172,7 +210,7 @@ input:focus-visible {
   display: grid;
   place-items: center;
   padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
-  background: linear-gradient(180deg, rgba(159, 229, 248, 0.26), rgba(76, 148, 105, 0.12));
+  background: linear-gradient(180deg, rgba(191, 233, 247, 0.4), rgba(88, 168, 72, 0.14));
   pointer-events: auto;
 }
 
@@ -236,24 +274,24 @@ input:focus-visible {
   display: grid;
   gap: 0;
   transform: rotate(-2deg);
-  filter: drop-shadow(0 10px 0 rgba(49, 81, 90, 0.16));
+  filter: drop-shadow(0 10px 0 rgba(74, 55, 40, 0.18));
 }
 
 .logo-word {
-  font-family: "Fredoka", "Nunito", sans-serif;
-  font-weight: 900;
+  font-family: "Baloo 2", "Quicksand", sans-serif;
+  font-weight: 800;
   font-size: clamp(3.5rem, 13vw, 8rem);
   line-height: 0.78;
   letter-spacing: 0;
-  -webkit-text-stroke: 3px #31515a;
+  -webkit-text-stroke: 3px var(--ink);
 }
 
 .logo-yoshi {
-  color: #4dd478;
+  color: var(--green);
 }
 
 .logo-bird {
-  color: #ffd95e;
+  color: var(--gold);
   transform: translateX(0.4em);
 }
 
@@ -261,9 +299,9 @@ input:focus-visible {
   width: 92px;
   height: 74px;
   margin-top: 0.5rem;
-  border: 4px solid #31515a;
+  border: 4px solid var(--ink);
   border-radius: 58% 48% 50% 44%;
-  background: #72d58a;
+  background: var(--green);
   position: relative;
   animation: bob 1.5s ease-in-out infinite;
 }
@@ -275,7 +313,7 @@ input:focus-visible {
   top: 18px;
   width: 40px;
   height: 30px;
-  border: 4px solid #31515a;
+  border: 4px solid var(--ink);
   border-radius: 50%;
   background: #9ee7a9;
 }
@@ -287,9 +325,9 @@ input:focus-visible {
   top: 20px;
   width: 34px;
   height: 19px;
-  border: 3px solid #31515a;
+  border: 3px solid var(--ink);
   border-radius: 50%;
-  background: #f9e881;
+  background: var(--gold);
   transform-origin: right center;
   animation: flap 0.42s ease-in-out infinite;
 }
@@ -301,7 +339,7 @@ input:focus-visible {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #1f3b46;
+  background: var(--ink);
   z-index: 2;
 }
 
@@ -312,17 +350,24 @@ input:focus-visible {
   margin: 0;
 }
 
+/* Storybook cutout-paper card: warm parchment fill, a fine ink border, a
+   subtle grain, and a stepped "paper stack" shadow instead of a flat drop
+   shadow, so panels read as hand-placed cutouts rather than generic UI. */
 .control-card,
 .panel,
 .wide-panel,
 .ready-card {
-  border: 2px solid rgba(49, 81, 90, 0.55);
-  border-radius: 8px;
+  border: 3px solid var(--ink);
+  border-radius: 20px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.62), rgba(255, 244, 185, 0.32) 52%, rgba(255, 255, 255, 0.2)),
-    radial-gradient(circle at 18% 12%, rgba(255,255,255,0.68), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(244, 223, 168, 0.4) 55%, rgba(255, 255, 255, 0.18)),
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.7), transparent 9rem),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.29 0 0 0 0 0.22 0 0 0 0 0.16 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     var(--paper);
-  box-shadow: 0 18px 44px rgba(49, 81, 90, 0.2), inset 0 1px 0 rgba(255,255,255,0.76);
+  box-shadow:
+    0 3px 0 var(--paper-deep),
+    0 9px 0 rgba(74, 55, 40, 0.1),
+    0 22px 46px rgba(74, 55, 40, 0.26);
 }
 
 .control-card {
@@ -362,10 +407,11 @@ input:focus-visible {
 .wide-panel h1,
 .ready-card h1 {
   margin: 0 0 1rem;
-  font-family: "Fredoka", "Nunito", sans-serif;
+  font-family: "Baloo 2", "Quicksand", sans-serif;
   font-size: clamp(2rem, 8vw, 3.6rem);
   font-weight: 700;
   line-height: 1;
+  color: var(--green-deep);
 }
 
 .result-grid {
@@ -379,12 +425,12 @@ input:focus-visible {
 .rank-pill {
   display: grid;
   gap: 0.25rem;
-  border: 2px solid rgba(49, 81, 90, 0.22);
-  border-radius: 8px;
+  border: 2px solid var(--paper-deep);
+  border-radius: 12px;
   padding: 0.75rem;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.48), rgba(255,245,196,0.18)),
-    rgba(255, 255, 255, 0.32);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 206, 84, 0.16)),
+    rgba(255, 255, 255, 0.4);
 }
 
 .result-grid b {
@@ -394,11 +440,11 @@ input:focus-visible {
 .celebration {
   margin: 0 auto 0.7rem;
   width: fit-content;
-  border-radius: 8px;
-  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
   background: var(--coral);
-  color: white;
-  font-weight: 800;
+  color: #fff8ee;
+  font-weight: 700;
 }
 
 .name-panel {
@@ -416,32 +462,32 @@ input:focus-visible {
   min-width: 0;
   min-height: 44px;
   flex: 1;
-  border: 3px solid #31515a;
-  border-radius: 8px;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
   padding: 0.65rem;
   text-align: center;
   text-transform: uppercase;
-  background: white;
+  background: #fffdf6;
 }
 
 .table-wrap {
   max-height: min(48dvh, 380px);
   overflow: auto;
   margin: 1rem 0;
-  border: 2px solid rgba(49, 81, 90, 0.3);
-  border-radius: 8px;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 th,
 td {
   padding: 0.65rem 0.45rem;
-  border-bottom: 1px solid rgba(49, 81, 90, 0.18);
+  border-bottom: 1px solid var(--paper-deep);
   text-align: left;
   white-space: nowrap;
 }
@@ -450,14 +496,15 @@ th {
   position: sticky;
   top: 0;
   background: var(--paper-strong);
+  color: var(--ink);
 }
 
 .confirm-reset {
   margin-top: 1rem;
-  border: 2px solid #a94747;
-  border-radius: 8px;
+  border: 2px solid var(--danger-ink);
+  border-radius: 14px;
   padding: 1rem;
-  background: #ffe5e5;
+  background: var(--danger-bg);
 }
 
 .settings-grid {
@@ -471,10 +518,10 @@ th {
 .settings-grid label {
   display: grid;
   gap: 0.35rem;
-  border: 2px solid rgba(49, 81, 90, 0.2);
-  border-radius: 8px;
+  border: 2px solid var(--paper-deep);
+  border-radius: 12px;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .settings-grid .check-line {
@@ -506,19 +553,19 @@ input[type="range"] {
   place-items: center;
   width: 96px;
   height: 96px;
-  border: 4px solid #31515a;
+  border: 4px solid var(--ink);
   border-radius: 50%;
-  background: #ffe36f;
-  font-family: "Fredoka", "Nunito", sans-serif;
+  background: var(--gold);
+  font-family: "Baloo 2", "Quicksand", sans-serif;
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 800;
   animation: bob 1.2s ease-in-out infinite;
 }
 
 .loading-screen {
   gap: 1rem;
   text-align: center;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .high-contrast #game-canvas {
