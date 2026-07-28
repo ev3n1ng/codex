@@ -133,9 +133,11 @@ class YoshiBirdGame {
 
   resize() {
     const rect = this.canvas.getBoundingClientRect();
-    this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    this.pixelRatio = Math.min(window.devicePixelRatio || 1, 3);
     this.canvas.width = Math.max(1, Math.floor(rect.width * this.pixelRatio));
     this.canvas.height = Math.max(1, Math.floor(rect.height * this.pixelRatio));
+    this.ctx.imageSmoothingEnabled = true;
+    this.ctx.imageSmoothingQuality = "high";
     this.ctx.setTransform(this.canvas.width / VIRTUAL_WIDTH, 0, 0, this.canvas.height / VIRTUAL_HEIGHT, 0, 0);
   }
 
@@ -156,30 +158,36 @@ class YoshiBirdGame {
 
   createPaperPattern(base, light, dark, seed, strength) {
     const tile = document.createElement("canvas");
-    tile.width = 160;
-    tile.height = 160;
+    const logicalSize = 160;
+    const textureScale = 2;
+    tile.width = logicalSize * textureScale;
+    tile.height = logicalSize * textureScale;
     const tctx = tile.getContext("2d");
     const random = seeded(seed);
     tctx.fillStyle = base;
     tctx.fillRect(0, 0, tile.width, tile.height);
-    for (let i = 0; i < 950; i += 1) {
+    for (let i = 0; i < 1800; i += 1) {
       const color = random() > 0.55 ? light : dark;
       tctx.globalAlpha = (0.025 + random() * 0.085) * strength;
       tctx.fillStyle = color;
-      tctx.fillRect(random() * tile.width, random() * tile.height, 0.8 + random() * 2.8, 0.8 + random() * 2.8);
+      tctx.fillRect(random() * tile.width, random() * tile.height, 1.4 + random() * 4.2, 1.4 + random() * 4.2);
     }
     tctx.globalAlpha = 0.13 * strength;
     tctx.strokeStyle = dark;
-    tctx.lineWidth = 0.7;
-    for (let i = 0; i < 38; i += 1) {
+    tctx.lineWidth = 1.2;
+    for (let i = 0; i < 68; i += 1) {
       const y = random() * tile.height;
       tctx.beginPath();
-      tctx.moveTo(-10, y);
-      tctx.bezierCurveTo(42, y + random() * 9 - 4, 92, y + random() * 9 - 4, 170, y + random() * 9 - 4);
+      tctx.moveTo(-20, y);
+      tctx.bezierCurveTo(84, y + random() * 18 - 8, 184, y + random() * 18 - 8, 340, y + random() * 18 - 8);
       tctx.stroke();
     }
     tctx.globalAlpha = 1;
-    return this.ctx.createPattern(tile, "repeat");
+    const pattern = this.ctx.createPattern(tile, "repeat");
+    if (pattern?.setTransform && window.DOMMatrix) {
+      pattern.setTransform(new DOMMatrix().scale(1 / textureScale));
+    }
+    return pattern;
   }
 
   setState(state) {
@@ -477,6 +485,8 @@ class YoshiBirdGame {
     this.cameraShake = Math.max(0, this.cameraShake - dt * 32);
     ctx.save();
     ctx.setTransform(this.canvas.width / VIRTUAL_WIDTH, 0, 0, this.canvas.height / VIRTUAL_HEIGHT, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
     if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
     this.drawBackground(ctx, difficulty);
     this.drawObstacles(ctx);
