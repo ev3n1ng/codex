@@ -107,7 +107,7 @@
     "gen": "5",
     "size": 55,
     "price": "£1,299.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "GBP 200 MyJL member discount (ends 04.08.2026)",
       "Save £350 on the LG US70TR Bluetooth Soundbar when bought with this item"
@@ -123,7 +123,7 @@
     "gen": "5",
     "size": 48,
     "price": "£1,044.00",
-    "availability": "Currently out of stock online",
+    "availability": "Available to order",
     "offers": [
       "Save £40 on the LG Sound Suite M7 Wireless Bluetooth Wi-Fi Speaker when bought with this item"
     ],
@@ -210,7 +210,7 @@
     "series": "C",
     "gen": "5",
     "size": 55,
-    "price": "£1,099.00",
+    "price": "£999.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
@@ -619,11 +619,11 @@
     "series": "B",
     "gen": "6",
     "size": 65,
-    "price": "£1,899.00",
+    "price": "£1,799.99",
     "availability": "Available to order",
     "offers": [
-      "Save £350 on the LG US70TR Bluetooth Soundbar when bought with this item",
-      "Save £500"
+      "Price matched",
+      "Save £350 on the LG US70TR Bluetooth Soundbar when bought with this item"
     ],
     "url": "https://www.johnlewis.com/lg-oled65b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p115232147"
   },
@@ -635,10 +635,10 @@
     "series": "B",
     "gen": "6",
     "size": 55,
-    "price": "£1,299.00",
+    "price": "£1,199.99",
     "availability": "Available to order",
     "offers": [
-      "Save £300"
+      "Price matched: save £399.01"
     ],
     "url": "https://www.johnlewis.com/lg-oled55b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-umber-brown/p115232122"
   },
