@@ -31,10 +31,17 @@ Core tuning values live in `yoshibird/src/config.js`, including gravity, flap ve
 
 ## Assets
 
-Visuals are original procedural Canvas and CSS artwork in:
+Visuals are mostly original procedural Canvas and CSS artwork in:
 
 - `yoshibird/src/game.js`
 - `yoshibird/styles.css`
+
+A handful of background/ground textures (clouds, distant trees, grass tufts)
+are CC0 (public domain) images from Kenney's "Background Elements" and
+"Nature Kit" packs, stored in `yoshibird/assets/textures/`. See
+`yoshibird/assets/textures/CREDITS.md` for exact source URLs and license
+detail. Each is loaded as a progressive enhancement — if an image hasn't
+loaded yet, `game.js` falls back to the original hand-drawn shapes.
 
 Audio placeholders are tiny original generated WAV files in `yoshibird/audio/`:
 

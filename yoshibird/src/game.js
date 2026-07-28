@@ -5,6 +5,36 @@ import { nextObstacle, updateObstacleMotion } from "./obstacles.js";
 import { AudioManager } from "./audio.js";
 import { createStorageService, isLeaderboardWorthy, sanitiseName } from "./leaderboard.js";
 
+// CC0 (public domain) textures from Kenney's "Background Elements" and
+// "Nature Kit" packs — see assets/textures/CREDITS.md for source/license.
+// Drawn as a progressive enhancement over the procedural art below: every
+// draw site checks `image.complete && image.naturalWidth` first and falls
+// back to the original hand-drawn shapes if a texture hasn't loaded yet.
+const TEXTURE_FILES = {
+  cloud1: "assets/textures/cloud1.png",
+  cloud2: "assets/textures/cloud2.png",
+  cloud3: "assets/textures/cloud3.png",
+  grass2: "assets/textures/grass2.png",
+  grass5: "assets/textures/grass5.png",
+  grass6: "assets/textures/grass6.png",
+  treeDefault: "assets/textures/tree_default.png",
+  treeFat: "assets/textures/tree_fat.png"
+};
+
+function loadTextureImages() {
+  const images = {};
+  Object.entries(TEXTURE_FILES).forEach(([key, src]) => {
+    const image = new Image();
+    image.src = src;
+    images[key] = image;
+  });
+  return images;
+}
+
+function readyImage(image) {
+  return image && image.complete && image.naturalWidth > 0 ? image : null;
+}
+
 const DEFAULT_SETTINGS = {
   musicVolume: GAME_CONFIG.audio.musicVolume,
   sfxVolume: GAME_CONFIG.audio.sfxVolume,
@@ -20,6 +50,7 @@ class YoshiBirdGame {
     this.canvas = document.getElementById("game-canvas");
     this.ctx = this.canvas.getContext("2d", { alpha: false });
     this.textures = this.createTextures();
+    this.textureImages = loadTextureImages();
     this.storage = createStorageService();
     this.settings = this.storage.getSettings(DEFAULT_SETTINGS);
     this.audio = new AudioManager(this.settings);
@@ -514,6 +545,7 @@ class YoshiBirdGame {
     this.cloudLayer(ctx, t * 0.1, 58, 0.8);
     this.hillLayer(ctx, t * 0.18, 650, "#8cd3a4", "#5fb67f", this.textures.hillFar);
     this.hillLayer(ctx, t * 0.28, 735, "#4fb978", "#2d895c", this.textures.hillNear);
+    this.treeLine(ctx, t * 0.3, 735);
     this.drawFlowers(ctx, t * 0.54, difficulty.energy);
     if (difficulty.speed > GAME_CONFIG.difficulty.energeticSpeed && !this.settings.reducedMotion) {
       ctx.strokeStyle = "rgba(255,255,255,0.34)";
@@ -532,19 +564,44 @@ class YoshiBirdGame {
   cloudLayer(ctx, offset, yBase, opacity) {
     ctx.save();
     ctx.globalAlpha = opacity;
+    const cloudKeys = ["cloud1", "cloud2", "cloud3"];
     for (let i = -1; i < 7; i += 1) {
       const x = ((i * 190 - offset) % 1330 + 1330) % 1330 - 170;
       const y = yBase + Math.sin(i * 1.7) * 42;
-      ctx.fillStyle = "rgba(255,255,255,0.82)";
-      blob(ctx, x, y, [54, 36, 62, 40, 48], 0.55);
-      ctx.fill();
-      ctx.save();
-      ctx.clip();
-      this.textureRect(ctx, this.textures.panel, x - 42, y - 26, 92, 50, 0.18, "multiply");
-      ctx.restore();
-      ctx.strokeStyle = "rgba(62,108,126,0.18)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
+      const image = readyImage(this.textureImages[cloudKeys[((i % 3) + 3) % 3]]);
+      if (image) {
+        const w = 108;
+        const h = (image.naturalHeight / image.naturalWidth) * w;
+        ctx.drawImage(image, x - w / 2, y - h / 2, w, h);
+      } else {
+        ctx.fillStyle = "rgba(255,255,255,0.82)";
+        blob(ctx, x, y, [54, 36, 62, 40, 48], 0.55);
+        ctx.fill();
+        ctx.save();
+        ctx.clip();
+        this.textureRect(ctx, this.textures.panel, x - 42, y - 26, 92, 50, 0.18, "multiply");
+        ctx.restore();
+        ctx.strokeStyle = "rgba(62,108,126,0.18)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    }
+    ctx.restore();
+  }
+
+  treeLine(ctx, offset, baseY) {
+    const keys = ["treeDefault", "treeFat"];
+    const period = 150;
+    const span = period * 8;
+    ctx.save();
+    ctx.globalAlpha = 0.88;
+    for (let i = -1; i < 8; i += 1) {
+      const x = ((i * period - offset) % span + span) % span - period;
+      const image = readyImage(this.textureImages[keys[((i % 2) + 2) % 2]]);
+      if (!image) continue;
+      const h = 82 + (Math.abs(i) % 3) * 16;
+      const w = (image.naturalWidth / image.naturalHeight) * h;
+      ctx.drawImage(image, x - w / 2, baseY - h + 22, w, h);
     }
     ctx.restore();
   }
@@ -784,18 +841,32 @@ class YoshiBirdGame {
   }
 
   drawForeground(ctx) {
+    const groundY = VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight;
     ctx.fillStyle = "#3c9b65";
-    ctx.fillRect(0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight);
-    this.textureRect(ctx, this.textures.grass, 0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight, 0.44, "multiply");
+    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight);
+    this.textureRect(ctx, this.textures.grass, 0, groundY, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight, 0.44, "multiply");
     ctx.fillStyle = "#62c97b";
-    ctx.fillRect(0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, 16);
-    ctx.strokeStyle = "rgba(35,104,72,0.45)";
-    ctx.lineWidth = 3;
-    for (let x = -20; x < VIRTUAL_WIDTH + 40; x += 24) {
-      ctx.beginPath();
-      ctx.moveTo(x, VIRTUAL_HEIGHT - 62);
-      ctx.quadraticCurveTo(x + 8, VIRTUAL_HEIGHT - 78, x + 18, VIRTUAL_HEIGHT - 61);
-      ctx.stroke();
+    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, 16);
+    const grassKeys = ["grass2", "grass5", "grass6"];
+    let anyLoaded = false;
+    let i = 0;
+    for (let x = -20; x < VIRTUAL_WIDTH + 40; x += 24, i += 1) {
+      const image = readyImage(this.textureImages[grassKeys[i % grassKeys.length]]);
+      if (!image) continue;
+      anyLoaded = true;
+      const h = 22;
+      const w = (image.naturalWidth / image.naturalHeight) * h;
+      ctx.drawImage(image, x - w / 2, groundY - h + 6, w, h);
+    }
+    if (!anyLoaded) {
+      ctx.strokeStyle = "rgba(35,104,72,0.45)";
+      ctx.lineWidth = 3;
+      for (let x = -20; x < VIRTUAL_WIDTH + 40; x += 24) {
+        ctx.beginPath();
+        ctx.moveTo(x, VIRTUAL_HEIGHT - 62);
+        ctx.quadraticCurveTo(x + 8, VIRTUAL_HEIGHT - 78, x + 18, VIRTUAL_HEIGHT - 61);
+        ctx.stroke();
+      }
     }
   }
 
@@ -819,6 +890,7 @@ class YoshiBirdGame {
 }
 
 function rankForScore(score) {
+  if (score >= 200) return "Skybound wanderer";
   if (score >= 100) return "Moonlit legend";
   if (score >= 50) return "Hilltop ace";
   if (score >= 25) return "Cloud skipper";

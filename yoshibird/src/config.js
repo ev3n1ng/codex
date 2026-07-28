@@ -34,21 +34,22 @@ export const GAME_CONFIG = Object.freeze({
     minCenter: 170,
     maxCenter: 748,
     maxCenterDelta: 122,
-    movingScore: 48,
+    movingScore: 40,
     movingAmplitude: 28,
     poolLimit: 12
   },
   difficulty: {
     initialSpeed: 164,
-    maxSpeed: 276,
-    scoreSpeedStep: 3.25,
-    timeSpeedStep: 0.11,
-    energeticSpeed: 238,
+    maxSpeed: 320,
+    scoreSpeedStep: 2.2,
+    timeSpeedStep: 0.16,
+    energeticSpeed: 267,
     milestones: [
       { score: 10, label: "Breezy burrows" },
       { score: 25, label: "Hilltop hustle" },
       { score: 50, label: "Dancing towers" },
-      { score: 100, label: "Evening glide" }
+      { score: 100, label: "Evening glide" },
+      { score: 200, label: "Stormlight climb" }
     ]
   },
   particles: {
