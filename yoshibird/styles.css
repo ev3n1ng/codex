@@ -1,14 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
+
 :root {
   color-scheme: light;
-  --ink: #294653;
-  --paper: rgba(255, 251, 231, 0.88);
-  --paper-strong: #fff9d9;
-  --green: #4ab56f;
-  --coral: #f77f9c;
+  --ink: #244452;
+  --paper: rgba(255, 249, 221, 0.9);
+  --paper-strong: #fff6c9;
+  --green: #37b96f;
+  --coral: #f66f9b;
   --sky: #9ee8fa;
-  --gold: #ffdc60;
-  --focus: #123d58;
-  font-family: "Trebuchet MS", "Avenir Next", Verdana, sans-serif;
+  --gold: #ffda5d;
+  --focus: #0e4d6b;
+  --shadow-ink: rgba(35, 78, 91, 0.22);
+  font-family: "Nunito", "Avenir Next", Verdana, sans-serif;
 }
 
 * {
@@ -36,13 +39,16 @@ input {
 
 button {
   min-height: 44px;
-  border: 3px solid #31515a;
+  border: 2px solid rgba(36, 68, 82, 0.72);
   border-radius: 8px;
-  padding: 0.72rem 1rem;
-  background: #fff8d1;
+  padding: 0.76rem 1.08rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 239, 152, 0.18)),
+    #fff8d1;
   color: var(--ink);
-  box-shadow: 0 5px 0 #31515a, 0 12px 22px rgba(49, 81, 90, 0.18);
+  box-shadow: 0 4px 0 rgba(36, 68, 82, 0.76), 0 14px 28px var(--shadow-ink);
   cursor: pointer;
+  font-weight: 800;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
@@ -53,7 +59,7 @@ button:hover {
 
 button:active {
   transform: translateY(3px);
-  box-shadow: 0 2px 0 #31515a, 0 8px 14px rgba(49, 81, 90, 0.16);
+  box-shadow: 0 1px 0 rgba(36, 68, 82, 0.78), 0 8px 14px rgba(49, 81, 90, 0.16);
 }
 
 button:focus-visible,
@@ -63,7 +69,9 @@ input:focus-visible {
 }
 
 .primary-button {
-  background: var(--green);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(19, 129, 75, 0.18)),
+    var(--green);
   color: #fffef4;
 }
 
@@ -78,9 +86,10 @@ input:focus-visible {
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 10% 15%, rgba(255, 244, 153, 0.65), transparent 24rem),
-    radial-gradient(circle at 90% 5%, rgba(248, 135, 171, 0.45), transparent 22rem),
-    #8fd7ee;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 10% 15%, rgba(255, 244, 153, 0.52), transparent 24rem),
+    radial-gradient(circle at 90% 5%, rgba(248, 135, 171, 0.36), transparent 22rem),
+    #85d7e9;
 }
 
 #game-canvas {
@@ -97,7 +106,7 @@ input:focus-visible {
 
 #game-canvas {
   border-inline: 3px solid rgba(49, 81, 90, 0.36);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.38), 0 24px 70px rgba(49, 81, 90, 0.28);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42), 0 24px 70px rgba(49, 81, 90, 0.28);
 }
 
 .hud {
@@ -114,7 +123,7 @@ input:focus-visible {
 .hud-score {
   min-width: 70px;
   text-align: center;
-  font-family: Georgia, serif;
+  font-family: "Fredoka", "Nunito", sans-serif;
   font-size: clamp(2.5rem, 9vw, 5.2rem);
   line-height: 0.95;
   color: white;
@@ -125,10 +134,12 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 2px solid rgba(49, 81, 90, 0.42);
+  border: 2px solid rgba(49, 81, 90, 0.34);
   border-radius: 8px;
   padding: 0.45rem;
-  background: rgba(255, 251, 231, 0.76);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.56), rgba(255,246,201,0.72)),
+    rgba(255, 251, 231, 0.78);
   backdrop-filter: blur(8px);
   pointer-events: auto;
 }
@@ -195,7 +206,7 @@ input:focus-visible {
 }
 
 .logo-word {
-  font-family: Georgia, "Trebuchet MS", serif;
+  font-family: "Fredoka", "Nunito", sans-serif;
   font-weight: 900;
   font-size: clamp(3.5rem, 13vw, 8rem);
   line-height: 0.78;
@@ -204,11 +215,11 @@ input:focus-visible {
 }
 
 .logo-yoshi {
-  color: #5fd978;
+  color: #4dd478;
 }
 
 .logo-bird {
-  color: #ffe36f;
+  color: #ffd95e;
   transform: translateX(0.4em);
 }
 
@@ -271,12 +282,13 @@ input:focus-visible {
 .panel,
 .wide-panel,
 .ready-card {
-  border: 3px solid rgba(49, 81, 90, 0.78);
+  border: 2px solid rgba(49, 81, 90, 0.55);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.4), transparent 32%),
+    linear-gradient(135deg, rgba(255,255,255,0.62), rgba(255, 244, 185, 0.32) 52%, rgba(255, 255, 255, 0.2)),
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,0.68), transparent 9rem),
     var(--paper);
-  box-shadow: 0 18px 40px rgba(49, 81, 90, 0.22);
+  box-shadow: 0 18px 44px rgba(49, 81, 90, 0.2), inset 0 1px 0 rgba(255,255,255,0.76);
 }
 
 .control-card {
@@ -316,8 +328,9 @@ input:focus-visible {
 .wide-panel h1,
 .ready-card h1 {
   margin: 0 0 1rem;
-  font-family: Georgia, serif;
+  font-family: "Fredoka", "Nunito", sans-serif;
   font-size: clamp(2rem, 8vw, 3.6rem);
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -332,10 +345,12 @@ input:focus-visible {
 .rank-pill {
   display: grid;
   gap: 0.25rem;
-  border: 2px dashed rgba(49, 81, 90, 0.42);
+  border: 2px solid rgba(49, 81, 90, 0.22);
   border-radius: 8px;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.36);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.48), rgba(255,245,196,0.18)),
+    rgba(255, 255, 255, 0.32);
 }
 
 .result-grid b {
@@ -421,9 +436,10 @@ th {
 .settings-grid label {
   display: grid;
   gap: 0.35rem;
-  border: 2px dashed rgba(49, 81, 90, 0.32);
+  border: 2px solid rgba(49, 81, 90, 0.2);
   border-radius: 8px;
   padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .settings-grid .check-line {
@@ -448,7 +464,7 @@ input[type="range"] {
   border: 4px solid #31515a;
   border-radius: 50%;
   background: #ffe36f;
-  font-family: Georgia, serif;
+  font-family: "Fredoka", "Nunito", sans-serif;
   font-size: 2rem;
   font-weight: 900;
   animation: bob 1.2s ease-in-out infinite;

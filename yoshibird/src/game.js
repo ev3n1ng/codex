@@ -19,6 +19,7 @@ class YoshiBirdGame {
   constructor() {
     this.canvas = document.getElementById("game-canvas");
     this.ctx = this.canvas.getContext("2d", { alpha: false });
+    this.textures = this.createTextures();
     this.storage = createStorageService();
     this.settings = this.storage.getSettings(DEFAULT_SETTINGS);
     this.audio = new AudioManager(this.settings);
@@ -136,6 +137,49 @@ class YoshiBirdGame {
     this.canvas.width = Math.max(1, Math.floor(rect.width * this.pixelRatio));
     this.canvas.height = Math.max(1, Math.floor(rect.height * this.pixelRatio));
     this.ctx.setTransform(this.canvas.width / VIRTUAL_WIDTH, 0, 0, this.canvas.height / VIRTUAL_HEIGHT, 0, 0);
+  }
+
+  createTextures() {
+    return {
+      sky: this.createPaperPattern("#c8f0ea", "#ffffff", "#88c7d7", 5401, 0.28),
+      hillFar: this.createPaperPattern("#83cfa0", "#d8ffd7", "#4fa777", 5402, 0.34),
+      hillNear: this.createPaperPattern("#41a86d", "#b8edbf", "#236f4d", 5403, 0.36),
+      grass: this.createPaperPattern("#3a9d64", "#95da8f", "#176640", 5404, 0.42),
+      tower: this.createPaperPattern("#a8dab2", "#eff6a2", "#3d8a66", 5405, 0.5),
+      trunk: this.createPaperPattern("#d99a75", "#ffd0a7", "#89563f", 5406, 0.48),
+      rock: this.createPaperPattern("#b9bddf", "#eef0ff", "#6972a8", 5407, 0.5),
+      dino: this.createPaperPattern("#74d88e", "#c4f2bf", "#3d9a62", 5408, 0.42),
+      wing: this.createPaperPattern("#f6df73", "#fff8ad", "#cda94a", 5409, 0.44),
+      panel: this.createPaperPattern("#fff7d8", "#ffffff", "#d8c47b", 5410, 0.25)
+    };
+  }
+
+  createPaperPattern(base, light, dark, seed, strength) {
+    const tile = document.createElement("canvas");
+    tile.width = 160;
+    tile.height = 160;
+    const tctx = tile.getContext("2d");
+    const random = seeded(seed);
+    tctx.fillStyle = base;
+    tctx.fillRect(0, 0, tile.width, tile.height);
+    for (let i = 0; i < 950; i += 1) {
+      const color = random() > 0.55 ? light : dark;
+      tctx.globalAlpha = (0.025 + random() * 0.085) * strength;
+      tctx.fillStyle = color;
+      tctx.fillRect(random() * tile.width, random() * tile.height, 0.8 + random() * 2.8, 0.8 + random() * 2.8);
+    }
+    tctx.globalAlpha = 0.13 * strength;
+    tctx.strokeStyle = dark;
+    tctx.lineWidth = 0.7;
+    for (let i = 0; i < 38; i += 1) {
+      const y = random() * tile.height;
+      tctx.beginPath();
+      tctx.moveTo(-10, y);
+      tctx.bezierCurveTo(42, y + random() * 9 - 4, 92, y + random() * 9 - 4, 170, y + random() * 9 - 4);
+      tctx.stroke();
+    }
+    tctx.globalAlpha = 1;
+    return this.ctx.createPattern(tile, "repeat");
   }
 
   setState(state) {
@@ -454,11 +498,12 @@ class YoshiBirdGame {
     gradient.addColorStop(1, mix("#a8e5b1", "#81c798", evening));
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
-    this.crayonTexture(ctx, 0.12);
+    this.textureRect(ctx, this.textures.sky, 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0.36, "soft-light");
+    this.paperFibres(ctx, 0.16);
     const t = this.elapsed * difficulty.speed;
     this.cloudLayer(ctx, t * 0.1, 58, 0.8);
-    this.hillLayer(ctx, t * 0.18, 420, "#88d09a", "#6abd89");
-    this.hillLayer(ctx, t * 0.28, 466, "#58b978", "#379d63");
+    this.hillLayer(ctx, t * 0.18, 650, "#8cd3a4", "#5fb67f", this.textures.hillFar);
+    this.hillLayer(ctx, t * 0.28, 735, "#4fb978", "#2d895c", this.textures.hillNear);
     this.drawFlowers(ctx, t * 0.54, difficulty.energy);
     if (difficulty.speed > GAME_CONFIG.difficulty.energeticSpeed && !this.settings.reducedMotion) {
       ctx.strokeStyle = "rgba(255,255,255,0.34)";
@@ -479,17 +524,22 @@ class YoshiBirdGame {
     ctx.globalAlpha = opacity;
     for (let i = -1; i < 7; i += 1) {
       const x = ((i * 190 - offset) % 1330 + 1330) % 1330 - 170;
-      const y = yBase + Math.sin(i * 1.7) * 34;
-      ctx.fillStyle = "rgba(255,255,255,0.78)";
-      blob(ctx, x, y, [36, 24, 44, 28, 30], 0.55);
-      ctx.strokeStyle = "rgba(107,130,156,0.2)";
+      const y = yBase + Math.sin(i * 1.7) * 42;
+      ctx.fillStyle = "rgba(255,255,255,0.82)";
+      blob(ctx, x, y, [54, 36, 62, 40, 48], 0.55);
+      ctx.fill();
+      ctx.save();
+      ctx.clip();
+      this.textureRect(ctx, this.textures.panel, x - 42, y - 26, 92, 50, 0.18, "multiply");
+      ctx.restore();
+      ctx.strokeStyle = "rgba(62,108,126,0.18)";
       ctx.lineWidth = 2;
       ctx.stroke();
     }
     ctx.restore();
   }
 
-  hillLayer(ctx, offset, y, fill, stroke) {
+  hillLayer(ctx, offset, y, fill, stroke, texture) {
     ctx.fillStyle = fill;
     ctx.strokeStyle = stroke;
     ctx.lineWidth = 4;
@@ -502,6 +552,11 @@ class YoshiBirdGame {
     ctx.lineTo(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
     ctx.closePath();
     ctx.fill();
+    ctx.save();
+    ctx.clip();
+    this.textureRect(ctx, texture, 0, y - 110, VIRTUAL_WIDTH, VIRTUAL_HEIGHT - y + 140, 0.34, "multiply");
+    this.brushLines(ctx, -offset * 0.16, y - 18, stroke, 0.16);
+    ctx.restore();
     ctx.stroke();
   }
 
@@ -522,16 +577,41 @@ class YoshiBirdGame {
     }
   }
 
-  crayonTexture(ctx, opacity) {
+  paperFibres(ctx, opacity) {
     ctx.save();
     ctx.globalAlpha = opacity;
-    ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 1;
-    for (let i = 0; i < 42; i += 1) {
+    ctx.strokeStyle = "rgba(255,255,255,0.62)";
+    ctx.lineWidth = 0.65;
+    for (let i = 0; i < 54; i += 1) {
       ctx.beginPath();
-      const y = (i * 23 + Math.sin(i) * 11) % VIRTUAL_HEIGHT;
+      const y = (i * 23 + Math.sin(i) * 17) % VIRTUAL_HEIGHT;
       ctx.moveTo(0, y);
-      ctx.lineTo(VIRTUAL_WIDTH, y + Math.sin(i * 4) * 10);
+      ctx.bezierCurveTo(VIRTUAL_WIDTH * 0.28, y + Math.sin(i) * 8, VIRTUAL_WIDTH * 0.64, y + Math.cos(i * 2) * 10, VIRTUAL_WIDTH, y + Math.sin(i * 4) * 8);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  textureRect(ctx, texture, x, y, w, h, alpha, mode = "multiply") {
+    if (!texture) return;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.globalCompositeOperation = mode;
+    ctx.fillStyle = texture;
+    ctx.fillRect(x, y, w, h);
+    ctx.restore();
+  }
+
+  brushLines(ctx, offset, y, color, alpha) {
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    for (let i = -2; i < 11; i += 1) {
+      const lineY = y + i * 22;
+      ctx.beginPath();
+      ctx.moveTo(((offset + i * 37) % 90) - 90, lineY);
+      ctx.bezierCurveTo(140, lineY + Math.sin(i) * 12, 360, lineY + Math.cos(i) * 9, VIRTUAL_WIDTH + 60, lineY + Math.sin(i * 3) * 10);
       ctx.stroke();
     }
     ctx.restore();
@@ -554,13 +634,20 @@ class YoshiBirdGame {
     const palette = highContrast
       ? { fill: "#194b57", edge: "#fff6b8", detail: "#ffe45c" }
       : obstacle.variant === "flower-trunk"
-        ? { fill: "#d99270", edge: "#7b4f38", detail: "#ffb1cd" }
+        ? { fill: "#d99270", edge: "#7b4f38", detail: "#ffb1cd", texture: this.textures.trunk }
         : obstacle.variant === "pastel-rock"
-          ? { fill: "#b5badc", edge: "#626aa0", detail: "#e6e9ff" }
-          : { fill: "#9fd7b0", edge: "#397c62", detail: "#f7f1a3" };
+          ? { fill: "#b5badc", edge: "#626aa0", detail: "#e6e9ff", texture: this.textures.rock }
+          : { fill: "#9fd7b0", edge: "#397c62", detail: "#f7f1a3", texture: this.textures.tower };
     roundRect(ctx, x, y - 18, w, h + 36, 28);
     ctx.fillStyle = palette.fill;
     ctx.fill();
+    if (!highContrast) {
+      ctx.save();
+      ctx.clip();
+      this.textureRect(ctx, palette.texture, x, y - 18, w, h + 36, 0.42, "multiply");
+      this.obstacleMarks(ctx, obstacle, x, y, w, h, palette.edge);
+      ctx.restore();
+    }
     ctx.lineWidth = highContrast ? 6 : 4;
     ctx.strokeStyle = palette.edge;
     ctx.stroke();
@@ -568,13 +655,45 @@ class YoshiBirdGame {
     const capY = top ? y + h - 14 : y - 18;
     roundRect(ctx, x - 9, capY, w + 18, 34, 18);
     ctx.fill();
+    if (!highContrast) {
+      ctx.save();
+      ctx.clip();
+      this.textureRect(ctx, palette.texture, x - 9, capY, w + 18, 34, 0.28, "multiply");
+      ctx.restore();
+    }
     ctx.stroke();
-    ctx.fillStyle = highContrast ? "#ffffff" : "rgba(255,255,255,0.3)";
+    ctx.fillStyle = highContrast ? "#ffffff" : "rgba(255,255,255,0.38)";
     for (let i = 0; i < Math.max(2, h / 90); i += 1) {
       ctx.beginPath();
       ctx.arc(x + 22 + (i % 3) * 22, y + 34 + i * 62, 5, 0, Math.PI * 2);
       ctx.fill();
     }
+  }
+
+  obstacleMarks(ctx, obstacle, x, y, w, h, color) {
+    ctx.save();
+    ctx.globalAlpha = 0.18;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    const count = Math.max(3, Math.floor(h / 58));
+    for (let i = 0; i < count; i += 1) {
+      const yy = y + 28 + i * 56;
+      ctx.beginPath();
+      if (obstacle.variant === "flower-trunk") {
+        ctx.moveTo(x + 16, yy);
+        ctx.bezierCurveTo(x + 35, yy - 12, x + 48, yy + 12, x + w - 12, yy - 2);
+      } else if (obstacle.variant === "pastel-rock") {
+        ctx.moveTo(x + 12, yy);
+        ctx.lineTo(x + 28, yy - 12);
+        ctx.lineTo(x + 50, yy - 2);
+        ctx.lineTo(x + w - 10, yy - 16);
+      } else {
+        ctx.moveTo(x + 14, yy);
+        ctx.quadraticCurveTo(x + w * 0.52, yy + 16, x + w - 12, yy);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
   }
 
   drawPlayer(ctx) {
@@ -589,6 +708,10 @@ class YoshiBirdGame {
     ctx.lineWidth = 4;
     blob(ctx, 0, 0, [30, 24, 25, 23, 27, 21], 1);
     ctx.fill();
+    ctx.save();
+    ctx.clip();
+    this.textureRect(ctx, this.textures.dino, -32, -24, 68, 50, 0.34, "multiply");
+    ctx.restore();
     ctx.stroke();
     ctx.fillStyle = "#9ee7a9";
     ctx.beginPath();
@@ -625,6 +748,10 @@ class YoshiBirdGame {
     ctx.beginPath();
     ctx.ellipse(-10, 1 + wingLift, 19, 10, -0.65, 0, Math.PI * 2);
     ctx.fill();
+    ctx.save();
+    ctx.clip();
+    this.textureRect(ctx, this.textures.wing, -32, -19 + wingLift, 44, 36, 0.3, "multiply");
+    ctx.restore();
     ctx.stroke();
     ctx.fillStyle = "#52b875";
     ctx.beginPath();
@@ -649,6 +776,7 @@ class YoshiBirdGame {
   drawForeground(ctx) {
     ctx.fillStyle = "#3c9b65";
     ctx.fillRect(0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight);
+    this.textureRect(ctx, this.textures.grass, 0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight, 0.44, "multiply");
     ctx.fillStyle = "#62c97b";
     ctx.fillRect(0, VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight, VIRTUAL_WIDTH, 16);
     ctx.strokeStyle = "rgba(35,104,72,0.45)";
@@ -724,6 +852,14 @@ function hexToRgb(hex) {
     r: parseInt(value.slice(0, 2), 16),
     g: parseInt(value.slice(2, 4), 16),
     b: parseInt(value.slice(4, 6), 16)
+  };
+}
+
+function seeded(seed) {
+  let value = seed >>> 0;
+  return () => {
+    value = (value * 1664525 + 1013904223) >>> 0;
+    return value / 4294967296;
   };
 }
 
