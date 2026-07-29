@@ -358,7 +358,30 @@ function normalizeReportHtml(html, retailer, options = {}) {
     dailyChanges: buildDailyChanges(retailer, products),
     groups: normalizedGroups,
   });
-  return html.slice(0, start) + normalized + html.slice(end);
+  return withDailyChangesPanel(html.slice(0, start) + normalized + html.slice(end));
+}
+
+function withDailyChangesPanel(html) {
+  let output = html;
+  const css = '.changes{padding:18px 0 0}.changebox{background:white;border:1px solid var(--l);border-radius:8px;box-shadow:0 12px 28px #0e12110d;overflow:hidden}.changebox summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:54px;padding:14px 16px;font-weight:950;list-style:none}.changebox summary::-webkit-details-marker{display:none}.changebox summary:after{content:"+";display:grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--r);color:white;font-weight:950}.changebox[open] summary:after{content:"-"}.change-count{margin-left:auto;color:var(--m);font-size:13px;font-weight:900}.change-body{border-top:1px solid var(--l);padding:14px 16px}.change-meta{margin:0 0 12px;color:var(--m);font-size:13px;font-weight:800}.change-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}.change-list>li{border:1px solid var(--l);border-radius:8px;padding:12px;background:#fbfcfb}.change-model{display:block;margin-bottom:6px;font-size:14px;font-weight:950}.change-bits{display:grid;gap:4px;margin:0;padding:0;list-style:none;color:var(--i);font-size:13px}.change-empty{margin:0;color:var(--m);font-weight:850}';
+  const mobileCss = '.changebox summary{align-items:flex-start;flex-direction:column}.change-count{margin-left:0}';
+  const section = '<section class=changes><div class=wrap><details class=changebox><summary><span>Daily changes</span><span class=change-count></span></summary><div class=change-body></div></details></div></section>';
+  const js = 'const daily=D.dailyChanges||{items:[]},changeItems=daily.items||[],changeCount=document.querySelector(".change-count"),changeBody=document.querySelector(".change-body");const changeText=c=>c.kind==="price"?(c.direction==="up"?"Price increase":"Price drop")+": was "+e(c.from)+", now "+e(c.to):c.kind==="availability"?"Availability changed from "+e(c.from)+" to "+e(c.to):c.kind==="offer-added"?"Offer added: "+e(c.offer):"Offer removed/ended: "+e(c.offer);changeCount.textContent=changeItems.length+" notable "+(changeItems.length===1?"change":"changes");changeBody.innerHTML=\'<p class=change-meta>Compared with \'+e(daily.previousRunDate||"the previous run")+\'</p>\'+(changeItems.length?\'<ul class=change-list>\'+changeItems.map(item=>\'<li><strong class=change-model>\'+e(item.model)+\'</strong><ul class=change-bits>\'+item.changes.map(c=>\'<li>\'+changeText(c)+\'</li>\').join("")+\'</ul></li>\').join("")+\'</ul>\':\'<p class=change-empty>No notable changes since the previous run.</p>\');';
+
+  if (!output.includes(".changebox{") && output.includes(".tools{")) {
+    output = output.replace(".tools{", css + ".tools{");
+    output = output.replace(".searchbox{grid-template-columns:1fr}", mobileCss + ".searchbox{grid-template-columns:1fr}");
+  }
+  if (!output.includes("<section class=changes>")) {
+    output = output.replace("</nav><section class=tools>", "</nav>" + section + "<section class=tools>");
+  }
+  if (!output.includes("const daily=D.dailyChanges")) {
+    output = output.replace(
+      /document\.querySelector\("\.nav \.wrap"\)\.innerHTML=D\.groups\.map\(g=>'<a href="#'\+e\(g\.key\)\+'">'\+e\(g\.label\)\+'<\/a>'\)\.join\(""\);/,
+      (match) => match + js,
+    );
+  }
+  return output;
 }
 
 function category(product) {
@@ -509,16 +532,15 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 48\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED48G56LS",
     "size": 48,
-    "price": "£1,044.00",
+    "price": "£1,099.99",
     "availability": "Listed",
     "offers": [
-      "Save £155.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-48-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled48g56ls-10281558.html",
     "model": "OLED48G56LS",
-    "previousPrice": "£1,099.99",
+    "previousPrice": "£1,044.00",
     "series": "G",
     "gen": "5"
   },
@@ -672,7 +694,6 @@ const currysProducts = [
     "price": "£849.00",
     "availability": "Listed",
     "offers": [
-      "Save £19.01",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -732,17 +753,18 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 55\" OLED AI 4K HDR Smart TV 2025 - OLED55B56LA",
     "size": 55,
-    "price": "£899.00",
+    "price": "£898.97",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
+      "Save £100.03",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-55-oled-ai-4k-hdr-smart-tv-2025-oled55b56la-10281768.html",
     "model": "OLED55B56LA",
     "series": "B",
-    "gen": "5"
+    "gen": "5",
+    "previousPrice": "£899.00"
   },
   {
     "year": "2025",
@@ -807,14 +829,14 @@ const currysProducts = [
   },
   {
     "year": "2026",
-    "title": "OLED77W69LA",
+    "title": "LG W6 77\" OLED AI 4K HDR True Wireless Smart TV 2026 - OLED77W69LA",
     "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£4,699.99",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Free delivery"
     ],
-    "url": "https://www.currys.co.uk/search?q=OLED77W69LA",
+    "url": "https://www.currys.co.uk/products/lg-w6-77-oled-ai-4k-hdr-true-wireless-smart-tv-2026-oled77w69la-10303103.html",
     "model": "OLED77W69LA",
     "series": "W",
     "gen": "6"
@@ -823,10 +845,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED65G64LW",
     "size": 65,
-    "price": "£2,699.00",
+    "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.99",
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -834,16 +856,16 @@ const currysProducts = [
     "model": "OLED65G64LW",
     "series": "G",
     "gen": "6",
-    "previousPrice": "£2,999.00"
+    "previousPrice": "£2,699.00"
   },
   {
     "year": "2026",
     "title": "LG G6 65\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED65G66LS",
     "size": 65,
-    "price": "£2,699.00",
+    "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.99",
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -851,16 +873,16 @@ const currysProducts = [
     "model": "OLED65G66LS",
     "series": "G",
     "gen": "6",
-    "previousPrice": "£2,999.00"
+    "previousPrice": "£2,699.00"
   },
   {
     "year": "2026",
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED55G64LW",
     "size": 55,
-    "price": "£2,099.00",
+    "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.99",
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -868,16 +890,16 @@ const currysProducts = [
     "model": "OLED55G64LW",
     "series": "G",
     "gen": "6",
-    "previousPrice": "£2,199.00"
+    "previousPrice": "£2,099.00"
   },
   {
     "year": "2026",
     "title": "LG G6 55\" OLED AI 4K HDR Smart TV 2026 (Stand Version) - OLED55G66LS",
     "size": 55,
-    "price": "£2,099.00",
+    "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.99",
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -885,7 +907,7 @@ const currysProducts = [
     "model": "OLED55G66LS",
     "series": "G",
     "gen": "6",
-    "previousPrice": "£2,199.00"
+    "previousPrice": "£2,099.00"
   },
   {
     "year": "2026",
@@ -993,7 +1015,7 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 42\" OLED AI 4K HDR Smart TV 2026 - OLED42C64LA",
     "size": 42,
-    "price": "£1,099.00",
+    "price": "£1,199.00",
     "availability": "Listed",
     "offers": [
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -1003,7 +1025,7 @@ const currysProducts = [
     "model": "OLED42C64LA",
     "series": "C",
     "gen": "6",
-    "previousPrice": "£1,199.00"
+    "previousPrice": "£1,099.00"
   },
   {
     "year": "2026",
@@ -1012,7 +1034,6 @@ const currysProducts = [
     "price": "£2,999.99",
     "availability": "Listed",
     "offers": [
-      "Save £30.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1072,10 +1093,9 @@ const currysProducts = [
     "year": "2026",
     "title": "LG B6 48\" OLED AI 4K HDR Smart TV 2026 - OLED48B65LA",
     "size": 48,
-    "price": "£999.00",
+    "price": "£1,099.00",
     "availability": "Listed",
     "offers": [
-      "Save £300.99",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1083,7 +1103,7 @@ const currysProducts = [
     "model": "OLED48B65LA",
     "series": "B",
     "gen": "6",
-    "previousPrice": "£1,099.00"
+    "previousPrice": "£999.00"
   },
   {
     "year": "2025",
@@ -1137,11 +1157,27 @@ function sortedMeaningfulOffers(product) {
   return [...(product.offers || [])].filter(meaningfulOffer).sort();
 }
 
+function changeSignature(products) {
+  return products.map((product) => [
+    product.model,
+    product.price,
+    product.availability,
+    sortedMeaningfulOffers(product).join("|"),
+  ].join("::")).join("\n");
+}
+
 function buildDailyChanges(retailer, afterProducts) {
   const file = reportFileForRetailer(retailer);
   if (!fs.existsSync(file)) return { previousRunDate: "", currentRunDate: runDate, items: [] };
   const beforeReport = extractReportDataFromHtml(read(file));
   if (!beforeReport) return { previousRunDate: "", currentRunDate: runDate, items: [] };
+  if (
+    beforeReport.runDate === runDate
+    && beforeReport.dailyChanges
+    && changeSignature(flatReportProducts(beforeReport)) === changeSignature(afterProducts)
+  ) {
+    return beforeReport.dailyChanges;
+  }
 
   const beforeByModel = new Map(flatReportProducts(beforeReport).map((product) => [product.model, product]));
   const items = [];
