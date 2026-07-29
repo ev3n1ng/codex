@@ -31,17 +31,16 @@ Core tuning values live in `yoshibird/src/config.js`, including gravity, flap ve
 
 ## Assets
 
-Visuals are mostly original procedural Canvas and CSS artwork in:
+Visuals are original procedural Canvas and CSS artwork in:
 
-- `yoshibird/src/game.js`
-- `yoshibird/styles.css`
+- `yoshibird/src/game.js` — flat, crisp-edged classic-arcade style (solid sky,
+  a hazy distant skyline, a pastel bush/hedge row, flat-colour pipes, a
+  simplified bird sprite)
+- `yoshibird/styles.css` — Yoshi's Island storybook menu chrome
 
-A handful of background/ground textures (clouds, distant trees, grass tufts)
-are CC0 (public domain) images from Kenney's "Background Elements" and
-"Nature Kit" packs, stored in `yoshibird/assets/textures/`. See
-`yoshibird/assets/textures/CREDITS.md` for exact source URLs and license
-detail. Each is loaded as a progressive enhancement — if an image hasn't
-loaded yet, `game.js` falls back to the original hand-drawn shapes.
+Menu typography is self-hosted (Baloo 2 + Quicksand, both OFL-licensed) in
+`yoshibird/assets/fonts/` — see `yoshibird/assets/fonts/CREDITS.md` for
+source/license detail. No external font CDN call at runtime.
 
 Audio placeholders are tiny original generated WAV files in `yoshibird/audio/`:
 

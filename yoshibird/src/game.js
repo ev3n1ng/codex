@@ -5,36 +5,6 @@ import { nextObstacle, updateObstacleMotion } from "./obstacles.js";
 import { AudioManager } from "./audio.js";
 import { createStorageService, isLeaderboardWorthy, sanitiseName } from "./leaderboard.js";
 
-// CC0 (public domain) textures from Kenney's "Background Elements" and
-// "Nature Kit" packs — see assets/textures/CREDITS.md for source/license.
-// Drawn as a progressive enhancement over the procedural art below: every
-// draw site checks `image.complete && image.naturalWidth` first and falls
-// back to the original hand-drawn shapes if a texture hasn't loaded yet.
-const TEXTURE_FILES = {
-  cloud1: "assets/textures/cloud1.png",
-  cloud2: "assets/textures/cloud2.png",
-  cloud3: "assets/textures/cloud3.png",
-  grass2: "assets/textures/grass2.png",
-  grass5: "assets/textures/grass5.png",
-  grass6: "assets/textures/grass6.png",
-  treeDefault: "assets/textures/tree_default.png",
-  treeFat: "assets/textures/tree_fat.png"
-};
-
-function loadTextureImages() {
-  const images = {};
-  Object.entries(TEXTURE_FILES).forEach(([key, src]) => {
-    const image = new Image();
-    image.src = src;
-    images[key] = image;
-  });
-  return images;
-}
-
-function readyImage(image) {
-  return image && image.complete && image.naturalWidth > 0 ? image : null;
-}
-
 const DEFAULT_SETTINGS = {
   musicVolume: GAME_CONFIG.audio.musicVolume,
   sfxVolume: GAME_CONFIG.audio.sfxVolume,
@@ -49,8 +19,6 @@ class YoshiBirdGame {
   constructor() {
     this.canvas = document.getElementById("game-canvas");
     this.ctx = this.canvas.getContext("2d", { alpha: false });
-    this.textures = this.createTextures();
-    this.textureImages = loadTextureImages();
     this.storage = createStorageService();
     this.settings = this.storage.getSettings(DEFAULT_SETTINGS);
     this.audio = new AudioManager(this.settings);
@@ -170,55 +138,6 @@ class YoshiBirdGame {
     this.ctx.imageSmoothingEnabled = true;
     this.ctx.imageSmoothingQuality = "high";
     this.ctx.setTransform(this.canvas.width / VIRTUAL_WIDTH, 0, 0, this.canvas.height / VIRTUAL_HEIGHT, 0, 0);
-  }
-
-  createTextures() {
-    return {
-      sky: this.createPaperPattern("#c8f0ea", "#ffffff", "#88c7d7", 5401, 0.28),
-      hillFar: this.createPaperPattern("#83cfa0", "#d8ffd7", "#4fa777", 5402, 0.34),
-      hillNear: this.createPaperPattern("#41a86d", "#b8edbf", "#236f4d", 5403, 0.36),
-      grass: this.createPaperPattern("#3a9d64", "#95da8f", "#176640", 5404, 0.42),
-      tower: this.createPaperPattern("#a8dab2", "#eff6a2", "#3d8a66", 5405, 0.5),
-      trunk: this.createPaperPattern("#d99a75", "#ffd0a7", "#89563f", 5406, 0.48),
-      rock: this.createPaperPattern("#b9bddf", "#eef0ff", "#6972a8", 5407, 0.5),
-      dino: this.createPaperPattern("#74d88e", "#c4f2bf", "#3d9a62", 5408, 0.42),
-      wing: this.createPaperPattern("#f6df73", "#fff8ad", "#cda94a", 5409, 0.44),
-      panel: this.createPaperPattern("#fff7d8", "#ffffff", "#d8c47b", 5410, 0.25)
-    };
-  }
-
-  createPaperPattern(base, light, dark, seed, strength) {
-    const tile = document.createElement("canvas");
-    const logicalSize = 160;
-    const textureScale = 2;
-    tile.width = logicalSize * textureScale;
-    tile.height = logicalSize * textureScale;
-    const tctx = tile.getContext("2d");
-    const random = seeded(seed);
-    tctx.fillStyle = base;
-    tctx.fillRect(0, 0, tile.width, tile.height);
-    for (let i = 0; i < 1800; i += 1) {
-      const color = random() > 0.55 ? light : dark;
-      tctx.globalAlpha = (0.025 + random() * 0.085) * strength;
-      tctx.fillStyle = color;
-      tctx.fillRect(random() * tile.width, random() * tile.height, 1.4 + random() * 4.2, 1.4 + random() * 4.2);
-    }
-    tctx.globalAlpha = 0.13 * strength;
-    tctx.strokeStyle = dark;
-    tctx.lineWidth = 1.2;
-    for (let i = 0; i < 68; i += 1) {
-      const y = random() * tile.height;
-      tctx.beginPath();
-      tctx.moveTo(-20, y);
-      tctx.bezierCurveTo(84, y + random() * 18 - 8, 184, y + random() * 18 - 8, 340, y + random() * 18 - 8);
-      tctx.stroke();
-    }
-    tctx.globalAlpha = 1;
-    const pattern = this.ctx.createPattern(tile, "repeat");
-    if (pattern?.setTransform && window.DOMMatrix) {
-      pattern.setTransform(new DOMMatrix().scale(1 / textureScale));
-    }
-    return pattern;
   }
 
   setState(state) {
@@ -531,159 +450,55 @@ class YoshiBirdGame {
     this.ui.speed.textContent = `${Math.round(difficulty.speed)}`;
   }
 
+  // --- Background: flat classic-arcade sky, a hazy distant skyline, and a
+  // continuous pastel bush/hedge row along the ground line. No gradients,
+  // no paper-noise textures — flat colour fields, matching the reference.
   drawBackground(ctx, difficulty) {
-    const evening = clamp((this.score - 55) / 70, 0, 1);
-    const gradient = ctx.createLinearGradient(0, 0, 0, VIRTUAL_HEIGHT);
-    gradient.addColorStop(0, mix("#bfeeff", "#f6c0c7", evening));
-    gradient.addColorStop(0.62, mix("#f9f0b7", "#f5d083", evening));
-    gradient.addColorStop(1, mix("#a8e5b1", "#81c798", evening));
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = "#7ad6ef";
     ctx.fillRect(0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
-    this.textureRect(ctx, this.textures.sky, 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, 0.36, "soft-light");
-    this.paperFibres(ctx, 0.16);
     const t = this.elapsed * difficulty.speed;
-    this.cloudLayer(ctx, t * 0.1, 58, 0.8);
-    this.hillLayer(ctx, t * 0.18, 650, "#8cd3a4", "#5fb67f", this.textures.hillFar);
-    this.hillLayer(ctx, t * 0.28, 735, "#4fb978", "#2d895c", this.textures.hillNear);
-    this.treeLine(ctx, t * 0.3, 735);
-    this.drawFlowers(ctx, t * 0.54, difficulty.energy);
-    if (difficulty.speed > GAME_CONFIG.difficulty.energeticSpeed && !this.settings.reducedMotion) {
-      ctx.strokeStyle = "rgba(255,255,255,0.34)";
-      ctx.lineWidth = 2;
-      for (let i = 0; i < 12; i += 1) {
-        const x = (i * 92 - t * 0.7) % (VIRTUAL_WIDTH + 120);
-        const y = 50 + ((i * 47) % 340);
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + 34, y - 4);
-        ctx.stroke();
-      }
-    }
+    this.citySkyline(ctx, t * 0.12);
+    this.bushRow(ctx, t * 0.55);
   }
 
-  cloudLayer(ctx, offset, yBase, opacity) {
+  citySkyline(ctx, offset) {
+    const baseY = 742;
+    const period = 84;
+    const count = Math.ceil(VIRTUAL_WIDTH / period) + 3;
+    const span = period * count;
     ctx.save();
-    ctx.globalAlpha = opacity;
-    const cloudKeys = ["cloud1", "cloud2", "cloud3"];
-    for (let i = -1; i < 7; i += 1) {
-      const x = ((i * 190 - offset) % 1330 + 1330) % 1330 - 170;
-      const y = yBase + Math.sin(i * 1.7) * 42;
-      const image = readyImage(this.textureImages[cloudKeys[((i % 3) + 3) % 3]]);
-      if (image) {
-        const w = 108;
-        const h = (image.naturalHeight / image.naturalWidth) * w;
-        ctx.drawImage(image, x - w / 2, y - h / 2, w, h);
-      } else {
-        ctx.fillStyle = "rgba(255,255,255,0.82)";
-        blob(ctx, x, y, [54, 36, 62, 40, 48], 0.55);
-        ctx.fill();
-        ctx.save();
-        ctx.clip();
-        this.textureRect(ctx, this.textures.panel, x - 42, y - 26, 92, 50, 0.18, "multiply");
-        ctx.restore();
-        ctx.strokeStyle = "rgba(62,108,126,0.18)";
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
+    for (let i = -2; i < count; i += 1) {
+      const rnd = seeded(i * 977 + 11);
+      const w = 44 + rnd() * 30;
+      const h = 58 + rnd() * 128;
+      const shade = rnd() > 0.5 ? "rgba(214,238,244,0.8)" : "rgba(193,226,236,0.8)";
+      const x = ((i * period - offset) % span + span) % span - period * 2;
+      ctx.fillStyle = shade;
+      ctx.fillRect(x, baseY - h, w, h);
     }
     ctx.restore();
   }
 
-  treeLine(ctx, offset, baseY) {
-    const keys = ["treeDefault", "treeFat"];
-    const period = 150;
-    const span = period * 8;
+  bushRow(ctx, offset) {
+    const groundY = VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight;
+    const radius = 27;
+    const step = 30;
+    const count = Math.ceil(VIRTUAL_WIDTH / step) + 6;
+    const span = step * count;
     ctx.save();
-    ctx.globalAlpha = 0.88;
-    for (let i = -1; i < 8; i += 1) {
-      const x = ((i * period - offset) % span + span) % span - period;
-      const image = readyImage(this.textureImages[keys[((i % 2) + 2) % 2]]);
-      if (!image) continue;
-      const h = 82 + (Math.abs(i) % 3) * 16;
-      const w = (image.naturalWidth / image.naturalHeight) * h;
-      ctx.drawImage(image, x - w / 2, baseY - h + 22, w, h);
-    }
-    ctx.restore();
-  }
-
-  hillLayer(ctx, offset, y, fill, stroke, texture) {
-    ctx.fillStyle = fill;
-    ctx.strokeStyle = stroke;
-    ctx.lineWidth = 4;
+    ctx.fillStyle = "#bfe6a4";
     ctx.beginPath();
-    ctx.moveTo(0, VIRTUAL_HEIGHT);
-    for (let x = -80; x <= VIRTUAL_WIDTH + 80; x += 80) {
-      const yy = y + Math.sin((x + offset) / 125) * 24 + Math.cos((x + offset) / 62) * 8;
-      ctx.lineTo(x, yy);
+    for (let i = -3; i < count; i += 1) {
+      const x = ((i * step - offset) % span + span) % span - step * 3;
+      ctx.moveTo(x + radius, groundY);
+      ctx.arc(x, groundY, radius, 0, Math.PI, true);
     }
-    ctx.lineTo(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
-    ctx.closePath();
     ctx.fill();
-    ctx.save();
-    ctx.clip();
-    this.textureRect(ctx, texture, 0, y - 110, VIRTUAL_WIDTH, VIRTUAL_HEIGHT - y + 140, 0.34, "multiply");
-    this.brushLines(ctx, -offset * 0.16, y - 18, stroke, 0.16);
-    ctx.restore();
-    ctx.stroke();
-  }
-
-  drawFlowers(ctx, offset, energy) {
-    for (let i = 0; i < 34; i += 1) {
-      const x = ((i * 43 - offset) % (VIRTUAL_WIDTH + 80) + VIRTUAL_WIDTH + 80) % (VIRTUAL_WIDTH + 80) - 40;
-      const y = VIRTUAL_HEIGHT - 60 + Math.sin(i * 2.1) * 8;
-      ctx.strokeStyle = "#327b58";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(x, y + 11);
-      ctx.lineTo(x + Math.sin(this.elapsed * (1 + energy) + i) * 3, y);
-      ctx.stroke();
-      ctx.fillStyle = ["#ff7ea7", "#fff06d", "#82d5ff"][i % 3];
-      ctx.beginPath();
-      ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  paperFibres(ctx, opacity) {
-    ctx.save();
-    ctx.globalAlpha = opacity;
-    ctx.strokeStyle = "rgba(255,255,255,0.62)";
-    ctx.lineWidth = 0.65;
-    for (let i = 0; i < 54; i += 1) {
-      ctx.beginPath();
-      const y = (i * 23 + Math.sin(i) * 17) % VIRTUAL_HEIGHT;
-      ctx.moveTo(0, y);
-      ctx.bezierCurveTo(VIRTUAL_WIDTH * 0.28, y + Math.sin(i) * 8, VIRTUAL_WIDTH * 0.64, y + Math.cos(i * 2) * 10, VIRTUAL_WIDTH, y + Math.sin(i * 4) * 8);
-      ctx.stroke();
-    }
     ctx.restore();
   }
 
-  textureRect(ctx, texture, x, y, w, h, alpha, mode = "multiply") {
-    if (!texture) return;
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.globalCompositeOperation = mode;
-    ctx.fillStyle = texture;
-    ctx.fillRect(x, y, w, h);
-    ctx.restore();
-  }
-
-  brushLines(ctx, offset, y, color, alpha) {
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 3;
-    for (let i = -2; i < 11; i += 1) {
-      const lineY = y + i * 22;
-      ctx.beginPath();
-      ctx.moveTo(((offset + i * 37) % 90) - 90, lineY);
-      ctx.bezierCurveTo(140, lineY + Math.sin(i) * 12, 360, lineY + Math.cos(i) * 9, VIRTUAL_WIDTH + 60, lineY + Math.sin(i * 3) * 10);
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
+  // --- Obstacles: a single flat pipe style (mid-green body, darker-green
+  // flanged cap, crisp dark outline). No per-obstacle skins, no gradients.
   drawObstacles(ctx) {
     for (const obstacle of this.obstacles) {
       const topH = obstacle.center - obstacle.gap / 2;
@@ -698,71 +513,31 @@ class YoshiBirdGame {
     const x = obstacle.x;
     const w = obstacle.width;
     const highContrast = this.settings.highContrast;
-    const palette = highContrast
-      ? { fill: "#194b57", edge: "#fff6b8", detail: "#ffe45c" }
-      : obstacle.variant === "flower-trunk"
-        ? { fill: "#d99270", edge: "#7b4f38", detail: "#ffb1cd", texture: this.textures.trunk }
-        : obstacle.variant === "pastel-rock"
-          ? { fill: "#b5badc", edge: "#626aa0", detail: "#e6e9ff", texture: this.textures.rock }
-          : { fill: "#9fd7b0", edge: "#397c62", detail: "#f7f1a3", texture: this.textures.tower };
-    roundRect(ctx, x, y - 18, w, h + 36, 28);
-    ctx.fillStyle = palette.fill;
-    ctx.fill();
-    if (!highContrast) {
-      ctx.save();
-      ctx.clip();
-      this.textureRect(ctx, palette.texture, x, y - 18, w, h + 36, 0.42, "multiply");
-      this.obstacleMarks(ctx, obstacle, x, y, w, h, palette.edge);
-      ctx.restore();
-    }
-    ctx.lineWidth = highContrast ? 6 : 4;
-    ctx.strokeStyle = palette.edge;
-    ctx.stroke();
-    ctx.fillStyle = palette.detail;
-    const capY = top ? y + h - 14 : y - 18;
-    roundRect(ctx, x - 9, capY, w + 18, 34, 18);
-    ctx.fill();
-    if (!highContrast) {
-      ctx.save();
-      ctx.clip();
-      this.textureRect(ctx, palette.texture, x - 9, capY, w + 18, 34, 0.28, "multiply");
-      ctx.restore();
-    }
-    ctx.stroke();
-    ctx.fillStyle = highContrast ? "#ffffff" : "rgba(255,255,255,0.38)";
-    for (let i = 0; i < Math.max(2, h / 90); i += 1) {
-      ctx.beginPath();
-      ctx.arc(x + 22 + (i % 3) * 22, y + 34 + i * 62, 5, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    const body = highContrast ? "#194b57" : "#7ec850";
+    const cap = highContrast ? "#0f2e37" : "#5da23f";
+    const edge = highContrast ? "#fff6b8" : "#2f5c2c";
+    const capH = 32;
+    const capOverhang = 9;
+    const lineW = 4;
+
+    ctx.fillStyle = body;
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = edge;
+    ctx.lineWidth = lineW;
+    ctx.strokeRect(x + lineW / 2, y - lineW, w - lineW, h + lineW * 2);
+
+    const capY = top ? y + h - capH : y;
+    ctx.fillStyle = cap;
+    ctx.fillRect(x - capOverhang, capY, w + capOverhang * 2, capH);
+    ctx.strokeStyle = edge;
+    ctx.strokeRect(x - capOverhang + lineW / 2, capY + lineW / 2, w + capOverhang * 2 - lineW, capH - lineW);
   }
 
-  obstacleMarks(ctx, obstacle, x, y, w, h, color) {
-    ctx.save();
-    ctx.globalAlpha = 0.18;
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 2;
-    const count = Math.max(3, Math.floor(h / 58));
-    for (let i = 0; i < count; i += 1) {
-      const yy = y + 28 + i * 56;
-      ctx.beginPath();
-      if (obstacle.variant === "flower-trunk") {
-        ctx.moveTo(x + 16, yy);
-        ctx.bezierCurveTo(x + 35, yy - 12, x + 48, yy + 12, x + w - 12, yy - 2);
-      } else if (obstacle.variant === "pastel-rock") {
-        ctx.moveTo(x + 12, yy);
-        ctx.lineTo(x + 28, yy - 12);
-        ctx.lineTo(x + 50, yy - 2);
-        ctx.lineTo(x + w - 10, yy - 16);
-      } else {
-        ctx.moveTo(x + 14, yy);
-        ctx.quadraticCurveTo(x + w * 0.52, yy + 16, x + w - 12, yy);
-      }
-      ctx.stroke();
-    }
-    ctx.restore();
-  }
-
+  // --- Player: flatter, crisper "pixel-art-adjacent" Yoshi Bird. Kept the
+  // green body/brand identity rather than switching to the reference's
+  // orange bird — the game and its menus are built around "Yoshi", and an
+  // orange bird would read as a different character. Added a clearer
+  // orange beak as a nod to the reference without losing that identity.
   drawPlayer(ctx) {
     const p = this.player;
     ctx.save();
@@ -770,24 +545,16 @@ class YoshiBirdGame {
     ctx.rotate(p.rotation);
     const squash = 1 + p.flapPulse * 0.08;
     ctx.scale(1 + p.flapPulse * 0.06, 1 / squash);
-    ctx.fillStyle = p.hurt ? "#9bd1bd" : "#72d58a";
-    ctx.strokeStyle = "#2e795d";
+    const outline = "#2f5c2c";
+    ctx.fillStyle = p.hurt ? "#9bd1bd" : "#6cc257";
+    ctx.strokeStyle = outline;
     ctx.lineWidth = 4;
     blob(ctx, 0, 0, [30, 24, 25, 23, 27, 21], 1);
     ctx.fill();
-    ctx.save();
-    ctx.clip();
-    this.textureRect(ctx, this.textures.dino, -32, -24, 68, 50, 0.34, "multiply");
-    ctx.restore();
     ctx.stroke();
-    ctx.fillStyle = "#9ee7a9";
+    ctx.fillStyle = "#f4fbe9";
     ctx.beginPath();
     ctx.ellipse(15, -1, 22, 16, 0.1, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = "#fff8d6";
-    ctx.beginPath();
-    ctx.ellipse(26, -11, 9, 10, 0, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
     ctx.fillStyle = "#1f3b46";
@@ -804,23 +571,25 @@ class YoshiBirdGame {
       ctx.arc(28, -12, 3.2, 0, Math.PI * 2);
       ctx.fill();
     }
-    ctx.strokeStyle = "#2e795d";
-    ctx.lineWidth = 3;
+    ctx.fillStyle = "#f0873a";
+    ctx.strokeStyle = "#a5511a";
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
-    ctx.moveTo(42, -3);
-    ctx.quadraticCurveTo(51, 0, 42, 5);
+    ctx.moveTo(36, -7);
+    ctx.quadraticCurveTo(52, -2, 36, 7);
+    ctx.quadraticCurveTo(45, -2, 36, -7);
+    ctx.closePath();
+    ctx.fill();
     ctx.stroke();
     const wingLift = Math.sin(p.wing) * 10 - p.flapPulse * 12;
-    ctx.fillStyle = "#f9e881";
+    ctx.fillStyle = "#ffd95e";
+    ctx.strokeStyle = outline;
+    ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.ellipse(-10, 1 + wingLift, 19, 10, -0.65, 0, Math.PI * 2);
     ctx.fill();
-    ctx.save();
-    ctx.clip();
-    this.textureRect(ctx, this.textures.wing, -32, -19 + wingLift, 44, 36, 0.3, "multiply");
-    ctx.restore();
     ctx.stroke();
-    ctx.fillStyle = "#52b875";
+    ctx.fillStyle = "#4fa83f";
     ctx.beginPath();
     ctx.ellipse(-26, 2, 12, 8, -0.35, 0, Math.PI * 2);
     ctx.fill();
@@ -840,34 +609,38 @@ class YoshiBirdGame {
     }
   }
 
-  drawForeground(ctx) {
+  // --- Ground: a diagonal-striped green/cream band over a solid sand base.
+  drawForeground(ctx, difficulty) {
     const groundY = VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight;
-    ctx.fillStyle = "#3c9b65";
+    const stripeH = 30;
+    ctx.fillStyle = "#f0dfae";
     ctx.fillRect(0, groundY, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight);
-    this.textureRect(ctx, this.textures.grass, 0, groundY, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight, 0.44, "multiply");
-    ctx.fillStyle = "#62c97b";
-    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, 16);
-    const grassKeys = ["grass2", "grass5", "grass6"];
-    let anyLoaded = false;
-    let i = 0;
-    for (let x = -20; x < VIRTUAL_WIDTH + 40; x += 24, i += 1) {
-      const image = readyImage(this.textureImages[grassKeys[i % grassKeys.length]]);
-      if (!image) continue;
-      anyLoaded = true;
-      const h = 22;
-      const w = (image.naturalWidth / image.naturalHeight) * h;
-      ctx.drawImage(image, x - w / 2, groundY - h + 6, w, h);
+    ctx.fillStyle = "#eee4c2";
+    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, stripeH);
+
+    const stripeW = 22;
+    const skew = stripeH;
+    const period = stripeW * 2;
+    const scrollX = (this.elapsed * difficulty.speed) % period;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, groundY, VIRTUAL_WIDTH, stripeH);
+    ctx.clip();
+    ctx.fillStyle = "#8fc25a";
+    for (let x = -period - skew; x < VIRTUAL_WIDTH + skew; x += period) {
+      const sx = x - scrollX;
+      ctx.beginPath();
+      ctx.moveTo(sx, groundY + stripeH);
+      ctx.lineTo(sx + skew, groundY);
+      ctx.lineTo(sx + skew + stripeW, groundY);
+      ctx.lineTo(sx + stripeW, groundY + stripeH);
+      ctx.closePath();
+      ctx.fill();
     }
-    if (!anyLoaded) {
-      ctx.strokeStyle = "rgba(35,104,72,0.45)";
-      ctx.lineWidth = 3;
-      for (let x = -20; x < VIRTUAL_WIDTH + 40; x += 24) {
-        ctx.beginPath();
-        ctx.moveTo(x, VIRTUAL_HEIGHT - 62);
-        ctx.quadraticCurveTo(x + 8, VIRTUAL_HEIGHT - 78, x + 18, VIRTUAL_HEIGHT - 61);
-        ctx.stroke();
-      }
-    }
+    ctx.restore();
+
+    ctx.fillStyle = "#d0b87e";
+    ctx.fillRect(0, groundY + stripeH, VIRTUAL_WIDTH, 3);
   }
 
   drawMilestone(ctx) {
@@ -920,21 +693,6 @@ function blob(ctx, x, y, radii, scale = 1) {
     else ctx.lineTo(px, py);
   }
   ctx.closePath();
-}
-
-function mix(a, b, amount) {
-  const ca = hexToRgb(a);
-  const cb = hexToRgb(b);
-  return `rgb(${Math.round(ca.r + (cb.r - ca.r) * amount)}, ${Math.round(ca.g + (cb.g - ca.g) * amount)}, ${Math.round(ca.b + (cb.b - ca.b) * amount)})`;
-}
-
-function hexToRgb(hex) {
-  const value = hex.replace("#", "");
-  return {
-    r: parseInt(value.slice(0, 2), 16),
-    g: parseInt(value.slice(2, 4), 16),
-    b: parseInt(value.slice(4, 6), 16)
-  };
 }
 
 function seeded(seed) {
