@@ -5,6 +5,21 @@ import { nextObstacle, updateObstacleMotion } from "./obstacles.js";
 import { AudioManager } from "./audio.js";
 import { createStorageService, isLeaderboardWorthy, sanitiseName } from "./leaderboard.js";
 
+// "Sticker-toy" palette — kept in exact lockstep with the CSS custom
+// properties in styles.css so the canvas game and the DOM menus read as
+// one designed product. Every shape drawn with this palette follows the
+// same rule as the DOM: flat fill + ink outline + a solid, unblurred,
+// offset shadow (never a gradient, blur, or texture).
+const PALETTE = {
+  ink: "#16162c",
+  sky: "#4fc3e8",
+  green: "#2ecc71",
+  greenDeep: "#1f9c56",
+  yellow: "#ffd23f",
+  coral: "#ff6262",
+  cream: "#fff8ea"
+};
+
 const DEFAULT_SETTINGS = {
   musicVolume: GAME_CONFIG.audio.musicVolume,
   sfxVolume: GAME_CONFIG.audio.sfxVolume,
@@ -450,50 +465,44 @@ class YoshiBirdGame {
     this.ui.speed.textContent = `${Math.round(difficulty.speed)}`;
   }
 
-  // --- Background: flat classic-arcade sky, a hazy distant skyline, and a
-  // continuous pastel bush/hedge row along the ground line. No gradients,
-  // no paper-noise textures — flat colour fields, matching the reference.
+  // --- Background: flat sky, a handful of sticker-style clouds. Flat fill
+  // + ink outline + a hard offset shadow, same rule as every DOM panel.
   drawBackground(ctx, difficulty) {
-    ctx.fillStyle = "#7ad6ef";
+    ctx.fillStyle = PALETTE.sky;
     ctx.fillRect(0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
     const t = this.elapsed * difficulty.speed;
-    this.citySkyline(ctx, t * 0.12);
-    this.bushRow(ctx, t * 0.55);
+    this.cloudLayer(ctx, t * 0.22);
   }
 
-  citySkyline(ctx, offset) {
-    const baseY = 742;
-    const period = 84;
-    const count = Math.ceil(VIRTUAL_WIDTH / period) + 3;
+  cloudLayer(ctx, offset) {
+    const period = 260;
+    const count = Math.ceil(VIRTUAL_WIDTH / period) + 2;
     const span = period * count;
+    const shadow = 6;
     ctx.save();
-    for (let i = -2; i < count; i += 1) {
-      const rnd = seeded(i * 977 + 11);
-      const w = 44 + rnd() * 30;
-      const h = 58 + rnd() * 128;
-      const shade = rnd() > 0.5 ? "rgba(214,238,244,0.8)" : "rgba(193,226,236,0.8)";
-      const x = ((i * period - offset) % span + span) % span - period * 2;
-      ctx.fillStyle = shade;
-      ctx.fillRect(x, baseY - h, w, h);
+    for (let i = -1; i < count; i += 1) {
+      const rnd = seeded(i * 733 + 5);
+      const y = 90 + rnd() * 150;
+      const scale = 0.75 + rnd() * 0.5;
+      const x = ((i * period - offset) % span + span) % span - period;
+      ctx.save();
+      ctx.translate(x + shadow, y + shadow);
+      ctx.scale(scale, scale);
+      ctx.fillStyle = PALETTE.ink;
+      cloudPath(ctx);
+      ctx.fill();
+      ctx.restore();
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+      ctx.fillStyle = PALETTE.cream;
+      ctx.strokeStyle = PALETTE.ink;
+      ctx.lineWidth = 4 / scale;
+      cloudPath(ctx);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
     }
-    ctx.restore();
-  }
-
-  bushRow(ctx, offset) {
-    const groundY = VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight;
-    const radius = 27;
-    const step = 30;
-    const count = Math.ceil(VIRTUAL_WIDTH / step) + 6;
-    const span = step * count;
-    ctx.save();
-    ctx.fillStyle = "#bfe6a4";
-    ctx.beginPath();
-    for (let i = -3; i < count; i += 1) {
-      const x = ((i * step - offset) % span + span) % span - step * 3;
-      ctx.moveTo(x + radius, groundY);
-      ctx.arc(x, groundY, radius, 0, Math.PI, true);
-    }
-    ctx.fill();
     ctx.restore();
   }
 
@@ -513,31 +522,34 @@ class YoshiBirdGame {
     const x = obstacle.x;
     const w = obstacle.width;
     const highContrast = this.settings.highContrast;
-    const body = highContrast ? "#194b57" : "#7ec850";
-    const cap = highContrast ? "#0f2e37" : "#5da23f";
-    const edge = highContrast ? "#fff6b8" : "#2f5c2c";
+    const body = highContrast ? "#2a2a44" : PALETTE.green;
+    const cap = highContrast ? "#000000" : PALETTE.greenDeep;
     const capH = 32;
     const capOverhang = 9;
-    const lineW = 4;
+    const shadow = 7;
+    const capY = top ? y + h - capH : y;
+
+    ctx.fillStyle = PALETTE.ink;
+    ctx.fillRect(x + shadow, y + shadow, w, h);
+    ctx.fillRect(x - capOverhang + shadow, capY + shadow, w + capOverhang * 2, capH);
 
     ctx.fillStyle = body;
     ctx.fillRect(x, y, w, h);
-    ctx.strokeStyle = edge;
-    ctx.lineWidth = lineW;
-    ctx.strokeRect(x + lineW / 2, y - lineW, w - lineW, h + lineW * 2);
-
-    const capY = top ? y + h - capH : y;
     ctx.fillStyle = cap;
     ctx.fillRect(x - capOverhang, capY, w + capOverhang * 2, capH);
-    ctx.strokeStyle = edge;
-    ctx.strokeRect(x - capOverhang + lineW / 2, capY + lineW / 2, w + capOverhang * 2 - lineW, capH - lineW);
+
+    ctx.strokeStyle = PALETTE.ink;
+    ctx.lineWidth = 4;
+    ctx.strokeRect(x, y, w, h);
+    ctx.strokeRect(x - capOverhang, capY, w + capOverhang * 2, capH);
   }
 
-  // --- Player: flatter, crisper "pixel-art-adjacent" Yoshi Bird. Kept the
-  // green body/brand identity rather than switching to the reference's
-  // orange bird — the game and its menus are built around "Yoshi", and an
-  // orange bird would read as a different character. Added a clearer
-  // orange beak as a nod to the reference without losing that identity.
+  // --- Player: same sticker-toy rule as everything else — flat fill, ink
+  // outline, one hard offset shadow behind the whole silhouette. Kept the
+  // green "Yoshi" identity (the name and every menu screen are built
+  // around it); the coral beak pulls the same accent colour used for
+  // celebration/danger elsewhere into the character instead of inventing
+  // a one-off hue.
   drawPlayer(ctx) {
     const p = this.player;
     ctx.save();
@@ -545,22 +557,29 @@ class YoshiBirdGame {
     ctx.rotate(p.rotation);
     const squash = 1 + p.flapPulse * 0.08;
     ctx.scale(1 + p.flapPulse * 0.06, 1 / squash);
-    const outline = "#2f5c2c";
-    ctx.fillStyle = p.hurt ? "#9bd1bd" : "#6cc257";
-    ctx.strokeStyle = outline;
+    const bodyRadii = [30, 24, 25, 23, 27, 21];
+
+    ctx.fillStyle = PALETTE.ink;
+    blob(ctx, 6, 6, bodyRadii, 1);
+    ctx.fill();
+
+    ctx.fillStyle = p.hurt ? "#8fe0ac" : PALETTE.green;
+    ctx.strokeStyle = PALETTE.ink;
     ctx.lineWidth = 4;
-    blob(ctx, 0, 0, [30, 24, 25, 23, 27, 21], 1);
+    blob(ctx, 0, 0, bodyRadii, 1);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = "#f4fbe9";
+
+    ctx.fillStyle = PALETTE.cream;
     ctx.beginPath();
     ctx.ellipse(15, -1, 22, 16, 0.1, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = "#1f3b46";
+
+    ctx.fillStyle = PALETTE.ink;
     const blink = Math.sin(p.blink * 0.9) > 0.985 ? 1 : 0;
     if (blink) {
-      ctx.strokeStyle = "#1f3b46";
+      ctx.strokeStyle = PALETTE.ink;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(24, -12);
@@ -571,8 +590,9 @@ class YoshiBirdGame {
       ctx.arc(28, -12, 3.2, 0, Math.PI * 2);
       ctx.fill();
     }
-    ctx.fillStyle = "#f0873a";
-    ctx.strokeStyle = "#a5511a";
+
+    ctx.fillStyle = PALETTE.coral;
+    ctx.strokeStyle = PALETTE.ink;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(36, -7);
@@ -581,15 +601,17 @@ class YoshiBirdGame {
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
     const wingLift = Math.sin(p.wing) * 10 - p.flapPulse * 12;
-    ctx.fillStyle = "#ffd95e";
-    ctx.strokeStyle = outline;
+    ctx.fillStyle = PALETTE.yellow;
+    ctx.strokeStyle = PALETTE.ink;
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.ellipse(-10, 1 + wingLift, 19, 10, -0.65, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = "#4fa83f";
+
+    ctx.fillStyle = PALETTE.greenDeep;
     ctx.beginPath();
     ctx.ellipse(-26, 2, 12, 8, -0.35, 0, Math.PI * 2);
     ctx.fill();
@@ -609,50 +631,43 @@ class YoshiBirdGame {
     }
   }
 
-  // --- Ground: a diagonal-striped green/cream band over a solid sand base.
-  drawForeground(ctx, difficulty) {
+  // --- Ground: flat two-tone green, split by a thick ink line. Same flat
+  // fill + ink language as everything else, no gradient/texture.
+  drawForeground(ctx) {
     const groundY = VIRTUAL_HEIGHT - GAME_CONFIG.world.groundHeight;
-    const stripeH = 30;
-    ctx.fillStyle = "#f0dfae";
-    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight);
-    ctx.fillStyle = "#eee4c2";
-    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, stripeH);
-
-    const stripeW = 22;
-    const skew = stripeH;
-    const period = stripeW * 2;
-    const scrollX = (this.elapsed * difficulty.speed) % period;
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, groundY, VIRTUAL_WIDTH, stripeH);
-    ctx.clip();
-    ctx.fillStyle = "#8fc25a";
-    for (let x = -period - skew; x < VIRTUAL_WIDTH + skew; x += period) {
-      const sx = x - scrollX;
-      ctx.beginPath();
-      ctx.moveTo(sx, groundY + stripeH);
-      ctx.lineTo(sx + skew, groundY);
-      ctx.lineTo(sx + skew + stripeW, groundY);
-      ctx.lineTo(sx + stripeW, groundY + stripeH);
-      ctx.closePath();
-      ctx.fill();
-    }
-    ctx.restore();
-
-    ctx.fillStyle = "#d0b87e";
-    ctx.fillRect(0, groundY + stripeH, VIRTUAL_WIDTH, 3);
+    const splitH = 40;
+    ctx.fillStyle = PALETTE.green;
+    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, splitH);
+    ctx.fillStyle = PALETTE.greenDeep;
+    ctx.fillRect(0, groundY + splitH, VIRTUAL_WIDTH, GAME_CONFIG.world.groundHeight - splitH);
+    ctx.fillStyle = PALETTE.ink;
+    ctx.fillRect(0, groundY, VIRTUAL_WIDTH, 5);
+    ctx.fillRect(0, groundY + splitH, VIRTUAL_WIDTH, 4);
   }
 
   drawMilestone(ctx) {
     ctx.save();
     ctx.globalAlpha = Math.min(1, this.milestoneTimer);
-    ctx.fillStyle = "rgba(255,255,255,0.86)";
-    roundRect(ctx, VIRTUAL_WIDTH / 2 - 138, 82, 276, 48, 18);
+    const w = 280;
+    const h = 50;
+    const x = VIRTUAL_WIDTH / 2 - w / 2;
+    const y = 82;
+    const shadow = 5;
+    ctx.fillStyle = PALETTE.ink;
+    roundRect(ctx, x + shadow, y + shadow, w, h, 16);
     ctx.fill();
-    ctx.fillStyle = "#31515a";
-    ctx.font = "700 23px Georgia, serif";
+    ctx.fillStyle = PALETTE.cream;
+    roundRect(ctx, x, y, w, h, 16);
+    ctx.fill();
+    ctx.strokeStyle = PALETTE.ink;
+    ctx.lineWidth = 3;
+    roundRect(ctx, x, y, w, h, 16);
+    ctx.stroke();
+    ctx.fillStyle = PALETTE.ink;
+    ctx.font = "800 22px Arial, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(this.milestoneText, VIRTUAL_WIDTH / 2, 113);
+    ctx.textBaseline = "middle";
+    ctx.fillText(this.milestoneText, VIRTUAL_WIDTH / 2, y + h / 2 + 1);
     ctx.restore();
   }
 
@@ -692,6 +707,18 @@ function blob(ctx, x, y, radii, scale = 1) {
     if (i === 0) ctx.moveTo(px, py);
     else ctx.lineTo(px, py);
   }
+  ctx.closePath();
+}
+
+function cloudPath(ctx) {
+  ctx.beginPath();
+  ctx.moveTo(-34, 10);
+  ctx.bezierCurveTo(-40, -6, -22, -20, -8, -14);
+  ctx.bezierCurveTo(-4, -28, 20, -28, 24, -12);
+  ctx.bezierCurveTo(40, -14, 46, 4, 34, 12);
+  ctx.bezierCurveTo(38, 22, 24, 30, 10, 24);
+  ctx.bezierCurveTo(0, 32, -22, 30, -26, 18);
+  ctx.bezierCurveTo(-34, 20, -38, 14, -34, 10);
   ctx.closePath();
 }
 
