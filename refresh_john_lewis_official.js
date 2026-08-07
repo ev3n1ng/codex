@@ -186,6 +186,21 @@ function loadBaselineProducts() {
   }));
 }
 
+function unavailableJohnLewisProduct(product) {
+  const model = product.model || product.title?.match(/OLED\d+[A-Z0-9]+/i)?.[0] || "";
+  return {
+    ...product,
+    model,
+    title: product.title || `LG OLED TV - ${model}`,
+    size: product.size || Number(model.match(/^OLED(\d+)/i)?.[1] || 0),
+    price: "Not available",
+    availability: "Not available at the moment",
+    offers: ["No current retailer data found for this baseline model"],
+    url: `https://www.johnlewis.com/search?search-term=${encodeURIComponent(model)}`,
+    baselineMissing: true,
+  };
+}
+
 function fetchProductPage(product) {
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
@@ -462,12 +477,17 @@ const pageProducts = refreshProducts.map((product, index) => {
     availability: product.availability || "Not available at the moment",
     offers: product.offers?.length ? product.offers : ["No current retailer data found for this baseline model"],
   };
-  let parsed = listingProduct;
-  try {
-    const html = fs.readFileSync(fetchProductPage(listingProduct), "utf8");
-    parsed = parseProductPage(listingProduct, html);
-  } catch (error) {
-    if (verbose) console.warn(`${listingProduct.model}: product-page refresh failed: ${error.message}`);
+  const hasLiveListing = liveByModel.has(product.model);
+  let parsed = !hasLiveListing && /\/search\?/i.test(listingProduct.url || "")
+    ? unavailableJohnLewisProduct(listingProduct)
+    : listingProduct;
+  if (hasLiveListing || !/\/search\?/i.test(listingProduct.url || "")) {
+    try {
+      const html = fs.readFileSync(fetchProductPage(listingProduct), "utf8");
+      parsed = parseProductPage(listingProduct, html);
+    } catch (error) {
+      if (verbose) console.warn(`${listingProduct.model}: product-page refresh failed: ${error.message}`);
+    }
   }
   console.log(`${index + 1}/${refreshProducts.length} ${parsed.model} ${parsed.price} ${parsed.availability}`);
   return parsed;
