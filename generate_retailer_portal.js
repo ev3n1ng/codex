@@ -675,7 +675,7 @@ const currysProducts = [
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C56LB",
     "size": 48,
     "price": "£799.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -935,7 +935,6 @@ const currysProducts = [
     "price": "£3,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1038,7 +1037,6 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £29.01",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1055,7 +1053,7 @@ const currysProducts = [
     "price": "£2,799.00",
     "availability": "Listed",
     "offers": [
-      "Save £29.01",
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
