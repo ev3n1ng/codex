@@ -890,6 +890,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1004,9 +1005,8 @@ const currysProducts = [
     "title": "LG C6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77C66LB",
     "size": 77,
     "price": "£3,499.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
-      "Save £400.00",
       "15% off marked price with code VIS15OFF",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
@@ -1139,6 +1139,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £29.01",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
