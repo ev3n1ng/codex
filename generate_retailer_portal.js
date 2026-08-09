@@ -777,12 +777,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 55\" OLED AI 4K HDR Smart TV 2025 - OLED55B56LA",
     "size": 55,
-    "price": "£898.97",
-    "availability": "Listed",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £100.03",
-      "Save up to 50% on selected soundbars when bought with any LG TV",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-55-oled-ai-4k-hdr-smart-tv-2025-oled55b56la-10281768.html",
     "model": "OLED55B56LA",
