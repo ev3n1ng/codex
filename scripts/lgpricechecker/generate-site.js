@@ -291,13 +291,13 @@ function sectionHtml(category, rows) {
 }
 
 function productHtml(product) {
-  const noCurrentPrice = /discontinued|unlikely to receive|out of stock|not available/i.test(`${product.priceCheckStatus || ""} ${product.availabilityText || ""}`);
+  const noCurrentPrice = /not_listed|discontinued|unlikely to receive|out of stock|not available|no longer available|unavailable|no current online availability/i.test(`${product.priceCheckStatus || ""} ${product.availabilityText || ""}`);
   const price = product.priceText || (noCurrentPrice ? "No current price" : "Detail update needed");
   const priceClass = product.priceText ? "price" : "price empty-price";
   const offerItems = [
     product.offerText,
     product.financeText,
-    product.availabilityText,
+    isWarningAvailability(product.availabilityText) ? product.availabilityText : "",
   ].filter(Boolean)
     .flatMap((item) => String(item).split(/\s+\|\s+/))
     .map((item) => item.trim())
@@ -333,17 +333,21 @@ function productHtml(product) {
 }
 
 function offerChipClass(offer) {
-  if (/not listed|not available|out of stock|update needed|email when available/i.test(offer)) return "offer warn";
+  if (/not listed|not available|out of stock|update needed|email when available|no current online availability/i.test(offer)) return "offer warn";
   if (/interest|month|payment|credit|apr/i.test(offer)) return "finance";
   if (/free|save|cashback|exclusive|offer|price promise|guarantee|claim/i.test(offer)) return "offer good";
   return "offer";
 }
 
 function shouldShowOfferItem(offer) {
-  if (offer.length > 180) return false;
+  if (offer.length > 120) return false;
   if (/^£[\d,.]+.*Save/i.test(offer)) return false;
-  if (/Exclusions \(eg\. ink\)|How to request a price match|Representative example|Assumed Credit Limit|Image gallery|Viewing image|previous image|next image|Browse all electrical offers|Burberry|Calvin Klein|Joseph Joseph|West Elm|Product description|View product des|Shop all LG/i.test(offer)) return false;
+  if (/Exclusions \(eg\. ink\)|How to request a price match|Representative example|Assumed Credit Limit|Image gallery|Viewing image|previous image|next image|Browse all electrical offers|Burberry|Calvin Klein|Joseph Joseph|West Elm|Product description|View product des|Shop all LG|Free standard delivery|Free Click & Collect|Get Free Delivery|Delivery available|Collection available|Add to basket|Price match$/i.test(offer)) return false;
   return true;
+}
+
+function isWarningAvailability(value) {
+  return /not listed|not available|no longer available|out of stock|unavailable|email when available|no current online availability/i.test(String(value || ""));
 }
 
 function clientScript(total) {

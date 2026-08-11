@@ -56,6 +56,11 @@ function money(value) {
   return String(value || "").match(/£\s?\d[\d,]*(?:\.\d{2})?/g) || [];
 }
 
+function moneyNumber(value) {
+  const match = String(value || "").match(/£\s?([\d,]+(?:\.\d{2})?)/);
+  return match ? Number(match[1].replace(/,/g, "")) : 0;
+}
+
 function officialUrl(product) {
   if (!product.directProductUrl) return false;
   let parsed;
@@ -66,6 +71,18 @@ function officialUrl(product) {
   }
   const hostRule = allowedHosts.get(product.retailer);
   return Boolean(hostRule && hostRule.test(parsed.hostname));
+}
+
+function officialProductUrl(product) {
+  if (!officialUrl(product)) return false;
+  const parsed = new URL(product.directProductUrl);
+  if (product.retailer === "Currys") {
+    return /\/products\/.+\.html$/i.test(parsed.pathname);
+  }
+  if (product.retailer === "John Lewis") {
+    return /\/p\d+(?:$|[/?#])/i.test(`${parsed.pathname}${parsed.search}${parsed.hash}`);
+  }
+  return false;
 }
 
 function request(url, redirectCount = 0) {
@@ -106,6 +123,11 @@ function request(url, redirectCount = 0) {
 
 async function fetchOfficial(product) {
   if (!officialUrl(product)) throw new Error("Non-official or invalid product URL");
+  if (!officialProductUrl(product)) {
+    const error = new Error("Official URL is not a retailer product page");
+    error.code = "not_product_page";
+    throw error;
+  }
   try {
     return await request(product.directProductUrl);
   } catch (error) {
@@ -125,8 +147,8 @@ function jsonLdProducts(html) {
       while (stack.length) {
         const item = stack.shift();
         if (!item || typeof item !== "object") continue;
-        const type = Array.isArray(item["@type"]) ? item["@type"].join(" ") : item["@type"];
-        if (/Product/i.test(String(type || ""))) found.push(item);
+        const types = Array.isArray(item["@type"]) ? item["@type"] : [item["@type"]];
+        if (types.some((type) => String(type || "").toLowerCase() === "product")) found.push(item);
         for (const value of Object.values(item)) {
           if (Array.isArray(value)) stack.push(...value);
           else if (value && typeof value === "object") stack.push(value);
@@ -139,10 +161,42 @@ function jsonLdProducts(html) {
   return found;
 }
 
-function priceFromJsonLd(html) {
-  for (const product of jsonLdProducts(html)) {
-    const offers = Array.isArray(product.offers) ? product.offers : [product.offers].filter(Boolean);
+function productOffers(product) {
+  return Array.isArray(product.offers) ? product.offers : [product.offers].filter(Boolean);
+}
+
+function productUrlMatches(product, pageUrl) {
+  if (!pageUrl) return false;
+  let pagePath = "";
+  try {
+    pagePath = new URL(pageUrl).pathname;
+  } catch {
+    return false;
+  }
+  const candidates = [
+    product["@id"],
+    ...productOffers(product).map((offer) => offer && offer.url),
+  ].filter(Boolean);
+  return candidates.some((candidate) => {
+    try {
+      return new URL(candidate, pageUrl).pathname === pagePath;
+    } catch {
+      return String(candidate).includes(pagePath);
+    }
+  });
+}
+
+function priceFromJsonLd(html, pageUrl) {
+  const products = jsonLdProducts(html);
+  const ordered = [
+    ...products.filter((product) => productUrlMatches(product, pageUrl)),
+    ...products.filter((product) => !productUrlMatches(product, pageUrl)),
+  ];
+  for (const product of ordered) {
+    const offers = productOffers(product);
     for (const offer of offers) {
+      const availability = String(offer && offer.availability || "");
+      if (/Discontinued|OutOfStock|SoldOut|Unavailable/i.test(availability)) continue;
       const value = offer && (offer.price || offer.lowPrice || offer.highPrice);
       if (value) return `£${String(value).replace(/^£/, "")}`;
     }
@@ -189,21 +243,53 @@ function offerPatterns(text, patterns) {
   return uniq(patterns.flatMap((regex) => [...text.matchAll(regex)].map((match) => match[0]))).slice(0, 4);
 }
 
-function storedOfferItems(text) {
-  return String(text || "")
-    .split(/\s+\|\s+/)
-    .map(cleanText)
-    .filter(Boolean)
-    .filter((item) => item.length <= 140)
-    .filter((item) => !/For full terms|Claim Claims|How to claim|Terms and conditions|promotional Claim/i.test(item));
+function unavailableText(text) {
+  return firstPattern(text, [
+    /No longer available online/i,
+    /Currently out of stock online/i,
+    /Currently unavailable/i,
+    /Out of stock/i,
+    /Email when available/i,
+    /This item is no longer available/i,
+    /Sorry, this item is no longer available/i,
+  ]);
+}
+
+function isRetailerTechnicalProblem(html) {
+  return /Technical Problem - John Lewis|there(?:'|’)s been a technical problem|Attention Required! \| Cloudflare|you have been blocked/i.test(String(html || ""));
+}
+
+function slimOfferItems(items, product) {
+  return uniq(items)
+    .filter((item) => item.length <= 120)
+    .filter((item) => !/For full terms|Claim Claims|How to claim|Terms and conditions|promotional Claim|Representative example|Assumed Credit Limit/i.test(item))
+    .filter((item) => !/Free standard delivery|Free Click & Collect|Get Free Delivery|Delivery available|Collection available|Add to basket|Price match$/i.test(item))
+    .filter((item) => {
+      if (/When Bought With any LG TV/i.test(item)) return product.category === "Soundbars";
+      return true;
+    })
+    .slice(0, 3);
+}
+
+function priceSaneOfferItems(items, priceText) {
+  const price = moneyNumber(priceText);
+  if (!price) return items;
+  const threshold = Math.max(10, price * 0.02);
+  const hasInvalidWas = items.some((item) => /^Was £/i.test(item) && moneyNumber(item) <= price);
+  return items.filter((item) => {
+    if (/^Was £/i.test(item)) return !hasInvalidWas && moneyNumber(item) - price >= threshold;
+    if (/^Save £/i.test(item)) return !hasInvalidWas && moneyNumber(item) >= threshold;
+    return true;
+  });
 }
 
 function parseCommon(html, product) {
   const text = cleanText(html);
   const strings = collectStrings(nextData(html) || {}).map(cleanText);
   const joined = uniq([text, ...strings]).join(" ");
-  const jsonPrice = priceFromJsonLd(html);
-  const firstPrice = jsonPrice || money(joined)[0] || product.priceText || "";
+  const unavailable = unavailableText(joined);
+  const jsonPrice = priceFromJsonLd(html, product.directProductUrl);
+  const firstPrice = unavailable ? "" : jsonPrice;
   const finance = uniq([
     firstPattern(joined, [
       /From £[\d,.]+ per month for \d+ months\*?/i,
@@ -212,36 +298,29 @@ function parseCommon(html, product) {
       /Pay £[\d,.]+ per month over \d+ months at [\d.]+% APR/i,
       /Buy now, pay later/i,
     ]),
-    ...storedOfferItems(product.financeText),
-  ]).slice(0, 2).join(" | ");
-  const availability = firstPattern(joined, [
+  ]).filter(Boolean).slice(0, 2).join(" | ");
+  const availability = unavailable || firstPattern(joined, [
     /Currently in stock online/i,
     /Currently out of stock online/i,
     /No longer available online/i,
     /Email when available/i,
-    /Delivery available/i,
-    /Collection available/i,
-    /Add to basket/i,
     /Currently unavailable/i,
     /Out of stock/i,
-  ]) || product.availabilityText || "";
+  ]) || "";
   return { firstPrice, finance, availability, joined };
 }
 
 function parseCurrys(html, product) {
   const common = parseCommon(html, product);
-  const offers = uniq([
+  const offers = priceSaneOfferItems(slimOfferItems([
     ...offerPatterns(common.joined, [
       /Save £[\d,.]+/gi,
       /Was £[\d,.]+/gi,
-      /Get Free Delivery/gi,
-      /Price match/gi,
       /Save up to \d+% on the purchase of selected LG soundbars/gi,
       /Save up to \d+% off selected TV accessories/gi,
       /When Bought With any LG TV/gi,
     ]),
-    ...storedOfferItems(product.offerText),
-  ]).slice(0, 4).join(" | ");
+  ], product), common.firstPrice).join(" | ");
   return {
     priceText: common.firstPrice,
     financeText: common.finance,
@@ -252,19 +331,15 @@ function parseCurrys(html, product) {
 
 function parseJohnLewis(html, product) {
   const common = parseCommon(html, product);
-  const offers = uniq([
+  const offers = slimOfferItems([
     ...offerPatterns(common.joined, [
-      /Price promise/gi,
       /\d+ year guarantee included/gi,
-      /Free standard delivery/gi,
-      /Free Click & Collect/gi,
       /Up to \d+% cashback on LG TVs/gi,
       /Claim \d+% cashback(?: \(Via Redemption\))?/gi,
       /Reduced to clear/gi,
       /Save £[\d,.]+/gi,
     ]),
-    ...storedOfferItems(product.offerText),
-  ]).slice(0, 4).join(" | ");
+  ], product).join(" | ");
   const guarantee = firstPattern(common.joined, [/\d+\s+year guarantee included/i]);
   return {
     priceText: common.firstPrice,
@@ -289,8 +364,8 @@ function validate(previous, next) {
   if (failed / Math.max(1, nextProducts.length) > MAX_FETCH_FAILURE_RATE) {
     errors.push(`Fetch failure rate too high: ${failed}/${nextProducts.length}`);
   }
-  const previousBlank = previousProducts.filter((product) => !product.priceText).length;
-  const nextBlank = nextProducts.filter((product) => !product.priceText).length;
+  const previousBlank = previousProducts.filter((product) => !product.priceText && product.priceCheckStatus !== "not_listed").length;
+  const nextBlank = nextProducts.filter((product) => !product.priceText && product.priceCheckStatus !== "not_listed").length;
   if (nextBlank - previousBlank > MAX_BLANK_PRICE_INCREASE) {
     errors.push(`Blank price increase too high: ${previousBlank} -> ${nextBlank}`);
   }
@@ -313,7 +388,22 @@ async function main() {
   for (let index = 0; index < products.length; index += 1) {
     const product = products[index];
     try {
+      if (!officialProductUrl(product)) {
+        refreshed.push({
+          ...product,
+          priceText: "",
+          financeText: "",
+          offerText: "",
+          availabilityText: "Not listed on retailer product page",
+          priceCheckStatus: "not_listed",
+          priceCheckError: "",
+          priceCheckedAt: new Date().toISOString(),
+          httpStatus: "",
+        });
+        continue;
+      }
       const { body, finalUrl, statusCode } = await fetchOfficial(product);
+      if (isRetailerTechnicalProblem(body)) throw new Error("Retailer technical problem page");
       const parsed = product.retailer === "Currys" ? parseCurrys(body, product) : parseJohnLewis(body, product);
       refreshed.push({
         ...product,
