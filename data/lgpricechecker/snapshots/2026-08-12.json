@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T04:56:30.532Z",
+  "generatedAt": "2026-08-12T08:51:43.322Z",
   "scope": "LG TVs and LG soundbars catalogue seed for Currys and John Lewis.",
   "caveats": [
     "Official retailer pages were read slowly from Currys and John Lewis URLs. Where local direct fetches were blocked, rendered official-page markdown was used as the source artifact.",
@@ -32,7 +32,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:06:51.978Z",
+        "priceCheckedAt": "2026-08-12T08:49:38.224Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -53,7 +53,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:03.799Z",
+        "priceCheckedAt": "2026-08-12T08:49:39.311Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -74,7 +74,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:16.439Z",
+        "priceCheckedAt": "2026-08-12T08:49:40.277Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -95,7 +95,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:29.529Z",
+        "priceCheckedAt": "2026-08-12T08:49:40.384Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -104,7 +104,7 @@
         "title": "LG 43LR60006LA 43\" Smart Full HD HDR LED TV",
         "model": "43LR60006LA",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£219.00",
         "offerText": "",
         "financeText": "From £8.87 per month for 36 months*",
         "availabilityText": "",
@@ -112,10 +112,10 @@
         "sourceFile": "tvs-80.md",
         "directProductUrl": "https://www.currys.co.uk/products/lg-43lr60006la-43-smart-full-hd-hdr-led-tv-10294362.html",
         "directProductUrlStatus": "verified_from_currys_rendered_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:30.735Z",
+        "priceCheckedAt": "2026-08-12T08:49:41.039Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -136,7 +136,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:43.325Z",
+        "priceCheckedAt": "2026-08-12T08:49:42.022Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -157,7 +157,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:07:55.351Z",
+        "priceCheckedAt": "2026-08-12T08:49:42.980Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -178,7 +178,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:08:07.772Z",
+        "priceCheckedAt": "2026-08-12T08:49:43.120Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -187,7 +187,7 @@
         "title": "LG NANO80 55\" NanoCell AI 4K HDR Smart TV 2025 - 55NANO80A6B",
         "model": "NANO80",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£378.97",
         "offerText": "",
         "financeText": "From £15.35 per month for 36 months*",
         "availabilityText": "",
@@ -195,10 +195,10 @@
         "sourceFile": "tvs-40.md",
         "directProductUrl": "https://www.currys.co.uk/products/lg-nano80-55-nanocell-ai-4k-hdr-smart-tv-2025-55nano80a6b-10282088.html",
         "directProductUrlStatus": "verified_from_currys_rendered_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:08:08.068Z",
+        "priceCheckedAt": "2026-08-12T08:49:43.352Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -219,7 +219,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:08:37.211Z",
+        "priceCheckedAt": "2026-08-12T08:49:43.752Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -240,7 +240,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:08:50.344Z",
+        "priceCheckedAt": "2026-08-12T08:49:44.143Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -261,7 +261,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:09:03.509Z",
+        "priceCheckedAt": "2026-08-12T08:49:44.601Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -282,7 +282,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:09:17.961Z",
+        "priceCheckedAt": "2026-08-12T08:49:44.729Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -302,7 +302,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:09:19.703Z",
+        "priceCheckedAt": "2026-08-12T08:49:44.987Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -323,7 +323,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:09:33.434Z",
+        "priceCheckedAt": "2026-08-12T08:49:45.367Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -344,7 +344,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:09:46.841Z",
+        "priceCheckedAt": "2026-08-12T08:49:45.791Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -365,7 +365,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:10:01.466Z",
+        "priceCheckedAt": "2026-08-12T08:49:46.184Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -386,7 +386,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:10:12.869Z",
+        "priceCheckedAt": "2026-08-12T08:49:46.628Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -407,7 +407,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:10:24.978Z",
+        "priceCheckedAt": "2026-08-12T08:49:47.007Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -428,7 +428,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:10:39.198Z",
+        "priceCheckedAt": "2026-08-12T08:49:47.405Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -449,7 +449,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:10:54.231Z",
+        "priceCheckedAt": "2026-08-12T08:49:48.889Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -470,7 +470,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:11:08.309Z",
+        "priceCheckedAt": "2026-08-12T08:49:50.205Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -491,7 +491,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:11:21.094Z",
+        "priceCheckedAt": "2026-08-12T08:49:50.594Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -512,7 +512,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:11:36.005Z",
+        "priceCheckedAt": "2026-08-12T08:49:51.022Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -533,7 +533,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:11:50.701Z",
+        "priceCheckedAt": "2026-08-12T08:49:51.478Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -543,7 +543,7 @@
         "title": "LG UA73 43\" LED 4K HDR Smart TV 2025 - 43UA73006LA",
         "model": "UA73",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£218.97",
         "offerText": "",
         "financeText": "From £8.87 per month for 36 months*",
         "availabilityText": "",
@@ -551,10 +551,10 @@
         "sourceFile": "tvs-20.md",
         "directProductUrl": "https://www.currys.co.uk/products/lg-ua73-43-led-4k-hdr-smart-tv-2025-43ua73006la-10282129.html",
         "directProductUrlStatus": "verified_from_currys_rendered_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:12:05.846Z",
+        "priceCheckedAt": "2026-08-12T08:49:51.866Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -576,7 +576,7 @@
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:12:17.476Z",
+        "priceCheckedAt": "2026-08-12T08:49:52.040Z",
         "httpStatus": ""
       },
       {
@@ -595,7 +595,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:12:17.991Z",
+        "priceCheckedAt": "2026-08-12T08:49:52.317Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -616,7 +616,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:12:31.305Z",
+        "priceCheckedAt": "2026-08-12T08:49:52.696Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -626,7 +626,7 @@
         "title": "LG UA75 65\" LED 4K HDR Smart TV 2025 - 65UA75006LA",
         "model": "UA75",
         "category": "LED",
-        "priceText": "£229.00",
+        "priceText": "£399.00",
         "offerText": "",
         "financeText": "From £16.17 per month for 36 months*",
         "availabilityText": "",
@@ -637,7 +637,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:12:47.073Z",
+        "priceCheckedAt": "2026-08-12T08:49:53.080Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -658,7 +658,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:12:59.350Z",
+        "priceCheckedAt": "2026-08-12T08:49:53.252Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -678,7 +678,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:13:00.465Z",
+        "priceCheckedAt": "2026-08-12T08:49:53.516Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -699,7 +699,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:13:13.740Z",
+        "priceCheckedAt": "2026-08-12T08:49:53.941Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -720,7 +720,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:13:29.572Z",
+        "priceCheckedAt": "2026-08-12T08:49:54.316Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -741,7 +741,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:13:40.014Z",
+        "priceCheckedAt": "2026-08-12T08:49:54.702Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -762,7 +762,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:13:51.078Z",
+        "priceCheckedAt": "2026-08-12T08:49:55.062Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -784,7 +784,7 @@
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:14:02.221Z",
+        "priceCheckedAt": "2026-08-12T08:49:56.233Z",
         "httpStatus": 200,
         "guaranteeText": ""
       },
@@ -804,7 +804,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:14:14.958Z",
+        "priceCheckedAt": "2026-08-12T08:49:56.631Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -825,7 +825,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:14:28.864Z",
+        "priceCheckedAt": "2026-08-12T08:49:57.628Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -846,7 +846,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:14:44.597Z",
+        "priceCheckedAt": "2026-08-12T08:49:58.024Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -867,7 +867,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:14:57.023Z",
+        "priceCheckedAt": "2026-08-12T08:49:59.087Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -892,7 +892,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:15:07.084Z",
+        "priceCheckedAt": "2026-08-12T08:49:59.475Z",
         "httpStatus": 200
       },
       {
@@ -915,7 +915,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:15:19.377Z",
+        "priceCheckedAt": "2026-08-12T08:50:00.073Z",
         "httpStatus": 200
       },
       {
@@ -934,7 +934,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:15:29.527Z",
+        "priceCheckedAt": "2026-08-12T08:50:00.182Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -954,7 +954,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:15:32.025Z",
+        "priceCheckedAt": "2026-08-12T08:50:01.399Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -976,7 +976,7 @@
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:15:46.037Z",
+        "priceCheckedAt": "2026-08-12T08:50:01.830Z",
         "httpStatus": 200,
         "guaranteeText": ""
       },
@@ -996,7 +996,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:15:59.999Z",
+        "priceCheckedAt": "2026-08-12T08:50:02.246Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1017,7 +1017,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:16:11.721Z",
+        "priceCheckedAt": "2026-08-12T08:50:02.400Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1037,7 +1037,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:16:14.598Z",
+        "priceCheckedAt": "2026-08-12T08:50:03.289Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1058,7 +1058,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:16:25.855Z",
+        "priceCheckedAt": "2026-08-12T08:50:03.757Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1079,7 +1079,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:16:36.069Z",
+        "priceCheckedAt": "2026-08-12T08:50:04.713Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1100,7 +1100,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:16:51.845Z",
+        "priceCheckedAt": "2026-08-12T08:50:05.791Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1121,7 +1121,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:17:04.542Z",
+        "priceCheckedAt": "2026-08-12T08:50:06.175Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1142,7 +1142,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:17:17.461Z",
+        "priceCheckedAt": "2026-08-12T08:50:06.526Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1163,7 +1163,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:17:34.331Z",
+        "priceCheckedAt": "2026-08-12T08:50:06.952Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1184,7 +1184,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:17:49.856Z",
+        "priceCheckedAt": "2026-08-12T08:50:07.394Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1205,7 +1205,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:18:01.675Z",
+        "priceCheckedAt": "2026-08-12T08:50:07.858Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1226,7 +1226,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:18:17.840Z",
+        "priceCheckedAt": "2026-08-12T08:50:09.079Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1247,7 +1247,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:18:29.410Z",
+        "priceCheckedAt": "2026-08-12T08:50:09.476Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1268,7 +1268,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:18:43.424Z",
+        "priceCheckedAt": "2026-08-12T08:50:10.420Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1289,7 +1289,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:18:54.775Z",
+        "priceCheckedAt": "2026-08-12T08:50:11.411Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1310,7 +1310,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:07.023Z",
+        "priceCheckedAt": "2026-08-12T08:50:11.761Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1331,7 +1331,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:19.499Z",
+        "priceCheckedAt": "2026-08-12T08:50:12.158Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1352,7 +1352,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:29.909Z",
+        "priceCheckedAt": "2026-08-12T08:50:12.561Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1373,7 +1373,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:39.435Z",
+        "priceCheckedAt": "2026-08-12T08:50:13.707Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1394,7 +1394,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:52.824Z",
+        "priceCheckedAt": "2026-08-12T08:50:13.861Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1414,7 +1414,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:19:54.930Z",
+        "priceCheckedAt": "2026-08-12T08:50:14.963Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1435,7 +1435,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:20:04.408Z",
+        "priceCheckedAt": "2026-08-12T08:50:15.089Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1455,7 +1455,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:20:07.035Z",
+        "priceCheckedAt": "2026-08-12T08:50:16.216Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1465,7 +1465,7 @@
         "title": "LG C6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77C66LB",
         "model": "OLED77C66LB",
         "category": "OLED",
-        "priceText": "",
+        "priceText": "£3499.00",
         "offerText": "",
         "financeText": "From £141.81 per month for 36 months*",
         "availabilityText": "",
@@ -1473,10 +1473,10 @@
         "sourceFile": "tvs-60.md",
         "directProductUrl": "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c66lb-10301810.html",
         "directProductUrlStatus": "verified_from_currys_rendered_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:20:21.058Z",
+        "priceCheckedAt": "2026-08-12T08:50:16.755Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1497,7 +1497,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:20:37.534Z",
+        "priceCheckedAt": "2026-08-12T08:50:17.222Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1518,7 +1518,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:20:53.449Z",
+        "priceCheckedAt": "2026-08-12T08:50:17.623Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1539,7 +1539,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:08.663Z",
+        "priceCheckedAt": "2026-08-12T08:50:18.685Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1549,7 +1549,7 @@
         "title": "LG B6 83\" OLED AI 4K HDR Smart TV 2026 - OLED83B6ELB",
         "model": "OLED83B6ELB",
         "category": "OLED",
-        "priceText": "",
+        "priceText": "£2799.99",
         "offerText": "",
         "financeText": "From £113.48 per month for 36 months*",
         "availabilityText": "",
@@ -1557,10 +1557,10 @@
         "sourceFile": "tvs-80.md",
         "directProductUrl": "https://www.currys.co.uk/products/lg-b6-83-oled-ai-4k-hdr-smart-tv-2026-oled83b6elb-10301910.html",
         "directProductUrlStatus": "verified_from_currys_rendered_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:21.315Z",
+        "priceCheckedAt": "2026-08-12T08:50:19.212Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1581,7 +1581,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:34.350Z",
+        "priceCheckedAt": "2026-08-12T08:50:20.104Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1602,7 +1602,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:43.413Z",
+        "priceCheckedAt": "2026-08-12T08:50:20.206Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1611,7 +1611,7 @@
         "title": "LG G6 83\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED83G64LW",
         "model": "OLED83G64LW",
         "category": "OLED",
-        "priceText": "£2199.00",
+        "priceText": "£5499.00",
         "offerText": "",
         "financeText": "From £222.86 per month for 36 months*",
         "availabilityText": "",
@@ -1622,7 +1622,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:45.774Z",
+        "priceCheckedAt": "2026-08-12T08:50:20.449Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1643,7 +1643,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:21:57.980Z",
+        "priceCheckedAt": "2026-08-12T08:50:20.860Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1664,7 +1664,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:22:12.035Z",
+        "priceCheckedAt": "2026-08-12T08:50:21.294Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1685,7 +1685,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:22:26.230Z",
+        "priceCheckedAt": "2026-08-12T08:50:21.715Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1695,7 +1695,7 @@
         "title": "LG QNED70 55\" QNED AI 4K HDR Smart TV 2025 - 55QNED70A6A",
         "model": "QNED70",
         "category": "QNED",
-        "priceText": "£549.00",
+        "priceText": "£365.47",
         "offerText": "",
         "financeText": "From £14.81 per month for 36 months*",
         "availabilityText": "",
@@ -1706,7 +1706,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:22:42.744Z",
+        "priceCheckedAt": "2026-08-12T08:50:22.075Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1727,7 +1727,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:22:55.042Z",
+        "priceCheckedAt": "2026-08-12T08:50:22.463Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1748,7 +1748,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:23:10.662Z",
+        "priceCheckedAt": "2026-08-12T08:50:22.892Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1769,7 +1769,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:23:22.928Z",
+        "priceCheckedAt": "2026-08-12T08:50:23.292Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1790,7 +1790,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:23:37.375Z",
+        "priceCheckedAt": "2026-08-12T08:50:23.714Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1811,7 +1811,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:23:50.907Z",
+        "priceCheckedAt": "2026-08-12T08:50:24.260Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1832,7 +1832,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:03.110Z",
+        "priceCheckedAt": "2026-08-12T08:50:24.655Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1853,7 +1853,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:14.910Z",
+        "priceCheckedAt": "2026-08-12T08:50:25.110Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1874,7 +1874,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:27.001Z",
+        "priceCheckedAt": "2026-08-12T08:50:25.516Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1895,7 +1895,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:42.132Z",
+        "priceCheckedAt": "2026-08-12T08:50:25.908Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1916,7 +1916,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:55.473Z",
+        "priceCheckedAt": "2026-08-12T08:50:26.026Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1936,7 +1936,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:55.473Z",
+        "priceCheckedAt": "2026-08-12T08:50:26.026Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1956,7 +1956,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:55.473Z",
+        "priceCheckedAt": "2026-08-12T08:50:26.026Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -1976,7 +1976,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:24:57.741Z",
+        "priceCheckedAt": "2026-08-12T08:50:26.284Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -1997,7 +1997,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:10.878Z",
+        "priceCheckedAt": "2026-08-12T08:50:26.435Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -2017,7 +2017,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:12.162Z",
+        "priceCheckedAt": "2026-08-12T08:50:27.146Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2038,7 +2038,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:22.618Z",
+        "priceCheckedAt": "2026-08-12T08:50:27.543Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2059,7 +2059,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:34.613Z",
+        "priceCheckedAt": "2026-08-12T08:50:27.915Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2080,7 +2080,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:49.582Z",
+        "priceCheckedAt": "2026-08-12T08:50:28.300Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2101,7 +2101,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:58.635Z",
+        "priceCheckedAt": "2026-08-12T08:50:28.467Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -2121,7 +2121,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-100.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:58.635Z",
+        "priceCheckedAt": "2026-08-12T08:50:28.467Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -2141,7 +2141,7 @@
         "priceCheckStatus": "not_listed",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:58.635Z",
+        "priceCheckedAt": "2026-08-12T08:50:28.467Z",
         "httpStatus": "",
         "priceCheckError": ""
       },
@@ -2161,7 +2161,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:25:58.972Z",
+        "priceCheckedAt": "2026-08-12T08:50:28.712Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2182,7 +2182,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-0.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:26:12.673Z",
+        "priceCheckedAt": "2026-08-12T08:50:29.659Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2203,7 +2203,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:26:23.521Z",
+        "priceCheckedAt": "2026-08-12T08:50:30.026Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2224,7 +2224,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-20.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:26:37.867Z",
+        "priceCheckedAt": "2026-08-12T08:50:31.253Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2245,7 +2245,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:26:51.492Z",
+        "priceCheckedAt": "2026-08-12T08:50:31.632Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2266,7 +2266,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:27:02.353Z",
+        "priceCheckedAt": "2026-08-12T08:50:31.994Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2287,7 +2287,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:27:13.268Z",
+        "priceCheckedAt": "2026-08-12T08:50:32.364Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2308,7 +2308,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:27:28.049Z",
+        "priceCheckedAt": "2026-08-12T08:50:32.768Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2329,7 +2329,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:27:40.420Z",
+        "priceCheckedAt": "2026-08-12T08:50:34.060Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2350,7 +2350,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-80.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:27:56.710Z",
+        "priceCheckedAt": "2026-08-12T08:50:34.444Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2371,7 +2371,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-60.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.717Z",
-        "priceCheckedAt": "2026-08-12T04:28:12.456Z",
+        "priceCheckedAt": "2026-08-12T08:50:35.929Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2392,7 +2392,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/tvs-40.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:28:25.400Z",
+        "priceCheckedAt": "2026-08-12T08:50:37.099Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2413,7 +2413,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:28:40.040Z",
+        "priceCheckedAt": "2026-08-12T08:50:37.543Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2434,7 +2434,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:28:55.079Z",
+        "priceCheckedAt": "2026-08-12T08:50:37.941Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2455,7 +2455,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:29:08.913Z",
+        "priceCheckedAt": "2026-08-12T08:50:38.323Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2476,7 +2476,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:29:22.567Z",
+        "priceCheckedAt": "2026-08-12T08:50:38.737Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2497,7 +2497,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:29:37.323Z",
+        "priceCheckedAt": "2026-08-12T08:50:39.148Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2518,7 +2518,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:29:47.553Z",
+        "priceCheckedAt": "2026-08-12T08:50:39.544Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2540,7 +2540,7 @@
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:30:00.969Z",
+        "priceCheckedAt": "2026-08-12T08:50:40.561Z",
         "httpStatus": 200,
         "guaranteeText": ""
       },
@@ -2561,7 +2561,7 @@
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:30:14.012Z",
+        "priceCheckedAt": "2026-08-12T08:50:40.964Z",
         "httpStatus": 200,
         "guaranteeText": ""
       },
@@ -2581,7 +2581,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:30:43.438Z",
+        "priceCheckedAt": "2026-08-12T08:50:41.409Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2602,7 +2602,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:30:57.571Z",
+        "priceCheckedAt": "2026-08-12T08:50:41.801Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2623,7 +2623,7 @@
         "priceCheckStatus": "checked",
         "checkedSource": "work/currys-rendered-pages/soundbars.md",
         "cleanRebuildAt": "2026-07-17T13:03:33.718Z",
-        "priceCheckedAt": "2026-08-12T04:31:11.047Z",
+        "priceCheckedAt": "2026-08-12T08:50:42.825Z",
         "httpStatus": 200,
         "guaranteeText": "",
         "priceCheckError": ""
@@ -2648,7 +2648,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:31:26.755Z",
+        "priceCheckedAt": "2026-08-12T08:50:43.324Z",
         "httpStatus": 200
       },
       {
@@ -2656,7 +2656,7 @@
         "title": "LG LB650B 43\" Smart HD HDR LED TV - 43LB65006LA",
         "model": "LB650B",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£219.00",
         "offerText": "",
         "financeText": "From £8.87 per month for 36 months*",
         "availabilityText": "",
@@ -2669,9 +2669,9 @@
         "directProductUrl": "https://www.currys.co.uk/products/lg-lb650b-43-smart-hd-hdr-led-tv-43lb65006la-10305659.html",
         "directProductUrlStatus": "verified_from_currys_rendered_official_listing",
         "guaranteeText": "",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:31:37.349Z",
+        "priceCheckedAt": "2026-08-12T08:50:44.031Z",
         "httpStatus": 200
       },
       {
@@ -2694,7 +2694,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:31:51.746Z",
+        "priceCheckedAt": "2026-08-12T08:50:45.136Z",
         "httpStatus": 200
       },
       {
@@ -2717,7 +2717,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:32:05.308Z",
+        "priceCheckedAt": "2026-08-12T08:50:46.020Z",
         "httpStatus": 200
       },
       {
@@ -2740,7 +2740,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:32:20.689Z",
+        "priceCheckedAt": "2026-08-12T08:50:46.778Z",
         "httpStatus": 200
       },
       {
@@ -2763,7 +2763,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:32:32.720Z",
+        "priceCheckedAt": "2026-08-12T08:50:47.615Z",
         "httpStatus": 200
       },
       {
@@ -2786,7 +2786,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:32:46.993Z",
+        "priceCheckedAt": "2026-08-12T08:50:48.038Z",
         "httpStatus": 200
       },
       {
@@ -2809,7 +2809,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:33:02.502Z",
+        "priceCheckedAt": "2026-08-12T08:50:48.485Z",
         "httpStatus": 200
       },
       {
@@ -2832,7 +2832,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:33:13.553Z",
+        "priceCheckedAt": "2026-08-12T08:50:49.142Z",
         "httpStatus": 200
       },
       {
@@ -2855,7 +2855,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:33:23.791Z",
+        "priceCheckedAt": "2026-08-12T08:50:49.632Z",
         "httpStatus": 200
       },
       {
@@ -2878,7 +2878,7 @@
         "guaranteeText": "",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:33:37.047Z",
+        "priceCheckedAt": "2026-08-12T08:50:50.261Z",
         "httpStatus": 200
       }
     ]
@@ -2999,7 +2999,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:33.759Z",
-        "priceCheckedAt": "2026-08-12T04:33:52.055Z",
+        "priceCheckedAt": "2026-08-12T08:50:50.862Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3008,7 +3008,7 @@
         "title": "LG 32LQ63006LA (2022) LED HDR Full HD 1080p Smart TV, 32 inch with Freeview Play/Freesat HD, Ceramic Black",
         "model": "32LQ63006LA",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£159.00",
         "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "Currently out of stock online",
@@ -3023,9 +3023,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-32lq63006la-2022-led-hdr-full-hd-1080p-smart-tv-32-inch-with-freeview-play-freesat-hd-ceramic-black/p112512835",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:33.916Z",
-        "priceCheckedAt": "2026-08-12T04:34:03.666Z",
+        "priceCheckedAt": "2026-08-12T08:50:51.274Z",
         "httpStatus": 200,
         "priceCheckError": "John Lewis technical problem page during refresh"
       },
@@ -3051,7 +3051,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:34.073Z",
-        "priceCheckedAt": "2026-08-12T04:34:15.893Z",
+        "priceCheckedAt": "2026-08-12T08:50:51.569Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3061,7 +3061,7 @@
         "model": "43NU800B6LC",
         "category": "LED",
         "priceText": "£259.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "Pay £9.95 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3077,7 +3077,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:34.231Z",
-        "priceCheckedAt": "2026-08-12T04:34:28.226Z",
+        "priceCheckedAt": "2026-08-12T08:50:51.935Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3087,7 +3087,7 @@
         "model": "43NU850B6LA",
         "category": "LED",
         "priceText": "£269.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "Pay £10.33 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3103,7 +3103,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:34.389Z",
-        "priceCheckedAt": "2026-08-12T04:34:44.827Z",
+        "priceCheckedAt": "2026-08-12T08:50:52.286Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3113,7 +3113,7 @@
         "model": "50NANO80A6B",
         "category": "LED",
         "priceText": "",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "No longer available online",
         "guaranteeText": "5 year guarantee included",
@@ -3129,7 +3129,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked_price_not_found",
         "cleanRebuildAt": "2026-07-17T13:03:34.548Z",
-        "priceCheckedAt": "2026-08-12T04:34:57.044Z",
+        "priceCheckedAt": "2026-08-12T08:50:52.663Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3139,7 +3139,7 @@
         "model": "50NU800B6LC",
         "category": "LED",
         "priceText": "£319.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "Pay £12.25 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3155,7 +3155,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:34.703Z",
-        "priceCheckedAt": "2026-08-12T04:35:08.420Z",
+        "priceCheckedAt": "2026-08-12T08:50:53.253Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3181,7 +3181,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:34.858Z",
-        "priceCheckedAt": "2026-08-12T04:35:23.972Z",
+        "priceCheckedAt": "2026-08-12T08:50:53.537Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3207,7 +3207,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.015Z",
-        "priceCheckedAt": "2026-08-12T04:35:41.415Z",
+        "priceCheckedAt": "2026-08-12T08:50:53.923Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3217,7 +3217,7 @@
         "model": "55NU800B6LA",
         "category": "LED",
         "priceText": "£369.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "Pay £14.17 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3233,7 +3233,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.171Z",
-        "priceCheckedAt": "2026-08-12T04:35:53.880Z",
+        "priceCheckedAt": "2026-08-12T08:50:54.266Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3243,7 +3243,7 @@
         "model": "55NU850B6LA",
         "category": "LED",
         "priceText": "£389.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "Pay £14.94 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3259,7 +3259,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.331Z",
-        "priceCheckedAt": "2026-08-12T04:36:10.033Z",
+        "priceCheckedAt": "2026-08-12T08:50:55.142Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3268,7 +3268,7 @@
         "title": "LG 55UR78006LK LED HDR 4K Ultra HD Smart TV, 55 inch with Freeview Play/Freesat HD, Dark Iron Grey, Dark Iron Gray",
         "model": "55UR78006LK",
         "category": "LED",
-        "priceText": "",
+        "priceText": "£319.00",
         "offerText": "5 year guarantee included",
         "financeText": "Pay £12.25 per month over 36 months at 24.9% APR",
         "availabilityText": "Currently out of stock online",
@@ -3283,9 +3283,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-55ur78006lk-led-hdr-4k-ultra-hd-smart-tv-55-inch-with-freeview-play-freesat-hd-dark-iron-grey/p110258586",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.488Z",
-        "priceCheckedAt": "2026-08-12T04:36:21.009Z",
+        "priceCheckedAt": "2026-08-12T08:50:55.914Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3295,7 +3295,7 @@
         "model": "65NANO80A6B",
         "category": "LED",
         "priceText": "£479.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £50",
+        "offerText": "5 year guarantee included | Save £50",
         "financeText": "Pay £18.40 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3311,7 +3311,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.646Z",
-        "priceCheckedAt": "2026-08-12T04:36:35.027Z",
+        "priceCheckedAt": "2026-08-12T08:50:56.352Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3337,7 +3337,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.803Z",
-        "priceCheckedAt": "2026-08-12T04:36:51.621Z",
+        "priceCheckedAt": "2026-08-12T08:50:56.788Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3347,7 +3347,7 @@
         "model": "65NU850B6LA",
         "category": "LED",
         "priceText": "£519.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3363,7 +3363,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:35.960Z",
-        "priceCheckedAt": "2026-08-12T04:37:01.213Z",
+        "priceCheckedAt": "2026-08-12T08:50:57.458Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3373,7 +3373,7 @@
         "model": "75NANO80A6B",
         "category": "LED",
         "priceText": "£679.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £50",
+        "offerText": "5 year guarantee included | Save £50",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3389,7 +3389,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.116Z",
-        "priceCheckedAt": "2026-08-12T04:37:12.942Z",
+        "priceCheckedAt": "2026-08-12T08:50:57.812Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3399,7 +3399,7 @@
         "model": "75NU800B6LA",
         "category": "LED",
         "priceText": "£649.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3415,7 +3415,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.274Z",
-        "priceCheckedAt": "2026-08-12T04:37:24.338Z",
+        "priceCheckedAt": "2026-08-12T08:50:58.226Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3425,7 +3425,7 @@
         "model": "75UA75006LA",
         "category": "LED",
         "priceText": "£649.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3441,7 +3441,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.432Z",
-        "priceCheckedAt": "2026-08-12T04:37:40.229Z",
+        "priceCheckedAt": "2026-08-12T08:50:58.648Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3451,7 +3451,7 @@
         "model": "85NU800B6LA",
         "category": "LED",
         "priceText": "£999.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3467,7 +3467,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.589Z",
-        "priceCheckedAt": "2026-08-12T04:37:54.394Z",
+        "priceCheckedAt": "2026-08-12T08:50:59.044Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3491,7 +3491,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.746Z",
-        "priceCheckedAt": "2026-08-12T04:38:08.593Z",
+        "priceCheckedAt": "2026-08-12T08:50:59.696Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3501,7 +3501,7 @@
         "model": "55MRGB86B6A",
         "category": "MRGB",
         "priceText": "£1099.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £50",
+        "offerText": "5 year guarantee included | Save £50",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3517,7 +3517,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:36.901Z",
-        "priceCheckedAt": "2026-08-12T04:38:20.227Z",
+        "priceCheckedAt": "2026-08-12T08:51:00.491Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3541,7 +3541,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.059Z",
-        "priceCheckedAt": "2026-08-12T04:38:37.119Z",
+        "priceCheckedAt": "2026-08-12T08:51:00.905Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3551,7 +3551,7 @@
         "model": "75MRGB86B6A",
         "category": "MRGB",
         "priceText": "£1999.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3565,7 +3565,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.216Z",
-        "priceCheckedAt": "2026-08-12T04:38:47.861Z",
+        "priceCheckedAt": "2026-08-12T08:51:01.324Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3574,8 +3574,8 @@
         "title": "LG 86MRGB96B6B (2026) Micro RGB evo HDR 4K Ultra HD Smart AI TV, 86 inch, with Dolby Atmos, Ashed Blue",
         "model": "86MRGB96B6B",
         "category": "MRGB",
-        "priceText": "",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "priceText": "£5799.00",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "Pay £222.79 per month over 36 months at 24.9% APR",
         "availabilityText": "Currently out of stock online",
         "guaranteeText": "5 year guarantee included",
@@ -3587,9 +3587,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-86mrgb96b6b-2026-micro-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-86-inch-with-dolby-atmos-ashed-blue/p115239657",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.373Z",
-        "priceCheckedAt": "2026-08-12T04:39:00.431Z",
+        "priceCheckedAt": "2026-08-12T08:51:01.752Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3629,7 +3629,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.529Z",
-        "priceCheckedAt": "2026-08-12T04:39:14.520Z",
+        "priceCheckedAt": "2026-08-12T08:51:02.717Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3653,7 +3653,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.687Z",
-        "priceCheckedAt": "2026-08-12T04:39:26.611Z",
+        "priceCheckedAt": "2026-08-12T08:51:03.097Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3691,7 +3691,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:37.845Z",
-        "priceCheckedAt": "2026-08-12T04:39:41.992Z",
+        "priceCheckedAt": "2026-08-12T08:51:03.484Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3715,7 +3715,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.002Z",
-        "priceCheckedAt": "2026-08-12T04:39:57.665Z",
+        "priceCheckedAt": "2026-08-12T08:51:03.832Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3753,7 +3753,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.158Z",
-        "priceCheckedAt": "2026-08-12T04:40:13.170Z",
+        "priceCheckedAt": "2026-08-12T08:51:04.429Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3791,7 +3791,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.317Z",
-        "priceCheckedAt": "2026-08-12T04:40:26.168Z",
+        "priceCheckedAt": "2026-08-12T08:51:04.823Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3829,7 +3829,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.472Z",
-        "priceCheckedAt": "2026-08-12T04:40:38.961Z",
+        "priceCheckedAt": "2026-08-12T08:51:05.425Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3838,7 +3838,7 @@
         "title": "LG OLED48G56LS (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 48 inch with Dolby Atmos, Stand Version, Black",
         "model": "OLED48G56LS",
         "category": "OLED",
-        "priceText": "",
+        "priceText": "£1044.00",
         "offerText": "5 year guarantee included | Save £50",
         "financeText": "",
         "availabilityText": "Currently out of stock online",
@@ -3867,9 +3867,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-oled48g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-stand-version-black/p113460227",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.630Z",
-        "priceCheckedAt": "2026-08-12T04:40:52.023Z",
+        "priceCheckedAt": "2026-08-12T08:51:05.831Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3879,7 +3879,7 @@
         "model": "OLED48G66LS",
         "category": "OLED",
         "priceText": "£1599.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £50",
+        "offerText": "5 year guarantee included | Save £50",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3907,7 +3907,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.789Z",
-        "priceCheckedAt": "2026-08-12T04:41:03.177Z",
+        "priceCheckedAt": "2026-08-12T08:51:06.200Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3931,7 +3931,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:38.946Z",
-        "priceCheckedAt": "2026-08-12T04:41:14.820Z",
+        "priceCheckedAt": "2026-08-12T08:51:06.569Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -3941,7 +3941,7 @@
         "model": "OLED55C54LA",
         "category": "OLED",
         "priceText": "£999.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £500",
+        "offerText": "5 year guarantee included | Save £500",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -3971,7 +3971,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:39.103Z",
-        "priceCheckedAt": "2026-08-12T04:41:31.699Z",
+        "priceCheckedAt": "2026-08-12T08:51:07.526Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4009,7 +4009,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:39.260Z",
-        "priceCheckedAt": "2026-08-12T04:41:42.106Z",
+        "priceCheckedAt": "2026-08-12T08:51:08.195Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4019,7 +4019,7 @@
         "model": "OLED55C64LA",
         "category": "OLED",
         "priceText": "£1599.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £500",
+        "offerText": "5 year guarantee included | Save £500",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4047,7 +4047,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:39.415Z",
-        "priceCheckedAt": "2026-08-12T04:41:54.438Z",
+        "priceCheckedAt": "2026-08-12T08:51:08.913Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4071,7 +4071,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked_price_not_found",
         "cleanRebuildAt": "2026-07-17T13:03:39.571Z",
-        "priceCheckedAt": "2026-08-12T04:42:07.024Z",
+        "priceCheckedAt": "2026-08-12T08:51:09.350Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4107,7 +4107,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:39.725Z",
-        "priceCheckedAt": "2026-08-12T04:42:20.043Z",
+        "priceCheckedAt": "2026-08-12T08:51:09.664Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4117,7 +4117,7 @@
         "model": "OLED55G56LS",
         "category": "OLED",
         "priceText": "£1299.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £350",
+        "offerText": "5 year guarantee included | Save £350",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4147,7 +4147,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:39.885Z",
-        "priceCheckedAt": "2026-08-12T04:42:35.542Z",
+        "priceCheckedAt": "2026-08-12T08:51:10.004Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4175,7 +4175,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.040Z",
-        "priceCheckedAt": "2026-08-12T04:42:49.024Z",
+        "priceCheckedAt": "2026-08-12T08:51:10.352Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4213,7 +4213,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.198Z",
-        "priceCheckedAt": "2026-08-12T04:43:04.987Z",
+        "priceCheckedAt": "2026-08-12T08:51:10.736Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4237,7 +4237,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.357Z",
-        "priceCheckedAt": "2026-08-12T04:43:17.133Z",
+        "priceCheckedAt": "2026-08-12T08:51:11.172Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4247,7 +4247,7 @@
         "model": "OLED65C54LA",
         "category": "OLED",
         "priceText": "£1499.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £500",
+        "offerText": "5 year guarantee included | Save £500",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4275,7 +4275,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.514Z",
-        "priceCheckedAt": "2026-08-12T04:43:29.298Z",
+        "priceCheckedAt": "2026-08-12T08:51:12.023Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4285,7 +4285,7 @@
         "model": "OLED65C56LB",
         "category": "OLED",
         "priceText": "£1499.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £500",
+        "offerText": "5 year guarantee included | Save £500",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4313,7 +4313,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.672Z",
-        "priceCheckedAt": "2026-08-12T04:43:41.964Z",
+        "priceCheckedAt": "2026-08-12T08:51:12.930Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4351,7 +4351,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:40.829Z",
-        "priceCheckedAt": "2026-08-12T04:43:58.941Z",
+        "priceCheckedAt": "2026-08-12T08:51:13.832Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4375,7 +4375,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked_price_not_found",
         "cleanRebuildAt": "2026-07-17T13:03:40.986Z",
-        "priceCheckedAt": "2026-08-12T04:44:12.813Z",
+        "priceCheckedAt": "2026-08-12T08:51:14.165Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4385,7 +4385,7 @@
         "model": "OLED65G54LW",
         "category": "OLED",
         "priceText": "£1999.00",
-        "offerText": "5 year guarantee included | Claim 10% cashback (Via Redemption) | Save £100",
+        "offerText": "5 year guarantee included | Claim 10% cashback (Via Redemption) | Save £200",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4411,7 +4411,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:41.143Z",
-        "priceCheckedAt": "2026-08-12T04:44:27.320Z",
+        "priceCheckedAt": "2026-08-12T08:51:14.516Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4449,7 +4449,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:41.299Z",
-        "priceCheckedAt": "2026-08-12T04:44:42.986Z",
+        "priceCheckedAt": "2026-08-12T08:51:15.172Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4459,7 +4459,7 @@
         "model": "OLED65G66LS",
         "category": "OLED",
         "priceText": "£2999.00",
-        "offerText": "5 year guarantee included | Claim 10% cashback (Via Redemption) | Save £100",
+        "offerText": "5 year guarantee included | Claim 10% cashback (Via Redemption) | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4487,7 +4487,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:41.457Z",
-        "priceCheckedAt": "2026-08-12T04:44:54.331Z",
+        "priceCheckedAt": "2026-08-12T08:51:15.617Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4497,7 +4497,7 @@
         "model": "OLED65M49LA",
         "category": "OLED",
         "priceText": "£2499.00",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4511,7 +4511,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:41.612Z",
-        "priceCheckedAt": "2026-08-12T04:45:10.929Z",
+        "priceCheckedAt": "2026-08-12T08:51:16.000Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4521,7 +4521,7 @@
         "model": "OLED65M59LA",
         "category": "OLED",
         "priceText": "",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "No longer available online",
         "guaranteeText": "5 year guarantee included",
@@ -4547,7 +4547,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked_price_not_found",
         "cleanRebuildAt": "2026-07-17T13:03:41.770Z",
-        "priceCheckedAt": "2026-08-12T04:45:24.972Z",
+        "priceCheckedAt": "2026-08-12T08:51:16.369Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4556,8 +4556,8 @@
         "title": "LG OLED77C54LA (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 77 inch with Dolby Atmos, Dark Titan Silver",
         "model": "OLED77C54LA",
         "category": "OLED",
-        "priceText": "",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "priceText": "£2199.00",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "",
         "availabilityText": "Currently out of stock online",
         "guaranteeText": "5 year guarantee included",
@@ -4583,9 +4583,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-oled77c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p113530625",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:41.926Z",
-        "priceCheckedAt": "2026-08-12T04:45:39.003Z",
+        "priceCheckedAt": "2026-08-12T08:51:16.709Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4595,7 +4595,7 @@
         "model": "OLED77C56LB",
         "category": "OLED",
         "priceText": "",
-        "offerText": "5 year guarantee included | Save £100",
+        "offerText": "5 year guarantee included",
         "financeText": "",
         "availabilityText": "No longer available online",
         "guaranteeText": "5 year guarantee included",
@@ -4609,7 +4609,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked_price_not_found",
         "cleanRebuildAt": "2026-07-17T13:03:42.082Z",
-        "priceCheckedAt": "2026-08-12T04:45:52.277Z",
+        "priceCheckedAt": "2026-08-12T08:51:17.380Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4647,7 +4647,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:42.238Z",
-        "priceCheckedAt": "2026-08-12T04:46:03.693Z",
+        "priceCheckedAt": "2026-08-12T08:51:17.764Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4657,7 +4657,7 @@
         "model": "OLED77G54LW",
         "category": "OLED",
         "priceText": "£3279.00",
-        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £100",
+        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £200",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4683,7 +4683,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:42.395Z",
-        "priceCheckedAt": "2026-08-12T04:46:17.167Z",
+        "priceCheckedAt": "2026-08-12T08:51:18.252Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4693,7 +4693,7 @@
         "model": "OLED77G64LW",
         "category": "OLED",
         "priceText": "£3899.00",
-        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £100",
+        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4707,7 +4707,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:42.554Z",
-        "priceCheckedAt": "2026-08-12T04:46:32.767Z",
+        "priceCheckedAt": "2026-08-12T08:51:18.750Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4717,7 +4717,7 @@
         "model": "OLED77W69LA",
         "category": "OLED",
         "priceText": "£4699.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4731,7 +4731,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:42.711Z",
-        "priceCheckedAt": "2026-08-12T04:46:45.764Z",
+        "priceCheckedAt": "2026-08-12T08:51:19.307Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4741,7 +4741,7 @@
         "model": "OLED83B65LA",
         "category": "OLED",
         "priceText": "£2999.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "Pay £115.21 per month over 36 months at 24.9% APR",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4755,7 +4755,7 @@
         "directProductUrlStatus": "verified_from_official_john_lewis_product_page",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:42.867Z",
-        "priceCheckedAt": "2026-08-12T04:47:01.358Z",
+        "priceCheckedAt": "2026-08-12T08:51:19.701Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4779,7 +4779,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.024Z",
-        "priceCheckedAt": "2026-08-12T04:47:16.999Z",
+        "priceCheckedAt": "2026-08-12T08:51:20.107Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4789,7 +4789,7 @@
         "model": "OLED83G54LW",
         "category": "OLED",
         "priceText": "£5499.00",
-        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £100",
+        "offerText": "5 year guarantee included | Claim 15% cashback (Via Redemption) | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4803,7 +4803,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.180Z",
-        "priceCheckedAt": "2026-08-12T04:47:32.375Z",
+        "priceCheckedAt": "2026-08-12T08:51:20.649Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4827,7 +4827,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.338Z",
-        "priceCheckedAt": "2026-08-12T04:47:48.870Z",
+        "priceCheckedAt": "2026-08-12T08:51:21.148Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4837,7 +4837,7 @@
         "model": "OLED83W69LA",
         "category": "OLED",
         "priceText": "£6799.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £650",
+        "offerText": "5 year guarantee included | Save £650",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4851,7 +4851,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.495Z",
-        "priceCheckedAt": "2026-08-12T04:48:03.790Z",
+        "priceCheckedAt": "2026-08-12T08:51:22.083Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4877,7 +4877,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.653Z",
-        "priceCheckedAt": "2026-08-12T04:48:17.244Z",
+        "priceCheckedAt": "2026-08-12T08:51:22.468Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4887,7 +4887,7 @@
         "model": "",
         "category": "QNED",
         "priceText": "£1299.00",
-        "offerText": "5 year guarantee included | Save £100 | Save £350",
+        "offerText": "5 year guarantee included | Save £350",
         "financeText": "",
         "availabilityText": "",
         "guaranteeText": "5 year guarantee included",
@@ -4903,7 +4903,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.809Z",
-        "priceCheckedAt": "2026-08-12T04:48:29.827Z",
+        "priceCheckedAt": "2026-08-12T08:51:23.255Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4929,7 +4929,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:43.966Z",
-        "priceCheckedAt": "2026-08-12T04:48:40.856Z",
+        "priceCheckedAt": "2026-08-12T08:51:23.998Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4955,7 +4955,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.124Z",
-        "priceCheckedAt": "2026-08-12T04:48:57.176Z",
+        "priceCheckedAt": "2026-08-12T08:51:24.720Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -4983,7 +4983,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.281Z",
-        "priceCheckedAt": "2026-08-12T04:49:12.818Z",
+        "priceCheckedAt": "2026-08-12T08:51:25.674Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5009,7 +5009,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.439Z",
-        "priceCheckedAt": "2026-08-12T04:49:24.075Z",
+        "priceCheckedAt": "2026-08-12T08:51:26.427Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5037,7 +5037,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.597Z",
-        "priceCheckedAt": "2026-08-12T04:49:36.082Z",
+        "priceCheckedAt": "2026-08-12T08:51:26.778Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5063,7 +5063,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.753Z",
-        "priceCheckedAt": "2026-08-12T04:49:53.197Z",
+        "priceCheckedAt": "2026-08-12T08:51:27.248Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5089,7 +5089,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:44.909Z",
-        "priceCheckedAt": "2026-08-12T04:50:07.565Z",
+        "priceCheckedAt": "2026-08-12T08:51:27.639Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5115,7 +5115,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.065Z",
-        "priceCheckedAt": "2026-08-12T04:50:20.343Z",
+        "priceCheckedAt": "2026-08-12T08:51:27.970Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5143,7 +5143,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.223Z",
-        "priceCheckedAt": "2026-08-12T04:50:32.266Z",
+        "priceCheckedAt": "2026-08-12T08:51:28.932Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5181,7 +5181,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.380Z",
-        "priceCheckedAt": "2026-08-12T04:50:48.683Z",
+        "priceCheckedAt": "2026-08-12T08:51:29.340Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5207,7 +5207,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.536Z",
-        "priceCheckedAt": "2026-08-12T04:51:04.162Z",
+        "priceCheckedAt": "2026-08-12T08:51:29.708Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5233,7 +5233,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.694Z",
-        "priceCheckedAt": "2026-08-12T04:51:19.316Z",
+        "priceCheckedAt": "2026-08-12T08:51:30.639Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5261,7 +5261,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:45.851Z",
-        "priceCheckedAt": "2026-08-12T04:51:33.742Z",
+        "priceCheckedAt": "2026-08-12T08:51:31.328Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5287,7 +5287,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.009Z",
-        "priceCheckedAt": "2026-08-12T04:51:49.869Z",
+        "priceCheckedAt": "2026-08-12T08:51:31.734Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5313,7 +5313,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.166Z",
-        "priceCheckedAt": "2026-08-12T04:52:01.352Z",
+        "priceCheckedAt": "2026-08-12T08:51:32.371Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5339,7 +5339,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.320Z",
-        "priceCheckedAt": "2026-08-12T04:52:19.200Z",
+        "priceCheckedAt": "2026-08-12T08:51:33.202Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5367,7 +5367,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.478Z",
-        "priceCheckedAt": "2026-08-12T04:52:34.168Z",
+        "priceCheckedAt": "2026-08-12T08:51:33.671Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5391,7 +5391,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.635Z",
-        "priceCheckedAt": "2026-08-12T04:52:46.015Z",
+        "priceCheckedAt": "2026-08-12T08:51:33.985Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5415,7 +5415,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.789Z",
-        "priceCheckedAt": "2026-08-12T04:53:01.236Z",
+        "priceCheckedAt": "2026-08-12T08:51:34.404Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5439,7 +5439,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:46.946Z",
-        "priceCheckedAt": "2026-08-12T04:53:14.086Z",
+        "priceCheckedAt": "2026-08-12T08:51:35.586Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5463,7 +5463,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.102Z",
-        "priceCheckedAt": "2026-08-12T04:53:26.646Z",
+        "priceCheckedAt": "2026-08-12T08:51:35.983Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5487,7 +5487,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.260Z",
-        "priceCheckedAt": "2026-08-12T04:53:41.138Z",
+        "priceCheckedAt": "2026-08-12T08:51:36.912Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5511,7 +5511,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.416Z",
-        "priceCheckedAt": "2026-08-12T04:53:57.811Z",
+        "priceCheckedAt": "2026-08-12T08:51:37.340Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5535,7 +5535,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.575Z",
-        "priceCheckedAt": "2026-08-12T04:54:12.859Z",
+        "priceCheckedAt": "2026-08-12T08:51:38.238Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5559,7 +5559,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.731Z",
-        "priceCheckedAt": "2026-08-12T04:54:27.199Z",
+        "priceCheckedAt": "2026-08-12T08:51:38.649Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5583,7 +5583,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:47.887Z",
-        "priceCheckedAt": "2026-08-12T04:54:42.952Z",
+        "priceCheckedAt": "2026-08-12T08:51:39.005Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5592,7 +5592,7 @@
         "title": "LG US80TR Bluetooth Wi-Fi Soundbar with Dolby Atmos, DTS:X, Wireless Subwoofer & Rear Speakers, Black",
         "model": "US80TR",
         "category": "Soundbars",
-        "priceText": "",
+        "priceText": "£399.00",
         "offerText": "2 year guarantee included",
         "financeText": "",
         "availabilityText": "Currently out of stock online",
@@ -5605,9 +5605,9 @@
         ],
         "directProductUrl": "https://www.johnlewis.com/lg-us80tr-bluetooth-wi-fi-soundbar-with-dolby-atmos-dts-x-wireless-subwoofer-rear-speakers-black/p113456828",
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
-        "priceCheckStatus": "checked_price_not_found",
+        "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:48.043Z",
-        "priceCheckedAt": "2026-08-12T04:54:58.131Z",
+        "priceCheckedAt": "2026-08-12T08:51:39.371Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5631,7 +5631,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:48.201Z",
-        "priceCheckedAt": "2026-08-12T04:55:08.399Z",
+        "priceCheckedAt": "2026-08-12T08:51:39.781Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5655,7 +5655,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:48.358Z",
-        "priceCheckedAt": "2026-08-12T04:55:21.428Z",
+        "priceCheckedAt": "2026-08-12T08:51:40.448Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5679,7 +5679,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_rendered_image_listing",
         "priceCheckStatus": "checked",
         "cleanRebuildAt": "2026-07-17T13:03:48.517Z",
-        "priceCheckedAt": "2026-08-12T04:55:32.243Z",
+        "priceCheckedAt": "2026-08-12T08:51:40.866Z",
         "httpStatus": 200,
         "priceCheckError": ""
       },
@@ -5703,7 +5703,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_official_listing",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:55:47.562Z",
+        "priceCheckedAt": "2026-08-12T08:51:41.495Z",
         "httpStatus": 200
       },
       {
@@ -5726,7 +5726,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_official_listing",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:56:02.252Z",
+        "priceCheckedAt": "2026-08-12T08:51:42.466Z",
         "httpStatus": 200
       },
       {
@@ -5749,7 +5749,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_official_listing",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:56:15.123Z",
+        "priceCheckedAt": "2026-08-12T08:51:42.896Z",
         "httpStatus": 200
       },
       {
@@ -5772,7 +5772,7 @@
         "directProductUrlStatus": "verified_from_john_lewis_official_listing",
         "priceCheckStatus": "checked",
         "priceCheckError": "",
-        "priceCheckedAt": "2026-08-12T04:56:30.531Z",
+        "priceCheckedAt": "2026-08-12T08:51:43.322Z",
         "httpStatus": 200
       }
     ]
@@ -5787,5 +5787,5 @@
     ]
   },
   "cleanRebuildAt": "2026-07-17T13:03:48.670Z",
-  "priceCheckedAt": "2026-08-12T04:56:30.532Z"
+  "priceCheckedAt": "2026-08-12T08:51:43.322Z"
 }

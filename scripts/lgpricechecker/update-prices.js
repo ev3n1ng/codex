@@ -195,8 +195,6 @@ function priceFromJsonLd(html, pageUrl) {
   for (const product of ordered) {
     const offers = productOffers(product);
     for (const offer of offers) {
-      const availability = String(offer && offer.availability || "");
-      if (/Discontinued|OutOfStock|SoldOut|Unavailable/i.test(availability)) continue;
       const value = offer && (offer.price || offer.lowPrice || offer.highPrice);
       if (value) return `£${String(value).replace(/^£/, "")}`;
     }
@@ -290,7 +288,7 @@ function parseCommon(html, product) {
   const joined = uniq([text, ...strings]).join(" ");
   const unavailable = unavailableText(joined);
   const jsonPrice = priceFromJsonLd(html, product.directProductUrl);
-  const firstPrice = unavailable ? "" : jsonPrice;
+  const firstPrice = jsonPrice;
   const finance = uniq([
     firstPattern(joined, [
       /From £[\d,.]+ per month for \d+ months\*?/i,
