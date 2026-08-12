@@ -243,8 +243,7 @@
     "price": "£799.00",
     "availability": "Available to order",
     "offers": [
-      "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item",
-      "Save £250"
+      "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item"
     ],
     "url": "https://www.johnlewis.com/lg-oled48c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p113513363"
   },
@@ -259,8 +258,7 @@
     "price": "£799.00",
     "availability": "Available to order",
     "offers": [
-      "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item",
-      "Save £250"
+      "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item"
     ],
     "url": "https://www.johnlewis.com/lg-oled48c56lb-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p113744965"
   },
@@ -766,7 +764,9 @@
     "size": 65,
     "price": "£2,499.00",
     "availability": "Available to order",
-    "offers": [],
+    "offers": [
+      "Our Lowest Ever Price"
+    ],
     "url": "https://www.johnlewis.com/lg-oled65m49la-2024-oled-hdr-4k-ultra-hd-smart-tv-65-inch-with-freeview-play-freesat-hd-dolby-atmos-one-wall-design-wireless-4k-connectivity-light-satin-silver/p112024111"
   }
 ]
