@@ -265,6 +265,7 @@ function slimOfferItems(items, product) {
     .filter((item) => !/For full terms|Claim Claims|How to claim|Terms and conditions|promotional Claim|Representative example|Assumed Credit Limit/i.test(item))
     .filter((item) => !/Free standard delivery|Free Click & Collect|Get Free Delivery|Delivery available|Collection available|Add to basket|Price match$/i.test(item))
     .filter((item) => {
+      if (/Save up to \d+% on (?:the purchase of )?selected LG soundbars/i.test(item)) return false;
       if (/When Bought With any LG TV/i.test(item)) return product.category === "Soundbars";
       return true;
     })
