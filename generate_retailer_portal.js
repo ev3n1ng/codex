@@ -107,7 +107,7 @@ const baselineModelFamilies = [
       "OLED83G54LW",
     ],
   },
-  { family: "B6", models: ["OLED48B65LA", "OLED55B65LA", "OLED65B65LA", "OLED77B65LA", "OLED83B65LA", "OLED83B6ELB"] },
+  { family: "B6", models: ["OLED48B65LA", "OLED55B65LA", "OLED65B65LA", "OLED65B6ELC", "OLED77B65LA", "OLED83B65LA", "OLED83B6ELB"] },
   {
     family: "C6",
     models: [
@@ -266,14 +266,16 @@ const knownBaselineUrls = {
     OLED83G54LW:
       "https://www.currys.co.uk/products/lg-g5-83-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled83g54lw-10282103.html",
     OLED65M49LA: "https://www.currys.co.uk/search?q=OLED65M49LA",
-    OLED48B65LA: "https://www.currys.co.uk/search?q=OLED48B65LA",
+    OLED48B65LA: "https://www.currys.co.uk/products/lg-b6-48-oled-ai-4k-hdr-smart-tv-2026-oled48b65la-10301903.html",
     OLED55B65LA: "https://www.currys.co.uk/products/lg-b6-55-oled-ai-4k-hdr-smart-tv-2026-oled55b65la-10301871.html",
-    OLED65B65LA: "https://www.currys.co.uk/search?q=OLED65B65LA",
-    OLED77B65LA: "https://www.currys.co.uk/search?q=OLED77B65LA",
-    OLED83B65LA: "https://www.currys.co.uk/search?q=OLED83B65LA",
+    OLED65B65LA: "https://www.currys.co.uk/products/lg-b6-65-oled-ai-4k-hdr-smart-tv-2026-oled65b65la-10301900.html",
+    OLED65B6ELC:
+      "https://www.currys.co.uk/products/lg-b6-65-oled-ai-4k-hdr-smart-tv-2026-oled65b6elc-10301905.html",
+    OLED77B65LA: "https://www.currys.co.uk/products/lg-b6-77-oled-ai-4k-hdr-smart-tv-2026-oled77b65la-10301868.html",
+    OLED83B65LA: "https://www.currys.co.uk/products/lg-b6-83-oled-ai-4k-hdr-smart-tv-2026-oled83b65la-10301911.html",
     OLED83B6ELB:
       "https://www.currys.co.uk/products/lg-b6-83-oled-ai-4k-hdr-smart-tv-2026-oled83b6elb-10301910.html",
-    OLED42C64LA: "https://www.currys.co.uk/search?q=OLED42C64LA",
+    OLED42C64LA: "https://www.currys.co.uk/products/lg-c6-42-oled-ai-4k-hdr-smart-tv-2026-oled42c64la-10301785.html",
     OLED48C64LA: "https://www.currys.co.uk/products/lg-c6-48-oled-ai-4k-hdr-smart-tv-2026-oled48c64la-10301976.html",
     OLED48C66LB:
       "https://www.currys.co.uk/products/lg-c6-48-oled-ai-4k-hdr-smart-tv-2026-oled48c66lb-10301933.html",
@@ -286,8 +288,9 @@ const knownBaselineUrls = {
     OLED77C64LA: "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c64la-10302008.html",
     OLED77C66LB:
       "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c66lb-10301810.html",
-    OLED83C64LA: "https://www.currys.co.uk/search?q=OLED83C64LA",
-    OLED48G66LS: "https://www.currys.co.uk/search?q=OLED48G66LS",
+    OLED83C64LA: "https://www.currys.co.uk/products/lg-c6-83-oled-ai-4k-hdr-smart-tv-2026-oled83c64la-10301872.html",
+    OLED48G66LS:
+      "https://www.currys.co.uk/products/lg-g6-48-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled48g66ls-10301802.html",
     OLED55G66LS:
       "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-stand-version-oled55g66ls-10301989.html",
     OLED65G66LS:
@@ -296,14 +299,18 @@ const knownBaselineUrls = {
       "https://www.currys.co.uk/products/lg-g6-55-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled55g64lw-10301338.html",
     OLED65G64LW:
       "https://www.currys.co.uk/products/lg-g6-65-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled65g64lw-10301388.html",
-    OLED77G64LW: "https://www.currys.co.uk/search?q=OLED77G64LW",
-    OLED83G64LW: "https://www.currys.co.uk/search?q=OLED83G64LW",
+    OLED77G64LW:
+      "https://www.currys.co.uk/products/lg-g6-77-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled77g64lw-10301402.html",
+    OLED83G64LW:
+      "https://www.currys.co.uk/products/lg-g6-83-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled83g64lw-10301433.html",
     OLED97G64LW:
       "https://www.currys.co.uk/products/lg-g6-97-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled97g64lw-10301387.html",
     OLED65M59LA:
       "https://www.currys.co.uk/products/lg-m5-65-oled-evo-ai-4k-hdr-true-wireless-smart-tv-2025-oled65m59la-10282096.html",
-    OLED77W69LA: "https://www.currys.co.uk/search?q=OLED77W69LA",
-    OLED83W69LA: "https://www.currys.co.uk/search?q=OLED83W69LA",
+    OLED77W69LA:
+      "https://www.currys.co.uk/products/lg-w6-77-oled-ai-4k-hdr-true-wireless-smart-tv-2026-oled77w69la-10303103.html",
+    OLED83W69LA:
+      "https://www.currys.co.uk/products/lg-w6-83-oled-ai-4k-hdr-true-wireless-smart-tv-2026-oled83w69la-10303639.html",
   },
 };
 
@@ -1194,6 +1201,20 @@ const currysProducts = [
     "series": "B",
     "gen": "6",
     "previousPrice": "£1,899.99"
+  },
+  {
+    "year": "2026",
+    "title": "LG B6 65\" OLED AI 4K HDR Smart TV 2026 - OLED65B6ELC",
+    "size": 65,
+    "price": "£1,199.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-b6-65-oled-ai-4k-hdr-smart-tv-2026-oled65b6elc-10301905.html",
+    "model": "OLED65B6ELC",
+    "series": "B",
+    "gen": "6"
   },
   {
     "year": "2026",

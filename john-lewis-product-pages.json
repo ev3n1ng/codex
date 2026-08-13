@@ -722,6 +722,21 @@
     "url": "https://www.johnlewis.com/lg-oled65b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-umber-brown/p115232147"
   },
   {
+    "year": "2026",
+    "title": "LG B6 series 65\" OLED TV 2026 - OLED65B6ELC",
+    "size": 65,
+    "price": "Not available",
+    "availability": "Not available at the moment",
+    "offers": [
+      "No current retailer data found for this baseline model"
+    ],
+    "url": "https://www.johnlewis.com/search?search-term=OLED65B6ELC",
+    "model": "OLED65B6ELC",
+    "baselineMissing": true,
+    "series": "B",
+    "gen": "6"
+  },
+  {
     "id": "115232122",
     "model": "OLED55B65LA",
     "title": "LG OLED55B65LA (2026) OLED HDR 4K Ultra HD Smart AI TV, 55 inch with Dolby Atmos, Umber Brown",
