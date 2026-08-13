@@ -107,7 +107,7 @@
     "gen": "5",
     "size": 55,
     "price": "£1,299.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "Save £350 on the LG US70TR Soundbar when you purchase it with this item"
     ],
@@ -149,12 +149,9 @@
     "series": "C",
     "gen": "5",
     "size": 77,
-    "price": "£2,199.00",
-    "availability": "Currently out of stock online",
-    "offers": [
-      "Free wall install (GBP 135 value)",
-      "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item"
-    ],
+    "price": "Not listed",
+    "availability": "No longer available online",
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled77c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p113530625"
   },
   {
@@ -764,9 +761,7 @@
     "size": 65,
     "price": "£2,499.00",
     "availability": "Available to order",
-    "offers": [
-      "Our Lowest Ever Price"
-    ],
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled65m49la-2024-oled-hdr-4k-ultra-hd-smart-tv-65-inch-with-freeview-play-freesat-hd-dolby-atmos-one-wall-design-wireless-4k-connectivity-light-satin-silver/p112024111"
   }
 ]
