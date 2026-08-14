@@ -106,11 +106,9 @@
     "series": "G",
     "gen": "5",
     "size": 55,
-    "price": "£1,299.00",
-    "availability": "Currently out of stock online",
-    "offers": [
-      "Save £350 on the LG US70TR Soundbar when you purchase it with this item"
-    ],
+    "price": "Not listed",
+    "availability": "No longer available online",
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled55g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-stand-version-satin-silver/p113362525"
   },
   {
@@ -238,7 +236,7 @@
     "gen": "5",
     "size": 48,
     "price": "£799.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item"
     ],
