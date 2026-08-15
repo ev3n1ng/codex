@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0a08" />
+    <meta name="theme-color" content="#0b0906" />
     <meta
       name="description"
       content="Quiz Night 100: a polished 50-question quiz game with five rounds, local progress saving, scoring, and final results."
@@ -11,19 +11,15 @@
     <title>Quiz Night 100</title>
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a08'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23f0c76a'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-size='18' font-family='Georgia,serif' font-weight='700' fill='%230a0a08'%3E100%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0906'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23d8a441'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-size='18' font-family='Georgia,serif' font-weight='700' fill='%230b0906'%3E100%3C/text%3E%3C/svg%3E"
     />
-    <link rel="preload" as="image" href="/quiznight100/assets/quiznight100-hero.jpg" />
+    <link rel="preload" as="font" type="font/woff2" href="/quiznight100/assets/fonts/fraunces-variable.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/quiznight100/assets/fonts/schibstedgrotesk-variable.woff2" crossorigin />
     <link rel="stylesheet" href="/quiznight100/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#app">Skip to quiz</a>
     <div class="scene" aria-hidden="true">
-      <picture>
-        <source srcset="/quiznight100/assets/quiznight100-hero.jpg" media="(min-width: 700px)" />
-        <img src="/quiznight100/assets/quiznight100-hero-mobile.jpg" alt="" />
-      </picture>
-      <span class="scene-shade"></span>
       <span class="scene-grid"></span>
     </div>
 
@@ -38,7 +34,7 @@
           <span><b id="roundDisplay">0/5</b> rounds</span>
           <span><b id="progressDisplay">0/50</b> questions</span>
         </div>
-        <button class="ghost-button reset-top" type="button" id="resetButton">Start Again</button>
+        <button class="reset-top" type="button" id="resetButton">Start Again</button>
       </header>
 
       <section id="app" class="stage" aria-live="polite"></section>

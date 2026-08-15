@@ -23,6 +23,29 @@ const confirmReset = document.querySelector("#confirmReset");
 const cancelReset = document.querySelector("#cancelReset");
 const letters = ["A", "B", "C", "D"];
 
+// Small original line-icon set, one per category "theme" (see data.js).
+// The Harry Potter icon is a generic open-book-plus-spark motif — no
+// wands, lightning bolts, glasses, or other franchise-specific imagery.
+const ICONS = {
+  showtime:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.7 12h16.6M12 3.5c2.6 2.3 4 5.2 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.2-4-8.5s1.4-6.2 4-8.5z"/></svg>',
+  archive:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h12M6 20.5h12M7 3.5c0 4 3 5.5 5 6.5-2 1-5 2.5-5 6.5m10-13c0 4-3 5.5-5 6.5 2 1 5 2.5 5 6.5"/></svg>',
+  lantern:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-1.6-1.2-3.8-1.6-6-1.2v12c2.2-.4 4.4 0 6 1.2 1.6-1.2 3.8-1.6 6-1.2v-12c-2.2-.4-4.4 0-6 1.2z"/><path d="M12 6.5v12"/><path d="M18.5 3.2l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5z"/></svg>',
+  biology:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-7.5 5-13 14-13-.5 8.5-6 13.5-14 13z"/><path d="M6 18c4-4 7-7 12-11"/></svg>',
+  arcade:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="10" rx="5"/><path d="M7.5 11v4M5.5 13h4"/><circle cx="16" cy="11.5" r="1"/><circle cx="18.5" cy="14" r="1"/></svg>'
+};
+
+const CHECK_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>';
+const CROSS_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
+
+const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 let state = loadState();
 
 function loadState() {
@@ -88,7 +111,10 @@ function renderHome() {
     <section class="view hero-view">
       <div class="hero-copy">
         <p class="kicker">Five rounds. One room. No answer leaks.</p>
-        <h1>QUIZ NIGHT 100</h1>
+        <h1 class="hero-title">
+          <span class="hero-title-word">Quiz Night</span>
+          <span class="hero-title-number">100</span>
+        </h1>
         <p class="lede">A 50-question table quiz built for phones, laptops, and score-checking between rounds.</p>
         <div class="hero-facts" aria-label="Quiz format">
           <span>50 Questions</span>
@@ -104,20 +130,21 @@ function renderHome() {
           }
         </div>
       </div>
-      <div class="category-board" aria-label="Quiz categories">
+      <ol class="category-board" aria-label="Quiz categories">
         ${categories.map((category, index) => categoryCard(category, index)).join("")}
-      </div>
+      </ol>
     </section>
   `;
 }
 
 function categoryCard(category, index) {
   return `
-    <article class="category-card" data-theme="${category.theme}">
+    <li class="category-card" data-cat="${category.theme}">
+      <span class="cat-icon" aria-hidden="true">${ICONS[category.theme] || ""}</span>
       <span class="round-number">Round ${index + 1}</span>
       <h2>${category.title}</h2>
       <p>${category.tone}</p>
-    </article>
+    </li>
   `;
 }
 
@@ -132,60 +159,57 @@ function renderQuestion() {
   app.innerHTML = `
     <section class="view question-view" data-theme="${category.theme}">
       <div class="question-panel">
-        <div class="question-meta">
-          <span>${category.title}</span>
-          <span>Question ${progress.roundQuestionIndex + 1} of ${QUESTIONS_PER_ROUND}</span>
+        <div class="round-header">
+          <span class="round-chip">${ICONS[category.theme] || ""}Round ${question.categoryIndex + 1} — ${category.title}</span>
+          <span class="question-count">Question ${progress.roundQuestionIndex + 1} of ${QUESTIONS_PER_ROUND}</span>
         </div>
-        <div class="progress-track" aria-label="Overall progress">
-          <span style="width:${(answeredCount() / questions.length) * 100}%"></span>
-        </div>
-        <p class="global-progress">Overall progress ${answeredCount()} / ${questions.length}</p>
-        <h1>${question.text}</h1>
+        <ol class="round-ticks" aria-label="Round ${question.categoryIndex + 1} progress">
+          ${Array.from({ length: QUESTIONS_PER_ROUND }, (_, index) => {
+            const global = question.categoryIndex * QUESTIONS_PER_ROUND + index;
+            const answer = state.answers[global];
+            const marker = answer === null ? "" : answer === questions[global].answerIndex ? "is-correct" : "is-wrong";
+            const current = index === progress.roundQuestionIndex ? "is-current" : "";
+            return `<li class="${current} ${marker}"></li>`;
+          }).join("")}
+        </ol>
+        <h1 class="question-text">${question.text}</h1>
         <div class="answer-grid" role="radiogroup" aria-label="Answer options">
           ${question.options
-            .map((option, index) => answerButton(question, option, index, selected, isCommitted))
+            .map((option, index) => answerCard(question, option, index, selected, isCommitted))
             .join("")}
         </div>
-        <div class="submit-row">
+        <div class="question-footer">
           ${
             isCommitted
               ? `<button class="primary-button" type="button" data-action="next">${nextButtonLabel()}</button>`
               : `<button class="primary-button" type="button" data-action="submit" ${selected === null ? "disabled" : ""}>Lock Answer</button>`
           }
-          <span class="mini-score">Score ${score.total} / ${score.possible}</span>
+          <span class="mini-score">Score ${score.total} / ${score.possible} &middot; Overall ${answeredCount()} / ${questions.length}</span>
         </div>
+        ${
+          isCommitted
+            ? `<div class="feedback ${selected === question.answerIndex ? "" : "wrong"}" role="status">
+                <span class="feedback-icon" aria-hidden="true">${selected === question.answerIndex ? CHECK_ICON : CROSS_ICON}</span>
+                <div>
+                  <strong>${selected === question.answerIndex ? "Correct" : "Incorrect"}</strong>
+                  <p>The answer is <b>${question.options[question.answerIndex]}</b>. ${question.explanation}</p>
+                </div>
+              </div>`
+            : ""
+        }
       </div>
-      <aside class="round-side">
-        <span class="side-label">Round ${question.categoryIndex + 1}</span>
-        <h2>${category.shortTitle}</h2>
-        <ol class="dot-map" aria-label="Round question progress">
-          ${Array.from({ length: QUESTIONS_PER_ROUND }, (_, index) => {
-            const global = question.categoryIndex * QUESTIONS_PER_ROUND + index;
-            const answer = state.answers[global];
-            const marker = answer === null ? "" : answer === questions[global].answerIndex ? "is-correct" : "is-wrong";
-            return `<li class="${index === progress.roundQuestionIndex ? "is-current" : ""} ${marker}"><span>${index + 1}</span></li>`;
-          }).join("")}
-        </ol>
-      </aside>
-      ${
-        isCommitted
-          ? `<div class="feedback ${selected === question.answerIndex ? "correct" : "wrong"}" role="status">
-              <strong>${selected === question.answerIndex ? "Correct" : "Incorrect"}</strong>
-              <p>The answer is <b>${question.options[question.answerIndex]}</b>. ${question.explanation}</p>
-            </div>`
-          : ""
-      }
     </section>
   `;
 }
 
-function answerButton(question, option, index, selected, isCommitted) {
+function answerCard(question, option, index, selected, isCommitted) {
   const isSelected = selected === index;
   const isCorrect = question.answerIndex === index;
-  const classes = ["answer-button"];
+  const classes = ["answer-card"];
   if (isSelected) classes.push("is-selected");
   if (isCommitted && isCorrect) classes.push("is-correct");
   if (isCommitted && isSelected && !isCorrect) classes.push("is-wrong");
+  const showResult = isCommitted && (isCorrect || (isSelected && !isCorrect));
 
   return `
     <button
@@ -197,8 +221,9 @@ function answerButton(question, option, index, selected, isCommitted) {
       data-index="${index}"
       ${isCommitted ? "disabled" : ""}
     >
-      <span class="answer-letter">${letters[index]}</span>
-      <span>${option}</span>
+      <span class="answer-badge" aria-hidden="true">${letters[index]}</span>
+      <span class="answer-text">${option}</span>
+      <span class="answer-result" aria-hidden="true">${showResult ? (isCorrect ? CHECK_ICON : CROSS_ICON) : ""}</span>
     </button>
   `;
 }
@@ -213,30 +238,42 @@ function nextButtonLabel() {
 function renderRoundComplete() {
   const completedRound = Math.max(0, getCurrentRoundIndex(state) - 1);
   const category = categories[completedRound];
+  const nextCategory = categories[completedRound + 1];
   const scores = calculateScores(state);
   const totalPossible = (completedRound + 1) * QUESTIONS_PER_ROUND;
+  const roundScore = scores.sectionScores[completedRound];
 
   app.innerHTML = `
     <section class="view score-view" data-theme="${category.theme}">
-      <div class="score-copy">
-        <p class="kicker">Round ${completedRound + 1} complete</p>
-        <h1>${category.title} Complete</h1>
-        <div class="score-lockup">
-          <span>Section score</span>
-          <strong>${scores.sectionScores[completedRound]} / 10</strong>
+      <div class="score-stage">
+        <p class="kicker">Round ${completedRound + 1} Complete</p>
+        <h1>${category.title}</h1>
+        <div class="score-reveal">
+          <strong class="score-number" data-count-to="${roundScore}">0</strong><span class="score-of">/ 10</span>
         </div>
-        <div class="score-row">
+        <p class="score-caption">Round score</p>
+        <div class="total-row">
           <span>Total score so far</span>
           <b>${scores.total} / ${totalPossible}</b>
         </div>
-        <button class="primary-button" type="button" data-action="continue-round">Continue to Next Round</button>
-      </div>
-      <div class="round-podium">
-        <span>${scores.sectionScores[completedRound]}</span>
-        <p>${category.shortTitle} round score</p>
+        ${
+          nextCategory
+            ? `<div class="next-round-card" data-cat="${nextCategory.theme}">
+                <span class="next-label">Next Round</span>
+                <span class="cat-icon" aria-hidden="true">${ICONS[nextCategory.theme] || ""}</span>
+                <h2>${nextCategory.title}</h2>
+                <p>${nextCategory.tone}</p>
+              </div>`
+            : ""
+        }
+        <div class="button-row" style="margin-top:26px;justify-content:center">
+          <button class="primary-button" type="button" data-action="continue-round">Continue to ${nextCategory ? nextCategory.title : "Results"}</button>
+        </div>
       </div>
     </section>
   `;
+
+  animateCountUp(app.querySelector(".score-number"));
 }
 
 function renderFinal() {
@@ -245,30 +282,29 @@ function renderFinal() {
 
   app.innerHTML = `
     <section class="view final-view">
-      <div class="final-art" aria-hidden="true">
-        <img src="/quiznight100/assets/quiznight100-trophy.png" alt="" />
-      </div>
-      <div class="final-copy">
-        <p class="kicker">Quiz complete</p>
+      <div class="final-stage">
+        <p class="kicker">Quiz Complete</p>
         <h1>QUIZ COMPLETE</h1>
-        <div class="final-score" aria-label="Final score">
-          <span>Final score</span>
-          <strong>${scores.total} / 50</strong>
+        <div class="final-reveal" aria-label="Final score">
+          <strong class="final-number" data-count-to="${scores.total}">0</strong><span class="final-of">/ 50</span>
         </div>
         <p class="performance-title">${title}</p>
-        <div class="breakdown" aria-label="Category score breakdown">
+        <ol class="breakdown" aria-label="Category score breakdown">
           ${categories
-            .map(
-              (category, index) => `
-                <div>
-                  <span>${category.title}</span>
-                  <b>${scores.sectionScores[index]} / 10</b>
-                </div>
-              `
-            )
+            .map((category, index) => {
+              const catScore = scores.sectionScores[index];
+              return `
+                <li data-cat="${category.theme}">
+                  <span class="breakdown-icon" aria-hidden="true">${ICONS[category.theme] || ""}</span>
+                  <span class="breakdown-name">${category.title}</span>
+                  <b class="breakdown-score">${catScore} / 10</b>
+                  <span class="breakdown-bar"><span style="width:${catScore * 10}%"></span></span>
+                </li>
+              `;
+            })
             .join("")}
-        </div>
-        <div class="button-row">
+        </ol>
+        <div class="button-row" style="justify-content:center">
           <button class="primary-button" type="button" data-action="share">Share Result</button>
           <button class="secondary-button" type="button" data-action="restart">Play Again</button>
         </div>
@@ -276,6 +312,29 @@ function renderFinal() {
       </div>
     </section>
   `;
+
+  animateCountUp(app.querySelector(".final-number"));
+}
+
+function animateCountUp(el) {
+  if (!el) return;
+  const target = Number(el.dataset.countTo) || 0;
+  if (target === 0 || prefersReducedMotion()) {
+    el.textContent = target;
+    return;
+  }
+
+  const duration = 650;
+  const start = performance.now();
+
+  function tick(now) {
+    const elapsed = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - elapsed, 3);
+    el.textContent = Math.round(eased * target);
+    if (elapsed < 1) requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
 }
 
 function submitAnswer() {
