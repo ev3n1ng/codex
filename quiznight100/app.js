@@ -116,11 +116,7 @@ function renderHome() {
           <span class="hero-title-number">100</span>
         </h1>
         <p class="lede">A 50-question table quiz built for phones, laptops, and score-checking between rounds.</p>
-        <div class="hero-facts" aria-label="Quiz format">
-          <span>50 Questions</span>
-          <span>5 Rounds</span>
-          <span>1 Point Per Question</span>
-        </div>
+        <p class="hero-stats" aria-label="Quiz format: 50 questions, 5 rounds, 1 point each">50 Questions<i aria-hidden="true">&middot;</i>5 Rounds<i aria-hidden="true">&middot;</i>1 Point Each</p>
         <div class="hero-actions">
           ${
             saved
@@ -130,20 +126,23 @@ function renderHome() {
           }
         </div>
       </div>
-      <ol class="category-board" aria-label="Quiz categories">
-        ${categories.map((category, index) => categoryCard(category, index)).join("")}
+      <ol class="lineup" aria-label="Quiz categories">
+        ${categories.map((category, index) => lineupRow(category, index)).join("")}
       </ol>
     </section>
   `;
 }
 
-function categoryCard(category, index) {
+function lineupRow(category, index) {
+  const num = String(index + 1).padStart(2, "0");
   return `
-    <li class="category-card" data-cat="${category.theme}">
-      <span class="cat-icon" aria-hidden="true">${ICONS[category.theme] || ""}</span>
-      <span class="round-number">Round ${index + 1}</span>
-      <h2>${category.title}</h2>
-      <p>${category.tone}</p>
+    <li class="lineup-row" data-cat="${category.theme}">
+      <span class="lineup-num" aria-hidden="true">${num}</span>
+      <div class="lineup-body">
+        <span class="lineup-eyebrow">Round ${index + 1}</span>
+        <h2><span class="mark" aria-hidden="true">${ICONS[category.theme] || ""}</span>${category.title}</h2>
+        <p>${category.tone}</p>
+      </div>
     </li>
   `;
 }
@@ -221,7 +220,7 @@ function answerCard(question, option, index, selected, isCommitted) {
       data-index="${index}"
       ${isCommitted ? "disabled" : ""}
     >
-      <span class="answer-badge" aria-hidden="true">${letters[index]}</span>
+      <span class="answer-letter" aria-hidden="true">${letters[index]}</span>
       <span class="answer-text">${option}</span>
       <span class="answer-result" aria-hidden="true">${showResult ? (isCorrect ? CHECK_ICON : CROSS_ICON) : ""}</span>
     </button>
@@ -258,11 +257,12 @@ function renderRoundComplete() {
         </div>
         ${
           nextCategory
-            ? `<div class="next-round-card" data-cat="${nextCategory.theme}">
-                <span class="next-label">Next Round</span>
-                <span class="cat-icon" aria-hidden="true">${ICONS[nextCategory.theme] || ""}</span>
-                <h2>${nextCategory.title}</h2>
-                <p>${nextCategory.tone}</p>
+            ? `<div class="next-round" data-cat="${nextCategory.theme}">
+                <span class="lineup-eyebrow">Next Round</span>
+                <div class="lineup-body">
+                  <h2><span class="mark" aria-hidden="true">${ICONS[nextCategory.theme] || ""}</span>${nextCategory.title}</h2>
+                  <p>${nextCategory.tone}</p>
+                </div>
               </div>`
             : ""
         }
@@ -295,7 +295,7 @@ function renderFinal() {
               const catScore = scores.sectionScores[index];
               return `
                 <li data-cat="${category.theme}">
-                  <span class="breakdown-icon" aria-hidden="true">${ICONS[category.theme] || ""}</span>
+                  <span class="breakdown-mark" aria-hidden="true">${ICONS[category.theme] || ""}</span>
                   <span class="breakdown-name">${category.title}</span>
                   <b class="breakdown-score">${catScore} / 10</b>
                   <span class="breakdown-bar"><span style="width:${catScore * 10}%"></span></span>
