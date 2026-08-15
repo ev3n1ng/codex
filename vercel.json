@@ -7,6 +7,10 @@
     {
       "source": "/murdermystery/:path*",
       "destination": "/murdermystery/index.html"
+    },
+    {
+      "source": "/quiznight100/:path*",
+      "destination": "/quiznight100/index.html"
     }
   ]
 }
