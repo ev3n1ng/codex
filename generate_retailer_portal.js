@@ -799,7 +799,7 @@ const currysProducts = [
     "title": "LG B5 48\" OLED AI 4K HDR Smart TV 2025 - OLED48B56LA",
     "size": 48,
     "price": "£649.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £150.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -895,6 +895,7 @@ const currysProducts = [
     "price": "£2,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £700.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
