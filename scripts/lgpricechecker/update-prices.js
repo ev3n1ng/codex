@@ -85,6 +85,28 @@ function officialProductUrl(product) {
   return false;
 }
 
+function repairProductUrls(source, seed) {
+  const seedProducts = [...seed.currys.products, ...seed.johnLewis.products];
+  const verifiedByTitle = new Map(
+    seedProducts
+      .filter((product) => officialProductUrl(product))
+      .map((product) => [`${product.retailer}|${product.title}`, product.directProductUrl]),
+  );
+
+  for (const retailer of ["currys", "johnLewis"]) {
+    source[retailer].products = source[retailer].products.map((product) => {
+      if (officialProductUrl(product)) return product;
+      const repairedUrl = verifiedByTitle.get(`${product.retailer}|${product.title}`);
+      if (!repairedUrl) return product;
+      return {
+        ...product,
+        directProductUrl: repairedUrl,
+        directProductUrlStatus: "repaired_from_verified_seed",
+      };
+    });
+  }
+}
+
 function request(url, redirectCount = 0) {
   return new Promise((resolve, reject) => {
     const parsed = new URL(url);
@@ -372,8 +394,8 @@ function validate(previous, next) {
   if (nextBlank - previousBlank > MAX_BLANK_PRICE_INCREASE) {
     errors.push(`Blank price increase too high: ${previousBlank} -> ${nextBlank}`);
   }
-  const nonOfficial = nextProducts.filter((product) => !officialUrl(product));
-  if (nonOfficial.length) errors.push(`Non-official URLs found: ${nonOfficial.length}`);
+  const nonProductUrls = nextProducts.filter((product) => !officialProductUrl(product));
+  if (nonProductUrls.length) errors.push(`Non-product URLs found: ${nonProductUrls.length}`);
   if (nextProducts.some((product) => /Model TBC/i.test(product.model || product.displayModel || ""))) {
     errors.push("Model TBC row found");
   }
@@ -383,6 +405,8 @@ function validate(previous, next) {
 async function main() {
   const sourcePath = fs.existsSync(DATA) ? DATA : SEED;
   const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+  const seed = JSON.parse(fs.readFileSync(SEED, "utf8"));
+  repairProductUrls(source, seed);
   const products = [...source.currys.products, ...source.johnLewis.products];
   console.log(`[lgpricechecker] ${products.length} products, direct official URLs, delay ${DELAY_MIN_MS}-${DELAY_MAX_MS}ms`);
 
@@ -406,6 +430,25 @@ async function main() {
         continue;
       }
       const { body, finalUrl, statusCode } = await fetchOfficial(product);
+      if (!officialProductUrl({ ...product, directProductUrl: finalUrl })) {
+        refreshed.push({
+          ...product,
+          priceText: "",
+          financeText: "",
+          offerText: "",
+          availabilityText: "Not listed on retailer product page",
+          priceCheckStatus: "not_listed",
+          priceCheckError: "",
+          priceCheckedAt: new Date().toISOString(),
+          httpStatus: statusCode,
+        });
+        const done = index + 1;
+        if (done % 10 === 0 || done === products.length) {
+          console.log(`[lgpricechecker] ${done}/${products.length} complete after ${Math.round((Date.now() - started) / 1000)}s`);
+        }
+        if (done < products.length) await sleep(jitterDelay());
+        continue;
+      }
       if (isRetailerTechnicalProblem(body)) throw new Error("Retailer technical problem page");
       const parsed = product.retailer === "Currys" ? parseCurrys(body, product) : parseJohnLewis(body, product);
       refreshed.push({
