@@ -11,6 +11,10 @@
     {
       "source": "/quiznight100/:path*",
       "destination": "/quiznight100/index.html"
+    },
+    {
+      "source": "/planner/:path*",
+      "destination": "/planner/index.html"
     }
   ]
 }
