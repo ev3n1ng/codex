@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>South East Store Visit Planner</title>
+  <style>
+    :root {
+      --ink: #172233;
+      --muted: #5f6b7a;
+      --paper: #f7f4ee;
+      --panel: #fffdf8;
+      --line: #ded7c9;
+      --blue: #1f5f85;
+      --teal: #1e7b73;
+      --green: #6d873c;
+      --gold: #b5811e;
+      --red: #ad4d43;
+      --shadow: 0 18px 55px rgba(23, 34, 51, 0.12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(31, 95, 133, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(31, 95, 133, 0.04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+      font-family: Avenir Next, Avenir, Segoe UI, Helvetica Neue, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1380px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 46px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, Cambria, serif;
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 12px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .field {
+      min-width: 230px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      color: var(--ink);
+      font-size: 14px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    }
+
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      padding: 10px 0;
+      margin: 0 0 14px;
+      background: rgba(247, 244, 238, 0.94);
+      backdrop-filter: blur(10px);
+      overflow-x: auto;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 7px 24px rgba(23, 34, 51, 0.06);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 27px;
+      line-height: 1;
+      margin-bottom: 6px;
+      font-family: Georgia, Cambria, serif;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+      animation: rise 220ms ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .week-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 10px 0 14px;
+    }
+
+    .week-head h2 {
+      margin: 0;
+      font-family: Georgia, Cambria, serif;
+      font-size: 32px;
+      letter-spacing: 0;
+    }
+
+    .week-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+    .day {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .day-title {
+      padding: 12px 13px;
+      border-bottom: 1px solid var(--line);
+      background: #fff8e8;
+    }
+
+    .day-title h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .day-title small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.25;
+      min-height: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .distance {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 13px;
+      font-size: 13px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .distance strong {
+      color: var(--teal);
+      font-size: 18px;
+    }
+
+    .stops {
+      display: grid;
+      gap: 0;
+      padding: 0;
+    }
+
+    .stop {
+      padding: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stop:last-child { border-bottom: 0; }
+
+    .stop-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .stop-num {
+      display: inline-grid;
+      place-items: center;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .store {
+      margin: 0;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    .retailer {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .postcode {
+      display: inline-block;
+      margin-top: 9px;
+      padding: 7px 9px;
+      border: 1px solid #c7d6dc;
+      border-radius: 7px;
+      color: var(--blue);
+      background: #eef7fa;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #f0eee7;
+      color: #49515c;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .chip.attack { background: #ffe5df; color: var(--red); }
+    .chip.defend { background: #fff0ca; color: #8a5d05; }
+    .chip.sd { background: #e7f1ff; color: var(--blue); }
+    .chip.maintain { background: #e8f4e4; color: var(--green); }
+
+    .map-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      min-height: 72vh;
+      border: 0;
+      border-radius: var(--radius);
+    }
+
+    .route-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .route-table th,
+    .route-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    .route-table th {
+      background: #fff8e8;
+      color: var(--ink);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .empty {
+      padding: 32px;
+      text-align: center;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      background: rgba(255, 248, 232, 0.86);
+      color: #4b4233;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1180px) {
+      header { grid-template-columns: 1fr; }
+      .toolbar { justify-content: flex-start; }
+      .days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 700px) {
+      .shell { width: min(100% - 20px, 1380px); padding-top: 18px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .days { grid-template-columns: 1fr; }
+      .week-head { display: block; }
+      .route-table { display: block; overflow-x: auto; }
+      h1 { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <h1>South East Store Visit Planner</h1>
+        <p class="intro">Six-week weekday dashboard with a maximum of 3 visits per day. Any wider route is kept to 2 stops, all postcode links open Google Maps, and the full store map sits in its own tab.</p>
+      </div>
+      <div class="toolbar">
+        <input class="field" id="search" type="search" placeholder="Search store, area, postcode..." />
+        <select class="field" id="statusFilter" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option value="Attack">Attack</option>
+          <option value="Defend">Defend</option>
+          <option value="SD">SD</option>
+          <option value="Maintain">Maintain</option>
+          <option value="Low value/volume">Low value/volume</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Planner summary">
+      <div class="stat"><b>79</b><span>Planned visits</span></div>
+      <div class="stat"><b>55</b><span>Stores visited</span></div>
+      <div class="stat"><b>3</b><span>Max stops/day</span></div>
+      <div class="stat"><b>19.0</b><span>Max road miles</span></div>
+      <div class="stat"><b>90</b><span>6-week capacity</span></div>
+    </section>
+
+    <nav class="tabs" aria-label="Dashboard tabs" id="tabs"></nav>
+    <section id="panels"></section>
+  </main>
+
+  <script id="planner-data" type="application/json">{"summary": {"totalStores": 83, "activeStores": 74, "scheduledVisits": 79, "scheduledStores": 55, "maxStops": 3, "maxRoadMiles": 19.0, "sixWeekCapacity": 90, "quarterRequired": 203, "quarterCapacity": 195}, "plannerRows": [{"Week": 1, "Weekday": "Mon", "Stop": 1, "Area Focus": "Central London", "Store ID": "S001", "Retailer": "Tekzone S&V", "Store Name": "London Knightsbridge Harrods", "Postcode": "SW1X 7XL", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 1.9, "Latitude": 51.499445, "Longitude": -0.16321}, {"Week": 1, "Weekday": "Mon", "Stop": 2, "Area Focus": "Central London", "Store ID": "S002", "Retailer": "Tekzone S&V", "Store Name": "Selfridges Oxford St", "Postcode": "W1A 1AB", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 1.9, "Latitude": 51.514587, "Longitude": -0.152814}, {"Week": 1, "Weekday": "Mon", "Stop": 3, "Area Focus": "Central London", "Store ID": "S046", "Retailer": "John Lewis", "Store Name": "London Oxford St", "Postcode": "W1C 1DX", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 1.9, "Latitude": 51.515059, "Longitude": -0.145084}, {"Week": 1, "Weekday": "Tue", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S003", "Retailer": "Currys", "Store Name": "Croydon", "Postcode": "CR0 4XL", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.3, "Latitude": 51.373547, "Longitude": -0.119544}, {"Week": 1, "Weekday": "Tue", "Stop": 2, "Area Focus": "South / SE London", "Store ID": "S011", "Retailer": "Currys", "Store Name": "Old Kent Road", "Postcode": "SE15 1LA", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.3, "Latitude": 51.483628, "Longitude": -0.064911}, {"Week": 1, "Weekday": "Tue", "Stop": 3, "Area Focus": "South / SE London", "Store ID": "S020", "Retailer": "Currys", "Store Name": "Brixton", "Postcode": "SW2 1BZ", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.3, "Latitude": 51.458433, "Longitude": -0.114157}, {"Week": 1, "Weekday": "Wed", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S018", "Retailer": "Currys", "Store Name": "Charlton", "Postcode": "SE7 8LU", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.5, "Latitude": 51.489839, "Longitude": 0.034616}, {"Week": 1, "Weekday": "Wed", "Stop": 2, "Area Focus": "Dartford / SE London", "Store ID": "S024", "Retailer": "Currys", "Store Name": "Crayford", "Postcode": "DA1 4LD", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.5, "Latitude": 51.451254, "Longitude": 0.181465}, {"Week": 1, "Weekday": "Wed", "Stop": 3, "Area Focus": "Dartford / SE London", "Store ID": "S043", "Retailer": "John Lewis", "Store Name": "Bluewater", "Postcode": "DA9 9SA", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.5, "Latitude": 51.44044, "Longitude": 0.271564}, {"Week": 1, "Weekday": "Thu", "Stop": 1, "Area Focus": "East Kent", "Store ID": "S014", "Retailer": "Currys", "Store Name": "Thanet", "Postcode": "CT10 2QW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.9, "Latitude": 51.3574, "Longitude": 1.400858}, {"Week": 1, "Weekday": "Thu", "Stop": 2, "Area Focus": "East Kent", "Store ID": "S023", "Retailer": "Currys", "Store Name": "Canterbury", "Postcode": "CT1 1WZ", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.9, "Latitude": 51.293852, "Longitude": 1.105957}, {"Week": 1, "Weekday": "Fri", "Stop": 1, "Area Focus": "Reading", "Store ID": "S019", "Retailer": "Currys", "Store Name": "Reading", "Postcode": "RG2 0QG", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 3.4, "Latitude": 51.423228, "Longitude": -0.98068}, {"Week": 1, "Weekday": "Fri", "Stop": 2, "Area Focus": "Reading", "Store ID": "S042", "Retailer": "John Lewis", "Store Name": "Reading", "Postcode": "RG1 2BB", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 3.4, "Latitude": 51.455317, "Longitude": -0.972064}, {"Week": 1, "Weekday": "Fri", "Stop": 3, "Area Focus": "Reading", "Store ID": "S052", "Retailer": "Costco", "Store Name": "Reading", "Postcode": "RG2 6UE", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 3.4, "Latitude": 51.420713, "Longitude": -0.984115}, {"Week": 2, "Weekday": "Mon", "Stop": 1, "Area Focus": "Guildford / Farnborough", "Store ID": "S009", "Retailer": "Currys", "Store Name": "Guildford", "Postcode": "GU1 1AJ", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.3, "Latitude": 51.248841, "Longitude": -0.578735}, {"Week": 2, "Weekday": "Mon", "Stop": 2, "Area Focus": "Guildford / Farnborough", "Store ID": "S012", "Retailer": "Currys", "Store Name": "Farnborough", "Postcode": "GU14 8BL", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.3, "Latitude": 51.307447, "Longitude": -0.748887}, {"Week": 2, "Weekday": "Mon", "Stop": 3, "Area Focus": "Guildford / Farnborough", "Store ID": "S055", "Retailer": "Costco", "Store Name": "Farnborough", "Postcode": "GU14 6FE", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.3, "Latitude": 51.28223, "Longitude": -0.768169}, {"Week": 2, "Weekday": "Tue", "Stop": 1, "Area Focus": "West London / M4", "Store ID": "S008", "Retailer": "Currys", "Store Name": "Slough", "Postcode": "SL1 5PS", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 13.0, "Latitude": 51.517338, "Longitude": -0.630873}, {"Week": 2, "Weekday": "Tue", "Stop": 2, "Area Focus": "West London / M4", "Store ID": "S060", "Retailer": "Richer Sounds", "Store Name": "Eton", "Postcode": "SL4 6BD", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 13.0, "Latitude": 51.487952, "Longitude": -0.608809}, {"Week": 2, "Weekday": "Tue", "Stop": 3, "Area Focus": "West London / M4", "Store ID": "S016", "Retailer": "Currys", "Store Name": "Hayes", "Postcode": "UB3 3EX", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 13.0, "Latitude": 51.516451, "Longitude": -0.405558}, {"Week": 2, "Weekday": "Wed", "Stop": 1, "Area Focus": "West London / M4", "Store ID": "S028", "Retailer": "Currys", "Store Name": "South Ruislip", "Postcode": "HA4 0EL", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.5, "Latitude": 51.556442, "Longitude": -0.386647}, {"Week": 2, "Weekday": "Wed", "Stop": 2, "Area Focus": "West/NW London", "Store ID": "S004", "Retailer": "Currys", "Store Name": "Staples Corner", "Postcode": "NW2 6LW", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.5, "Latitude": 51.569521, "Longitude": -0.228494}, {"Week": 2, "Weekday": "Wed", "Stop": 3, "Area Focus": "West/NW London", "Store ID": "S071", "Retailer": "Costco", "Store Name": "Wembley", "Postcode": "HA9 0YJ", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.5, "Latitude": 51.558099, "Longitude": -0.27304}, {"Week": 2, "Weekday": "Thu", "Stop": 1, "Area Focus": "Kingston / SW London", "Store ID": "S010", "Retailer": "Currys", "Store Name": "New Malden", "Postcode": "KT3 4PA", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.3, "Latitude": 51.398971, "Longitude": -0.247959}, {"Week": 2, "Weekday": "Thu", "Stop": 2, "Area Focus": "Kingston / SW London", "Store ID": "S045", "Retailer": "John Lewis", "Store Name": "Kingston-on-Thames", "Postcode": "KT1 1TE", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.3, "Latitude": 51.411597, "Longitude": -0.306666}, {"Week": 2, "Weekday": "Thu", "Stop": 3, "Area Focus": "Kingston / SW London", "Store ID": "S025", "Retailer": "Currys", "Store Name": "Colliers Wood", "Postcode": "SW19 2PP", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.3, "Latitude": 51.416182, "Longitude": -0.178873}, {"Week": 2, "Weekday": "Fri", "Stop": 1, "Area Focus": "Maidstone / Medway / Weald", "Store ID": "S017", "Retailer": "Currys", "Store Name": "Maidstone", "Postcode": "ME20 7TP", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 6.3, "Latitude": 51.293971, "Longitude": 0.469851}, {"Week": 2, "Weekday": "Fri", "Stop": 2, "Area Focus": "Maidstone / Medway", "Store ID": "S007", "Retailer": "Currys", "Store Name": "Medway", "Postcode": "ME5 9SQ", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 6.3, "Latitude": 51.352213, "Longitude": 0.507123}, {"Week": 2, "Weekday": "Fri", "Stop": 3, "Area Focus": "Maidstone / Medway", "Store ID": "S053", "Retailer": "Richer Sounds", "Store Name": "Maidstone", "Postcode": "ME14 1PL", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 6.3, "Latitude": 51.274797, "Longitude": 0.522134}, {"Week": 3, "Weekday": "Mon", "Stop": 1, "Area Focus": "Tunbridge / Maidstone", "Store ID": "S015", "Retailer": "Currys", "Store Name": "Tunbridge Wells", "Postcode": "TN2 3EW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.9, "Latitude": 51.157759, "Longitude": 0.292874}, {"Week": 3, "Weekday": "Mon", "Stop": 2, "Area Focus": "Tunbridge Wells", "Store ID": "S054", "Retailer": "Richer Sounds", "Store Name": "Tunbridge Wells", "Postcode": "TN4 9NT", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.9, "Latitude": 51.138236, "Longitude": 0.262285}, {"Week": 3, "Weekday": "Mon", "Stop": 3, "Area Focus": "Tunbridge Wells", "Store ID": "S072", "Retailer": "Sevenoaks", "Store Name": "Tunbridge Wells", "Postcode": "TN4 9NT", "Quarterly Frequency": 1, "Status": "Low value/volume", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.9, "Latitude": 51.138236, "Longitude": 0.262285}, {"Week": 3, "Weekday": "Tue", "Stop": 1, "Area Focus": "Chichester / Worthing", "Store ID": "S027", "Retailer": "Currys", "Store Name": "Chichester", "Postcode": "PO19 7YH", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 19.0, "Latitude": 50.841177, "Longitude": -0.756765}, {"Week": 3, "Weekday": "Tue", "Stop": 2, "Area Focus": "Chichester / Worthing", "Store ID": "S044", "Retailer": "John Lewis", "Store Name": "Chichester HOME", "Postcode": "PO19 7YH", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 19.0, "Latitude": 50.841177, "Longitude": -0.756765}, {"Week": 3, "Weekday": "Tue", "Stop": 3, "Area Focus": "Chichester / Worthing", "Store ID": "S026", "Retailer": "Currys", "Store Name": "Worthing", "Postcode": "BN14 9FB", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 19.0, "Latitude": 50.835951, "Longitude": -0.364945}, {"Week": 3, "Weekday": "Wed", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S003", "Retailer": "Currys", "Store Name": "Croydon", "Postcode": "CR0 4XL", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 10.3, "Latitude": 51.373547, "Longitude": -0.119544}, {"Week": 3, "Weekday": "Wed", "Stop": 2, "Area Focus": "South / SE London", "Store ID": "S011", "Retailer": "Currys", "Store Name": "Old Kent Road", "Postcode": "SE15 1LA", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 10.3, "Latitude": 51.483628, "Longitude": -0.064911}, {"Week": 3, "Weekday": "Wed", "Stop": 3, "Area Focus": "South / SE London", "Store ID": "S020", "Retailer": "Currys", "Store Name": "Brixton", "Postcode": "SW2 1BZ", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 10.3, "Latitude": 51.458433, "Longitude": -0.114157}, {"Week": 3, "Weekday": "Thu", "Stop": 1, "Area Focus": "East Kent", "Store ID": "S014", "Retailer": "Currys", "Store Name": "Thanet", "Postcode": "CT10 2QW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 0.0, "Latitude": 51.3574, "Longitude": 1.400858}, {"Week": 3, "Weekday": "Fri", "Stop": 1, "Area Focus": "Eastbourne", "Store ID": "S021", "Retailer": "Currys", "Store Name": "Eastbourne", "Postcode": "BN22 9PW", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.5, "Latitude": 50.792096, "Longitude": 0.280069}, {"Week": 3, "Weekday": "Fri", "Stop": 2, "Area Focus": "Eastbourne / Hailsham", "Store ID": "S083", "Retailer": "Euronics Centre", "Store Name": "Smythe & Barrie Ltd Hailsham", "Postcode": "BN27 1AU", "Quarterly Frequency": 1, "Status": "Low value/volume", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.5, "Latitude": 50.865248, "Longitude": 0.257145}, {"Week": 4, "Weekday": "Mon", "Stop": 1, "Area Focus": "Brighton / Hove", "Store ID": "S006", "Retailer": "Currys", "Store Name": "Brighton & Hove", "Postcode": "BN3 7EU", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.8, "Latitude": 50.837604, "Longitude": -0.188192}, {"Week": 4, "Weekday": "Mon", "Stop": 2, "Area Focus": "Brighton / Hove", "Store ID": "S059", "Retailer": "Richer Sounds", "Store Name": "Brighton London Rd", "Postcode": "BN1 4JE", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.8, "Latitude": 50.832899, "Longitude": -0.138371}, {"Week": 4, "Weekday": "Mon", "Stop": 3, "Area Focus": "Brighton / Hove", "Store ID": "S077", "Retailer": "Sevenoaks", "Store Name": "Hove", "Postcode": "BN3 1JD", "Quarterly Frequency": 1, "Status": "Low value/volume", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 2.8, "Latitude": 50.825837, "Longitude": -0.16093}, {"Week": 4, "Weekday": "Tue", "Stop": 1, "Area Focus": "Central London", "Store ID": "S047", "Retailer": "John Lewis", "Store Name": "London Sloane Sq Peter Jones", "Postcode": "SW1W 8EL", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.9, "Latitude": 51.492247, "Longitude": -0.158976}, {"Week": 4, "Weekday": "Tue", "Stop": 2, "Area Focus": "West London", "Store ID": "S048", "Retailer": "John Lewis", "Store Name": "London White City", "Postcode": "W12 7FU", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.9, "Latitude": 51.510392, "Longitude": -0.222345}, {"Week": 4, "Weekday": "Tue", "Stop": 3, "Area Focus": "West London", "Store ID": "S013", "Retailer": "Currys", "Store Name": "Brentford", "Postcode": "TW8 9DE", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 7.9, "Latitude": 51.485179, "Longitude": -0.323313}, {"Week": 4, "Weekday": "Wed", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S018", "Retailer": "Currys", "Store Name": "Charlton", "Postcode": "SE7 8LU", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 10.1, "Latitude": 51.489839, "Longitude": 0.034616}, {"Week": 4, "Weekday": "Wed", "Stop": 2, "Area Focus": "Dartford / SE London", "Store ID": "S024", "Retailer": "Currys", "Store Name": "Crayford", "Postcode": "DA1 4LD", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 10.1, "Latitude": 51.451254, "Longitude": 0.181465}, {"Week": 4, "Weekday": "Wed", "Stop": 3, "Area Focus": "Bromley / Orpington", "Store ID": "S032", "Retailer": "Currys", "Store Name": "Orpington", "Postcode": "BR5 3SR", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 10.1, "Latitude": 51.395601, "Longitude": 0.112947}, {"Week": 4, "Weekday": "Thu", "Stop": 1, "Area Focus": "Crawley / Horsham / Reigate", "Store ID": "S005", "Retailer": "Currys", "Store Name": "Crawley", "Postcode": "RH11 7XN", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.7, "Latitude": 51.132471, "Longitude": -0.187953}, {"Week": 4, "Weekday": "Thu", "Stop": 2, "Area Focus": "Crawley / Horsham / Reigate", "Store ID": "S061", "Retailer": "John Lewis", "Store Name": "Horsham HOME", "Postcode": "RH12 1LP", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.7, "Latitude": 51.063101, "Longitude": -0.335648}, {"Week": 4, "Weekday": "Thu", "Stop": 3, "Area Focus": "Crawley / Horsham / Reigate", "Store ID": "S068", "Retailer": "Richer Sounds", "Store Name": "Reigate", "Postcode": "RH2 7AQ", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.7, "Latitude": 51.235923, "Longitude": -0.20455}, {"Week": 4, "Weekday": "Fri", "Stop": 1, "Area Focus": "Maidstone / Medway / Weald", "Store ID": "S017", "Retailer": "Currys", "Store Name": "Maidstone", "Postcode": "ME20 7TP", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 17.1, "Latitude": 51.293971, "Longitude": 0.469851}, {"Week": 4, "Weekday": "Fri", "Stop": 2, "Area Focus": "Tunbridge / Maidstone", "Store ID": "S015", "Retailer": "Currys", "Store Name": "Tunbridge Wells", "Postcode": "TN2 3EW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 17.1, "Latitude": 51.157759, "Longitude": 0.292874}, {"Week": 4, "Weekday": "Fri", "Stop": 3, "Area Focus": "", "Store ID": "S082", "Retailer": "Sevenoaks", "Store Name": "Sevenoaks", "Postcode": "TN13 1BH", "Quarterly Frequency": 1, "Status": "Low value/volume", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.1, "Latitude": 51.274477, "Longitude": 0.187591}, {"Week": 5, "Weekday": "Mon", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S003", "Retailer": "Currys", "Store Name": "Croydon", "Postcode": "CR0 4XL", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 10.3, "Latitude": 51.373547, "Longitude": -0.119544}, {"Week": 5, "Weekday": "Mon", "Stop": 2, "Area Focus": "South / SE London", "Store ID": "S011", "Retailer": "Currys", "Store Name": "Old Kent Road", "Postcode": "SE15 1LA", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 10.3, "Latitude": 51.483628, "Longitude": -0.064911}, {"Week": 5, "Weekday": "Mon", "Stop": 3, "Area Focus": "South / SE London", "Store ID": "S020", "Retailer": "Currys", "Store Name": "Brixton", "Postcode": "SW2 1BZ", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 10.3, "Latitude": 51.458433, "Longitude": -0.114157}, {"Week": 5, "Weekday": "Tue", "Stop": 1, "Area Focus": "East Kent", "Store ID": "S014", "Retailer": "Currys", "Store Name": "Thanet", "Postcode": "CT10 2QW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 15.9, "Latitude": 51.3574, "Longitude": 1.400858}, {"Week": 5, "Weekday": "Tue", "Stop": 2, "Area Focus": "East Kent", "Store ID": "S023", "Retailer": "Currys", "Store Name": "Canterbury", "Postcode": "CT1 1WZ", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 15.9, "Latitude": 51.293852, "Longitude": 1.105957}, {"Week": 5, "Weekday": "Wed", "Stop": 1, "Area Focus": "West London / M4", "Store ID": "S028", "Retailer": "Currys", "Store Name": "South Ruislip", "Postcode": "HA4 0EL", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 14.0, "Latitude": 51.556442, "Longitude": -0.386647}, {"Week": 5, "Weekday": "Wed", "Stop": 2, "Area Focus": "West London / M4", "Store ID": "S008", "Retailer": "Currys", "Store Name": "Slough", "Postcode": "SL1 5PS", "Quarterly Frequency": 3, "Status": "SD", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 14.0, "Latitude": 51.517338, "Longitude": -0.630873}, {"Week": 5, "Weekday": "Wed", "Stop": 3, "Area Focus": "West London / M4", "Store ID": "S069", "Retailer": "Costco", "Store Name": "London Hayes", "Postcode": "UB2 5XJ", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.0, "Latitude": 51.496116, "Longitude": -0.407953}, {"Week": 5, "Weekday": "Thu", "Stop": 1, "Area Focus": "South / SE London", "Store ID": "S018", "Retailer": "Currys", "Store Name": "Charlton", "Postcode": "SE7 8LU", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 14.3, "Latitude": 51.489839, "Longitude": 0.034616}, {"Week": 5, "Weekday": "Thu", "Stop": 2, "Area Focus": "Croydon / Sydenham", "Store ID": "S030", "Retailer": "Currys", "Store Name": "Sydenham", "Postcode": "SE26 4PR", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.3, "Latitude": 51.431048, "Longitude": -0.033657}, {"Week": 5, "Weekday": "Thu", "Stop": 3, "Area Focus": "Croydon / Sydenham", "Store ID": "S057", "Retailer": "Richer Sounds", "Store Name": "Croydon", "Postcode": "CR0 1BG", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 14.3, "Latitude": 51.364477, "Longitude": -0.098597}, {"Week": 5, "Weekday": "Fri", "Stop": 1, "Area Focus": "Ashford / Folkestone", "Store ID": "S022", "Retailer": "Currys", "Store Name": "Ashford", "Postcode": "TN23 7DH", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.5, "Latitude": 51.135176, "Longitude": 0.870752}, {"Week": 5, "Weekday": "Fri", "Stop": 2, "Area Focus": "Ashford / Folkestone", "Store ID": "S029", "Retailer": "Currys", "Store Name": "Folkestone", "Postcode": "CT19 5GA", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 15.5, "Latitude": 51.095089, "Longitude": 1.165791}, {"Week": 6, "Weekday": "Mon", "Stop": 1, "Area Focus": "Chichester / Worthing", "Store ID": "S027", "Retailer": "Currys", "Store Name": "Chichester", "Postcode": "PO19 7YH", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 19.0, "Latitude": 50.841177, "Longitude": -0.756765}, {"Week": 6, "Weekday": "Mon", "Stop": 2, "Area Focus": "Chichester / Worthing", "Store ID": "S026", "Retailer": "Currys", "Store Name": "Worthing", "Postcode": "BN14 9FB", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 19.0, "Latitude": 50.835951, "Longitude": -0.364945}, {"Week": 6, "Weekday": "Tue", "Stop": 1, "Area Focus": "Maidstone / Medway / Weald", "Store ID": "S017", "Retailer": "Currys", "Store Name": "Maidstone", "Postcode": "ME20 7TP", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 17.1, "Latitude": 51.293971, "Longitude": 0.469851}, {"Week": 6, "Weekday": "Tue", "Stop": 2, "Area Focus": "Tunbridge / Maidstone", "Store ID": "S015", "Retailer": "Currys", "Store Name": "Tunbridge Wells", "Postcode": "TN2 3EW", "Quarterly Frequency": 6, "Status": "Attack", "Visit # in First 6 Weeks": 3, "Route Max Road Miles": 17.1, "Latitude": 51.157759, "Longitude": 0.292874}, {"Week": 6, "Weekday": "Wed", "Stop": 1, "Area Focus": "Ashford / Folkestone", "Store ID": "S022", "Retailer": "Currys", "Store Name": "Ashford", "Postcode": "TN23 7DH", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 15.5, "Latitude": 51.135176, "Longitude": 0.870752}, {"Week": 6, "Weekday": "Wed", "Stop": 2, "Area Focus": "Ashford / Folkestone", "Store ID": "S029", "Retailer": "Currys", "Store Name": "Folkestone", "Postcode": "CT19 5GA", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 15.5, "Latitude": 51.095089, "Longitude": 1.165791}, {"Week": 6, "Weekday": "Thu", "Stop": 1, "Area Focus": "Kingston / SW London", "Store ID": "S025", "Retailer": "Currys", "Store Name": "Colliers Wood", "Postcode": "SW19 2PP", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 17.6, "Latitude": 51.416182, "Longitude": -0.178873}, {"Week": 6, "Weekday": "Thu", "Stop": 2, "Area Focus": "Weybridge / Sunbury", "Store ID": "S031", "Retailer": "Currys", "Store Name": "Weybridge", "Postcode": "KT13 0XR", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.6, "Latitude": 51.345844, "Longitude": -0.474335}, {"Week": 6, "Weekday": "Thu", "Stop": 3, "Area Focus": "Weybridge / Sunbury", "Store ID": "S050", "Retailer": "Richer Sounds", "Store Name": "Weybridge", "Postcode": "KT13 8DL", "Quarterly Frequency": 2, "Status": "Maintain", "Visit # in First 6 Weeks": 1, "Route Max Road Miles": 17.6, "Latitude": 51.371345, "Longitude": -0.462512}, {"Week": 6, "Weekday": "Fri", "Stop": 1, "Area Focus": "Eastbourne", "Store ID": "S021", "Retailer": "Currys", "Store Name": "Eastbourne", "Postcode": "BN22 9PW", "Quarterly Frequency": 4, "Status": "Defend", "Visit # in First 6 Weeks": 2, "Route Max Road Miles": 0.0, "Latitude": 50.792096, "Longitude": 0.280069}], "dayRows": [{"Week": 1, "Weekday": "Mon", "Area Focus": "Central London", "Stops": 3, "Max Road Miles": 1.9, "Route Summary": "Tekzone S&V London Knightsbridge Harrods (SW1X 7XL) -> Tekzone S&V Selfridges Oxford St (W1A 1AB) -> John Lewis London Oxford St (W1C 1DX)"}, {"Week": 1, "Weekday": "Tue", "Area Focus": "South / SE London", "Stops": 3, "Max Road Miles": 10.3, "Route Summary": "Currys Croydon (CR0 4XL) -> Currys Old Kent Road (SE15 1LA) -> Currys Brixton (SW2 1BZ)"}, {"Week": 1, "Weekday": "Wed", "Area Focus": "South / SE London / Dartford / SE London", "Stops": 3, "Max Road Miles": 15.5, "Route Summary": "Currys Charlton (SE7 8LU) -> Currys Crayford (DA1 4LD) -> John Lewis Bluewater (DA9 9SA)"}, {"Week": 1, "Weekday": "Thu", "Area Focus": "East Kent", "Stops": 2, "Max Road Miles": 15.9, "Route Summary": "Currys Thanet (CT10 2QW) -> Currys Canterbury (CT1 1WZ)"}, {"Week": 1, "Weekday": "Fri", "Area Focus": "Reading", "Stops": 3, "Max Road Miles": 3.4, "Route Summary": "Currys Reading (RG2 0QG) -> John Lewis Reading (RG1 2BB) -> Costco Reading (RG2 6UE)"}, {"Week": 2, "Weekday": "Mon", "Area Focus": "Guildford / Farnborough", "Stops": 3, "Max Road Miles": 14.3, "Route Summary": "Currys Guildford (GU1 1AJ) -> Currys Farnborough (GU14 8BL) -> Costco Farnborough (GU14 6FE)"}, {"Week": 2, "Weekday": "Tue", "Area Focus": "West London / M4", "Stops": 3, "Max Road Miles": 13.0, "Route Summary": "Currys Slough (SL1 5PS) -> Richer Sounds Eton (SL4 6BD) -> Currys Hayes (UB3 3EX)"}, {"Week": 2, "Weekday": "Wed", "Area Focus": "West London / M4 / West/NW London", "Stops": 3, "Max Road Miles": 10.5, "Route Summary": "Currys South Ruislip (HA4 0EL) -> Currys Staples Corner (NW2 6LW) -> Costco Wembley (HA9 0YJ)"}, {"Week": 2, "Weekday": "Thu", "Area Focus": "Kingston / SW London", "Stops": 3, "Max Road Miles": 7.3, "Route Summary": "Currys New Malden (KT3 4PA) -> John Lewis Kingston-on-Thames (KT1 1TE) -> Currys Colliers Wood (SW19 2PP)"}, {"Week": 2, "Weekday": "Fri", "Area Focus": "Maidstone / Medway / Weald / Maidstone / Medway", "Stops": 3, "Max Road Miles": 6.3, "Route Summary": "Currys Maidstone (ME20 7TP) -> Currys Medway (ME5 9SQ) -> Richer Sounds Maidstone (ME14 1PL)"}, {"Week": 3, "Weekday": "Mon", "Area Focus": "Tunbridge / Maidstone / Tunbridge Wells", "Stops": 3, "Max Road Miles": 2.9, "Route Summary": "Currys Tunbridge Wells (TN2 3EW) -> Richer Sounds Tunbridge Wells (TN4 9NT) -> Sevenoaks Tunbridge Wells (TN4 9NT)"}, {"Week": 3, "Weekday": "Tue", "Area Focus": "Chichester / Worthing", "Stops": 3, "Max Road Miles": 19.0, "Route Summary": "Currys Chichester (PO19 7YH) -> John Lewis Chichester HOME (PO19 7YH) -> Currys Worthing (BN14 9FB)"}, {"Week": 3, "Weekday": "Wed", "Area Focus": "South / SE London", "Stops": 3, "Max Road Miles": 10.3, "Route Summary": "Currys Croydon (CR0 4XL) -> Currys Old Kent Road (SE15 1LA) -> Currys Brixton (SW2 1BZ)"}, {"Week": 3, "Weekday": "Thu", "Area Focus": "East Kent", "Stops": 1, "Max Road Miles": 0.0, "Route Summary": "Currys Thanet (CT10 2QW)"}, {"Week": 3, "Weekday": "Fri", "Area Focus": "Eastbourne / Eastbourne / Hailsham", "Stops": 2, "Max Road Miles": 7.5, "Route Summary": "Currys Eastbourne (BN22 9PW) -> Euronics Centre Smythe & Barrie Ltd Hailsham (BN27 1AU)"}, {"Week": 4, "Weekday": "Mon", "Area Focus": "Brighton / Hove", "Stops": 3, "Max Road Miles": 2.8, "Route Summary": "Currys Brighton & Hove (BN3 7EU) -> Richer Sounds Brighton London Rd (BN1 4JE) -> Sevenoaks Hove (BN3 1JD)"}, {"Week": 4, "Weekday": "Tue", "Area Focus": "Central London / West London", "Stops": 3, "Max Road Miles": 7.9, "Route Summary": "John Lewis London Sloane Sq Peter Jones (SW1W 8EL) -> John Lewis London White City (W12 7FU) -> Currys Brentford (TW8 9DE)"}, {"Week": 4, "Weekday": "Wed", "Area Focus": "South / SE London / Dartford / SE London / Bromley / Orpington", "Stops": 3, "Max Road Miles": 10.1, "Route Summary": "Currys Charlton (SE7 8LU) -> Currys Crayford (DA1 4LD) -> Currys Orpington (BR5 3SR)"}, {"Week": 4, "Weekday": "Thu", "Area Focus": "Crawley / Horsham / Reigate", "Stops": 3, "Max Road Miles": 17.7, "Route Summary": "Currys Crawley (RH11 7XN) -> John Lewis Horsham HOME (RH12 1LP) -> Richer Sounds Reigate (RH2 7AQ)"}, {"Week": 4, "Weekday": "Fri", "Area Focus": "Maidstone / Medway / Weald / Tunbridge / Maidstone / Area route", "Stops": 3, "Max Road Miles": 17.1, "Route Summary": "Currys Maidstone (ME20 7TP) -> Currys Tunbridge Wells (TN2 3EW) -> Sevenoaks Sevenoaks (TN13 1BH)"}, {"Week": 5, "Weekday": "Mon", "Area Focus": "South / SE London", "Stops": 3, "Max Road Miles": 10.3, "Route Summary": "Currys Croydon (CR0 4XL) -> Currys Old Kent Road (SE15 1LA) -> Currys Brixton (SW2 1BZ)"}, {"Week": 5, "Weekday": "Tue", "Area Focus": "East Kent", "Stops": 2, "Max Road Miles": 15.9, "Route Summary": "Currys Thanet (CT10 2QW) -> Currys Canterbury (CT1 1WZ)"}, {"Week": 5, "Weekday": "Wed", "Area Focus": "West London / M4", "Stops": 3, "Max Road Miles": 14.0, "Route Summary": "Currys South Ruislip (HA4 0EL) -> Currys Slough (SL1 5PS) -> Costco London Hayes (UB2 5XJ)"}, {"Week": 5, "Weekday": "Thu", "Area Focus": "South / SE London / Croydon / Sydenham", "Stops": 3, "Max Road Miles": 14.3, "Route Summary": "Currys Charlton (SE7 8LU) -> Currys Sydenham (SE26 4PR) -> Richer Sounds Croydon (CR0 1BG)"}, {"Week": 5, "Weekday": "Fri", "Area Focus": "Ashford / Folkestone", "Stops": 2, "Max Road Miles": 15.5, "Route Summary": "Currys Ashford (TN23 7DH) -> Currys Folkestone (CT19 5GA)"}, {"Week": 6, "Weekday": "Mon", "Area Focus": "Chichester / Worthing", "Stops": 2, "Max Road Miles": 19.0, "Route Summary": "Currys Chichester (PO19 7YH) -> Currys Worthing (BN14 9FB)"}, {"Week": 6, "Weekday": "Tue", "Area Focus": "Maidstone / Medway / Weald / Tunbridge / Maidstone", "Stops": 2, "Max Road Miles": 17.1, "Route Summary": "Currys Maidstone (ME20 7TP) -> Currys Tunbridge Wells (TN2 3EW)"}, {"Week": 6, "Weekday": "Wed", "Area Focus": "Ashford / Folkestone", "Stops": 2, "Max Road Miles": 15.5, "Route Summary": "Currys Ashford (TN23 7DH) -> Currys Folkestone (CT19 5GA)"}, {"Week": 6, "Weekday": "Thu", "Area Focus": "Kingston / SW London / Weybridge / Sunbury", "Stops": 3, "Max Road Miles": 17.6, "Route Summary": "Currys Colliers Wood (SW19 2PP) -> Currys Weybridge (KT13 0XR) -> Richer Sounds Weybridge (KT13 8DL)"}, {"Week": 6, "Weekday": "Fri", "Area Focus": "Eastbourne", "Stops": 1, "Max Road Miles": 0.0, "Route Summary": "Currys Eastbourne (BN22 9PW)"}], "coverageRows": [{"Store ID": "S001", "Retailer": "Tekzone S&V", "Store Name": "London Knightsbridge Harrods", "Postcode": "SW1X 7XL", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Central London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S002", "Retailer": "Tekzone S&V", "Store Name": "Selfridges Oxford St", "Postcode": "W1A 1AB", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Central London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S003", "Retailer": "Currys", "Store Name": "Croydon", "Postcode": "CR0 4XL", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "South / SE London", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S004", "Retailer": "Currys", "Store Name": "Staples Corner", "Postcode": "NW2 6LW", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "West/NW London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S005", "Retailer": "Currys", "Store Name": "Crawley", "Postcode": "RH11 7XN", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Crawley / Horsham / Reigate", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S006", "Retailer": "Currys", "Store Name": "Brighton & Hove", "Postcode": "BN3 7EU", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Brighton / Hove", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S007", "Retailer": "Currys", "Store Name": "Medway", "Postcode": "ME5 9SQ", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Maidstone / Medway", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S008", "Retailer": "Currys", "Store Name": "Slough", "Postcode": "SL1 5PS", "Quarterly Frequency": 3, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "SD", "Area": "West London / M4", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S009", "Retailer": "Currys", "Store Name": "Guildford", "Postcode": "GU1 1AJ", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Guildford / Farnborough", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S010", "Retailer": "Currys", "Store Name": "New Malden", "Postcode": "KT3 4PA", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Kingston / SW London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S011", "Retailer": "Currys", "Store Name": "Old Kent Road", "Postcode": "SE15 1LA", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "South / SE London", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S012", "Retailer": "Currys", "Store Name": "Farnborough", "Postcode": "GU14 8BL", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Guildford / Farnborough", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S013", "Retailer": "Currys", "Store Name": "Brentford", "Postcode": "TW8 9DE", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "West London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S014", "Retailer": "Currys", "Store Name": "Thanet", "Postcode": "CT10 2QW", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "East Kent", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S015", "Retailer": "Currys", "Store Name": "Tunbridge Wells", "Postcode": "TN2 3EW", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "Tunbridge / Maidstone", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S016", "Retailer": "Currys", "Store Name": "Hayes", "Postcode": "UB3 3EX", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "West London / M4", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S017", "Retailer": "Currys", "Store Name": "Maidstone", "Postcode": "ME20 7TP", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "Maidstone / Medway / Weald", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S018", "Retailer": "Currys", "Store Name": "Charlton", "Postcode": "SE7 8LU", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "South / SE London", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S019", "Retailer": "Currys", "Store Name": "Reading", "Postcode": "RG2 0QG", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Reading", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S020", "Retailer": "Currys", "Store Name": "Brixton", "Postcode": "SW2 1BZ", "Quarterly Frequency": 6, "First 6 Week Target": 3, "Scheduled Visits": 3, "Variance": 0, "Status": "Attack", "Area": "South / SE London", "Cadence Note": "Three visits in six weeks; roughly every two weeks."}, {"Store ID": "S021", "Retailer": "Currys", "Store Name": "Eastbourne", "Postcode": "BN22 9PW", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Eastbourne", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S022", "Retailer": "Currys", "Store Name": "Ashford", "Postcode": "TN23 7DH", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Ashford / Folkestone", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S023", "Retailer": "Currys", "Store Name": "Canterbury", "Postcode": "CT1 1WZ", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "East Kent", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S024", "Retailer": "Currys", "Store Name": "Crayford", "Postcode": "DA1 4LD", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Dartford / SE London", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S025", "Retailer": "Currys", "Store Name": "Colliers Wood", "Postcode": "SW19 2PP", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Kingston / SW London", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S026", "Retailer": "Currys", "Store Name": "Worthing", "Postcode": "BN14 9FB", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Chichester / Worthing", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S027", "Retailer": "Currys", "Store Name": "Chichester", "Postcode": "PO19 7YH", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Chichester / Worthing", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S028", "Retailer": "Currys", "Store Name": "South Ruislip", "Postcode": "HA4 0EL", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "West London / M4", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S029", "Retailer": "Currys", "Store Name": "Folkestone", "Postcode": "CT19 5GA", "Quarterly Frequency": 4, "First 6 Week Target": 2, "Scheduled Visits": 2, "Variance": 0, "Status": "Defend", "Area": "Ashford / Folkestone", "Cadence Note": "Two visits in six weeks; roughly every three weeks."}, {"Store ID": "S030", "Retailer": "Currys", "Store Name": "Sydenham", "Postcode": "SE26 4PR", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Croydon / Sydenham", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S031", "Retailer": "Currys", "Store Name": "Weybridge", "Postcode": "KT13 0XR", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Weybridge / Sunbury", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S032", "Retailer": "Currys", "Store Name": "Orpington", "Postcode": "BR5 3SR", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Bromley / Orpington", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S033", "Retailer": "Currys", "Store Name": "Bexhill", "Postcode": "TN40 2JS", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S034", "Retailer": "Currys", "Store Name": "Tottenham Court Road", "Postcode": "W1T 7NE", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S035", "Retailer": "Currys", "Store Name": "Hanworth", "Postcode": "TW13 6JH", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S036", "Retailer": "Currys", "Store Name": "Wembley Stadium", "Postcode": "HA9 8TS", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S037", "Retailer": "Currys", "Store Name": "Kensington", "Postcode": "W8 5ED", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S038", "Retailer": "Currys", "Store Name": "Littlehampton", "Postcode": "BN17 5RA", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S039", "Retailer": "Currys", "Store Name": "Bromley", "Postcode": "BR2 9LY", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S040", "Retailer": "Currys", "Store Name": "Oxford Street East", "Postcode": "W1D 1BZ", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S041", "Retailer": "Currys", "Store Name": "White City Westfield", "Postcode": "W12 7HT", "Quarterly Frequency": 0, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "Frequency 0: not scheduled."}, {"Store ID": "S042", "Retailer": "John Lewis", "Store Name": "Reading", "Postcode": "RG1 2BB", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Reading", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S043", "Retailer": "John Lewis", "Store Name": "Bluewater", "Postcode": "DA9 9SA", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Dartford / SE London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S044", "Retailer": "John Lewis", "Store Name": "Chichester HOME", "Postcode": "PO19 7YH", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Chichester / Worthing", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S045", "Retailer": "John Lewis", "Store Name": "Kingston-on-Thames", "Postcode": "KT1 1TE", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Kingston / SW London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S046", "Retailer": "John Lewis", "Store Name": "London Oxford St", "Postcode": "W1C 1DX", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Central London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S047", "Retailer": "John Lewis", "Store Name": "London Sloane Sq Peter Jones", "Postcode": "SW1W 8EL", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "Central London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S048", "Retailer": "John Lewis", "Store Name": "London White City", "Postcode": "W12 7FU", "Quarterly Frequency": 3, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "SD", "Area": "West London", "Cadence Note": "One visit in this half-quarter; only the most efficient SD routes get an early second touch under the 3-stop cap."}, {"Store ID": "S049", "Retailer": "Richer Sounds", "Store Name": "Bromley", "Postcode": "BR1 1QW", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Bromley / Orpington", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S050", "Retailer": "Richer Sounds", "Store Name": "Weybridge", "Postcode": "KT13 8DL", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Weybridge / Sunbury", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S051", "Retailer": "Richer Sounds", "Store Name": "Reading", "Postcode": "RG1 7NE", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Reading", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S052", "Retailer": "Costco", "Store Name": "Reading", "Postcode": "RG2 6UE", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Reading", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S053", "Retailer": "Richer Sounds", "Store Name": "Maidstone", "Postcode": "ME14 1PL", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Maidstone / Medway", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S054", "Retailer": "Richer Sounds", "Store Name": "Tunbridge Wells", "Postcode": "TN4 9NT", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Tunbridge Wells", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S055", "Retailer": "Costco", "Store Name": "Farnborough", "Postcode": "GU14 6FE", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Guildford / Farnborough", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S056", "Retailer": "Richer Sounds", "Store Name": "Guildford", "Postcode": "GU1 2AF", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Guildford / Farnborough", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S057", "Retailer": "Richer Sounds", "Store Name": "Croydon", "Postcode": "CR0 1BG", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Croydon / Sydenham", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S058", "Retailer": "Costco", "Store Name": "Croydon", "Postcode": "CR0 4RR", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Croydon / Sydenham", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S059", "Retailer": "Richer Sounds", "Store Name": "Brighton London Rd", "Postcode": "BN1 4JE", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Brighton / Hove", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S060", "Retailer": "Richer Sounds", "Store Name": "Eton", "Postcode": "SL4 6BD", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "West London / M4", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S061", "Retailer": "John Lewis", "Store Name": "Horsham HOME", "Postcode": "RH12 1LP", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Crawley / Horsham / Reigate", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S062", "Retailer": "Richer Sounds", "Store Name": "Kingston-u-Thames", "Postcode": "KT2 5EL", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Kingston / SW London", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S063", "Retailer": "Richer Sounds", "Store Name": "London Bridge", "Postcode": "SE1 2TH", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Central London / Chelsea", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S064", "Retailer": "Richer Sounds", "Store Name": "London Chelsea", "Postcode": "SW10 9EL", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Central London / Chelsea", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S065", "Retailer": "Richer Sounds", "Store Name": "London Chiswick", "Postcode": "W4 5TT", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "West London", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S066", "Retailer": "Richer Sounds", "Store Name": "London Holborn", "Postcode": "WC1A 2SL", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Central London", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S067", "Retailer": "Richer Sounds", "Store Name": "London Swiss Cottage", "Postcode": "NW3 5DN", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "West/NW London", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S068", "Retailer": "Richer Sounds", "Store Name": "Reigate", "Postcode": "RH2 7AQ", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "Crawley / Horsham / Reigate", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S069", "Retailer": "Costco", "Store Name": "London Hayes", "Postcode": "UB2 5XJ", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "West London / M4", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S070", "Retailer": "Costco", "Store Name": "Sunbury-on-Thames", "Postcode": "TW16 5LN", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 0, "Variance": -1, "Status": "Maintain", "Area": "Weybridge / Sunbury", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S071", "Retailer": "Costco", "Store Name": "Wembley", "Postcode": "HA9 0YJ", "Quarterly Frequency": 2, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Maintain", "Area": "West/NW London", "Cadence Note": "One visit in this half-quarter where capacity allows; any variance is flagged for weeks 7-13."}, {"Store ID": "S072", "Retailer": "Sevenoaks", "Store Name": "Tunbridge Wells", "Postcode": "TN4 9NT", "Quarterly Frequency": 1, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Low value/volume", "Area": "Tunbridge Wells", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S073", "Retailer": "Sevenoaks", "Store Name": "Guildford", "Postcode": "GU1 4AW", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Guildford / Farnborough", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S074", "Retailer": "Indies", "Store Name": "Avensys - Crawley", "Postcode": "RH10 9JY", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S075", "Retailer": "Sevenoaks", "Store Name": "Epsom", "Postcode": "KT17 4QJ", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S076", "Retailer": "Indies", "Store Name": "Hills Sound & Vision - Brighton", "Postcode": "BN41 1AG", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S077", "Retailer": "Sevenoaks", "Store Name": "Hove", "Postcode": "BN3 1JD", "Quarterly Frequency": 1, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Low value/volume", "Area": "Brighton / Hove", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S078", "Retailer": "Bentalls", "Store Name": "Kingston-on-Thames", "Postcode": "KT1 1TX", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S079", "Retailer": "Sevenoaks", "Store Name": "Kingston-u-Thames", "Postcode": "KT1 1SF", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Kingston / SW London", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S080", "Retailer": "Sevenoaks", "Store Name": "London Chelsea", "Postcode": "SW10 0LR", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Central London / Chelsea", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S081", "Retailer": "Sevenoaks", "Store Name": "Reading Kings Walk", "Postcode": "RG1 2HG", "Quarterly Frequency": 1, "First 6 Week Target": 0, "Scheduled Visits": 0, "Variance": 0, "Status": "Low value/volume", "Area": "Reading", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S082", "Retailer": "Sevenoaks", "Store Name": "Sevenoaks", "Postcode": "TN13 1BH", "Quarterly Frequency": 1, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Low value/volume", "Area": "Deferred / no fixed area", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}, {"Store ID": "S083", "Retailer": "Euronics Centre", "Store Name": "Smythe & Barrie Ltd Hailsham", "Postcode": "BN27 1AU", "Quarterly Frequency": 1, "First 6 Week Target": 1, "Scheduled Visits": 1, "Variance": 0, "Status": "Low value/volume", "Area": "Eastbourne / Hailsham", "Cadence Note": "One-per-quarter stores split across the quarter; most remaining stores go in weeks 7-13."}], "storeRows": [{"Store ID": "S001", "Region": "South East", "Postcode": "SW1X 7XL", "Retailer Group": "Indies", "Retailer": "Tekzone S&V", "Store Name": "London Knightsbridge Harrods", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.499445, "Longitude": -0.16321, "Admin District": "Kensington and Chelsea", "Outcode": "SW1X"}, {"Store ID": "S002", "Region": "South East", "Postcode": "W1A 1AB", "Retailer Group": "Indies", "Retailer": "Tekzone S&V", "Store Name": "Selfridges Oxford St", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.514587, "Longitude": -0.152814, "Admin District": "Westminster", "Outcode": "W1A"}, {"Store ID": "S003", "Region": "South East", "Postcode": "CR0 4XL", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Croydon", "Currys Opportunity Metric": 1.08892340897562, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.373547, "Longitude": -0.119544, "Admin District": "Croydon", "Outcode": "CR0"}, {"Store ID": "S004", "Region": "South East", "Postcode": "NW2 6LW", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Staples Corner", "Currys Opportunity Metric": 1.606086878038249, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.569521, "Longitude": -0.228494, "Admin District": "Barnet", "Outcode": "NW2"}, {"Store ID": "S005", "Region": "South East", "Postcode": "RH11 7XN", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Crawley", "Currys Opportunity Metric": 1.195159487312789, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.132471, "Longitude": -0.187953, "Admin District": "Crawley", "Outcode": "RH11"}, {"Store ID": "S006", "Region": "South East", "Postcode": "BN3 7EU", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Brighton & Hove", "Currys Opportunity Metric": 1.480501048981869, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 50.837604, "Longitude": -0.188192, "Admin District": "Brighton and Hove", "Outcode": "BN3"}, {"Store ID": "S007", "Region": "South East", "Postcode": "ME5 9SQ", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Medway", "Currys Opportunity Metric": 0.5854964859842413, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.352213, "Longitude": 0.507123, "Admin District": "Medway", "Outcode": "ME5"}, {"Store ID": "S008", "Region": "South East", "Postcode": "SL1 5PS", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Slough", "Currys Opportunity Metric": 1.6061805354848897, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.517338, "Longitude": -0.630873, "Admin District": "Slough", "Outcode": "SL1"}, {"Store ID": "S009", "Region": "South East", "Postcode": "GU1 1AJ", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Guildford", "Currys Opportunity Metric": 0.6945336225694829, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.248841, "Longitude": -0.578735, "Admin District": "Guildford", "Outcode": "GU1"}, {"Store ID": "S010", "Region": "South East", "Postcode": "KT3 4PA", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "New Malden", "Currys Opportunity Metric": 1.2179132181431114, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.398971, "Longitude": -0.247959, "Admin District": "Kingston upon Thames", "Outcode": "KT3"}, {"Store ID": "S011", "Region": "South East", "Postcode": "SE15 1LA", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Old Kent Road", "Currys Opportunity Metric": 1.432136500976846, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.483628, "Longitude": -0.064911, "Admin District": "Southwark", "Outcode": "SE15"}, {"Store ID": "S012", "Region": "South East", "Postcode": "GU14 8BL", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Farnborough", "Currys Opportunity Metric": 0.5618766469511318, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.307447, "Longitude": -0.748887, "Admin District": "Rushmoor", "Outcode": "GU14"}, {"Store ID": "S013", "Region": "South East", "Postcode": "TW8 9DE", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Brentford", "Currys Opportunity Metric": 0.7832516757888215, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.485179, "Longitude": -0.323313, "Admin District": "Hounslow", "Outcode": "TW8"}, {"Store ID": "S014", "Region": "South East", "Postcode": "CT10 2QW", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Thanet", "Currys Opportunity Metric": 1.4702074099901958, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.3574, "Longitude": 1.400858, "Admin District": "Thanet", "Outcode": "CT10"}, {"Store ID": "S015", "Region": "South East", "Postcode": "TN2 3EW", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Tunbridge Wells", "Currys Opportunity Metric": 1.0855409574928352, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.157759, "Longitude": 0.292874, "Admin District": "Tunbridge Wells", "Outcode": "TN2"}, {"Store ID": "S016", "Region": "South East", "Postcode": "UB3 3EX", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Hayes", "Currys Opportunity Metric": 1.1299689829655797, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.516451, "Longitude": -0.405558, "Admin District": "Hillingdon", "Outcode": "UB3"}, {"Store ID": "S017", "Region": "South East", "Postcode": "ME20 7TP", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Maidstone", "Currys Opportunity Metric": 0.8468010058244785, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.293971, "Longitude": 0.469851, "Admin District": "Tonbridge and Malling", "Outcode": "ME20"}, {"Store ID": "S018", "Region": "South East", "Postcode": "SE7 8LU", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Charlton", "Currys Opportunity Metric": 1.1161565159957425, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.489839, "Longitude": 0.034616, "Admin District": "Greenwich", "Outcode": "SE7"}, {"Store ID": "S019", "Region": "South East", "Postcode": "RG2 0QG", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Reading", "Currys Opportunity Metric": 0.5299154823735464, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.423228, "Longitude": -0.98068, "Admin District": "Reading", "Outcode": "RG2"}, {"Store ID": "S020", "Region": "South East", "Postcode": "SW2 1BZ", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Brixton", "Currys Opportunity Metric": 1.1042975979187712, "SD Store ": "No", "Quarterly Frequency": 6, "Status": "Attack", "Latitude": 51.458433, "Longitude": -0.114157, "Admin District": "Lambeth", "Outcode": "SW2"}, {"Store ID": "S021", "Region": "South East", "Postcode": "BN22 9PW", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Eastbourne", "Currys Opportunity Metric": 0.709894876733804, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 50.792096, "Longitude": 0.280069, "Admin District": "Eastbourne", "Outcode": "BN22"}, {"Store ID": "S022", "Region": "South East", "Postcode": "TN23 7DH", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Ashford", "Currys Opportunity Metric": 1.0357023621834869, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.135176, "Longitude": 0.870752, "Admin District": "Ashford", "Outcode": "TN23"}, {"Store ID": "S023", "Region": "South East", "Postcode": "CT1 1WZ", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Canterbury", "Currys Opportunity Metric": 1.1290575952684212, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.293852, "Longitude": 1.105957, "Admin District": "Canterbury", "Outcode": "CT1"}, {"Store ID": "S024", "Region": "South East", "Postcode": "DA1 4LD", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Crayford", "Currys Opportunity Metric": 0.9360719415979232, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.451254, "Longitude": 0.181465, "Admin District": "Bexley", "Outcode": "DA1"}, {"Store ID": "S025", "Region": "South East", "Postcode": "SW19 2PP", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Colliers Wood", "Currys Opportunity Metric": 0.9609749315808966, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.416182, "Longitude": -0.178873, "Admin District": "Merton", "Outcode": "SW19"}, {"Store ID": "S026", "Region": "South East", "Postcode": "BN14 9FB", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Worthing", "Currys Opportunity Metric": 1.3121221014242468, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 50.835951, "Longitude": -0.364945, "Admin District": "Worthing", "Outcode": "BN14"}, {"Store ID": "S027", "Region": "South East", "Postcode": "PO19 7YH", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Chichester", "Currys Opportunity Metric": 0.7588626151004202, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 50.841177, "Longitude": -0.756765, "Admin District": "Chichester", "Outcode": "PO19"}, {"Store ID": "S028", "Region": "South East", "Postcode": "HA4 0EL", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "South Ruislip", "Currys Opportunity Metric": 0.9672348939904, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.556442, "Longitude": -0.386647, "Admin District": "Hillingdon", "Outcode": "HA4"}, {"Store ID": "S029", "Region": "South East", "Postcode": "CT19 5GA", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Folkestone", "Currys Opportunity Metric": 1.2043344913328686, "SD Store ": "No", "Quarterly Frequency": 4, "Status": "Defend", "Latitude": 51.095089, "Longitude": 1.165791, "Admin District": "Folkestone and Hythe", "Outcode": "CT19"}, {"Store ID": "S030", "Region": "South East", "Postcode": "SE26 4PR", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Sydenham", "Currys Opportunity Metric": 1.4066842728793547, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.431048, "Longitude": -0.033657, "Admin District": "Lewisham", "Outcode": "SE26"}, {"Store ID": "S031", "Region": "South East", "Postcode": "KT13 0XR", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Weybridge", "Currys Opportunity Metric": 0.5753575749348254, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.345844, "Longitude": -0.474335, "Admin District": "Elmbridge", "Outcode": "KT13"}, {"Store ID": "S032", "Region": "South East", "Postcode": "BR5 3SR", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Orpington", "Currys Opportunity Metric": 0.0185760776683164, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.395601, "Longitude": 0.112947, "Admin District": "Bromley", "Outcode": "BR5"}, {"Store ID": "S033", "Region": "South East", "Postcode": "TN40 2JS", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Bexhill", "Currys Opportunity Metric": 0.3705673440625682, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 50.844874, "Longitude": 0.501216, "Admin District": "Rother", "Outcode": "TN40"}, {"Store ID": "S034", "Region": "South East", "Postcode": "W1T 7NE", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Tottenham Court Road", "Currys Opportunity Metric": 1.4012704813391383, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.523897, "Longitude": -0.137056, "Admin District": "Camden", "Outcode": "W1T"}, {"Store ID": "S035", "Region": "South East", "Postcode": "TW13 6JH", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Hanworth", "Currys Opportunity Metric": 0.9509145969188028, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.436544, "Longitude": -0.38122, "Admin District": "Hounslow", "Outcode": "TW13"}, {"Store ID": "S036", "Region": "South East", "Postcode": "HA9 8TS", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Wembley Stadium", "Currys Opportunity Metric": 1.1934693253912472, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.561251, "Longitude": -0.280711, "Admin District": "Brent", "Outcode": "HA9"}, {"Store ID": "S037", "Region": "South East", "Postcode": "W8 5ED", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Kensington", "Currys Opportunity Metric": 1.2985783121827394, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.502066, "Longitude": -0.189515, "Admin District": "Kensington and Chelsea", "Outcode": "W8"}, {"Store ID": "S038", "Region": "South East", "Postcode": "BN17 5RA", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Littlehampton", "Currys Opportunity Metric": 0.6886837435825239, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 50.815337, "Longitude": -0.558727, "Admin District": "Arun", "Outcode": "BN17"}, {"Store ID": "S039", "Region": "South East", "Postcode": "BR2 9LY", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Bromley", "Currys Opportunity Metric": 0.3609340978512689, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.396195, "Longitude": 0.026864, "Admin District": "Bromley", "Outcode": "BR2"}, {"Store ID": "S040", "Region": "South East", "Postcode": "W1D 1BZ", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "Oxford Street East", "Currys Opportunity Metric": 1.3997903477991598, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.516178, "Longitude": -0.135122, "Admin District": "Westminster", "Outcode": "W1D"}, {"Store ID": "S041", "Region": "South East", "Postcode": "W12 7HT", "Retailer Group": "Currys", "Retailer": "Currys", "Store Name": "White City Westfield", "Currys Opportunity Metric": 0.7921401273715516, "SD Store ": "No", "Quarterly Frequency": 0, "Status": "Low value/volume", "Latitude": 51.510103, "Longitude": -0.221694, "Admin District": "Hammersmith and Fulham", "Outcode": "W12"}, {"Store ID": "S042", "Region": "South East", "Postcode": "RG1 2BB", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "Reading", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.455317, "Longitude": -0.972064, "Admin District": "Reading", "Outcode": "RG1"}, {"Store ID": "S043", "Region": "South East", "Postcode": "DA9 9SA", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "Bluewater", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.44044, "Longitude": 0.271564, "Admin District": "Dartford", "Outcode": "DA9"}, {"Store ID": "S044", "Region": "South East", "Postcode": "PO19 7YH", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "Chichester HOME", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 50.841177, "Longitude": -0.756765, "Admin District": "Chichester", "Outcode": "PO19"}, {"Store ID": "S045", "Region": "South East", "Postcode": "KT1 1TE", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "Kingston-on-Thames", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.411597, "Longitude": -0.306666, "Admin District": "Kingston upon Thames", "Outcode": "KT1"}, {"Store ID": "S046", "Region": "South East", "Postcode": "W1C 1DX", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "London Oxford St", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.515059, "Longitude": -0.145084, "Admin District": "Westminster", "Outcode": "W1C"}, {"Store ID": "S047", "Region": "South East", "Postcode": "SW1W 8EL", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "London Sloane Sq Peter Jones", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.492247, "Longitude": -0.158976, "Admin District": "Kensington and Chelsea", "Outcode": "SW1W"}, {"Store ID": "S048", "Region": "South East", "Postcode": "W12 7FU", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "London White City", "Currys Opportunity Metric": null, "SD Store ": "Yes", "Quarterly Frequency": 3, "Status": "SD", "Latitude": 51.510392, "Longitude": -0.222345, "Admin District": "Hammersmith and Fulham", "Outcode": "W12"}, {"Store ID": "S049", "Region": "South East", "Postcode": "BR1 1QW", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Bromley", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.40753, "Longitude": 0.016725, "Admin District": "Bromley", "Outcode": "BR1"}, {"Store ID": "S050", "Region": "South East", "Postcode": "KT13 8DL", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Weybridge", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.371345, "Longitude": -0.462512, "Admin District": "Elmbridge", "Outcode": "KT13"}, {"Store ID": "S051", "Region": "South East", "Postcode": "RG1 7NE", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Reading", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.455186, "Longitude": -0.981825, "Admin District": "Reading", "Outcode": "RG1"}, {"Store ID": "S052", "Region": "South East", "Postcode": "RG2 6UE", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "Reading", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.420713, "Longitude": -0.984115, "Admin District": "Wokingham", "Outcode": "RG2"}, {"Store ID": "S053", "Region": "South East", "Postcode": "ME14 1PL", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Maidstone", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.274797, "Longitude": 0.522134, "Admin District": "Maidstone", "Outcode": "ME14"}, {"Store ID": "S054", "Region": "South East", "Postcode": "TN4 9NT", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Tunbridge Wells", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.138236, "Longitude": 0.262285, "Admin District": "Tunbridge Wells", "Outcode": "TN4"}, {"Store ID": "S055", "Region": "South East", "Postcode": "GU14 6FE", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "Farnborough", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.28223, "Longitude": -0.768169, "Admin District": "Rushmoor", "Outcode": "GU14"}, {"Store ID": "S056", "Region": "South East", "Postcode": "GU1 2AF", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Guildford", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.238362, "Longitude": -0.565176, "Admin District": "Guildford", "Outcode": "GU1"}, {"Store ID": "S057", "Region": "South East", "Postcode": "CR0 1BG", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Croydon", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.364477, "Longitude": -0.098597, "Admin District": "Croydon", "Outcode": "CR0"}, {"Store ID": "S058", "Region": "South East", "Postcode": "CR0 4RR", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "Croydon", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.357178, "Longitude": -0.120559, "Admin District": "Croydon", "Outcode": "CR0"}, {"Store ID": "S059", "Region": "South East", "Postcode": "BN1 4JE", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Brighton London Rd", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 50.832899, "Longitude": -0.138371, "Admin District": "Brighton and Hove", "Outcode": "BN1"}, {"Store ID": "S060", "Region": "South East", "Postcode": "SL4 6BD", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Eton", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.487952, "Longitude": -0.608809, "Admin District": "Windsor and Maidenhead", "Outcode": "SL4"}, {"Store ID": "S061", "Region": "South East", "Postcode": "RH12 1LP", "Retailer Group": "JLP", "Retailer": "John Lewis", "Store Name": "Horsham HOME", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.063101, "Longitude": -0.335648, "Admin District": "Horsham", "Outcode": "RH12"}, {"Store ID": "S062", "Region": "South East", "Postcode": "KT2 5EL", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Kingston-u-Thames", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.415442, "Longitude": -0.300771, "Admin District": "Kingston upon Thames", "Outcode": "KT2"}, {"Store ID": "S063", "Region": "South East", "Postcode": "SE1 2TH", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "London Bridge", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.504258, "Longitude": -0.082453, "Admin District": "Southwark", "Outcode": "SE1"}, {"Store ID": "S064", "Region": "South East", "Postcode": "SW10 9EL", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "London Chelsea", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.484554, "Longitude": -0.184059, "Admin District": "Kensington and Chelsea", "Outcode": "SW10"}, {"Store ID": "S065", "Region": "South East", "Postcode": "W4 5TT", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "London Chiswick", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.492975, "Longitude": -0.268171, "Admin District": "Hounslow", "Outcode": "W4"}, {"Store ID": "S066", "Region": "South East", "Postcode": "WC1A 2SL", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "London Holborn", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.517427, "Longitude": -0.124362, "Admin District": "Camden", "Outcode": "WC1A"}, {"Store ID": "S067", "Region": "South East", "Postcode": "NW3 5DN", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "London Swiss Cottage", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.54456, "Longitude": -0.175266, "Admin District": "Camden", "Outcode": "NW3"}, {"Store ID": "S068", "Region": "South East", "Postcode": "RH2 7AQ", "Retailer Group": "Richer Sounds", "Retailer": "Richer Sounds", "Store Name": "Reigate", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.235923, "Longitude": -0.20455, "Admin District": "Reigate and Banstead", "Outcode": "RH2"}, {"Store ID": "S069", "Region": "South East", "Postcode": "UB2 5XJ", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "London Hayes", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.496116, "Longitude": -0.407953, "Admin District": "Hounslow", "Outcode": "UB2"}, {"Store ID": "S070", "Region": "South East", "Postcode": "TW16 5LN", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "Sunbury-on-Thames", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.421409, "Longitude": -0.416015, "Admin District": "Spelthorne", "Outcode": "TW16"}, {"Store ID": "S071", "Region": "South East", "Postcode": "HA9 0YJ", "Retailer Group": "Costco", "Retailer": "Costco", "Store Name": "Wembley", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 2, "Status": "Maintain", "Latitude": 51.558099, "Longitude": -0.27304, "Admin District": "Brent", "Outcode": "HA9"}, {"Store ID": "S072", "Region": "South East", "Postcode": "TN4 9NT", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Tunbridge Wells", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.138236, "Longitude": 0.262285, "Admin District": "Tunbridge Wells", "Outcode": "TN4"}, {"Store ID": "S073", "Region": "South East", "Postcode": "GU1 4AW", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Guildford", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.236705, "Longitude": -0.572333, "Admin District": "Guildford", "Outcode": "GU1"}, {"Store ID": "S074", "Region": "South East", "Postcode": "RH10 9JY", "Retailer Group": "Indies", "Retailer": "Indies", "Store Name": "Avensys - Crawley", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.134686, "Longitude": -0.173087, "Admin District": "Crawley", "Outcode": "RH10"}, {"Store ID": "S075", "Region": "South East", "Postcode": "KT17 4QJ", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Epsom", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.334202, "Longitude": -0.261525, "Admin District": "Epsom and Ewell", "Outcode": "KT17"}, {"Store ID": "S076", "Region": "South East", "Postcode": "BN41 1AG", "Retailer Group": "Indies", "Retailer": "Indies", "Store Name": "Hills Sound & Vision - Brighton", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 50.832754, "Longitude": -0.207792, "Admin District": "Brighton and Hove", "Outcode": "BN41"}, {"Store ID": "S077", "Region": "South East", "Postcode": "BN3 1JD", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Hove", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 50.825837, "Longitude": -0.16093, "Admin District": "Brighton and Hove", "Outcode": "BN3"}, {"Store ID": "S078", "Region": "South East", "Postcode": "KT1 1TX", "Retailer Group": "Indies", "Retailer": "Bentalls", "Store Name": "Kingston-on-Thames", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.411717, "Longitude": -0.304993, "Admin District": "Kingston upon Thames", "Outcode": "KT1"}, {"Store ID": "S079", "Region": "South East", "Postcode": "KT1 1SF", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Kingston-u-Thames", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.412112, "Longitude": -0.301872, "Admin District": "Kingston upon Thames", "Outcode": "KT1"}, {"Store ID": "S080", "Region": "South East", "Postcode": "SW10 0LR", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "London Chelsea", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.482653, "Longitude": -0.178042, "Admin District": "Kensington and Chelsea", "Outcode": "SW10"}, {"Store ID": "S081", "Region": "South East", "Postcode": "RG1 2HG", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Reading Kings Walk", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.45463, "Longitude": -0.969633, "Admin District": "Reading", "Outcode": "RG1"}, {"Store ID": "S082", "Region": "South East", "Postcode": "TN13 1BH", "Retailer Group": "Indies", "Retailer": "Sevenoaks", "Store Name": "Sevenoaks", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 51.274477, "Longitude": 0.187591, "Admin District": "Sevenoaks", "Outcode": "TN13"}, {"Store ID": "S083", "Region": "South East", "Postcode": "BN27 1AU", "Retailer Group": "Indies", "Retailer": "Euronics Centre", "Store Name": "Smythe & Barrie Ltd Hailsham", "Currys Opportunity Metric": null, "SD Store ": "No", "Quarterly Frequency": 1, "Status": "Low value/volume", "Latitude": 50.865248, "Longitude": 0.257145, "Admin District": "Wealden", "Outcode": "BN27"}], "assumptions": [["Input workbook", "/Users/alberto/Documents/LG MS RD Call File South East.xlsx"], ["Geocoding source", "https://api.postcodes.io/postcodes"], ["Road-distance source", "https://router.project-osrm.org"], ["25-mile rule", "Checked as maximum road distance between any two stores on the same day."], ["Daily stop cap", "No day has more than 3 visits. If a route spreads over 20 road miles, it is left at 2 visits."], ["Capacity flag", "The file asks for 203 visits per quarter, but 13 weekdays at 3 visits/day can hold 195; the requested cap creates an 8-visit quarterly shortfall before 20-mile pairing limits."], ["Frequency 6", "Scheduled 3 times in weeks 1-6, approximately every 2 weeks."], ["Frequency 4", "Scheduled 2 times in weeks 1-6, approximately every 3 weeks."], ["Frequency 3", "Scheduled once in weeks 1-6; only two efficient SD stores are brought forward for a second visit."], ["Frequency 2", "Scheduled once in weeks 1-6 where route capacity allows; any variance is flagged for weeks 7-13."], ["Frequency 1", "Only efficient add-ons are scheduled in weeks 1-6; the remainder should land in weeks 7-13."], ["Frequency 0", "Not scheduled unless business priorities change."]]}</script>
+  <script>
+    const data = JSON.parse(document.getElementById("planner-data").textContent);
+    const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    const tabs = document.getElementById("tabs");
+    const panels = document.getElementById("panels");
+    const search = document.getElementById("search");
+    const statusFilter = document.getElementById("statusFilter");
+    const mapIframe = `<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1_Jq5dx8BB-6JkWoD0-6pjekHDgc19q8&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`;
+
+    function mapUrl(row) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${row["Store Name"]} ${row.Postcode}`)}`;
+    }
+
+    function chipClass(status) {
+      return String(status || "").toLowerCase().replaceAll(" ", "-").replaceAll("/", "-");
+    }
+
+    function matches(row) {
+      const q = search.value.trim().toLowerCase();
+      const status = statusFilter.value;
+      const text = [row["Store Name"], row.Retailer, row.Postcode, row["Area Focus"], row.Status].join(" ").toLowerCase();
+      return (!q || text.includes(q)) && (!status || row.Status === status);
+    }
+
+    function rowsForDay(week, weekday) {
+      return data.plannerRows.filter(row => row.Week === week && row.Weekday === weekday && matches(row));
+    }
+
+    function dayInfo(week, weekday) {
+      return data.dayRows.find(row => row.Week === week && row.Weekday === weekday);
+    }
+
+    function renderStop(row) {
+      const status = htmlEscape(row.Status || "");
+      return `<article class="stop">
+        <div class="stop-top">
+          <div>
+            <p class="store">${htmlEscape(row["Store Name"])}</p>
+            <div class="retailer">${htmlEscape(row.Retailer)} · ${htmlEscape(row["Area Focus"])}</div>
+          </div>
+          <span class="stop-num">${row.Stop}</span>
+        </div>
+        <a class="postcode" href="${mapUrl(row)}" target="_blank" rel="noopener">${htmlEscape(row.Postcode)}</a>
+        <div class="meta">
+          <span class="chip ${chipClass(status)}">${status}</span>
+          <span class="chip">Freq ${row["Quarterly Frequency"]}/qtr</span>
+          <span class="chip">Visit ${row["Visit # in First 6 Weeks"]}</span>
+        </div>
+      </article>`;
+    }
+
+    function htmlEscape(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function renderWeek(week) {
+      const totalStops = data.plannerRows.filter(row => row.Week === week && matches(row)).length;
+      const maxMiles = Math.max(...data.dayRows.filter(row => row.Week === week).map(row => row["Max Road Miles"]));
+      const dayCards = weekdays.map(day => {
+        const info = dayInfo(week, day);
+        const rows = rowsForDay(week, day);
+        return `<section class="day">
+          <div class="day-title">
+            <h3>${day} <span class="badge">${rows.length} stop${rows.length === 1 ? "" : "s"}</span></h3>
+            <small>${htmlEscape(info["Area Focus"])}</small>
+          </div>
+          <div class="distance"><span>Road spread</span><strong>${Number(info["Max Road Miles"]).toFixed(1)} mi</strong></div>
+          <div class="stops">${rows.length ? rows.map(renderStop).join("") : `<div class="empty">No matching stops for this filter.</div>`}</div>
+        </section>`;
+      }).join("");
+      return `<section class="panel" id="week-${week}" data-tab-title="Week ${week}">
+        <div class="week-head">
+          <div>
+            <h2>Week ${week}</h2>
+            <p>${totalStops} visible visits · widest route ${Number(maxMiles).toFixed(1)} miles</p>
+          </div>
+        </div>
+        <div class="days">${dayCards}</div>
+      </section>`;
+    }
+
+    function renderOverview() {
+      const rows = data.dayRows.map(row => `<tr>
+        <td>Week ${row.Week}</td>
+        <td>${htmlEscape(row.Weekday)}</td>
+        <td>${htmlEscape(row["Area Focus"])}</td>
+        <td>${row.Stops}</td>
+        <td>${Number(row["Max Road Miles"]).toFixed(1)} mi</td>
+        <td>${htmlEscape(row["Route Summary"])}</td>
+      </tr>`).join("");
+      return `<section class="panel active" id="overview" data-tab-title="Overview">
+        <div class="week-head">
+          <div>
+            <h2>Route Overview</h2>
+            <p>Every day is capped at 3 stops. Wider routes are held to 2 stops, with the largest current spread at ${Number(data.summary.maxRoadMiles).toFixed(1)} road miles.</p>
+          </div>
+        </div>
+        <table class="route-table">
+          <thead><tr><th>Week</th><th>Day</th><th>Area</th><th>Stops</th><th>Miles</th><th>Route</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="note">The original call file requests ${data.summary.quarterRequired} visits per quarter. At 3 visits per weekday, a 13-week quarter can hold ${data.summary.quarterCapacity} visits, so lower-frequency Maintain visits are flagged in the coverage workbook for later scheduling or cadence review.</div>
+      </section>`;
+    }
+
+    function renderMap() {
+      return `<section class="panel" id="map" data-tab-title="Store Map">
+        <div class="week-head">
+          <div>
+            <h2>Store Map</h2>
+            <p>Embedded store map for the South East route area.</p>
+          </div>
+        </div>
+        <div class="map-wrap">${mapIframe}</div>
+      </section>`;
+    }
+
+    function render() {
+      const current = document.querySelector(".tab[aria-selected='true']")?.dataset.target || "overview";
+      panels.innerHTML = renderOverview() + [1, 2, 3, 4, 5, 6].map(renderWeek).join("") + renderMap();
+      tabs.innerHTML = [...panels.querySelectorAll(".panel")].map(panel => `<button class="tab" type="button" data-target="${panel.id}" aria-selected="${panel.id === current}">${panel.dataset.tabTitle}</button>`).join("");
+      const activePanel = document.getElementById(current) || document.getElementById("overview");
+      document.querySelectorAll(".panel").forEach(panel => panel.classList.toggle("active", panel === activePanel));
+      tabs.querySelectorAll(".tab").forEach(button => {
+        button.addEventListener("click", () => {
+          tabs.querySelectorAll(".tab").forEach(tab => tab.setAttribute("aria-selected", "false"));
+          button.setAttribute("aria-selected", "true");
+          document.querySelectorAll(".panel").forEach(panel => panel.classList.toggle("active", panel.id === button.dataset.target));
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    }
+
+    search.addEventListener("input", render);
+    statusFilter.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>
