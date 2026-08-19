@@ -358,12 +358,8 @@ function parseJohnLewis(html, product) {
       /Up to \d+% cashback on LG TVs/gi,
       /Claim \d+% cashback(?: \(Via Redemption\))?/gi,
       /Reduced to clear/gi,
-      /Save £[\d,.]+/gi,
     ]),
   ], product)
-    // This appears across unrelated product payloads, including items below £100.
-    // Keep the checker conservative until John Lewis exposes product-level context.
-    .filter((item) => !/^Save £100(?:\.00)?$/i.test(item))
     .join(" | ");
   const guarantee = firstPattern(common.joined, [/\d+\s+year guarantee included/i]);
   return {
