@@ -298,6 +298,74 @@
       gap: 12px;
     }
 
+    .plan-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .plan-table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .plan-table th,
+    .plan-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .plan-table th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--ink);
+      color: #fffdf7;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .plan-table tr:nth-child(even) td {
+      background: rgba(251, 247, 239, 0.7);
+    }
+
+    .plan-table td:last-child,
+    .plan-table th:last-child {
+      border-right: 0;
+    }
+
+    .plan-date {
+      width: 116px;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .plan-cell strong {
+      display: block;
+      line-height: 1.25;
+    }
+
+    .plan-cell small,
+    .plan-meta {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+
+    .plan-cell.optional {
+      background: #fff8df;
+      border-left: 4px solid var(--gold);
+    }
+
     .day {
       display: grid;
       grid-template-columns: 128px minmax(0, 1fr) auto;
@@ -500,8 +568,8 @@
           <label>
             Visit days
             <select id="dayPattern">
-              <option value="all" selected>All days</option>
-              <option value="weekdays">Weekdays only</option>
+              <option value="weekdays" selected>Weekdays only</option>
+              <option value="all">All days</option>
             </select>
           </label>
         </div>
@@ -751,6 +819,15 @@
       return picked;
     }
 
+    function nextOccurrencePool(pool) {
+      const firstByStore = new Map();
+      pool.forEach((unit) => {
+        const current = firstByStore.get(unit.id);
+        if (!current || unit.occurrence < current.occurrence) firstByStore.set(unit.id, unit);
+      });
+      return [...firstByStore.values()];
+    }
+
     function removeUnits(pool, units) {
       const remove = new Set(units.map((unit) => unit.visitId));
       return pool.filter((unit) => !remove.has(unit.visitId));
@@ -773,24 +850,53 @@
 
       while (pool.length && dayIndex < days.length) {
         const day = days[dayIndex];
-        const due = pool.filter((unit) => unit.target <= addDays(day, 6));
-        const candidates = due.length ? due : pool;
+        const remainingDaysAfterToday = days.length - dayIndex - 1;
+        const available = nextOccurrencePool(pool);
+        const due = available.filter((unit) => unit.target <= addDays(day, 6));
+        const candidates = due.length ? due : available;
         const seed = nearestSeed(candidates, planned.length ? planned[planned.length - 1].stops.at(-1) : home);
-        const nearby = pullNearest(pool, seed, 4);
+        const nearby = pullNearest(available, seed, 4);
         let optional = null;
         let confirmed = nearby.slice(0, Math.min(3, Math.max(2, nearby.length)));
-        if (nearby.length >= 4 && distanceMiles(seed, nearby[3]) <= nearbyMiles) {
+        const optionalNeeded = pool.length - confirmed.length > remainingDaysAfterToday * 3;
+        if (optionalNeeded && nearby.length >= 4 && distanceMiles(seed, nearby[3]) <= nearbyMiles) {
           optional = [...nearby].sort((a, b) => a.required - b.required || statusWeight(a.status) - statusWeight(b.status))[0];
           confirmed = nearby.filter((unit) => unit.visitId !== optional.visitId).slice(0, 3);
           optional = { ...optional, optional: true };
         }
         const stops = [...confirmed].sort((a, b) => distanceMiles(seed, a) - distanceMiles(seed, b));
         planned.push({ date: day, stops, optional });
-        pool = removeUnits(pool, confirmed);
+        pool = removeUnits(pool, optional ? [...confirmed, optional] : confirmed);
         dayIndex += 1;
       }
 
-      return { planned, unscheduled: pool };
+      const spillover = [...pool];
+      while (planned.length && planned[planned.length - 1].stops.length < 2) {
+        const shortDay = planned.pop();
+        spillover.push(...shortDay.stops);
+        if (shortDay.optional) spillover.push(shortDay.optional);
+      }
+
+      const unplaced = [];
+      spillover
+        .sort((a, b) => a.required - b.required || statusWeight(a.status) - statusWeight(b.status))
+        .forEach((unit) => {
+          const candidates = planned
+            .filter((day) => !day.optional && day.stops.length >= 2)
+            .map((day) => ({
+              day,
+              distance: Math.min(...day.stops.map((stop) => distanceMiles(stop, unit)))
+            }))
+            .sort((a, b) => a.distance - b.distance);
+          const best = candidates[0];
+          if (best && best.distance <= Math.max(nearbyMiles, 12)) {
+            best.day.optional = { ...unit, optional: true };
+          } else {
+            unplaced.push(unit);
+          }
+        });
+
+      return { planned, unscheduled: unplaced };
     }
 
     function statusWeight(status) {
@@ -837,34 +943,53 @@
         return;
       }
 
-      els.timeline.innerHTML = plan.planned.map((day) => {
-        const stops = day.stops.map((stop, index) => `
-          <div class="stop">
-            <span class="badge">${index + 1}</span>
-            <span><strong>${escapeHtml(stop.name)}</strong><small>${escapeHtml(stop.postcode)} - visit ${stop.occurrence} of ${stop.required} - ${escapeHtml(stop.status || "Visit")}</small></span>
-            <small>${stop.region ? escapeHtml(stop.region) : ""}</small>
-          </div>
-        `).join("");
-        const optional = day.optional ? `
-          <div class="stop optional">
-            <span class="badge">?</span>
-            <span><strong>${escapeHtml(day.optional.name)}</strong><small>${escapeHtml(day.optional.postcode)} - nearby lower frequency option?</small></span>
-            <small>${Math.round(distanceMiles(day.stops[0], day.optional))} mi away</small>
-          </div>
-        ` : "";
+      const rows = plan.planned.map((day) => {
+        const cells = [0, 1, 2].map((index) => visitCell(day.stops[index]));
+        const optional = visitCell(day.optional, true, day.stops[0]);
         const mileage = Math.round(routeMileage(day, home));
         return `
-          <article class="day">
-            <div class="date">${formatDate(day.date)}<span>${quarterLabel(quarterStart)}</span></div>
-            <div class="stops">${stops}${optional}</div>
-            <div class="day-meta">${day.stops.length} fixed visits<br>${mileage ? `${mileage} mi route draft` : "postcode cluster"}</div>
-          </article>
+          <tr>
+            <td class="plan-date">${formatDate(day.date)}</td>
+            ${cells.join("")}
+            ${optional}
+            <td class="plan-meta">${day.stops.length} fixed${day.optional ? " + 1?" : ""}<br>${mileage ? `${mileage} mi draft` : "postcode cluster"}</td>
+          </tr>
         `;
       }).join("");
+      els.timeline.innerHTML = `
+        <div class="plan-table-wrap">
+          <table class="plan-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Visit 1</th>
+                <th>Visit 2</th>
+                <th>Visit 3</th>
+                <th>Nearby if time?</th>
+                <th>Day notes</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
 
       if (plan.unscheduled.length) {
         els.timeline.insertAdjacentHTML("beforeend", `<div class="empty">${plan.unscheduled.length} visit(s) could not fit before ${formatDate(quarterEnd)}. Increase the date range or reduce visits per day limits manually.</div>`);
       }
+    }
+
+    function visitCell(stop, optional = false, from = null) {
+      if (!stop) return `<td class="plan-cell${optional ? " optional" : ""}">-</td>`;
+      const distance = optional && from ? `<small>${Math.round(distanceMiles(from, stop))} mi from first stop</small>` : "";
+      const label = optional ? "Nearby lower frequency option?" : `Visit ${stop.occurrence} of ${stop.required}`;
+      return `
+        <td class="plan-cell${optional ? " optional" : ""}">
+          <strong>${optional ? "? " : ""}${escapeHtml(stop.name)}</strong>
+          <small>${escapeHtml(stop.postcode)} - ${escapeHtml(label)} - ${escapeHtml(stop.status || "Visit")}</small>
+          ${distance}
+        </td>
+      `;
     }
 
     function escapeHtml(value) {
@@ -878,7 +1003,7 @@
     }
 
     function planText() {
-      return [...els.timeline.querySelectorAll(".day")].map((day) => day.innerText.replace(/\n+/g, "\n")).join("\n\n");
+      return [...els.timeline.querySelectorAll("tr")].map((row) => row.innerText.replace(/\n+/g, "\t")).join("\n");
     }
 
     async function generate() {
