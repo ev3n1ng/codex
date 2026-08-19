@@ -254,12 +254,22 @@ let checked = {};
 
 async function loadState(){
   try{
-    const res = await window.storage.get('checklist-state', false);
-    if(res && res.value) checked = JSON.parse(res.value);
+    if(window.storage){
+      const res = await window.storage.get('checklist-state', false);
+      if(res && res.value) checked = JSON.parse(res.value);
+    }else{
+      checked = JSON.parse(localStorage.getItem('checklist-state') || '{}');
+    }
   }catch(e){ checked = {}; }
 }
 async function saveState(){
-  try{ await window.storage.set('checklist-state', JSON.stringify(checked), false); }catch(e){}
+  try{
+    if(window.storage){
+      await window.storage.set('checklist-state', JSON.stringify(checked), false);
+    }else{
+      localStorage.setItem('checklist-state', JSON.stringify(checked));
+    }
+  }catch(e){}
 }
 
 function buildQuarterPanel(){
