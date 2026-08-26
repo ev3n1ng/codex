@@ -795,7 +795,7 @@ const currysProducts = [
     "title": "LG B5 48\" OLED AI 4K HDR Smart TV 2025 - OLED48B56LA",
     "size": 48,
     "price": "£649.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £150.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
@@ -875,6 +875,7 @@ const currysProducts = [
     "price": "£4,699.00",
     "availability": "Listed",
     "offers": [
+      "Save £400.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-w6-77-oled-ai-4k-hdr-true-wireless-smart-tv-2026-oled77w69la-10303103.html",
@@ -973,7 +974,6 @@ const currysProducts = [
     "price": "£3,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -986,10 +986,10 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77C64LA",
     "size": 77,
-    "price": "£2,999.00",
+    "price": "£2,899.00",
     "availability": "Listed",
     "offers": [
-      "Save £200.00",
+      "Save £700.99",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -997,7 +997,7 @@ const currysProducts = [
     "model": "OLED77C64LA",
     "series": "C",
     "gen": "6",
-    "previousPrice": "£3,499.00"
+    "previousPrice": "£2,999.00"
   },
   {
     "year": "2026",
@@ -1022,6 +1022,7 @@ const currysProducts = [
     "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
+      "Save £200.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1070,6 +1071,7 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
+      "Save £20.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1281,7 +1283,7 @@ function moneyValue(value) {
 
 function meaningfulOffer(offer) {
   const text = String(offer || "");
-  return /myjl|my john lewis|member|install|gift|voucher|code|price matched/i.test(text)
+  return /myjl|my john lewis|member|install|gift|voucher|code|price matched|soundbar/i.test(text)
     && !/^Save £/i.test(text)
     && !/free delivery/i.test(text);
 }
