@@ -101,9 +101,11 @@
     "series": "G",
     "gen": "5",
     "size": 55,
-    "price": "Not listed",
-    "availability": "No longer available online",
-    "offers": [],
+    "price": "£1,299.00",
+    "availability": "Available to order",
+    "offers": [
+      "Save £350 on the LG US70TR Soundbar when you purchase it with this item"
+    ],
     "url": "https://www.johnlewis.com/lg-oled55g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-stand-version-satin-silver/p113362525"
   },
   {
@@ -521,14 +523,14 @@
     "series": "C",
     "gen": "6",
     "size": 77,
-    "price": "£2,999.00",
+    "price": "£2,899.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
+      "Price matched: save £600",
       "Get the LG US70TR Bluetooth Soundbar with Dolby Atmos, DTS:X, Wireless Subwoofer & Rear Speakers for free when bought with this item",
       "Save £650 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
-      "Save £250 and get free recycling when you trade in your old TV",
-      "Save £500"
+      "Save £250 and get free recycling when you trade in your old TV"
     ],
     "url": "https://www.johnlewis.com/lg-oled77c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-dark-titan-silver/p115240028"
   },
