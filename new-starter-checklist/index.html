@@ -118,15 +118,10 @@
       font-weight: 600;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.75fr);
-      gap: 18px;
-      align-items: stretch;
+    .intro {
       margin-bottom: 18px;
     }
 
-    .hero-main,
     .routine-panel,
     .card {
       position: relative;
@@ -135,87 +130,6 @@
       border-radius: var(--radius);
       background: rgba(255, 250, 250, 0.88);
       box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: clamp(24px, 5vw, 44px);
-      background:
-        linear-gradient(135deg, rgba(165, 0, 52, 0.98), rgba(42, 4, 18, 0.98)),
-        var(--lg-red);
-      color: var(--white);
-      min-height: 420px;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      right: -120px;
-      bottom: -150px;
-      border-radius: 50%;
-      border: 48px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.8fr);
-      gap: clamp(18px, 4vw, 36px);
-      align-items: center;
-      min-height: 100%;
-    }
-
-    .hero-copy {
-      min-width: 0;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 300px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: #18010b;
-      box-shadow: 0 24px 60px rgba(25, 0, 9, 0.42);
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 300px;
-      display: block;
-      object-fit: cover;
-      object-position: 62% center;
-      filter: saturate(1.08) contrast(1.02);
-    }
-
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(22, 0, 8, 0.68), transparent 54%);
-    }
-
-    .hero-caption {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .hero-caption strong {
-      font-family: "Manrope", sans-serif;
-      font-size: 16px;
     }
 
     .eyebrow {
@@ -239,20 +153,17 @@
     }
 
     h1 {
-      position: relative;
-      z-index: 1;
       max-width: 720px;
       margin: 16px 0 12px;
-      font-size: clamp(34px, 5vw, 58px);
+      color: var(--lg-red);
+      font-size: clamp(32px, 6vw, 54px);
       line-height: 0.96;
     }
 
-    .hero-main p {
-      position: relative;
-      z-index: 1;
+    .intro-copy {
       max-width: 620px;
       margin: 0;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--lg-muted);
       font-size: clamp(16px, 2.4vw, 19px);
       line-height: 1.55;
     }
@@ -552,30 +463,6 @@
       color: var(--white);
     }
 
-    .upload-panel {
-      display: grid;
-      gap: 10px;
-      padding: 14px;
-      border: 1px dashed rgba(165, 0, 52, 0.42);
-      border-radius: var(--radius);
-      background: rgba(247, 236, 239, 0.46);
-    }
-
-    .upload-panel input[type="file"] {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--lg-line);
-      border-radius: var(--radius);
-      background: var(--white);
-    }
-
-    .upload-status {
-      min-height: 20px;
-      color: var(--amber);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
     .app-section {
       margin-top: 18px;
       padding: 20px;
@@ -630,16 +517,6 @@
       line-height: 1.05;
     }
 
-    .todo-strip {
-      margin-top: 16px;
-      padding: 12px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
     @media (max-width: 760px) {
       .shell {
         width: min(100% - 20px, 1120px);
@@ -650,34 +527,12 @@
         align-items: flex-start;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
       .brand-logo {
         width: 112px;
       }
 
       .brand-text {
         padding-left: 10px;
-      }
-
-      .hero-main {
-        min-height: 0;
-        padding: 24px;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 180px;
-      }
-
-      .hero-visual img {
-        min-height: 180px;
-        object-position: 68% center;
       }
 
       .quick-actions,
@@ -720,31 +575,17 @@
       </div>
     </header>
 
-    <section class="hero" aria-labelledby="pageTitle">
-      <div class="hero-main">
-        <div class="hero-content">
-          <div class="hero-copy">
-            <span class="eyebrow">Daily routine reference</span>
-            <h1 id="pageTitle">A clear daily rhythm for field work.</h1>
-            <p>Use this as a quick reference for the standards expected each day: start cleanly, keep reporting current, share useful activity, and close out any sales verification before it drifts.</p>
-          </div>
-          <figure class="hero-visual">
-            <!-- Source: LG Newsroom OLED lifestyle image from "Exploring Uniquely Personalized Lifestyle with LG OLED TVs". -->
-            <img src="/new-starter-checklist/assets/lg-oled-lifestyle.png" alt="LG OLED display in a daily work setup">
-            <figcaption class="hero-caption"><strong>LG OLED</strong><span>Daily focus, reports, follow-up</span></figcaption>
-          </figure>
-        </div>
-      </div>
-      <aside class="routine-panel" aria-live="polite">
+    <section class="intro" aria-labelledby="pageTitle">
+      <div class="routine-panel" aria-live="polite">
         <span class="date-stamp" id="todayLabel">Today</span>
-        <h2 class="routine-title">Daily standards</h2>
-        <p class="routine-copy">These are not admin hoops. They keep the day visible, make support easier, and stop end-of-week reporting from becoming a scramble.</p>
+        <h1 id="pageTitle">Daily Routine</h1>
+        <p class="intro-copy">A straightforward reference for the core actions expected each day.</p>
         <ul class="routine-list">
-          <li>Start of day<small>Clock in and read the latest reports before store activity starts.</small></li>
-          <li>During the day<small>Capture anything useful while it is still fresh.</small></li>
-          <li>End of day<small>Make sure updates, VIP reporting, and sales verification are current.</small></li>
+          <li>Start of day<small>Clock in and check today&apos;s reports.</small></li>
+          <li>During the day<small>Keep required updates current.</small></li>
+          <li>End of day<small>Confirm reports and paperwork are complete.</small></li>
         </ul>
-      </aside>
+      </div>
     </section>
 
     <nav class="quick-actions" aria-label="Quick actions">
@@ -760,7 +601,7 @@
           <div class="card-header">
             <h2>Clock In</h2>
           </div>
-          <p class="card-copy">Before anything else, clock in on the Rig app and check today&apos;s reports. That gives you the latest view of priorities, issues, and follow-up before you start store activity.</p>
+          <p class="card-copy">Clock in on the Rig app and check today&apos;s reports before starting store activity.</p>
           <ul class="routine-steps">
             <li class="routine-item">
               <strong>Clock in on Rig.</strong>
@@ -768,7 +609,7 @@
             </li>
             <li class="routine-item">
               <strong>Read today&apos;s reports.</strong>
-              <span>Look for anything that changes your focus, store priorities, or conversations for the day.</span>
+              <span>Check for today&apos;s priorities and any required actions.</span>
             </li>
           </ul>
           <div class="button-row">
@@ -789,15 +630,15 @@
               <img src="/new-starter-checklist/assets/mewe-logo.png" alt="MeWe">
             </span>
           </div>
-          <p class="card-copy">Post at least once per day on MeWe. Sales made, training completed, useful store context, and good learnings all help the wider LG group stay informed.</p>
+          <p class="card-copy">Post at least once per day on MeWe when there is a sale, completed training, or required update to record.</p>
           <ul class="routine-steps">
             <li class="routine-item">
-              <strong>Share what happened today.</strong>
-              <span>Keep it practical: sales, training, questions answered, or useful store activity.</span>
+              <strong>Add the required daily update.</strong>
+              <span>Keep it brief and factual.</span>
             </li>
             <li class="routine-item">
-              <strong>Make the post useful to the group.</strong>
-              <span>A short, clear update is better than a long write-up no one can scan.</span>
+              <strong>Include sales or training where relevant.</strong>
+              <span>Only include details that need to be shared.</span>
             </li>
           </ul>
           <div class="button-row">
@@ -813,15 +654,15 @@
           <div class="card-header">
             <h2>VIP Report Check</h2>
           </div>
-          <p class="card-copy">Use this as a quick professional self-check. If your role requires VIP reporting, keep it current instead of leaving it until the end of the week.</p>
+          <p class="card-copy">Confirm whether VIP reporting is required for your role and whether this week&apos;s report has been submitted.</p>
           <div class="split">
             <div class="prompt">
               <p class="prompt-title">Confirm whether VIP reporting applies to your role.</p>
-              <p class="routine-copy">If it does, know the cadence and what information is expected before the week gets busy.</p>
+              <p class="routine-copy">Check the reporting requirement for your role.</p>
             </div>
             <div class="prompt">
               <p class="prompt-title">Check whether this week is already covered.</p>
-              <p class="routine-copy">If not, decide when it will be submitted rather than letting it sit as loose admin.</p>
+              <p class="routine-copy">If it has not been submitted, complete it through the normal process.</p>
             </div>
           </div>
         </div>
@@ -833,7 +674,7 @@
           <div class="card-header">
             <h2>Sales Verification Form</h2>
           </div>
-          <p class="card-copy">When a sale needs verification, complete the form, get manager sign-off, then upload the signed copy. The aim is a clean audit trail, not extra admin.</p>
+          <p class="card-copy">Complete the sales verification form, get manager sign-off, then submit the signed copy through the agreed process.</p>
           <ul class="routine-steps">
             <li class="routine-item">
               <strong>Complete the sales verification form.</strong>
@@ -841,22 +682,16 @@
             </li>
             <li class="routine-item">
               <strong>Get manager sign-off.</strong>
-              <span>The version uploaded should be the signed version.</span>
+              <span>The submitted version should be signed.</span>
             </li>
             <li class="routine-item">
-              <strong>Upload the signed copy.</strong>
-              <span>This page currently has a placeholder upload area until storage or backend details are supplied.</span>
+              <strong>Submit the signed copy.</strong>
+              <span>Use the agreed submission route.</span>
             </li>
           </ul>
           <div class="button-row">
             <!-- TODO: Replace href with hosted PDF/DOCX URL for the sales verification form. -->
             <a class="primary-button" href="#todo-sales-verification-form" download>Download form</a>
-          </div>
-          <div class="upload-panel" aria-label="Upload signed sales verification form">
-            <!-- TODO: Wire this file input to the real upload destination once email, cloud storage, or backend endpoint is supplied. -->
-            <input type="file" id="signedForm" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
-            <button class="secondary-button" type="button" id="uploadPlaceholder">Upload signed form</button>
-            <div class="upload-status" id="uploadStatus">Upload destination needed before this can submit.</div>
           </div>
         </div>
       </section>
@@ -864,7 +699,7 @@
 
     <section class="app-section" id="get-the-app">
       <h2>Get the App</h2>
-      <p>Install Rig on your phone so clock in and daily report checks are easy to access before you start.</p>
+      <p>Install Rig to clock in and check reports.</p>
       <div class="store-row">
         <!-- TODO: Confirm internally that RIG by Retail Marketing Group is the exact LG group app before publishing to a wider audience. -->
         <a class="store-button" id="androidStore" href="https://play.google.com/store/apps/details?id=com.wisedigital.staffing.rig" rel="noopener">
@@ -875,9 +710,6 @@
           <svg width="25" height="30" viewBox="0 0 25 30" aria-hidden="true"><path fill="currentColor" d="M19.6 15.9c0-3 2.4-4.4 2.5-4.5-1.4-2-3.5-2.3-4.3-2.4-1.8-.2-3.5 1-4.4 1-.9 0-2.2-1-3.6-1-1.8 0-3.5 1.1-4.5 2.7-1.9 3.4-.5 8.5 1.4 11.3.9 1.4 2.1 3 3.5 2.9 1.4-.1 2-.9 3.7-.9s2.2.9 3.7.9c1.5 0 2.5-1.4 3.5-2.8 1.1-1.6 1.5-3.1 1.5-3.2-.1 0-3-.9-3-4zM16.6 7c.8-1 1.3-2.3 1.2-3.7-1.2.1-2.6.8-3.4 1.8-.8.9-1.4 2.3-1.2 3.6 1.3.1 2.6-.7 3.4-1.7z"/></svg>
           <span>Download on the <strong>App Store</strong></span>
         </a>
-      </div>
-      <div class="todo-strip">
-        TODO before final rollout: replace placeholder LG logo/colours/font if official assets are supplied, confirm Rig deep link scheme, confirm MeWe app link, add the real sales form URL, and connect the upload destination.
       </div>
     </section>
   </main>
@@ -894,8 +726,6 @@
     };
 
     const todayLabel = document.getElementById("todayLabel");
-    const uploadStatus = document.getElementById("uploadStatus");
-    const signedForm = document.getElementById("signedForm");
 
     function setTodayLabel() {
       const formatted = new Intl.DateTimeFormat("en-GB", {
@@ -932,20 +762,6 @@
           openWithFallback(CONFIG.meweDeepLink, CONFIG.meweFallback);
         }
       });
-    });
-
-    document.getElementById("uploadPlaceholder").addEventListener("click", () => {
-      const file = signedForm.files && signedForm.files[0];
-      uploadStatus.textContent = file
-        ? "Selected: " + file.name + ". Add an upload destination to submit it."
-        : "Choose the signed form first. Upload destination still needs to be supplied.";
-    });
-
-    signedForm.addEventListener("change", () => {
-      const file = signedForm.files && signedForm.files[0];
-      uploadStatus.textContent = file
-        ? "Ready to upload once the destination is connected: " + file.name
-        : "Upload destination needed before this can submit.";
     });
 
     setTodayLabel();
