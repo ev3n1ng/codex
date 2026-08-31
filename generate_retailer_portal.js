@@ -874,7 +874,6 @@ const currysProducts = [
     "price": "£4,699.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-w6-77-oled-ai-4k-hdr-true-wireless-smart-tv-2026-oled77w69la-10303103.html",
@@ -972,6 +971,7 @@ const currysProducts = [
     "price": "£3,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £400.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1101,7 +1101,6 @@ const currysProducts = [
     "price": "£1,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £70.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-48-oled-ai-4k-hdr-smart-tv-2026-oled48c66lb-10301933.html",
@@ -1281,7 +1280,7 @@ function moneyValue(value) {
 
 function meaningfulOffer(offer) {
   const text = String(offer || "");
-  return /myjl|my john lewis|member|install|gift|voucher|code|price matched|soundbar|trade in|recycling/i.test(text)
+  return /myjl|my john lewis|member|install|gift|voucher|code|price matched|soundbar|trade in|recycling|^Save GBP/i.test(text)
     && !/^Save £/i.test(text)
     && !/free delivery/i.test(text);
 }
