@@ -19,6 +19,10 @@
     {
       "source": "/planner2/:path*",
       "destination": "/planner2/index.html"
+    },
+    {
+      "source": "/new-starter-checklist/:path*",
+      "destination": "/new-starter-checklist/index.html"
     }
   ]
 }
