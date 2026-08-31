@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>New Starter Daily Checklist | LG Group</title>
-  <meta name="description" content="A daily routine checklist for LG group new starters, including clock in, reports, MeWe posting, VIP report checks, and signed sales verification.">
+  <title>New Starter Daily Routine | LG Group</title>
+  <meta name="description" content="A daily routine guide for LG group new starters, including clock in, reports, MeWe posting, VIP report checks, and signed sales verification.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
@@ -118,20 +118,6 @@
       font-weight: 600;
     }
 
-    .reset-button {
-      border: 1px solid var(--lg-line);
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--lg-red-deep);
-      min-height: 40px;
-      min-width: 98px;
-      padding: 0 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.75fr);
@@ -141,7 +127,7 @@
     }
 
     .hero-main,
-    .progress-panel,
+    .routine-panel,
     .card {
       position: relative;
       overflow: hidden;
@@ -271,9 +257,10 @@
       line-height: 1.55;
     }
 
-    .progress-panel {
+    .routine-panel {
       display: flex;
       flex-direction: column;
+      gap: 16px;
       padding: 22px;
       background: var(--white);
     }
@@ -286,36 +273,44 @@
       letter-spacing: 0.08em;
     }
 
-    .progress-number {
-      margin: 12px 0 4px;
+    .routine-title {
+      margin: 0;
       color: var(--lg-red);
       font-family: "Manrope", sans-serif;
-      font-size: 56px;
+      font-size: 34px;
       font-weight: 800;
-      line-height: 1;
+      line-height: 1.05;
     }
 
-    .progress-copy {
+    .routine-copy {
       margin: 0;
       color: var(--lg-muted);
       line-height: 1.45;
     }
 
-    .progress-track {
-      width: 100%;
-      height: 12px;
-      margin: auto 0 12px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: var(--lg-warm);
+    .routine-list {
+      display: grid;
+      gap: 10px;
+      margin: auto 0 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .progress-fill {
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--lg-red), #e34274);
-      transition: width 0.25s ease;
+    .routine-list li {
+      padding: 12px;
+      border-left: 4px solid var(--lg-red);
+      border-radius: var(--radius);
+      background: var(--lg-warm);
+      color: var(--lg-ink);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .routine-list small {
+      display: block;
+      margin-top: 3px;
+      color: var(--lg-muted);
+      font-weight: 500;
     }
 
     .quick-actions {
@@ -406,7 +401,7 @@
       line-height: 1.55;
     }
 
-    .checklist {
+    .routine-steps {
       display: grid;
       gap: 10px;
       margin: 0;
@@ -414,45 +409,27 @@
       list-style: none;
     }
 
-    .task {
-      display: grid;
-      grid-template-columns: 30px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
+    .routine-item {
       padding: 12px;
       border: 1px solid var(--lg-line);
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.76);
     }
 
-    .task input {
-      width: 22px;
-      height: 22px;
-      margin: 0;
-      accent-color: var(--lg-red);
-      cursor: pointer;
-    }
-
-    .task span {
+    .routine-item strong {
+      display: block;
       min-width: 0;
       line-height: 1.35;
-      font-weight: 650;
+      font-weight: 800;
     }
 
-    .task small {
+    .routine-item span {
       display: block;
       margin-top: 3px;
       color: var(--lg-muted);
       font-size: 13px;
       font-weight: 500;
       line-height: 1.35;
-    }
-
-    .task:has(input:checked) span {
-      color: var(--green);
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      text-decoration-color: rgba(21, 132, 102, 0.45);
     }
 
     .button-row {
@@ -673,12 +650,6 @@
         align-items: flex-start;
       }
 
-      .reset-button {
-        min-height: 36px;
-        min-width: 92px;
-        padding: 0 10px;
-      }
-
       .hero {
         grid-template-columns: 1fr;
       }
@@ -707,10 +678,6 @@
       .hero-visual img {
         min-height: 180px;
         object-position: 68% center;
-      }
-
-      .progress-track {
-        margin-top: 18px;
       }
 
       .quick-actions,
@@ -748,19 +715,18 @@
         <img class="brand-logo" src="/new-starter-checklist/assets/lg-electronics-logo.svg" alt="LG Electronics">
         <div class="brand-text">
           <p class="brand-title">LG Group Daily Routine</p>
-          <p class="brand-subtitle">New starter checklist</p>
+          <p class="brand-subtitle">New starter daily guide</p>
         </div>
       </div>
-      <button class="reset-button" type="button" id="resetDay">Reset today</button>
     </header>
 
     <section class="hero" aria-labelledby="pageTitle">
       <div class="hero-main">
         <div class="hero-content">
           <div class="hero-copy">
-            <span class="eyebrow">Daily routine planner</span>
-            <h1 id="pageTitle">Start the day, tick it off, keep moving.</h1>
-            <p>This is the everyday checklist for new starters: clock in, check reports, post the day&apos;s activity, confirm VIP reporting, and sort signed sales verification.</p>
+            <span class="eyebrow">Daily routine reference</span>
+            <h1 id="pageTitle">A clear daily rhythm for field work.</h1>
+            <p>Use this as a quick reference for the standards expected each day: start cleanly, keep reporting current, share useful activity, and close out any sales verification before it drifts.</p>
           </div>
           <figure class="hero-visual">
             <!-- Source: LG Newsroom OLED lifestyle image from "Exploring Uniquely Personalized Lifestyle with LG OLED TVs". -->
@@ -769,11 +735,15 @@
           </figure>
         </div>
       </div>
-      <aside class="progress-panel" aria-live="polite">
+      <aside class="routine-panel" aria-live="polite">
         <span class="date-stamp" id="todayLabel">Today</span>
-        <div class="progress-number"><span id="doneCount">0</span>/<span id="totalCount">0</span></div>
-        <p class="progress-copy" id="progressCopy">Tick items as you complete them. Your checks are saved on this device for today.</p>
-        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        <h2 class="routine-title">Daily standards</h2>
+        <p class="routine-copy">These are not admin hoops. They keep the day visible, make support easier, and stop end-of-week reporting from becoming a scramble.</p>
+        <ul class="routine-list">
+          <li>Start of day<small>Clock in and read the latest reports before store activity starts.</small></li>
+          <li>During the day<small>Capture anything useful while it is still fresh.</small></li>
+          <li>End of day<small>Make sure updates, VIP reporting, and sales verification are current.</small></li>
+        </ul>
       </aside>
     </section>
 
@@ -790,15 +760,15 @@
           <div class="card-header">
             <h2>Clock In</h2>
           </div>
-          <p class="card-copy">First task of the day: clock in on the Rig app, then check today&apos;s reports before you start store activity.</p>
-          <ul class="checklist">
-            <li class="task">
-              <input type="checkbox" data-check-id="clock-rig">
-              <span>Clock in on the Rig app.<small>If the app does not open, use the app store buttons below to install it.</small></span>
+          <p class="card-copy">Before anything else, clock in on the Rig app and check today&apos;s reports. That gives you the latest view of priorities, issues, and follow-up before you start store activity.</p>
+          <ul class="routine-steps">
+            <li class="routine-item">
+              <strong>Clock in on Rig.</strong>
+              <span>If the app does not open, use the app store buttons below to install it.</span>
             </li>
-            <li class="task">
-              <input type="checkbox" data-check-id="clock-reports">
-              <span>Check today&apos;s reports.<small>Look for anything that affects your focus, store priorities, or follow-up activity.</small></span>
+            <li class="routine-item">
+              <strong>Read today&apos;s reports.</strong>
+              <span>Look for anything that changes your focus, store priorities, or conversations for the day.</span>
             </li>
           </ul>
           <div class="button-row">
@@ -819,15 +789,15 @@
               <img src="/new-starter-checklist/assets/mewe-logo.png" alt="MeWe">
             </span>
           </div>
-          <p class="card-copy">Post at least once per day on MeWe about any sales made or training completed that day.</p>
-          <ul class="checklist">
-            <li class="task">
-              <input type="checkbox" data-check-id="mewe-sales">
-              <span>Share sales made today.<small>Keep it short, useful, and relevant for the LG group.</small></span>
+          <p class="card-copy">Post at least once per day on MeWe. Sales made, training completed, useful store context, and good learnings all help the wider LG group stay informed.</p>
+          <ul class="routine-steps">
+            <li class="routine-item">
+              <strong>Share what happened today.</strong>
+              <span>Keep it practical: sales, training, questions answered, or useful store activity.</span>
             </li>
-            <li class="task">
-              <input type="checkbox" data-check-id="mewe-training">
-              <span>Share training completed today.<small>Include what you covered if it helps the group.</small></span>
+            <li class="routine-item">
+              <strong>Make the post useful to the group.</strong>
+              <span>A short, clear update is better than a long write-up no one can scan.</span>
             </li>
           </ul>
           <div class="button-row">
@@ -843,21 +813,15 @@
           <div class="card-header">
             <h2>VIP Report Check</h2>
           </div>
-          <p class="card-copy">Use this as a quick self-check. It does not submit anything; it is just a daily reminder to keep reporting on track.</p>
+          <p class="card-copy">Use this as a quick professional self-check. If your role requires VIP reporting, keep it current instead of leaving it until the end of the week.</p>
           <div class="split">
             <div class="prompt">
-              <p class="prompt-title">Is a VIP report required for your role?</p>
-              <div class="choice-row" role="radiogroup" aria-label="VIP report required">
-                <label class="choice"><input type="radio" name="vipRequired" value="yes"><span>Yes</span></label>
-                <label class="choice"><input type="radio" name="vipRequired" value="no"><span>No</span></label>
-              </div>
+              <p class="prompt-title">Confirm whether VIP reporting applies to your role.</p>
+              <p class="routine-copy">If it does, know the cadence and what information is expected before the week gets busy.</p>
             </div>
             <div class="prompt">
-              <p class="prompt-title">Have you submitted one this week?</p>
-              <div class="choice-row" role="radiogroup" aria-label="VIP report submitted this week">
-                <label class="choice"><input type="radio" name="vipSubmitted" value="yes"><span>Yes</span></label>
-                <label class="choice"><input type="radio" name="vipSubmitted" value="no"><span>No</span></label>
-              </div>
+              <p class="prompt-title">Check whether this week is already covered.</p>
+              <p class="routine-copy">If not, decide when it will be submitted rather than letting it sit as loose admin.</p>
             </div>
           </div>
         </div>
@@ -869,19 +833,19 @@
           <div class="card-header">
             <h2>Sales Verification Form</h2>
           </div>
-          <p class="card-copy">Complete the sales verification form, get it signed off by a manager, then upload the signed copy.</p>
-          <ul class="checklist">
-            <li class="task">
-              <input type="checkbox" data-check-id="sales-complete">
-              <span>Complete the sales verification form.<small>Use the download button below once the final document URL is supplied.</small></span>
+          <p class="card-copy">When a sale needs verification, complete the form, get manager sign-off, then upload the signed copy. The aim is a clean audit trail, not extra admin.</p>
+          <ul class="routine-steps">
+            <li class="routine-item">
+              <strong>Complete the sales verification form.</strong>
+              <span>Use the download button once the final document URL is supplied.</span>
             </li>
-            <li class="task">
-              <input type="checkbox" data-check-id="sales-signoff">
-              <span>Get manager sign-off.<small>The uploaded version should be the signed version.</small></span>
+            <li class="routine-item">
+              <strong>Get manager sign-off.</strong>
+              <span>The version uploaded should be the signed version.</span>
             </li>
-            <li class="task">
-              <input type="checkbox" data-check-id="sales-uploaded">
-              <span>Upload the signed form.<small>This page currently has a placeholder upload area until storage or backend details are supplied.</small></span>
+            <li class="routine-item">
+              <strong>Upload the signed copy.</strong>
+              <span>This page currently has a placeholder upload area until storage or backend details are supplied.</span>
             </li>
           </ul>
           <div class="button-row">
@@ -920,7 +884,6 @@
 
   <script>
     const CONFIG = {
-      storageKey: "lg-new-starter-checklist-v1",
       // TODO: Replace with the confirmed Rig custom URL scheme when supplied, for example "rigapp://".
       rigDeepLink: "rigapp://",
       rigIosStore: "https://apps.apple.com/gb/app/rig/id6468933472",
@@ -930,60 +893,17 @@
       meweFallback: "https://mewe.com/"
     };
 
-    const todayKey = new Date().toISOString().slice(0, 10);
-    const checkboxes = Array.from(document.querySelectorAll("[data-check-id]"));
-    const radioGroups = Array.from(document.querySelectorAll("input[type='radio']"));
-    const totalCountEl = document.getElementById("totalCount");
-    const doneCountEl = document.getElementById("doneCount");
-    const progressFill = document.getElementById("progressFill");
-    const progressCopy = document.getElementById("progressCopy");
     const todayLabel = document.getElementById("todayLabel");
     const uploadStatus = document.getElementById("uploadStatus");
     const signedForm = document.getElementById("signedForm");
 
-    function loadState() {
-      try {
-        const parsed = JSON.parse(localStorage.getItem(CONFIG.storageKey) || "{}");
-        return parsed.date === todayKey ? parsed : { date: todayKey, checks: {}, radios: {} };
-      } catch (error) {
-        return { date: todayKey, checks: {}, radios: {} };
-      }
-    }
-
-    let state = loadState();
-
-    function saveState() {
-      localStorage.setItem(CONFIG.storageKey, JSON.stringify(state));
-    }
-
-    function updateProgress() {
-      const done = checkboxes.filter((box) => box.checked).length;
-      const total = checkboxes.length;
-      const percent = total ? Math.round((done / total) * 100) : 0;
-      totalCountEl.textContent = total;
-      doneCountEl.textContent = done;
-      progressFill.style.width = percent + "%";
-      progressCopy.textContent = done === total
-        ? "Daily checklist complete on this device."
-        : "Tick items as you complete them. Your checks are saved on this device for today.";
-    }
-
-    function restoreState() {
-      checkboxes.forEach((box) => {
-        box.checked = Boolean(state.checks[box.dataset.checkId]);
-      });
-
-      radioGroups.forEach((radio) => {
-        radio.checked = state.radios[radio.name] === radio.value;
-      });
-
+    function setTodayLabel() {
       const formatted = new Intl.DateTimeFormat("en-GB", {
         weekday: "long",
         day: "numeric",
         month: "long"
       }).format(new Date());
       todayLabel.textContent = formatted;
-      updateProgress();
     }
 
     function openWithFallback(deepLink, fallbackUrl) {
@@ -1004,23 +924,6 @@
       return CONFIG.rigAndroidStore;
     }
 
-    checkboxes.forEach((box) => {
-      box.addEventListener("change", () => {
-        state.checks[box.dataset.checkId] = box.checked;
-        saveState();
-        updateProgress();
-      });
-    });
-
-    radioGroups.forEach((radio) => {
-      radio.addEventListener("change", () => {
-        if (radio.checked) {
-          state.radios[radio.name] = radio.value;
-          saveState();
-        }
-      });
-    });
-
     document.querySelectorAll("[data-open-app]").forEach((button) => {
       button.addEventListener("click", () => {
         if (button.dataset.openApp === "rig") {
@@ -1029,12 +932,6 @@
           openWithFallback(CONFIG.meweDeepLink, CONFIG.meweFallback);
         }
       });
-    });
-
-    document.getElementById("resetDay").addEventListener("click", () => {
-      state = { date: todayKey, checks: {}, radios: {} };
-      saveState();
-      restoreState();
     });
 
     document.getElementById("uploadPlaceholder").addEventListener("click", () => {
@@ -1051,7 +948,7 @@
         : "Upload destination needed before this can submit.";
     });
 
-    restoreState();
+    setTodayLabel();
   </script>
 </body>
 </html>
