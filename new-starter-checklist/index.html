@@ -89,20 +89,18 @@
       min-width: 0;
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--white);
-      background: var(--lg-red);
-      font-family: "Manrope", sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.34);
+    .brand-logo {
+      width: 148px;
+      max-width: 40vw;
+      height: auto;
+      display: block;
       flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+      padding-left: 12px;
+      border-left: 1px solid rgba(165, 0, 52, 0.24);
     }
 
     .brand-title {
@@ -125,16 +123,18 @@
       background: rgba(255, 255, 255, 0.72);
       color: var(--lg-red-deep);
       min-height: 40px;
+      min-width: 98px;
       padding: 0 12px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 13px;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.75fr);
       gap: 18px;
       align-items: stretch;
       margin-bottom: 18px;
@@ -154,9 +154,10 @@
     .hero-main {
       padding: clamp(24px, 5vw, 44px);
       background:
-        linear-gradient(135deg, rgba(165, 0, 52, 0.96), rgba(76, 10, 30, 0.96)),
+        linear-gradient(135deg, rgba(165, 0, 52, 0.98), rgba(42, 4, 18, 0.98)),
         var(--lg-red);
       color: var(--white);
+      min-height: 420px;
     }
 
     .hero-main::after {
@@ -168,6 +169,67 @@
       bottom: -150px;
       border-radius: 50%;
       border: 48px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.8fr);
+      gap: clamp(18px, 4vw, 36px);
+      align-items: center;
+      min-height: 100%;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: #18010b;
+      box-shadow: 0 24px 60px rgba(25, 0, 9, 0.42);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: block;
+      object-fit: cover;
+      object-position: 62% center;
+      filter: saturate(1.08) contrast(1.02);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(22, 0, 8, 0.68), transparent 54%);
+    }
+
+    .hero-caption {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-caption strong {
+      font-family: "Manrope", sans-serif;
+      font-size: 16px;
     }
 
     .eyebrow {
@@ -195,7 +257,7 @@
       z-index: 1;
       max-width: 720px;
       margin: 16px 0 12px;
-      font-size: clamp(34px, 8vw, 68px);
+      font-size: clamp(34px, 5vw, 58px);
       line-height: 0.96;
     }
 
@@ -422,7 +484,8 @@
     .mewe-card {
       border-color: rgba(0, 119, 255, 0.3);
       background:
-        linear-gradient(140deg, rgba(0, 119, 255, 0.08), rgba(255, 255, 255, 0.78) 48%),
+        radial-gradient(circle at 96% 2%, rgba(249, 35, 125, 0.15), transparent 26%),
+        linear-gradient(140deg, rgba(0, 119, 255, 0.12), rgba(255, 255, 255, 0.78) 48%),
         var(--white);
     }
 
@@ -437,15 +500,21 @@
 
     .mewe-badge {
       align-self: start;
-      min-height: 30px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: var(--white);
-      background: var(--mewe-blue);
-      font-family: "Manrope", sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
+      width: 116px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 119, 255, 0.16);
+    }
+
+    .mewe-badge img {
+      max-width: 92px;
+      height: auto;
+      display: block;
     }
 
     .mewe-button {
@@ -606,11 +675,38 @@
 
       .reset-button {
         min-height: 36px;
+        min-width: 92px;
         padding: 0 10px;
       }
 
       .hero {
         grid-template-columns: 1fr;
+      }
+
+      .brand-logo {
+        width: 112px;
+      }
+
+      .brand-text {
+        padding-left: 10px;
+      }
+
+      .hero-main {
+        min-height: 0;
+        padding: 24px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 180px;
+      }
+
+      .hero-visual img {
+        min-height: 180px;
+        object-position: 68% center;
       }
 
       .progress-track {
@@ -648,9 +744,9 @@
   <main class="shell">
     <header class="topbar">
       <div class="brand" aria-label="LG group">
-        <!-- TODO: Replace text mark with official LG logo asset when supplied. -->
-        <div class="brand-mark">LG</div>
-        <div>
+        <!-- Source: Wikimedia Commons file sourced to LG Electronics brand assets. Trademark rights may still apply. -->
+        <img class="brand-logo" src="/new-starter-checklist/assets/lg-electronics-logo.svg" alt="LG Electronics">
+        <div class="brand-text">
           <p class="brand-title">LG Group Daily Routine</p>
           <p class="brand-subtitle">New starter checklist</p>
         </div>
@@ -660,9 +756,18 @@
 
     <section class="hero" aria-labelledby="pageTitle">
       <div class="hero-main">
-        <span class="eyebrow">Daily routine planner</span>
-        <h1 id="pageTitle">Start the day, tick it off, keep moving.</h1>
-        <p>This is the everyday checklist for new starters: clock in, check reports, post the day&apos;s activity, confirm VIP reporting, and sort signed sales verification.</p>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow">Daily routine planner</span>
+            <h1 id="pageTitle">Start the day, tick it off, keep moving.</h1>
+            <p>This is the everyday checklist for new starters: clock in, check reports, post the day&apos;s activity, confirm VIP reporting, and sort signed sales verification.</p>
+          </div>
+          <figure class="hero-visual">
+            <!-- Source: LG Newsroom OLED lifestyle image from "Exploring Uniquely Personalized Lifestyle with LG OLED TVs". -->
+            <img src="/new-starter-checklist/assets/lg-oled-lifestyle.png" alt="LG OLED display in a daily work setup">
+            <figcaption class="hero-caption"><strong>LG OLED</strong><span>Daily focus, reports, follow-up</span></figcaption>
+          </figure>
+        </div>
       </div>
       <aside class="progress-panel" aria-live="polite">
         <span class="date-stamp" id="todayLabel">Today</span>
@@ -709,7 +814,10 @@
         <div>
           <div class="card-header">
             <h2>MeWe Daily Post</h2>
-            <span class="mewe-badge">MeWe</span>
+            <span class="mewe-badge">
+              <!-- Source: Wikimedia Commons file sourced to mewe.com. Trademark rights may still apply. -->
+              <img src="/new-starter-checklist/assets/mewe-logo.png" alt="MeWe">
+            </span>
           </div>
           <p class="card-copy">Post at least once per day on MeWe about any sales made or training completed that day.</p>
           <ul class="checklist">
