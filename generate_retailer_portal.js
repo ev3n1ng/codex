@@ -545,7 +545,7 @@ const currysProducts = [
     "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED55G56LS",
     "size": 55,
     "price": "£1,299.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £500.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
