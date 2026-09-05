@@ -10,7 +10,6 @@
     "price": "£5,499.00",
     "availability": "Available to order",
     "offers": [
-      "Free wall install (GBP 135 value)",
       "10% MyJL member discount"
     ],
     "url": "https://www.johnlewis.com/lg-oled83g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-one-wall-design-light-satin-silver/p113362530"
@@ -25,9 +24,7 @@
     "size": 77,
     "price": "£2,949.00",
     "availability": "Available to order",
-    "offers": [
-      "Free wall install (GBP 135 value)"
-    ],
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled77g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362529"
   },
   {
@@ -40,9 +37,7 @@
     "size": 65,
     "price": "£1,999.00",
     "availability": "Available to order",
-    "offers": [
-      "Free wall install (GBP 135 value)"
-    ],
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled65g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362527"
   },
   {
@@ -81,9 +76,7 @@
     "size": 55,
     "price": "£1,499.00",
     "availability": "Available to order",
-    "offers": [
-      "Free wall install (GBP 135 value)"
-    ],
+    "offers": [],
     "url": "https://www.johnlewis.com/lg-oled55g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362526"
   },
   {
@@ -108,7 +101,7 @@
     "gen": "5",
     "size": 48,
     "price": "£1,044.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "Save £100 and get free recycling when you trade in your old TV"
     ],
@@ -161,11 +154,11 @@
     "series": "C",
     "gen": "5",
     "size": 65,
-    "price": "£1,499.00",
+    "price": "£1,299.00",
     "availability": "Available to order",
     "offers": [
-      "Free wall install (GBP 135 value)",
-      "Get an LG US40TR Bluetooth Soundbar for free when bought with this item"
+      "Get an LG US40TR Bluetooth Soundbar for free when bought with this item",
+      "Save £200"
     ],
     "url": "https://www.johnlewis.com/lg-oled65c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-dark-titan-silver/p113530624"
   },
@@ -357,11 +350,12 @@
     "series": "W",
     "gen": "6",
     "size": 83,
-    "price": "£6,799.00",
+    "price": "£5,799.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
       "Get x2 LG Sound Suite M7 Wireless Bluetooth Wi-Fi Speaker with Dolby Atmos, Black for free when bought with this item",
+      "Save £1,000",
       "Save £300 and get free recycling when you trade in your old TV"
     ],
     "url": "https://www.johnlewis.com/lg-oled83w69la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-wallpaper-design-zero-connect-box-umber-brown/p115301780"
@@ -391,12 +385,13 @@
     "series": "W",
     "gen": "6",
     "size": 77,
-    "price": "£4,699.00",
+    "price": "£4,199.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
       "Get x2 LG Sound Suite M7 Wireless Bluetooth Wi-Fi Speaker with Dolby Atmos, Black for free when bought with this item",
-      "Save £300 and get free recycling when you trade in your old TV"
+      "Save £300 and get free recycling when you trade in your old TV",
+      "Save £500"
     ],
     "url": "https://www.johnlewis.com/lg-oled77w69la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-wallpaper-design-zero-connect-box-umber-brown/p115281106"
   },
@@ -609,11 +604,10 @@
     "gen": "6",
     "size": 48,
     "price": "£1,199.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "Free wall install (GBP 135 value)",
       "Get the LG US20A Bluetooth All-in-One Soundbar for free when bought with this item",
-      "Save £100",
       "Save £100 and get free recycling when you trade in your old TV"
     ],
     "url": "https://www.johnlewis.com/lg-oled48c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p115239963"
