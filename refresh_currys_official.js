@@ -93,7 +93,7 @@ function extractReportData(file) {
 }
 
 function isSearchUrl(url) {
-  return /\/search\?/i.test(url);
+  return /\/search(?:\?|$)|[?&]q=/i.test(url);
 }
 
 function isBlockedHtml(html) {
