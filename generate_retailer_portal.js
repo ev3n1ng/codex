@@ -623,7 +623,7 @@ const currysProducts = [
     "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C54LA",
     "size": 65,
     "price": "£1,499.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £100.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
