@@ -545,10 +545,11 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED55G56LS",
     "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,299.00",
+    "availability": "Listed",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save up to 50% on selected soundbars when bought with any LG TV",
+      "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled55g56ls-10282094.html",
     "model": "OLED55G56LS",
@@ -687,7 +688,6 @@ const currysProducts = [
     "price": "£949.00",
     "availability": "Listed",
     "offers": [
-      "Save £40.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
@@ -1068,7 +1068,6 @@ const currysProducts = [
     "price": "£1,599.00",
     "availability": "Listed",
     "offers": [
-      "Save £20.00",
       "Save up to 50% on selected soundbars when bought with any LG TV",
       "Free delivery"
     ],
