@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173348">
+  <title>Visit History | Alberto Store Planner</title>
+  <style>
+    :root {
+      --ink: #172331;
+      --muted: #68737d;
+      --line: #dce1e3;
+      --paper: #f2f3f0;
+      --surface: #ffffff;
+      --navy: #173348;
+      --blue: #2472b8;
+      --green: #18895d;
+      --amber: #b77a12;
+      --red: #c64d3e;
+      --radius: 7px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+
+    .topbar {
+      color: #fff;
+      background: var(--navy);
+      border-bottom: 4px solid #d4a62a;
+    }
+    .topbar-inner, main { width: min(1440px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .eyebrow {
+      margin: 0 0 2px;
+      color: #a9c3d5;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(25px, 4vw, 39px); font-weight: 500; }
+    .back-link {
+      flex: 0 0 auto;
+      padding: 10px 13px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .back-link:hover { background: rgba(255,255,255,.1); }
+
+    main { padding: 26px 0 48px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .metric { min-height: 104px; padding: 17px 19px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; font: 500 34px/1 Georgia, serif; }
+    .metric span { display: block; margin-top: 9px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .metric.progress strong { color: var(--green); }
+
+    .section { margin-top: 24px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+    h2 { margin: 0; font: 500 25px/1.1 Georgia, serif; }
+    .section-note { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .field {
+      height: 39px;
+      min-width: 180px;
+      padding: 0 11px;
+      border: 1px solid #cbd3d7;
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: #fff;
+    }
+    .field:focus { outline: 3px solid rgba(36,114,184,.18); border-color: var(--blue); }
+    button.field { min-width: 0; cursor: pointer; font-weight: 800; }
+
+    .table-shell { overflow: auto; border: 1px solid var(--line); background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 11px 13px;
+      color: #4e5a63;
+      background: #edf0f1;
+      border-bottom: 1px solid #cdd4d7;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    td { padding: 11px 13px; border-bottom: 1px solid #e6e9e9; vertical-align: middle; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #f7f9fa; }
+    .store-name { min-width: 220px; font-weight: 800; }
+    .postcode, .date { white-space: nowrap; }
+    .muted { color: var(--muted); }
+    .count { font-variant-numeric: tabular-nums; font-weight: 800; }
+    .badge {
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #edf0f1;
+      color: #52606a;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .badge.complete { color: #116842; background: #e2f3eb; }
+    .badge.due { color: #8a5200; background: #fff0d1; }
+    .badge.over { color: #1d5790; background: #e3effa; }
+    .empty { padding: 34px 16px; text-align: center; color: var(--muted); }
+    .history-shell { max-height: 430px; }
+    .visit-index { color: var(--blue); font-weight: 900; }
+
+    @media (max-width: 900px) {
+      .summary { grid-template-columns: repeat(2, 1fr); }
+      .metric { border-bottom: 1px solid var(--line); }
+      .metric:nth-child(2n) { border-right: 0; }
+      .metric:last-child { grid-column: 1 / -1; border-bottom: 0; }
+      .section-head { align-items: stretch; flex-direction: column; }
+      .controls { justify-content: stretch; }
+      .controls .field { flex: 1 1 180px; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner, main { width: min(100% - 20px, 1440px); }
+      .topbar-inner { min-height: 70px; }
+      .back-link { padding: 9px 10px; }
+      main { padding-top: 16px; }
+      .summary { grid-template-columns: 1fr 1fr; }
+      .metric { min-height: 88px; padding: 14px; }
+      .metric strong { font-size: 28px; }
+      .metric span { font-size: 10px; }
+      h2 { font-size: 22px; }
+      td, th { padding-left: 10px; padding-right: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <p class="eyebrow">Alberto Scott territory</p>
+        <h1>Quarter visit record</h1>
+      </div>
+      <a class="back-link" href="/planner/">Back to planner</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Quarter summary">
+      <div class="metric"><strong id="storeCount">0</strong><span>Stores</span></div>
+      <div class="metric"><strong id="quarterTarget">0</strong><span>Quarter target</span></div>
+      <div class="metric progress"><strong id="visitsLogged">0</strong><span>Visits logged</span></div>
+      <div class="metric"><strong id="storesComplete">0</strong><span>Stores complete</span></div>
+      <div class="metric"><strong id="visitsRemaining">0</strong><span>Visits remaining</span></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Call file dashboard</h2>
+          <p class="section-note" id="quarterLabel">Current quarter</p>
+        </div>
+        <div class="controls">
+          <input class="field" id="search" type="search" placeholder="Search store or postcode" aria-label="Search stores">
+          <select class="field" id="statusFilter" aria-label="Filter by completion status">
+            <option value="all">All progress</option>
+            <option value="due">Still due</option>
+            <option value="complete">Complete</option>
+            <option value="no-target">No target</option>
+          </select>
+          <button class="field" id="refresh" type="button">Refresh</button>
+        </div>
+      </div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Store</th><th>Postcode</th><th>Priority</th><th>Visited</th><th>Target</th><th>Remaining</th><th>Last visit</th><th>Progress</th></tr></thead>
+          <tbody id="storeRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Visit history</h2>
+          <p class="section-note">Most recent visits appear first.</p>
+        </div>
+      </div>
+      <div class="table-shell history-shell">
+        <table>
+          <thead><tr><th>Date</th><th>Store</th><th>Postcode</th><th>Visit number</th><th>Quarter target</th></tr></thead>
+          <tbody id="historyRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/planner/history/stores.js"></script>
+  <script>
+    const STORAGE_KEY = 'alberto-store-planner-visits-v1';
+    const stores = Array.isArray(window.PLANNER_STORES) ? window.PLANNER_STORES : [];
+    const byId = new Map(stores.map(store => [store.id, store]));
+
+    function readVisits() {
+      try {
+        const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return value && typeof value === 'object' ? value : {};
+      } catch {
+        return {};
+      }
+    }
+
+    function parseVisitDate(value) {
+      if (!value) return null;
+      const dateOnly = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (dateOnly) return new Date(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3]));
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? null : date;
+    }
+
+    function currentQuarter() {
+      const now = new Date();
+      const quarter = Math.floor(now.getMonth() / 3);
+      return {
+        number: quarter + 1,
+        year: now.getFullYear(),
+        start: new Date(now.getFullYear(), quarter * 3, 1),
+        end: new Date(now.getFullYear(), quarter * 3 + 3, 1)
+      };
+    }
+
+    function formatDate(date) {
+      return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(date);
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));
+    }
+
+    function quarterVisits(visits, quarter) {
+      const result = {};
+      Object.entries(visits).forEach(([storeId, dates]) => {
+        result[storeId] = (Array.isArray(dates) ? dates : []).map(parseVisitDate).filter(date => date && date >= quarter.start && date < quarter.end);
+      });
+      return result;
+    }
+
+    function progressFor(store, count) {
+      const target = Number(store.visitFrequencyPerQuarter || 0);
+      if (!target) return { key: 'no-target', label: 'No target', className: '' };
+      if (count > target) return { key: 'complete', label: 'Above target', className: 'over' };
+      if (count === target) return { key: 'complete', label: 'Complete', className: 'complete' };
+      return { key: 'due', label: count ? 'In progress' : 'Not started', className: 'due' };
+    }
+
+    function render() {
+      const quarter = currentQuarter();
+      const visits = quarterVisits(readVisits(), quarter);
+      const target = stores.reduce((sum, store) => sum + Number(store.visitFrequencyPerQuarter || 0), 0);
+      const logged = Object.values(visits).reduce((sum, dates) => sum + dates.length, 0);
+      const complete = stores.filter(store => {
+        const storeTarget = Number(store.visitFrequencyPerQuarter || 0);
+        return storeTarget > 0 && (visits[store.id] || []).length >= storeTarget;
+      }).length;
+
+      document.getElementById('storeCount').textContent = stores.length;
+      document.getElementById('quarterTarget').textContent = target;
+      document.getElementById('visitsLogged').textContent = logged;
+      document.getElementById('storesComplete').textContent = complete;
+      document.getElementById('visitsRemaining').textContent = Math.max(0, target - logged);
+      document.getElementById('quarterLabel').textContent = `Q${quarter.number} ${quarter.year} progress from visits saved in this browser`;
+
+      const query = document.getElementById('search').value.trim().toLowerCase();
+      const filter = document.getElementById('statusFilter').value;
+      const rows = stores.map(store => {
+        const dates = visits[store.id] || [];
+        const count = dates.length;
+        const target = Number(store.visitFrequencyPerQuarter || 0);
+        const progress = progressFor(store, count);
+        return { store, dates, count, target, remaining: Math.max(0, target - count), progress };
+      }).filter(row => {
+        const haystack = `${row.store.name} ${row.store.postcode} ${row.store.status} ${row.store.locationSwCode}`.toLowerCase();
+        return (!query || haystack.includes(query)) && (filter === 'all' || row.progress.key === filter);
+      }).sort((a, b) => b.remaining - a.remaining || b.target - a.target || a.store.name.localeCompare(b.store.name));
+
+      document.getElementById('storeRows').innerHTML = rows.length ? rows.map(row => {
+        const latest = row.dates.slice().sort((a, b) => b - a)[0];
+        return `<tr>
+          <td class="store-name">${escapeHtml(row.store.name)}</td>
+          <td class="postcode">${escapeHtml(row.store.postcode)}</td>
+          <td><span class="badge">${escapeHtml(row.store.status)}</span></td>
+          <td class="count">${row.count}</td>
+          <td class="count">${row.target || '-'}</td>
+          <td class="count">${row.target ? row.remaining : '-'}</td>
+          <td class="date">${latest ? formatDate(latest) : '<span class="muted">None this quarter</span>'}</td>
+          <td><span class="badge ${row.progress.className}">${row.progress.label}</span></td>
+        </tr>`;
+      }).join('') : '<tr><td class="empty" colspan="8">No stores match these filters.</td></tr>';
+
+      const history = [];
+      Object.entries(visits).forEach(([storeId, dates]) => {
+        const store = byId.get(storeId);
+        if (!store) return;
+        dates.slice().sort((a, b) => a - b).forEach((date, index) => history.push({ store, date, index: index + 1 }));
+      });
+      history.sort((a, b) => b.date - a.date || a.store.name.localeCompare(b.store.name));
+
+      document.getElementById('historyRows').innerHTML = history.length ? history.map(item => `<tr>
+        <td class="date">${formatDate(item.date)}</td>
+        <td class="store-name">${escapeHtml(item.store.name)}</td>
+        <td class="postcode">${escapeHtml(item.store.postcode)}</td>
+        <td class="visit-index">${item.index}</td>
+        <td class="count">${Number(item.store.visitFrequencyPerQuarter || 0) || '-'}</td>
+      </tr>`).join('') : '<tr><td class="empty" colspan="5">No visits have been logged for this quarter in this browser.</td></tr>';
+    }
+
+    document.getElementById('search').addEventListener('input', render);
+    document.getElementById('statusFilter').addEventListener('change', render);
+    document.getElementById('refresh').addEventListener('click', render);
+    window.addEventListener('storage', event => { if (event.key === STORAGE_KEY) render(); });
+    render();
+  </script>
+</body>
+</html>

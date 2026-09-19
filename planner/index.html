@@ -8,8 +8,29 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script type="module" crossorigin src="/planner/assets/index-CSDv89Tp.js"></script>
     <link rel="stylesheet" crossorigin href="/planner/assets/index-Do5bOicX.css">
+    <style>
+      .history-link {
+        position: fixed;
+        z-index: 10000;
+        top: 18px;
+        right: 176px;
+        padding: 9px 13px;
+        border: 1px solid #d7dde2;
+        border-radius: 6px;
+        color: #152332;
+        background: #fff;
+        font: 700 13px/1.2 "Avenir Next", Avenir, sans-serif;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(21, 35, 50, 0.12);
+      }
+      .history-link:hover { border-color: #2472b8; color: #2472b8; }
+      @media (max-width: 720px) {
+        .history-link { top: auto; right: 16px; bottom: 16px; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <a class="history-link" href="/planner/history/">Visit history</a>
   </body>
 </html>

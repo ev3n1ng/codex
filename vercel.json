@@ -13,6 +13,10 @@
       "destination": "/quiznight100/index.html"
     },
     {
+      "source": "/planner/history/:path*",
+      "destination": "/planner/history/index.html"
+    },
+    {
       "source": "/planner/:path*",
       "destination": "/planner/index.html"
     },
