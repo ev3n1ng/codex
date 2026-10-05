@@ -795,7 +795,7 @@ const currysProducts = [
     "title": "LG G6 97\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED97G64LW",
     "size": 97,
     "price": "£15,999.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "15% off marked price with code VIS15OFF",
       "Free delivery"
@@ -810,7 +810,7 @@ const currysProducts = [
     "title": "LG G6 83\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED83G64LW",
     "size": 83,
     "price": "£5,499.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "15% off marked price with code VIS15OFF",
       "Free delivery"
