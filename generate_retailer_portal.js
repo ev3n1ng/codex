@@ -750,7 +750,7 @@ const currysProducts = [
     "title": "LG B5 65\" OLED AI 4K HDR Smart TV 2025 - OLED65B56LA",
     "size": 65,
     "price": "£1,199.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Free delivery"
     ],
@@ -810,7 +810,7 @@ const currysProducts = [
     "title": "LG G6 83\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED83G64LW",
     "size": 83,
     "price": "£5,499.00",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "15% off marked price with code VIS15OFF",
       "Free delivery"
