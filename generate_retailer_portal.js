@@ -677,6 +677,7 @@ const currysProducts = [
     "price": "£999.00",
     "availability": "Listed",
     "offers": [
+      "Save £20.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c54la-10281782.html",
@@ -928,7 +929,7 @@ const currysProducts = [
     "price": "£2,199.00",
     "availability": "Listed",
     "offers": [
-      "Save £30.00",
+      "Save £20.00",
       "10% off marked price with code TV10",
       "Free delivery"
     ],
