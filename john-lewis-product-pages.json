@@ -589,12 +589,13 @@
     "series": "C",
     "gen": "6",
     "size": 55,
-    "price": "£1,599.00",
+    "price": "£1,399.00",
     "availability": "Available to order",
     "offers": [
       "Claim a £100 John Lewis E-Gift Card",
       "Save £500 on the LG USC9S Bluetooth Wi-Fi Soundbar when you purchase it with this item",
-      "Claim 10% cashback (Via redemption)"
+      "Claim 10% cashback (Via redemption)",
+      "Save £200"
     ],
     "url": "https://www.johnlewis.com/lg-oled55c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-dark-titan-silver/p115240000"
   },
@@ -622,12 +623,13 @@
     "series": "C",
     "gen": "6",
     "size": 48,
-    "price": "£1,199.00",
+    "price": "£1,099.00",
     "availability": "Available to order",
     "offers": [
       "Claim a £100 John Lewis E-Gift Card",
       "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item",
-      "Claim 10% cashback (Via redemption)"
+      "Claim 10% cashback (Via redemption)",
+      "Save £100"
     ],
     "url": "https://www.johnlewis.com/lg-oled48c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p115239963"
   },
@@ -655,12 +657,13 @@
     "series": "C",
     "gen": "6",
     "size": 42,
-    "price": "£1,099.00",
+    "price": "£999.00",
     "availability": "Available to order",
     "offers": [
       "Claim a £50 John Lewis E-Gift Card",
       "Save £50 on the LG US40TR Bluetooth Soundbar, Black when bought with this item",
-      "Claim 10% cashback (Via redemption)"
+      "Claim 10% cashback (Via redemption)",
+      "Save £100"
     ],
     "url": "https://www.johnlewis.com/lg-oled42c64la-2026-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-42-inch-with-dolby-atmos-dark-titan-silver/p115239735"
   },
@@ -676,8 +679,8 @@
     "availability": "Available to order",
     "offers": [
       "Claim a £200 John Lewis E-Gift Card",
-      "Price matched: save £200",
-      "Save £850 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item"
+      "Save £850 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
+      "Save £200"
     ],
     "url": "https://www.johnlewis.com/lg-oled83b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-83-inch-with-dolby-atmos-umber-brown/p115308528"
   },
@@ -709,7 +712,6 @@
     "availability": "Available to order",
     "offers": [
       "Claim a £200 John Lewis E-Gift Card",
-      "Price matched",
       "Save £850 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item"
     ],
     "url": "https://www.johnlewis.com/lg-oled77b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-77-inch-with-dolby-atmos-umber-brown/p115232495"
@@ -769,12 +771,12 @@
     "series": "B",
     "gen": "6",
     "size": 48,
-    "price": "£899.99",
+    "price": "£899.00",
     "availability": "Available to order",
     "offers": [
       "Claim a £50 John Lewis E-Gift Card",
-      "Price matched: save £99.01",
-      "Save £150 on LG US60T soundbar when bought with this item"
+      "Save £150 on LG US60T soundbar when bought with this item",
+      "Save £100"
     ],
     "url": "https://www.johnlewis.com/lg-oled48b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p115232088"
   },
