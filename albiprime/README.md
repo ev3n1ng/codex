@@ -18,8 +18,8 @@ Prime Video-style parody ("albi prime"): fixed top nav with tabs and search, a f
 
 ## Managing content (for Codex)
 
-- **Add or edit a clip:** edit `catalogue.json` only. Optional fields: `displayTitle` (clean name shown on the site; falls back to `title`), `synopsis` (one or two sentences shown in the hero and detail dialog), `featured: true` (puts the clip in the hero carousel and the "Featured" row; up to 6 are used). Add the thumbnail as `assets/<id>.jpg` (1280x720).
-- **Rows and tabs:** edit `site.json`. Each row is `{ "title", "filter" }` and each tab is `{ "label", "filter" }`. Valid filters: `featured`, `all`, `8k`, `4k`, `hdr`, `60fps` (tabs also accept `home`).
+- **Add or edit a clip:** edit `catalogue.json` only. Required: `category` (one of the slugs in `site.json`: `film-trailers`, `branded-content`, `other`, `audio`). Optional: `displayTitle` (clean name shown on the site; falls back to `title`), `synopsis` (one or two sentences shown in the hero and detail dialog), `featured: true` (adds the clip to the hero carousel and the "Featured" row; up to 14 are used). Add the thumbnail as `assets/<id>.jpg` (1280x720). Audio items may omit `width`, `height` and `fps`; they are shown as "Audio" without video specs.
+- **Categories:** edit `categories` in `site.json` (`slug`, `label`, `blurb`). Each becomes a nav tab, a home-page row and a page with 8K/4K/HDR/60 fps filter chips. Empty categories keep their tab (with a "check back soon" message) but get no home row.
 - **Colours and fonts:** change the tokens at the top of `styles.css` (`--bg`, `--blue`, `--surface`, and so on).
 - Do not hard-code clip data in `app.js` or `index.html`.
 

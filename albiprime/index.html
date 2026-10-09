@@ -40,9 +40,10 @@
   <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured clips" hidden></section>
   <div id="rows"></div>
   <section class="browse" id="browse" hidden>
-    <div class="browse-head"><h1 id="browse-title"></h1><p id="results" role="status" aria-live="polite"></p></div>
+    <div class="browse-head"><div><h1 id="browse-title"></h1><p class="blurb" id="browse-blurb"></p></div><p id="results" role="status" aria-live="polite"></p></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by quality" hidden></div>
     <div class="grid" id="grid"></div>
-    <div class="empty" id="empty" hidden><p>No results found.</p><a class="btn btn-ghost" href="#/">Back to home</a></div>
+    <div class="empty" id="empty" hidden><p id="empty-msg">No results found.</p><a class="btn btn-ghost" href="#/">Back to home</a></div>
   </section>
   <p class="load-error" id="error" role="alert" hidden>The collection could not be loaded. Please refresh to try again.</p>
 </main>

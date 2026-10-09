@@ -148,6 +148,14 @@ main { min-height: 80vh; }
 .empty .btn { margin-top: 12px; }
 .load-error { padding: 140px var(--gutter); text-align: center; color: var(--muted); }
 
+/* ---------- Category page ---------- */
+.blurb { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 60ch; }
+.blurb:empty { display: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 26px; }
+.chip { min-height: 38px; padding: 0 16px; border: 1px solid var(--line); border-radius: 19px; background: transparent; color: #c9d4db; font-size: 14px; font-weight: 600; transition: background .15s, color .15s, border-color .15s; }
+.chip:hover { border-color: #5c7083; color: var(--text); }
+.chip.on { background: var(--text); color: #0f171e; border-color: var(--text); }
+
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); padding: 28px var(--gutter) 40px; color: var(--muted); font-size: 12.5px; display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; }
 .footer p { margin: 0; max-width: 78ch; }

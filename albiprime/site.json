@@ -1,50 +1,28 @@
 {
-  "rows": [
-    {
-      "title": "Featured",
-      "filter": "featured"
-    },
-    {
-      "title": "8K Ultra HD",
-      "filter": "8k"
-    },
-    {
-      "title": "4K HDR",
-      "filter": "hdr"
-    },
-    {
-      "title": "Smooth 60 fps",
-      "filter": "60fps"
-    },
-    {
-      "title": "All clips",
-      "filter": "all"
-    }
-  ],
-  "nav": [
-    {
-      "label": "Home",
-      "filter": "home"
-    },
-    {
-      "label": "8K",
-      "filter": "8k"
-    },
-    {
-      "label": "4K",
-      "filter": "4k"
-    },
-    {
-      "label": "HDR",
-      "filter": "hdr"
-    },
-    {
-      "label": "60 fps",
-      "filter": "60fps"
-    }
-  ],
   "hero": {
     "interval": 4000,
     "max": 14
-  }
+  },
+  "categories": [
+    {
+      "slug": "film-trailers",
+      "label": "Film Trailers",
+      "blurb": "Official trailers and teasers in the highest quality available."
+    },
+    {
+      "slug": "branded-content",
+      "label": "Branded Content",
+      "blurb": "Adverts, brand films and sponsored showcases."
+    },
+    {
+      "slug": "other",
+      "label": "Other",
+      "blurb": "Scenes, demos and everything that doesn't fit elsewhere."
+    },
+    {
+      "slug": "audio",
+      "label": "Audio",
+      "blurb": "Music and sound tracks for testing your speakers and soundbar."
+    }
+  ]
 }
