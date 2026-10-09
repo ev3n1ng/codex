@@ -856,7 +856,7 @@ const currysProducts = [
     "title": "LG W6 77\" OLED AI 4K HDR True Wireless Smart TV 2026 - OLED77W69LA",
     "size": 77,
     "price": "£3,999.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £700.00",
       "Free delivery"
