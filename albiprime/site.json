@@ -42,5 +42,9 @@
       "label": "60 fps",
       "filter": "60fps"
     }
-  ]
+  ],
+  "hero": {
+    "interval": 4000,
+    "max": 14
+  }
 }

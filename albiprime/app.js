@@ -55,11 +55,64 @@ function card(c) {
   return b;
 }
 
-/* ---------- Hero (static branded header; stats come from the catalogue) ---------- */
+/* ---------- Hero carousel (thumbnails; order = featured first, then the rest; settings in site.json "hero") ---------- */
+let heroIndex = 0, heroTimer = null, heroPaused = false;
+const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
+const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>';
 function renderHero() {
-  const stats = [[catalogue.length, 'clips'], [pick('8k').length, 'in 8K'], [pick('hdr').length, 'HDR'], [pick('60fps').length, '60 fps']].filter(([n]) => n);
-  $('#stats').innerHTML = stats.map(([n, l]) => `<li><b>${n}</b> ${esc(l)}</li>`).join('');
+  const max = site.hero?.max || 14;
+  const items = [...catalogue.filter(c => c.featured), ...catalogue.filter(c => !c.featured)].slice(0, max);
+  heroIndex = 0;
+  hero.innerHTML = `${items.map((c, i) => `
+    <article class="slide${i === 0 ? ' on' : ''}" aria-hidden="${i === 0 ? 'false' : 'true'}" aria-label="${i + 1} of ${items.length}">
+      <img class="slide-img" src="${esc(c.thumbnail)}" alt="" ${i ? 'loading="lazy"' : 'fetchpriority="high"'}>
+      <div class="slide-copy">
+        <p class="kicker">${tick}Free with albi prime</p>
+        <h2>${esc(title(c))}</h2>
+        <div class="badges">${badges(c)}</div>
+        <p class="synopsis">${esc(c.synopsis || `${resolution(c)} ${isHdr(c) ? c.dynamicRange + ' ' : ''}demo · ${codec(c)} · ${size(c.bytes)}`)}</p>
+        <div class="actions">
+          ${downloadLink(c) ? `<a class="btn btn-primary" href="${esc(downloadLink(c))}" target="_blank" rel="noopener" tabindex="${i ? -1 : 0}">${dlIcon}Download</a>` : ''}
+          <button class="btn btn-ghost" type="button" data-id="${esc(c.id)}" tabindex="${i ? -1 : 0}">More details</button>
+        </div>
+      </div>
+    </article>`).join('')}
+    <div class="hero-ctrl">
+      <button type="button" class="pause" aria-label="Pause slideshow">${pauseIcon}</button>
+      <div class="dots" role="tablist" aria-label="Choose slide">${items.map((_, i) => `<button type="button" role="tab" class="${i === 0 ? 'on' : ''}" aria-selected="${i === 0}" aria-label="Slide ${i + 1}" data-i="${i}"></button>`).join('')}</div>
+    </div>`;
+  hero.querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => openDetail(catalogue.find(c => c.id === b.dataset.id))));
+  hero.querySelectorAll('.dots button').forEach(b => b.addEventListener('click', () => { goHero(+b.dataset.i); startHero(); }));
+  hero.querySelector('.pause').addEventListener('click', e => {
+    heroPaused = !heroPaused;
+    e.currentTarget.innerHTML = heroPaused ? playIcon : pauseIcon;
+    e.currentTarget.setAttribute('aria-label', heroPaused ? 'Play slideshow' : 'Pause slideshow');
+    heroPaused ? stopHero() : startHero();
+  });
+  startHero();
 }
+function goHero(i) {
+  const slides = hero.querySelectorAll('.slide'), dots = hero.querySelectorAll('.dots button');
+  if (!slides.length) return;
+  heroIndex = (i + slides.length) % slides.length;
+  slides.forEach((s, n) => {
+    const on = n === heroIndex;
+    s.classList.toggle('on', on); s.setAttribute('aria-hidden', String(!on));
+    s.querySelectorAll('a,button').forEach(el => el.tabIndex = on ? 0 : -1);
+  });
+  dots.forEach((d, n) => { d.classList.toggle('on', n === heroIndex); d.setAttribute('aria-selected', String(n === heroIndex)); });
+}
+function startHero() {
+  stopHero();
+  if (heroPaused || hero.hidden || hero.querySelectorAll('.slide').length < 2) return;
+  heroTimer = setInterval(() => goHero(heroIndex + 1), site.hero?.interval || 4000);
+}
+function stopHero() { clearInterval(heroTimer); heroTimer = null; }
+hero.addEventListener('mouseenter', stopHero);
+hero.addEventListener('mouseleave', startHero);
+hero.addEventListener('focusin', stopHero);
+hero.addEventListener('focusout', startHero);
+document.addEventListener('visibilitychange', () => document.hidden ? stopHero() : startHero());
 
 /* ---------- Rows ---------- */
 function renderRows() {
@@ -89,6 +142,7 @@ function route() {
   const key = (location.hash.replace(/^#\/?/, '') || 'home').toLowerCase();
   const isHome = key === 'home' && !query;
   hero.hidden = !isHome; rowsEl.hidden = !isHome; browse.hidden = isHome;
+  isHome ? startHero() : stopHero();
   document.querySelectorAll('#tabs a').forEach(a => {
     const on = !query && a.dataset.filter === key;
     a.classList.toggle('on', on);
