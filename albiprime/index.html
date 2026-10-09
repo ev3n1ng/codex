@@ -1,19 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><link rel="canonical" href="https://albertoscott.co.uk/albiprime/"><meta name="theme-color" content="#080d14">
-<title>Albi Prime</title><meta name="description" content="TV demo clips. 4K, 8K and HDR downloads.">
-<link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://albertoscott.co.uk/albiprime/">
+<meta name="theme-color" content="#0f171e">
+<title>albi prime</title>
+<meta name="description" content="Free 4K, 8K and HDR demo clips for your TV. A parody streaming service.">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#library">Skip to clips</a>
-<header class="masthead"><a class="brand" href="#library" aria-label="Albi Prime">albi <span>prime</span></a><a class="home-link" href="/">Alberto Scott ↗</a></header>
-<main id="library">
-<div class="section-heading"><h1>Clips</h1><p id="results" role="status"></p></div>
-<div class="toolbar"><div class="filters" role="group" aria-label="Filter clips"><button class="active" aria-pressed="true" data-filter="all">All demos</button><button aria-pressed="false" data-filter="4k">4K</button><button aria-pressed="false" data-filter="8k">8K</button><button aria-pressed="false" data-filter="hdr">HDR</button><button aria-pressed="false" data-filter="60fps">60 fps</button></div><label class="search"><span class="sr-only">Search clips</span><input id="search" type="search" placeholder="Search clips" autocomplete="off"></label></div>
-<div class="grid" id="cards"></div><div class="empty" id="empty" hidden><p>No matches.</p><button id="reset" class="text-button">Clear filters</button></div>
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/" aria-label="albi prime home">
+    <span class="brand-word">albi <b>prime</b></span>
+    <svg class="swoosh" viewBox="0 0 64 12" aria-hidden="true"><path d="M2 3c14 8 36 9 58 0" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M54 1.5l7 1.6-3.4 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <nav class="tabs" id="tabs" aria-label="Browse"></nav>
+  <div class="nav-right">
+    <form class="search" id="search-form" role="search">
+      <button type="button" class="icon-btn" id="search-toggle" aria-label="Search" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <input id="search" type="search" placeholder="Search" autocomplete="off" aria-label="Search clips">
+    </form>
+    <a class="profile" href="/" aria-label="Back to AlbertoScott.co.uk">
+      <span class="avatar" aria-hidden="true">A</span><span class="profile-name">Alberto Scott</span>
+    </a>
+  </div>
+</header>
+
+<main id="content">
+  <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured clips" hidden></section>
+  <div id="rows"></div>
+  <section class="browse" id="browse" hidden>
+    <div class="browse-head"><h1 id="browse-title"></h1><p id="results" role="status" aria-live="polite"></p></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden><p>No results found.</p><a class="btn btn-ghost" href="#/">Back to home</a></div>
+  </section>
+  <p class="load-error" id="error" role="alert" hidden>The collection could not be loaded. Please refresh to try again.</p>
 </main>
-<footer><span>Albi Prime</span><a href="/">AlbertoScott.co.uk</a></footer>
-<dialog id="detail"><button class="close" aria-label="Close clip details">×</button><p class="eyebrow" id="detail-category"></p><h2 id="detail-title"></h2><dl></dl><p class="detail-note"></p><a class="primary download-link" hidden target="_blank" rel="noopener"></a><a class="source-link" target="_blank" rel="noopener"></a></dialog>
-</body></html>
+
+<footer class="footer">
+  <p class="disclaimer">albi prime is an independent parody project. Not affiliated with, endorsed by or connected to Amazon or Prime Video. Clips are third-party demo footage; follow the source link on each title for its original owner.</p>
+  <p><a href="/">AlbertoScott.co.uk</a></p>
+</footer>
+
+<dialog id="detail" aria-labelledby="detail-title">
+  <button class="close" aria-label="Close details">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+  <div class="detail-art"><img id="detail-img" alt=""></div>
+  <div class="detail-body">
+    <h2 id="detail-title"></h2>
+    <div class="badges" id="detail-badges"></div>
+    <p class="detail-synopsis" id="detail-synopsis"></p>
+    <div class="actions">
+      <a class="btn btn-primary download-link" hidden target="_blank" rel="noopener"></a>
+      <span class="btn btn-disabled pending" hidden>Upload pending</span>
+      <a class="btn btn-ghost source-link" target="_blank" rel="noopener"></a>
+    </div>
+    <dl></dl>
+  </div>
+</dialog>
+</body>
+</html>

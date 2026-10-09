@@ -14,8 +14,15 @@ All 14 download URLs were exported through Finder and individually matched to th
 
 ## Presentation
 
-Compact clip grid with quality filters, search, file specifications and external download links. No promotional hero, slogans, profile control, onboarding or playback-guide sections. Thumbnails come from the source videos; technical badges come from downloaded stream metadata.
+Prime Video-style parody ("albi prime"): fixed top nav with tabs and search, a featured hero carousel, horizontal content rows and a detail dialog with a blue Download button. The footer carries a parody disclaimer; keep it. Thumbnails come from the source videos; technical badges come from downloaded stream metadata.
+
+## Managing content (for Codex)
+
+- **Add or edit a clip:** edit `catalogue.json` only. Optional fields: `displayTitle` (clean name shown on the site; falls back to `title`), `synopsis` (one or two sentences shown in the hero and detail dialog), `featured: true` (puts the clip in the hero carousel and the "Featured" row; up to 6 are used). Add the thumbnail as `assets/<id>.jpg` (1280x720).
+- **Rows and tabs:** edit `site.json`. Each row is `{ "title", "filter" }` and each tab is `{ "label", "filter" }`. Valid filters: `featured`, `all`, `8k`, `4k`, `hdr`, `60fps` (tabs also accept `home`).
+- **Colours and fonts:** change the tokens at the top of `styles.css` (`--bg`, `--blue`, `--surface`, and so on).
+- Do not hard-code clip data in `app.js` or `index.html`.
 
 ## Verification
 
-Serve the repository with a static HTTP server and open `/albiprime/`. Verify desktop and mobile widths, resolution/HDR/frame-rate filters, search, empty state/reset, keyboard dialog dismissal and external source links. No build step is required.
+Serve the repository with a static HTTP server and open `/albiprime/`. Verify desktop and mobile widths, the nav tabs (#/8k, #/4k, #/hdr, #/60fps), search, the empty state, hero dots, keyboard dialog dismissal and external source links. No build step is required.
