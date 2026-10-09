@@ -108,10 +108,6 @@ function startHero() {
   heroTimer = setInterval(() => goHero(heroIndex + 1), site.hero?.interval || 4000);
 }
 function stopHero() { clearInterval(heroTimer); heroTimer = null; }
-hero.addEventListener('mouseenter', stopHero);
-hero.addEventListener('mouseleave', startHero);
-hero.addEventListener('focusin', stopHero);
-hero.addEventListener('focusout', startHero);
 document.addEventListener('visibilitychange', () => document.hidden ? stopHero() : startHero());
 
 /* ---------- Rows ---------- */
@@ -203,9 +199,11 @@ function openDetail(c) {
   if (link) { a.href = link; a.innerHTML = `${dlIcon}Download · ${esc(size(c.bytes))}`; }
   const src = dialog.querySelector('.source-link');
   src.href = c.sourceUrl; src.textContent = 'YouTube source';
+  stopHero();
   dialog.showModal();
   dialog.scrollTop = 0;
 }
+dialog.addEventListener('close', startHero);
 dialog.querySelector('.close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', e => {
   if (e.target !== dialog) return;
