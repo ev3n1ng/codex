@@ -1,6 +1,6 @@
 'use strict';
 /* albi prime — all content comes from catalogue.json (clips) and site.json (rows + nav). No build step. */
-let catalogue = [], site = { rows: [], nav: [] }, query = '', heroIndex = 0, heroTimer = null;
+let catalogue = [], site = { rows: [], nav: [] }, query = '';
 
 const $ = s => document.querySelector(s);
 const hero = $('#hero'), rowsEl = $('#rows'), browse = $('#browse'), grid = $('#grid'), dialog = $('#detail');
@@ -55,49 +55,11 @@ function card(c) {
   return b;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (static branded header; stats come from the catalogue) ---------- */
 function renderHero() {
-  let items = pick('featured');
-  if (!items.length) items = catalogue.slice(0, 5);
-  items = items.slice(0, 6);
-  heroIndex = 0;
-  hero.innerHTML = `${items.map((c, i) => `
-    <article class="slide${i === 0 ? ' on' : ''}" aria-hidden="${i === 0 ? 'false' : 'true'}" aria-label="${i + 1} of ${items.length}">
-      <img class="slide-img" src="${esc(c.thumbnail)}" alt="" ${i ? 'loading="lazy"' : 'fetchpriority="high"'}>
-      <div class="slide-copy">
-        <p class="kicker">${tick}Free with albi prime</p>
-        <h2>${esc(title(c))}</h2>
-        <div class="badges">${badges(c)}</div>
-        ${c.synopsis ? `<p class="synopsis">${esc(c.synopsis)}</p>` : `<p class="synopsis">${esc(resolution(c))} ${isHdr(c) ? esc(c.dynamicRange) + ' ' : ''}demo · ${esc(codec(c))} · ${esc(size(c.bytes))}</p>`}
-        <div class="actions">
-          ${downloadLink(c) ? `<a class="btn btn-primary" href="${esc(downloadLink(c))}" target="_blank" rel="noopener">${dlIcon}Download</a>` : ''}
-          <button class="btn btn-ghost" type="button" data-id="${esc(c.id)}">More details</button>
-        </div>
-      </div>
-    </article>`).join('')}
-    ${items.length > 1 ? `<div class="dots" role="tablist" aria-label="Choose slide">${items.map((_, i) => `<button type="button" role="tab" class="${i === 0 ? 'on' : ''}" aria-selected="${i === 0}" aria-label="Slide ${i + 1}" data-i="${i}"></button>`).join('')}</div>` : ''}`;
-  hero.querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => openDetail(catalogue.find(c => c.id === b.dataset.id))));
-  hero.querySelectorAll('.dots button').forEach(b => b.addEventListener('click', () => { goHero(+b.dataset.i); startHero(); }));
-  hero.hidden = false;
-  startHero();
+  const stats = [[catalogue.length, 'clips'], [pick('8k').length, 'in 8K'], [pick('hdr').length, 'HDR'], [pick('60fps').length, '60 fps']].filter(([n]) => n);
+  $('#stats').innerHTML = stats.map(([n, l]) => `<li><b>${n}</b> ${esc(l)}</li>`).join('');
 }
-function goHero(i) {
-  const slides = hero.querySelectorAll('.slide'), dots = hero.querySelectorAll('.dots button');
-  if (!slides.length) return;
-  heroIndex = (i + slides.length) % slides.length;
-  slides.forEach((s, n) => { s.classList.toggle('on', n === heroIndex); s.setAttribute('aria-hidden', String(n !== heroIndex)); });
-  dots.forEach((d, n) => { d.classList.toggle('on', n === heroIndex); d.setAttribute('aria-selected', String(n === heroIndex)); });
-}
-function startHero() {
-  stopHero();
-  if (reduceMotion.matches || hero.querySelectorAll('.slide').length < 2) return;
-  heroTimer = setInterval(() => goHero(heroIndex + 1), 8000);
-}
-function stopHero() { clearInterval(heroTimer); heroTimer = null; }
-hero.addEventListener('mouseenter', stopHero);
-hero.addEventListener('mouseleave', startHero);
-hero.addEventListener('focusin', stopHero);
-hero.addEventListener('focusout', startHero);
 
 /* ---------- Rows ---------- */
 function renderRows() {
@@ -127,7 +89,6 @@ function route() {
   const key = (location.hash.replace(/^#\/?/, '') || 'home').toLowerCase();
   const isHome = key === 'home' && !query;
   hero.hidden = !isHome; rowsEl.hidden = !isHome; browse.hidden = isHome;
-  if (isHome) { startHero(); } else { stopHero(); }
   document.querySelectorAll('#tabs a').forEach(a => {
     const on = !query && a.dataset.filter === key;
     a.classList.toggle('on', on);
