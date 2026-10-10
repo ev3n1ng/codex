@@ -102,11 +102,10 @@ function startHero() {
 function stopHero() { clearInterval(heroTimer); heroTimer = null; }
 document.addEventListener('visibilitychange', () => document.hidden ? stopHero() : startHero());
 
-/* ---------- Rows (Featured, then one row per category; empty rows are skipped) ---------- */
+/* ---------- Rows (one row per category; empty rows are skipped) ---------- */
 const chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function renderRows() {
-  const rows = [{ title: 'Featured', items: catalogue.filter(c => c.featured) },
-    ...site.categories.map(k => ({ title: k.label, slug: k.slug, items: catalogue.filter(c => c.category === k.slug) }))];
+  const rows = site.categories.map(k => ({ title: k.label, slug: k.slug, items: catalogue.filter(c => c.category === k.slug) }));
   rowsEl.replaceChildren(...rows.map(r => {
     if (!r.items.length) return document.createComment('');
     const sec = document.createElement('section');
