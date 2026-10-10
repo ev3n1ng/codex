@@ -584,10 +584,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 77\" OLED evo AI 4K HDR Smart TV 2025 - OLED77C54LA",
     "size": 77,
-    "price": "£1,599.97",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c54la-10281779.html",
     "model": "OLED77C54LA",
