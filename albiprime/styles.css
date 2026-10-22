@@ -121,9 +121,9 @@ main { min-height: 80vh; }
 @media (hover: none) { .arrow { display: none; } }
 
 /* ---------- Cards ---------- */
-.card { flex: 0 0 clamp(220px, 21vw, 330px); padding: 0; border: 0; background: transparent; text-align: left; scroll-snap-align: start; display: block; transition: transform .22s cubic-bezier(.2, .8, .2, 1); }
+.card { flex: 0 0 clamp(220px, 21vw, 330px); min-width: 0; padding: 0; border: 0; background: transparent; text-align: left; scroll-snap-align: start; display: block; transition: transform .22s cubic-bezier(.2, .8, .2, 1); }
 .card-art { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 0 transparent; transition: box-shadow .2s; }
-.card-art img { width: 100%; height: 100%; object-fit: cover; }
+.card-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .card-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 5, 13, .55), transparent 45%); pointer-events: none; }
 .card-tag { position: absolute; z-index: 1; left: 8px; top: 8px; font-size: 11px; font-weight: 700; line-height: 1; padding: 4px 6px; border-radius: 3px; background: rgba(0, 5, 13, .78); }
 .card-info { display: block; padding: 9px 2px 0; }
@@ -204,13 +204,15 @@ dd { margin: 0; text-align: right; }
   .btn { min-height: 46px; padding: 0 20px; }
   .btn-ghost { flex: 0 1 auto; }
   .browse { padding-top: 124px; }
-  .card { flex-basis: 62vw; }
-  .grid { grid-template-columns: 1fr 1fr; gap: 22px 10px; }
-  .grid .card-title { font-size: 14px; }
+  .row-link { opacity: 1; transform: none; }
+  .track { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); grid-auto-columns: calc((100% - 10px) / 2); gap: 18px 10px; align-items: start; padding-bottom: 18px; }
+  .arrow { display: none; }
+  .card-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; height: 2.6em; font-size: 13px; white-space: normal; }
+  .card-sub { font-size: 11px; white-space: nowrap; }
+  .card-sub .tick { width: 11px; height: 11px; }
+  .card-tag { left: 6px; top: 6px; padding: 3px 4px; font-size: 10px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 10px; }
   .footer { flex-direction: column; }
-}
-@media (max-width: 420px) {
-  .grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
