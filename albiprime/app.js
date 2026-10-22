@@ -187,6 +187,9 @@ function openDetail(c) {
   $('#detail-img').src = c.thumbnail;
   $('#detail-title').textContent = title(c);
   $('#detail-badges').innerHTML = badges(c);
+  const credit = $('#detail-credit');
+  credit.textContent = c.submittedBy ? `Submitted by ${c.submittedBy}` : '';
+  credit.hidden = !c.submittedBy;
   $('#detail-synopsis').textContent = c.synopsis || '';
   const specs = [
     ['Category', catLabel(c.category)],
