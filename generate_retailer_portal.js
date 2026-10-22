@@ -466,7 +466,6 @@ const currysProducts = [
     "price": "£2,949.00",
     "availability": "Listed",
     "offers": [
-      "Save £650.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
@@ -749,10 +748,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG B5 65\" OLED AI 4K HDR Smart TV 2025 - OLED65B56LA",
     "size": 65,
-    "price": "£1,199.00",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-b5-65-oled-ai-4k-hdr-smart-tv-2025-oled65b56la-10281772.html",
     "model": "OLED65B56LA",
@@ -809,7 +808,7 @@ const currysProducts = [
     "title": "LG G6 83\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED83G64LW",
     "size": 83,
     "price": "£5,499.00",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Free delivery"
     ],
@@ -1051,7 +1050,8 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £400.99",
-      "Free delivery"
+      "Free delivery",
+      "10% off marked price with code LGSAVE10"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-55-oled-evo-ai-4k-hdr-smart-tv-2026-oled55c66lb-10301816.html",
     "model": "OLED55C66LB",
@@ -1098,7 +1098,7 @@ const currysProducts = [
     "price": "£999.00",
     "availability": "Listed",
     "offers": [
-      "Save £100.00",
+      "Save £200.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-42-oled-ai-4k-hdr-smart-tv-2026-oled42c64la-10301785.html",
