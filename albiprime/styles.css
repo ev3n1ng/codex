@@ -207,6 +207,8 @@ dd { margin: 0; text-align: right; }
   .row-link { opacity: 1; transform: none; }
   .track { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); grid-auto-columns: calc((100% - 10px) / 2); gap: 18px 10px; align-items: start; padding-bottom: 18px; }
   .arrow { display: none; }
+  .card { transition: none; }
+  .card:hover { transform: none; }
   .card-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; height: 2.6em; font-size: 13px; white-space: normal; }
   .card-sub { font-size: 11px; white-space: nowrap; }
   .card-sub .tick { width: 11px; height: 11px; }
