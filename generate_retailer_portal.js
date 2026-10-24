@@ -1050,8 +1050,7 @@ const currysProducts = [
     "availability": "Listed",
     "offers": [
       "Save £400.99",
-      "Free delivery",
-      "10% off marked price with code LGSAVE10"
+      "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-55-oled-evo-ai-4k-hdr-smart-tv-2026-oled55c66lb-10301816.html",
     "model": "OLED55C66LB",
