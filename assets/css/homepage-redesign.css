@@ -1,0 +1,177 @@
+/*
+  Homepage "kill the AI website" pass.
+
+  This static export has no Next.js source project to rebuild, so this
+  file is appended (as an inline <style> block, not a <link>) after every
+  React-hydration-managed node in index.html's <body>, and after the
+  generated Tailwind stylesheet in cascade order. Because the generated
+  Tailwind rules live inside `@layer theme`/`@layer utilities` and these
+  rules are deliberately left unlayered, this stylesheet wins the cascade
+  without needing !important almost anywhere — it only overrides custom
+  properties and a handful of shared classes, so it never has to touch
+  index.html's markup, project data, or hydration payload.
+
+  What this removes: ambient glow blobs, glassmorphism/backdrop-blur
+  cards, the violet->pink->cyan gradient text, and the "everything is a
+  rounded-full pill" shape language. What it adds: a self-hosted serif
+  display face (Fraunces) for real type contrast against Inter body text,
+  a single restrained ink/brass palette instead of a SaaS gradient, and a
+  per-card accent cycle plus a "Live" status label to give the project
+  grid a bespoke, catalogue feel instead of a template grid feel.
+*/
+
+@font-face {
+  font-family: "Fraunces Display";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/fraunces-variable.woff2") format("woff2");
+}
+
+:root {
+  /* Ink + brass instead of blue-black + violet/pink/cyan */
+  --background: #0c0a07;
+  --background-alt: #121009;
+  --foreground: #f2ead9;
+  --muted-foreground: #988d7a;
+
+  --color-violet: #b67f34;
+  --color-violet-soft: #d4a662;
+  --color-pink: #b67f34;
+  --color-cyan: #b67f34;
+
+  --card: #151109;
+  --card-border: #2b2419;
+  --card-border-hover: #c0903f73;
+  --ring: #d4a662;
+
+  --font-sora: "Fraunces Display", Georgia, serif;
+
+  --radius-xl: 0.375rem;
+  --radius-2xl: 0.5rem;
+  --radius-3xl: 0.625rem;
+}
+
+/* ---- Kill the glow blobs ---- */
+.ambient-backdrop {
+  background: var(--background);
+}
+.ambient-blob {
+  display: none;
+}
+.noise-overlay {
+  opacity: 0.05;
+}
+
+/* ---- Kill glassmorphism: solid ink surfaces, hairline borders ---- */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.glass-hover:hover,
+.glass-hover:focus-visible {
+  border-color: var(--card-border-hover);
+  box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.7);
+  transform: translateY(-3px);
+}
+
+/* ---- Kill the rainbow gradient text: one considered accent ---- */
+.text-gradient {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+  color: var(--color-violet-soft);
+}
+
+/* ---- Flatten the "everything is a pill" shape language ---- */
+.rounded-full {
+  border-radius: 4px;
+}
+.bg-white\/5 {
+  border: 1px solid var(--card-border);
+}
+
+/* Links/buttons hover to the accent instead of plain white */
+.hover\:text-foreground:hover {
+  color: var(--color-violet-soft);
+}
+
+/* Grounded shadow instead of a violet glow behind the hero video frame */
+.rounded-2xl[style*="box-shadow"] {
+  box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.7) !important;
+}
+
+::selection {
+  background: var(--color-violet);
+  color: #0c0a07;
+}
+
+/* ---- Typography: tighter, more deliberate tracking on display type ---- */
+.font-display {
+  letter-spacing: -0.01em;
+}
+
+/* ---- Per-card identity: a thin top accent, cycling per project ----
+   Gives the catalogue a bespoke, hand-set feel instead of one identical
+   card repeated eleven times, without touching card markup or data. */
+#work article {
+  position: relative;
+}
+#work article::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--row-accent, var(--color-violet-soft));
+  z-index: 1;
+}
+#work article:nth-of-type(5n + 1) {
+  --row-accent: #c0903f; /* brass */
+}
+#work article:nth-of-type(5n + 2) {
+  --row-accent: #7d8f6a; /* moss */
+}
+#work article:nth-of-type(5n + 3) {
+  --row-accent: #a85c42; /* rust */
+}
+#work article:nth-of-type(5n + 4) {
+  --row-accent: #5f7d8c; /* slate */
+}
+#work article:nth-of-type(5n + 5) {
+  --row-accent: #b08a9e; /* clay rose */
+}
+
+/* "Live" status label on every card but the featured one (which already
+   carries its own "Featured project" badge in the same corner). Both are
+   true, structural facts about the catalogue — not decoration. */
+#work a:has(img[loading="lazy"]) {
+  position: relative;
+}
+#work a:has(img[loading="lazy"])::after {
+  content: "● Live";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-violet-soft);
+  background: rgba(12, 10, 7, 0.6);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 0.3rem 0.55rem;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-hover:hover,
+  .glass-hover:focus-visible {
+    transform: none;
+  }
+}
