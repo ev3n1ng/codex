@@ -1,0 +1,61 @@
+{
+  "generator": "Built-in image_gen via imagegen skill",
+  "created": "2026-10-25",
+  "assets": [
+    {
+      "slug": "lg-oled-price-checker",
+      "prompt": "Use case: stylized-concept. Create one finished portfolio project thumbnail, landscape 16:9. Project: LG OLED Price Checker, a TV price comparison tool comparing retailers and model years. A beautiful ultra-thin OLED television floating over a sleek dark comparison desk, screen filled with vivid liquid colour, three luminous price-tag cards and a subtle descending price graph beside it. High-end cinematic 3D editorial illustration, rich black, electric cyan and magenta, crisp lighting and sophisticated materials. Strong readable central subject, clean composition legible at small card size. Include only the exact title 'OLED PRICE CHECKER' in bold polished typography, safely inset within the central 80% of the frame. No fake retailer logos, no invented prices, no extra copy, no watermarks. This is conceptual project cover art, not a screenshot. Output one image only.",
+      "file": "lg-oled-price-checker.webp"
+    },
+    {
+      "slug": "albi-prime",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A spectacular cinematic media library: a floating luminous play-button prism surrounded by widescreen film frames showing a jet in clouds, an alien planet landscape, vibrant abstract HDR colour and a midnight city. Make the idea of browsing high-resolution TV demos obvious. Glossy cinema glass, deep navy, electric blue, vivid cinematic light, elegant expansive composition. Text (verbatim): \"ALBI PRIME\". Output one image only.",
+      "file": "albi-prime.webp"
+    },
+    {
+      "slug": "yoshi-bird",
+      "prompt": "Create a polished landscape 16:9 portfolio thumbnail illustration for a cheerful endless-flyer arcade game. A charming original round mint-green bird flying rightward through floating garden arches above pastel hills, with clouds, small stars and gentle motion trails. Tactile paper sculpture mixed with beautiful 3D storybook art, peach dawn light, mint blue yellow palette, playful soaring movement. Strong central composition, rich detail but instantly readable small. No characters from existing franchises, no lettering, no words, no logos or watermark. One image.",
+      "file": "yoshi-bird.webp"
+    },
+    {
+      "slug": "wordplay",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A magical vocabulary discovery scene with beautiful sculptural letter tiles flowing out of an open book into a playful spiral, a clear magnifying glass and one bright idea spark. Smart playful learning, tactile matte ceramic letters and rich paper, bright cream, coral, teal and cobalt. Contemporary editorial 3D illustration, distinctive and fun. Text (verbatim): \"WORDPLAY\". Output one image only.",
+      "file": "wordplay.webp"
+    },
+    {
+      "slug": "quiz-night-studio",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A glamorous hosted group quiz stage: central glowing question-mark sculpture, four colourful contestant buzzers and a beautiful illuminated scoreboard with abstract score bars, theatrical spotlights, tiny celebratory confetti. Premium game-show energy, midnight blue, amber and violet, cinematic 3D scene. No numbers or extra lettering. Text (verbatim): \"QUIZ NIGHT STUDIO\". Output one image only.",
+      "file": "quiz-night-studio.webp"
+    },
+    {
+      "slug": "last-game-of-victor-graves",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. An atmospheric cinematic murder mystery: an antique chess king tipped over on a walnut desk, sealed case file, old brass key, magnifying glass and a shadowy manor corridor in the background. Moody gaslight, teal moonlight and warm amber, fine dust, rich wood, elegant noir suspense. No gore, no weapon, no characters. Luxurious illustrated mystery-game cover. Text (verbatim): \"THE LAST GAME OF VICTOR GRAVES\". Output one image only.",
+      "file": "last-game-of-victor-graves.webp"
+    },
+    {
+      "slug": "after-hours",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A stylish late-night conversation-card experience: a fan of beautifully designed rounded prompt cards glowing on a table, two anonymous silhouetted friends conversing softly in an out-of-focus lounge behind them, warm candle bokeh and a midnight window. Deep burgundy, peach and electric lilac, sophisticated editorial 3D, welcoming social atmosphere. Cards have abstract speech-bubble symbols, no readable questions. Text (verbatim): \"AFTER HOURS\". Output one image only.",
+      "file": "after-hours.webp"
+    },
+    {
+      "slug": "store-planner",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A sophisticated isometric field-work planning diorama: a cluster of modern retail storefronts on a compact gridded city map, luminous route joining store pins, a floating visit checklist and a small calendar. Make tracking stores and planning efficient visits instantly clear. Fresh teal, vivid orange, deep graphite, crisp premium 3D illustration, clean hierarchy. Text (verbatim): \"ALBERTO STORE PLANNER\". Output one image only.",
+      "file": "store-planner.webp"
+    },
+    {
+      "slug": "south-east-visit-planner",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A beautiful folded regional road map of South East England, stylized but geographically plausible with London northwest and coast along the south, connected glowing route pins, a miniature field-visit car and a weekly calendar ribbon using abstract blocks. A distinct cartographic travel-planning illustration, warm cream, ocean blue and sunset yellow, rich paper texture and beautiful miniature 3D details. No invented place labels. Text (verbatim): \"SOUTH EAST VISIT PLANNER\". Output one image only.",
+      "file": "south-east-visit-planner.webp"
+    },
+    {
+      "slug": "quiz-night-100",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. A bold premium trivia challenge cover with five glowing round tokens arranged around a central golden trophy and sculptural question mark, energetic orbit of quiz cards, progress ring and confetti. Dynamic arcade competition feel, brilliant crimson, warm gold and midnight charcoal. Large readable project title, polished playful 3D illustration. The title is the project name, do not show a question count or imply 100 questions. Text (verbatim): \"QUIZ NIGHT 100\". Output one image only.",
+      "file": "quiz-night-100.webp"
+    },
+    {
+      "slug": "new-starter-daily-routine",
+      "prompt": "Use case: stylized-concept. Asset: one finished landscape 16:9 portfolio project thumbnail. Cool original conceptual cover art that clearly communicates this project, not a website screenshot. Strong simple composition that reads at small thumbnail size. Professional cinematic lighting, art-directed textures and striking visual hierarchy. Keep crucial subjects and title safely inside the central 80% with generous edge margins. Put the exact project title in clean bold carefully typeset lettering in the upper third, with strong legibility. No subtitles, slogans, watermarks, UI chrome, or other text. An uplifting new-job onboarding illustration: a pristine daily checklist with large green ticks, smartphone displaying abstract app tiles, welcome badge, a tidy stack of resource documents and a small sunrise through a modern store window. Clear visual idea of starting a workday prepared and organized. Warm ivory, jade green, coral and pale blue, friendly premium 3D editorial artwork, polished tactile materials. Text (verbatim): \"NEW STARTER DAILY ROUTINE\". Output one image only.",
+      "file": "new-starter-daily-routine.webp"
+    }
+  ]
+}
