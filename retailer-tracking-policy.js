@@ -18,8 +18,14 @@ const retiredModels = new Set([
 ]);
 
 // Retired at the user's request on 25 October 2026. Never rediscover or fetch.
-function isTrackedModel(model) {
-  return !retiredModels.has(String(model).toUpperCase());
+function isTrackedModel(model, retailer) {
+  const code = String(model).toUpperCase();
+  if (retiredModels.has(code)) return false;
+  if (retailer === "John Lewis") {
+    return !["OLED42C54LA", "OLED48G56LS"].includes(code) && !/MRGB88/.test(code);
+  }
+  if (retailer === "Currys") return !/MRGB86/.test(code);
+  return true;
 }
 
 module.exports = { isTrackedModel };

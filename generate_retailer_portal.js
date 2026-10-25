@@ -8,9 +8,6 @@ const manualBaselineMode = process.env.DATA_REFRESH_MODE === "manual-baseline";
 const lgLogo = "https://cdn.prod.website-files.com/69d4b36a4667cc9872d9e016/69e1ecce1fc97b717bbde740_5e246bd41ada001f5e6e0fcfad0e37e4_LGE_Logo_Mono_White_RGB.svg";
 const oldLgLogo = "https://www.lg.com/content/dam/lge/global/our-brand/src/mocks/bs0002/brand-elements-logo-primary-d.svg";
 const rickImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/1280px-Rick_Astley_Dallas.jpg";
-const worldComesHomeLogo = "https://cdn.prod.website-files.com/69d4b36a4667cc9872d9e016/69f322ad0bd78aa47530e599_f30a82b44d542931405145138dac4556_THE%20WORLD%20COMES%20HOME.svg";
-const worldComesHomeWhiteLogo = "https://cdn.prod.website-files.com/69d4b36a4667cc9872d9e016/6a04b644accb3d9f65eb1646_8f4b820b08d105ca47f0b79c0bb98673_THE%20WORLD%20COMES%20HOME2-white.svg";
-const worldCupPin = "https://cdn.prod.website-files.com/69d4b36a4667cc9872d9e016/69e661e3f4a408cdc817d33d_Pin_graphic.png";
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -44,24 +41,18 @@ function write(file, content) {
   console.log(`Wrote ${file} (${content.length} bytes)`);
 }
 
-function footballReportTheme(html, retailer) {
-  const campaign = `<div class=campaign-lockup><img src="${worldComesHomeWhiteLogo}" alt="The World Comes Home"><span>${esc(retailer)} price check</span></div>`;
-  const bodyClass = retailer === "John Lewis" ? "john-lewis-report" : "currys-report";
-  const sharedCss = `.campaign-lockup{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 18px}.campaign-lockup img{width:min(330px,70vw);height:auto;filter:drop-shadow(0 12px 28px #0008)}.campaign-lockup span{display:inline-flex;align-items:center;min-height:32px;border:1px solid #ffffff42;border-radius:999px;padding:6px 12px;background:#ffffff14;color:#fff;font-size:12px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,#ca0311 0,#560410 28%,#071c12 68%,#03130c 100%)!important;border-bottom:12px solid #ca0311!important}.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#ffffff10 1px,transparent 1px),linear-gradient(0deg,#ffffff10 1px,transparent 1px),radial-gradient(circle at 18% 86%,#f0ece426 0 2px,transparent 3px);background-size:84px 84px,84px 84px,22px 22px;mask-image:linear-gradient(180deg,#000 0,#0009 55%,transparent 100%)}.hero .wrap{position:relative}.brand{justify-items:start;text-align:left}.brand-tag,.eyebrow{color:#ffdede!important}.copy,.disclaimer,.source{color:#f0ece4!important}.run{color:white}.lg-mark img,.lg-logo img{filter:brightness(0) invert(1);mix-blend-mode:normal!important}.retailer-logo{color:white!important;text-shadow:0 2px 14px #0009}.hero-actions{min-height:56px!important;display:flex!important;align-items:flex-start!important;gap:10px!important;flex-wrap:wrap!important}.home-cta{background:#f0ece4!important;color:#111!important;border-color:#f0ece4!important}.retailer-cta,.home-cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;border-radius:8px!important;padding:12px 18px!important;font-size:14px!important;font-weight:950!important;line-height:1!important;text-decoration:none!important}.nav{background:#071c12f2!important;border-bottom-color:#ffffff24!important}.nav a{background:#f0ece4!important;color:#071c12!important;border-color:#ffffff44!important}.tools{background:linear-gradient(180deg,#071c12,#f7f8f7 72%)}.searchbox{border-color:#ca031133!important;box-shadow:0 18px 44px #5604101f!important}.series{border-color:#ca03112b!important;box-shadow:0 18px 44px #071c121a!important}.head{background:linear-gradient(135deg,#071c12,#146b3a 58%,#ca0311)!important;border-left:0!important}.price{color:#ca0311!important}.link{color:#146b3a!important}.retailer-cta{background:#ca0311!important;border-color:#ffb3b8!important;color:white!important}.offer.saving{background:#fff0f1!important;color:#ca0311!important}.offer.gift{background:#f4f8ec!important;color:#146b3a!important}.offer.bundle{background:#fff7df!important;color:#8a5d00!important}.status.ok{background:#e9f6f1!important;color:#096b55!important}body{background:linear-gradient(180deg,#071c12 0,#f7f8f7 220px)!important}@media(min-width:900px){.hero .wrap{min-height:520px!important;padding-top:58px!important;padding-bottom:44px!important}.brand{display:grid!important;grid-template-columns:minmax(250px,320px) minmax(0,1fr)!important;column-gap:48px!important;row-gap:20px!important;align-items:start!important;max-width:none!important}.brand-logos,.brand-lockup{grid-column:1!important;grid-row:1!important}.brand>div:last-child{grid-column:2!important;grid-row:1 / span 2!important;max-width:980px!important}.hero-actions{grid-column:1!important;grid-row:2!important;position:relative!important;top:auto!important;right:auto!important;left:auto!important;justify-content:flex-start!important;max-width:320px!important;margin-top:18px!important}.currys-report .source{max-width:900px!important}}@media(max-width:560px){.campaign-lockup{gap:12px}.campaign-lockup img{width:min(260px,82vw)}}@media print{.campaign-lockup img{filter:none}}`;
-  const johnLewisCss = `.john-lewis-report .hero{background:radial-gradient(circle at 82% 18%,#ca0311 0,#560410 26%,#18241d 62%,#050807 100%)!important;border-bottom-color:#111!important}.john-lewis-report .hero:before{background:linear-gradient(90deg,#ffffff0f 1px,transparent 1px),linear-gradient(0deg,#ffffff0f 1px,transparent 1px),linear-gradient(135deg,transparent 0 46%,#f0ece41f 47% 49%,transparent 50%);background-size:88px 88px,88px 88px,36px 36px}.john-lewis-report h1{color:#f4f1ea!important}.john-lewis-report .retailer-logo,.john-lewis-report .jl-wordmark{color:#fff!important;text-shadow:none!important;letter-spacing:.03em}.john-lewis-report .brand-tag,.john-lewis-report .eyebrow{color:#efe7dc!important}.john-lewis-report .retailer-cta{background:#111!important;border-color:#f0ece4!important;color:#f0ece4!important}.john-lewis-report .head{background:linear-gradient(135deg,#111 0,#26352d 68%,#a50034 100%)!important}.john-lewis-report .price{color:#111!important}.john-lewis-report .link{color:#26352d!important}.john-lewis-report .nav{background:#111f!important}.john-lewis-report .nav a{background:#f4f1ea!important;color:#111!important}.john-lewis-report .series{border-color:#d8d1c6!important}.john-lewis-report .searchbox{border-color:#d8d1c6!important}.john-lewis-report .offer.member{background:#dcefe3!important;color:#0f5a35!important}.john-lewis-report .offer.saving{background:#f7eceb!important;color:#8f111f!important}.john-lewis-report .offer.gift{background:#edf4ee!important;color:#254f37!important}.john-lewis-report .status.ok{background:#edf4ee!important;color:#254f37!important}.john-lewis-report{background:linear-gradient(180deg,#111 0,#f4f1ea 230px)!important}`;
-  const currysCss = `.currys-report .hero{background:radial-gradient(circle at 84% 16%,#ca0311 0,#4c12a1 31%,#071c12 68%,#050807 100%)!important;border-bottom-color:#4c12a1!important}.currys-report .hero:before{background:linear-gradient(90deg,#ffffff12 1px,transparent 1px),linear-gradient(0deg,#ffffff12 1px,transparent 1px),radial-gradient(circle at 20% 80%,#ffdd0040 0 2px,transparent 3px);background-size:78px 78px,78px 78px,24px 24px}.currys-report .retailer-logo{background:#4c12a1!important;border:2px solid #fff!important;border-radius:10px!important;padding:9px 15px!important;box-shadow:0 0 0 1px #fff5,0 18px 36px #0005!important;color:#fff!important;text-shadow:none!important}.currys-report .retailer-cta{background:#4c12a1!important;border-color:#fff!important;color:#fff!important}.currys-report .head{background:linear-gradient(135deg,#4c12a1 0,#7b1bc5 55%,#ca0311 100%)!important}.currys-report .price{color:#4c12a1!important}.currys-report .link{color:#4c12a1!important}.currys-report .nav{background:#210951f2!important}.currys-report .nav a{background:#fff!important;color:#4c12a1!important}.currys-report .searchbox{border-color:#4c12a133!important;box-shadow:0 18px 44px #4c12a11f!important}.currys-report .series{border-color:#4c12a126!important}.currys-report .offer.saving{background:#f1e8ff!important;color:#4c12a1!important}.currys-report .offer.gift{background:#fff9dc!important;color:#745600!important}.currys-report .status.ok{background:#eaf7ef!important;color:#146b3a!important}.currys-report{background:linear-gradient(180deg,#210951 0,#f7f8f7 230px)!important}`;
-  return html
-    .replace("</style>", `${sharedCss}${johnLewisCss}${currysCss}</style>`)
+function lgReportTheme(html, retailer) {
+  const css = `.hero{color:#fff!important;background:#202020!important;border-bottom:4px solid #a50034!important}.hero:before,.hero:after{display:none!important}.hero .wrap{min-height:0!important;padding:28px 0!important;display:block!important}.brand{display:block!important}.brand-logos,.brand-lockup{display:flex;align-items:center;gap:20px;margin-bottom:20px}.lg-logo img,.lg-mark img{width:94px;height:auto;display:block}.retailer-logo{color:#fff!important;font-size:18px;background:none!important;padding:0!important}.logo-divider{height:30px}h1{font-size:28px!important;line-height:1.2!important;letter-spacing:0!important;text-transform:none!important;max-width:none!important}.copy{font-size:14px;margin:8px 0;color:#ddd!important}.run{color:#fff!important;margin:12px 0 0;font-size:13px}.freshness{display:none}.source,.disclaimer{display:none}.hero-actions{min-height:0!important;margin-top:18px;gap:8px}.retailer-cta,.home-cta{min-height:36px!important;padding:8px 12px!important;font-size:13px!important;border-radius:4px!important;background:white!important;color:#222!important;border:1px solid #ccc!important}.nav{background:#fff!important;backdrop-filter:none}.nav a{color:#252525!important;border-radius:4px!important}.series{box-shadow:none!important;border-radius:4px!important}.head{background:#ededed!important;color:#202020!important;border-left:4px solid #a50034!important}.head h2{font-size:22px!important}.head p,.head .kicker{color:#555!important}.head .count{background:#fff!important;color:#333!important;border:1px solid #ddd!important}.price{color:#a50034!important}.link{color:#252525!important}.tools{background:#f7f8f7!important}.searchbox{box-shadow:none!important}.brand-tag{display:none}@media(max-width:560px){.hero .wrap{padding:22px 0!important}h1{font-size:24px!important}.brand-logos{gap:14px}.hero-actions{display:flex;flex-wrap:wrap}.head h2{font-size:19px}}`;
+  const header = `<header class=hero><div class=wrap><div class=brand><div class=brand-logos><div class=lg-logo><img src="${lgLogo}" alt="LG Life's Good"></div><span class=logo-divider></span><div class=retailer-logo>${esc(retailer)}</div></div><h1>LG TV Pricing</h1><p class=copy>Prices, availability and offers.</p><p class=run></p><p class=freshness></p></div><div class=hero-actions><a class=retailer-cta href=retailer-info/>Retailer information</a><a class=home-cta href=../retailers/>Retailers</a></div></div></header>`;
+  return html.replace(/<header class=hero>[\s\S]*?<\/header>/, header)
+    .replace('</style>', css + '</style>')
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(retailer)} | LG TV Pricing</title>`)
     .replaceAll(oldLgLogo, lgLogo)
-    .replace(/<body(?![^>]*class=)>/, `<body class="${bodyClass}">`)
-    .replace(/<a class=home-cta href=\.\.\/retailers\/>Retailer chooser<\/a>/g, "")
-    .replace(/<p class=brand-tag>LG OLED retail report<\/p>/g, campaign);
+    .replace(/placeholder="[^"]*"/, 'placeholder="Search models or offers"');
 }
 
-function footballChooserTheme(html) {
-  return html
-    .replace("</style>", `.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 18%,#ca0311 0,#560410 28%,#071c12 64%,#03130c 100%)!important}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ffffff12 1px,transparent 1px),linear-gradient(0deg,#ffffff12 1px,transparent 1px);background-size:86px 86px;opacity:.8}.hero:after{content:"";position:absolute;right:-100px;bottom:-130px;width:360px;height:360px;border:2px solid #ffffff2c;border-radius:50%;box-shadow:inset 0 0 0 70px #ffffff08}.wrap{position:relative}.campaign-crest{display:grid;gap:18px}.campaign-crest img{width:min(430px,82vw);height:auto;filter:drop-shadow(0 18px 42px #0009)}.brand .logo img{filter:brightness(0) invert(1);mix-blend-mode:normal}.brand span,.kicker{color:#ffdede!important}.copy{color:#f0ece4!important}.cards{max-width:980px}.card{position:relative;overflow:hidden;border-color:#ffffff38!important;box-shadow:0 24px 70px #0009!important}.card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff16,transparent 45%);pointer-events:none}.john{background:linear-gradient(135deg,#f4f1ea 0,#fff 62%,#e8e0d4 100%)!important;color:#111!important;border-color:#111!important}.john:after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:#111}.john b{background:#111!important;color:white!important;border-color:#111!important}.john p{color:#2f3834!important}.currys{background:linear-gradient(135deg,#4c12a1 0,#2b106b 55%,#ca0311 100%)!important;border-color:#fff8!important;color:#fff!important}.currys:after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:#ffdd00}.currys b{background:#fff!important;color:#4c12a1!important;border-color:#fff!important}.currys p{color:#f0ece4!important}.home{color:#f0ece4!important}</style>`)
-    .replace('<section class=intro><p class=kicker>LG OLED retailer reports</p><h1>Choose a retailer</h1><p class=copy>Open current LG OLED pricing, availability and retailer offers.</p></section>', `<section class="intro campaign-crest"><img src="${worldComesHomeWhiteLogo}" alt="The World Comes Home"><div><p class=kicker>LG OLED matchday pricing</p><h1>Choose a retailer</h1><p class=copy>Track current LG OLED pricing, availability and offers as the World Cup comes home to the big screen.</p></div></section>`);
+function lgChooserTheme() {
+  return `<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>LG TV Pricing</title><style>*{box-sizing:border-box}body{margin:0;background:#f7f8f7;color:#202020;font:16px/1.5 Arial,sans-serif}.wrap{width:min(880px,calc(100% - 32px));margin:auto}header{background:#202020;color:white;border-bottom:4px solid #a50034;padding:30px 0}img{width:110px;height:auto}h1{font-size:28px;margin:20px 0 0}p{margin:8px 0;color:#ddd}main{padding:28px 0}nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}nav a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px;background:white;border:1px solid #ddd;border-radius:4px;color:#202020;text-decoration:none;font-size:21px;font-weight:bold}nav a:hover{border-color:#a50034}nav span{color:#a50034}footer{padding:0 0 24px}footer a{color:#555;font-size:13px}@media(max-width:560px){nav{grid-template-columns:1fr}}</style></head><body><header><div class=wrap><img src="${lgLogo}" alt="LG Life's Good"><h1>LG TV Pricing</h1><p>Select a retailer.</p></div></header><main class=wrap><nav><a href=../john-lewis/>John Lewis <span aria-hidden=true>&#8594;</span></a><a href=../currys/>Currys <span aria-hidden=true>&#8594;</span></a></nav></main><footer class=wrap><a href=../>Portfolio</a></footer></body></html>`;
 }
 
 function esc(value) {
@@ -366,7 +357,7 @@ function normalizeToBaseline(products, retailer) {
       byModel.set(model, { ...product, model, size: product.size || sizeOf(model) });
     }
   }
-  return baselineModels.map((model) => byModel.get(model) || unavailableProduct(model, retailer));
+  return baselineModels.filter((model) => isTrackedModel(model, retailer)).map((model) => byModel.get(model) || unavailableProduct(model, retailer));
 }
 
 function normalizeReportHtml(html, retailer, options = {}) {
@@ -436,7 +427,7 @@ function groupProducts(products) {
   const sorted = products
     .map((product) => ({ ...product, model: product.model || modelOf(product.title) }))
     .map((product) => ({ ...product, series: seriesOf(product.model), gen: generationOf(product.model) }))
-    .sort((a, b) => category(a).rank - category(b).rank || b.size - a.size || a.model.localeCompare(b.model));
+    .sort((a, b) => Number(b.year) - Number(a.year) || category(a).rank - category(b).rank || b.size - a.size || a.model.localeCompare(b.model));
   const groups = [];
   for (const product of sorted) {
     const c = category(product);
@@ -444,115 +435,16 @@ function groupProducts(products) {
     if (!group) groups.push(group = { ...c, products: [] });
     group.products.push(product);
   }
+  const miniRgb = groups.find((group) => group.key === "2026-mrgb88-86");
+  if (miniRgb) {
+    const has88 = miniRgb.products.some((product) => product.model.includes("MRGB88"));
+    const has86 = miniRgb.products.some((product) => product.model.includes("MRGB86"));
+    miniRgb.label = `2026 MRGB${has88 && has86 ? "88/86" : has88 ? "88" : "86"} series`;
+  }
   return groups;
 }
 
 const currysProducts = [
-  {
-    "year": "2025",
-    "title": "LG G5 83\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED83G54LW",
-    "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-83-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled83g54lw-10282103.html",
-    "model": "OLED83G54LW",
-    "series": "G",
-    "gen": "5",
-    "previousPrice": "£5,499.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
-    "size": 77,
-    "price": "£2,949.00",
-    "availability": "Listed",
-    "offers": [
-      "Free delivery"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
-    "model": "OLED77G54LW",
-    "series": "G",
-    "gen": "5",
-    "previousPrice": "£3,279.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED65G56LS",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled65g56ls-10282093.html",
-    "model": "OLED65G56LS",
-    "previousPrice": "£2,499.00",
-    "series": "G",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED55G54LW",
-    "size": 55,
-    "price": "£1,599.00",
-    "availability": "Listed",
-    "offers": [
-      "Free delivery"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled55g54lw-10280772.html",
-    "model": "OLED55G54LW",
-    "previousPrice": "£1,499.00",
-    "series": "G",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG G5 48\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED48G56LS",
-    "size": 48,
-    "price": "£1,199.00",
-    "availability": "Listed",
-    "offers": [
-      "Free delivery"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-48-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled48g56ls-10281558.html",
-    "model": "OLED48G56LS",
-    "previousPrice": "£1,044.00",
-    "series": "G",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
-    "size": 48,
-    "price": "£999.00",
-    "availability": "Listed",
-    "offers": [
-      "Free delivery"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c54la-10281782.html",
-    "model": "OLED48C54LA",
-    "series": "C",
-    "gen": "5",
-    "previousPrice": "£949.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
-    "size": 42,
-    "price": "£899.00",
-    "availability": "Listed",
-    "offers": [
-      "Free delivery"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
-    "model": "OLED42C54LA",
-    "previousPrice": "£849.00",
-    "series": "C",
-    "gen": "5"
-  },
   {
     "year": "2026",
     "title": "LG G6 97\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED97G64LW",
@@ -995,21 +887,6 @@ const currysProducts = [
     "gen": ""
   },
   {
-    "year": "2026",
-    "title": "LG MRGB88/86 75\" RGB TV 2026 - 75MRGB86B6A",
-    "size": 75,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/search?q=75MRGB86B6A",
-    "model": "75MRGB86B6A",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
-  },
-  {
     "model": "75MRGB88B6B",
     "url": "https://www.currys.co.uk/products/lg-mrgb88-75-mini-rgb-ai-4k-hdr-smart-tv-2026-75mrgb88b6b-10301922.html",
     "year": "2026",
@@ -1021,21 +898,6 @@ const currysProducts = [
       "Save £600.99",
       "Free delivery"
     ],
-    "series": "Other",
-    "gen": ""
-  },
-  {
-    "year": "2026",
-    "title": "LG MRGB88/86 65\" RGB TV 2026 - 65MRGB86B6A",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/search?q=65MRGB86B6A",
-    "model": "65MRGB86B6A",
-    "baselineMissing": true,
     "series": "Other",
     "gen": ""
   },
@@ -1055,21 +917,6 @@ const currysProducts = [
     "gen": ""
   },
   {
-    "year": "2026",
-    "title": "LG MRGB88/86 55\" RGB TV 2026 - 55MRGB86B6A",
-    "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/search?q=55MRGB86B6A",
-    "model": "55MRGB86B6A",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
-  },
-  {
     "model": "55MRGB88B6B",
     "url": "https://www.currys.co.uk/products/lg-mrgb88-55-mini-rgb-ai-4k-hdr-smart-tv-2026-55mrgb88b6b-10301924.html",
     "year": "2026",
@@ -1081,21 +928,6 @@ const currysProducts = [
       "Save £400.99",
       "Free delivery"
     ],
-    "series": "Other",
-    "gen": ""
-  },
-  {
-    "year": "2026",
-    "title": "LG MRGB88/86 50\" RGB TV 2026 - 50MRGB86B6A",
-    "size": 50,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/search?q=50MRGB86B6A",
-    "model": "50MRGB86B6A",
-    "baselineMissing": true,
     "series": "Other",
     "gen": ""
   },
@@ -1145,6 +977,111 @@ const currysProducts = [
   },
   {
     "year": "2025",
+    "title": "LG G5 83\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED83G54LW",
+    "size": 83,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-g5-83-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled83g54lw-10282103.html",
+    "model": "OLED83G54LW",
+    "series": "G",
+    "gen": "5",
+    "previousPrice": "£5,499.00"
+  },
+  {
+    "year": "2025",
+    "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
+    "size": 77,
+    "price": "£2,949.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
+    "model": "OLED77G54LW",
+    "series": "G",
+    "gen": "5",
+    "previousPrice": "£3,279.00"
+  },
+  {
+    "year": "2025",
+    "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED65G56LS",
+    "size": 65,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled65g56ls-10282093.html",
+    "model": "OLED65G56LS",
+    "previousPrice": "£2,499.00",
+    "series": "G",
+    "gen": "5"
+  },
+  {
+    "year": "2025",
+    "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED55G54LW",
+    "size": 55,
+    "price": "£1,599.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled55g54lw-10280772.html",
+    "model": "OLED55G54LW",
+    "previousPrice": "£1,499.00",
+    "series": "G",
+    "gen": "5"
+  },
+  {
+    "year": "2025",
+    "title": "LG G5 48\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED48G56LS",
+    "size": 48,
+    "price": "£1,199.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-g5-48-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled48g56ls-10281558.html",
+    "model": "OLED48G56LS",
+    "previousPrice": "£1,044.00",
+    "series": "G",
+    "gen": "5"
+  },
+  {
+    "year": "2025",
+    "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
+    "size": 48,
+    "price": "£999.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c54la-10281782.html",
+    "model": "OLED48C54LA",
+    "series": "C",
+    "gen": "5",
+    "previousPrice": "£949.00"
+  },
+  {
+    "year": "2025",
+    "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
+    "size": 42,
+    "price": "£899.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "url": "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
+    "model": "OLED42C54LA",
+    "previousPrice": "£849.00",
+    "series": "C",
+    "gen": "5"
+  },
+  {
+    "year": "2025",
     "title": "LG M5 True Wireless 65\" OLED TV 2025 - OLED65M49LA",
     "size": 65,
     "price": "Not listed",
@@ -1165,7 +1102,7 @@ const currysWatchlistModels = [
 
 function assertWatchlistPresent(products, watchlist, retailer) {
   const present = new Set(products.map((product) => product.model));
-  const missing = watchlist.filter((model) => !present.has(model));
+  const missing = watchlist.filter((model) => isTrackedModel(model, retailer) && !present.has(model));
   if (missing.length) {
     throw new Error(`${retailer} report is missing watchlist models: ${missing.join(", ")}`);
   }
@@ -1291,8 +1228,8 @@ function currysInfoPage() {
 }
 
 const johnLewisReport = fs.existsSync("upload-index.html") && !manualBaselineMode
-  ? footballReportTheme(normalizeReportHtml(read("upload-index.html"), "John Lewis", { cached: false }), "John Lewis")
-  : normalizeReportHtml(read("john-lewis/index.html"), "John Lewis", { cached: true });
+  ? lgReportTheme(normalizeReportHtml(read("upload-index.html"), "John Lewis", { cached: false }), "John Lewis")
+  : lgReportTheme(normalizeReportHtml(read("john-lewis/index.html"), "John Lewis", { cached: true }), "John Lewis");
 const johnLewisInfo = read("retailer-info/index.html");
 const normalizedCurrysProducts = normalizeToBaseline(currysProducts, "Currys");
 assertWatchlistPresent(normalizedCurrysProducts, currysWatchlistModels, "Currys");
@@ -1300,10 +1237,10 @@ const currysGroups = groupProducts(normalizedCurrysProducts);
 const currysCachedMeta = manualBaselineMode ? existingReportMeta("currys/index.html") : {};
 
 write("index.html", portfolioPage());
-write("retailers/index.html", footballChooserTheme(splashPage()));
+write("retailers/index.html", lgChooserTheme());
 write("john-lewis/index.html", johnLewisReport);
 write("john-lewis/retailer-info/index.html", johnLewisInfo);
-write("currys/index.html", footballReportTheme(reportPage({
+write("currys/index.html", lgReportTheme(reportPage({
   retailer: "Currys",
   bodyClass: "currys-report",
   accent: "#4c12a1",

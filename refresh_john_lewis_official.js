@@ -204,7 +204,7 @@ function unavailableJohnLewisProduct(product) {
 }
 
 function fetchProductPage(product) {
-  if (!isTrackedModel(product.model)) throw new Error(`Retired model: ${product.model}`);
+  if (!isTrackedModel(product.model, "John Lewis")) throw new Error(`Retired model: ${product.model}`);
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
   const tmp = `${file}.tmp`;
@@ -468,8 +468,8 @@ if (liveProducts.length < minLiveProducts) {
   throw new Error(`John Lewis listing only returned ${liveProducts.length} products; refusing to update generated data.`);
 }
 
-const baselineProducts = loadBaselineProducts().filter((product) => isTrackedModel(product.model));
-const liveByModel = new Map(listingProducts().map(parseListingProduct).filter((product) => isTrackedModel(product.model)).map((product) => [product.model, product]));
+const baselineProducts = loadBaselineProducts().filter((product) => isTrackedModel(product.model, "John Lewis"));
+const liveByModel = new Map(listingProducts().map(parseListingProduct).filter((product) => isTrackedModel(product.model, "John Lewis")).map((product) => [product.model, product]));
 const baselineModels = new Set(baselineProducts.map((product) => product.model));
 const newLiveProducts = [...liveByModel.values()].filter((product) => !baselineModels.has(product.model));
 const refreshProducts = [...baselineProducts, ...newLiveProducts];

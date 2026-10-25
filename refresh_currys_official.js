@@ -129,7 +129,7 @@ function looksLikeProductPage(html, product) {
 }
 
 function fetchProductPage(product) {
-  if (!isTrackedModel(product.model)) throw new Error(`Retired model: ${product.model}`);
+  if (!isTrackedModel(product.model, "Currys")) throw new Error(`Retired model: ${product.model}`);
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
   if (cacheOnly && fs.existsSync(file)) return file;
@@ -344,7 +344,7 @@ function changeReport(before, after) {
   }
 }
 
-const products = readCurrysProducts().filter((product) => isTrackedModel(product.model));
+const products = readCurrysProducts().filter((product) => isTrackedModel(product.model, "Currys"));
 const refreshed = products.map((product, index) => {
   try {
     const html = fs.readFileSync(fetchProductPage(product), "utf8");

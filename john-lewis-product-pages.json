@@ -64,19 +64,6 @@
     "url": "https://www.johnlewis.com/lg-oled55g54lw-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-one-wall-design-satin-silver/p113362526"
   },
   {
-    "id": "113460227",
-    "model": "OLED48G56LS",
-    "title": "LG OLED48G56LS (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 48 inch with Dolby Atmos, Stand Version, Black",
-    "year": "2025",
-    "series": "G",
-    "gen": "5",
-    "size": 48,
-    "price": "Not listed",
-    "availability": "No longer available online",
-    "offers": [],
-    "url": "https://www.johnlewis.com/lg-oled48g56ls-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-stand-version-black/p113460227"
-  },
-  {
     "id": "113513363",
     "model": "OLED48C54LA",
     "title": "LG OLED48C54LA (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 48 inch with Dolby Atmos, Black",
@@ -91,19 +78,6 @@
       "Claim 10% cashback (Via redemption)"
     ],
     "url": "https://www.johnlewis.com/lg-oled48c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-black/p113513363"
-  },
-  {
-    "id": "113530622",
-    "model": "OLED42C54LA",
-    "title": "LG OLED42C54LA (2025) OLED evo HDR 4K Ultra HD Smart AI TV, 42 inch with Dolby Atmos, Dark Titan Silver",
-    "year": "2025",
-    "series": "C",
-    "gen": "5",
-    "size": 42,
-    "price": "Not listed",
-    "availability": "No longer available online",
-    "offers": [],
-    "url": "https://www.johnlewis.com/lg-oled42c54la-2025-oled-evo-hdr-4k-ultra-hd-smart-ai-tv-42-inch-with-dolby-atmos-dark-titan-silver/p113530622"
   },
   {
     "id": "",
@@ -566,21 +540,6 @@
     "url": "https://www.johnlewis.com/lg-oled48b65la-2026-oled-hdr-4k-ultra-hd-smart-ai-tv-48-inch-with-dolby-atmos-umber-brown/p115232088"
   },
   {
-    "year": "2026",
-    "title": "LG MRGB88/86 86\" RGB TV 2026 - 86MRGB88B6B",
-    "size": 86,
-    "price": "Not available",
-    "availability": "Not available at the moment",
-    "offers": [
-      "No current retailer data found for this baseline model"
-    ],
-    "url": "https://www.johnlewis.com/search?search-term=86MRGB88B6B",
-    "model": "86MRGB88B6B",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
-  },
-  {
     "id": "115360032",
     "model": "75MRGB86B6A",
     "title": "LG 75MRGB86B6A (2026) Mini RGB evo HDR 4K Ultra HD Smart AI TV, 75 inch, with Dolby Atmos, Charcoal Black",
@@ -597,21 +556,6 @@
       "Save £300"
     ],
     "url": "https://www.johnlewis.com/lg-75mrgb86b6a-2026-mini-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-75-inch-with-dolby-atmos-charcoal-black/p115360032"
-  },
-  {
-    "year": "2026",
-    "title": "LG MRGB88/86 75\" RGB TV 2026 - 75MRGB88B6B",
-    "size": 75,
-    "price": "Not available",
-    "availability": "Not available at the moment",
-    "offers": [
-      "No current retailer data found for this baseline model"
-    ],
-    "url": "https://www.johnlewis.com/search?search-term=75MRGB88B6B",
-    "model": "75MRGB88B6B",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
   },
   {
     "id": "115360017",
@@ -632,21 +576,6 @@
     "url": "https://www.johnlewis.com/lg-65mrgb86b6a-2026-mini-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-65-inch-with-dolby-atmos-charcoal-black/p115360017"
   },
   {
-    "year": "2026",
-    "title": "LG MRGB88/86 65\" RGB TV 2026 - 65MRGB88B6B",
-    "size": 65,
-    "price": "Not available",
-    "availability": "Not available at the moment",
-    "offers": [
-      "No current retailer data found for this baseline model"
-    ],
-    "url": "https://www.johnlewis.com/search?search-term=65MRGB88B6B",
-    "model": "65MRGB88B6B",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
-  },
-  {
     "id": "115360027",
     "model": "55MRGB86B6A",
     "title": "LG 55MRGB86B6A (2026) Mini RGB evo HDR 4K Ultra HD Smart AI TV, 55 inch, with Dolby Atmos, Charcoal Black",
@@ -665,21 +594,6 @@
     "url": "https://www.johnlewis.com/lg-55mrgb86b6a-2026-mini-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-55-inch-with-dolby-atmos-charcoal-black/p115360027"
   },
   {
-    "year": "2026",
-    "title": "LG MRGB88/86 55\" RGB TV 2026 - 55MRGB88B6B",
-    "size": 55,
-    "price": "Not available",
-    "availability": "Not available at the moment",
-    "offers": [
-      "No current retailer data found for this baseline model"
-    ],
-    "url": "https://www.johnlewis.com/search?search-term=55MRGB88B6B",
-    "model": "55MRGB88B6B",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
-  },
-  {
     "id": "115360024",
     "model": "50MRGB86B6A",
     "title": "LG 50MRGB86B6A (2026) Mini RGB evo HDR 4K Ultra HD Smart AI TV, 50 inch, with Dolby Atmos, Charcoal Black",
@@ -696,21 +610,6 @@
       "Save £200"
     ],
     "url": "https://www.johnlewis.com/lg-50mrgb86b6a-2026-mini-rgb-evo-hdr-4k-ultra-hd-smart-ai-tv-50-inch-with-dolby-atmos-charcoal-black/p115360024"
-  },
-  {
-    "year": "2026",
-    "title": "LG MRGB88/86 50\" RGB TV 2026 - 50MRGB88B6B",
-    "size": 50,
-    "price": "Not available",
-    "availability": "Not available at the moment",
-    "offers": [
-      "No current retailer data found for this baseline model"
-    ],
-    "url": "https://www.johnlewis.com/search?search-term=50MRGB88B6B",
-    "model": "50MRGB88B6B",
-    "baselineMissing": true,
-    "series": "Other",
-    "gen": ""
   },
   {
     "year": "2026",

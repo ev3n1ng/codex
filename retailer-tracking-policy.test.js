@@ -23,6 +23,15 @@ test("retired models cannot be rediscovered; available older models remain track
   }
 });
 
+test("retailer exclusions prevent impossible listings without hiding valid counterparts", () => {
+  for (const model of ["OLED42C54LA", "OLED48G56LS", "65MRGB88B6B"]) {
+    assert.equal(isTrackedModel(model, "John Lewis"), false);
+    assert.equal(isTrackedModel(model, "Currys"), true);
+  }
+  assert.equal(isTrackedModel("65MRGB86B6A", "Currys"), false);
+  assert.equal(isTrackedModel("65MRGB86B6A", "John Lewis"), true);
+});
+
 for (const file of ["refresh_john_lewis_official.js", "refresh_currys_official.js"]) {
   test(`${file} rejects a retired model before filesystem or network access`, () => {
     const source = fs.readFileSync(`${__dirname}/${file}`, "utf8");
@@ -31,5 +40,7 @@ for (const file of ["refresh_john_lewis_official.js", "refresh_currys_official.j
     const context = vm.createContext({ isTrackedModel });
     vm.runInContext(source.slice(start, end), context);
     assert.throws(() => context.fetchProductPage({ model: "OLED65G54LW" }), /Retired model/);
+    const excluded = file.includes("john_lewis") ? "OLED42C54LA" : "65MRGB86B6A";
+    assert.throws(() => context.fetchProductPage({ model: excluded }), /Retired model/);
   });
 }
