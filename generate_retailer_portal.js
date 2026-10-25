@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { isTrackedModel } = require("./retailer-tracking-policy");
 
 const runDate = new Date().toLocaleString("en-GB", { timeZone: "Europe/London", dateStyle: "full", timeStyle: "short" });
 const manualBaselineMode = process.env.DATA_REFRESH_MODE === "manual-baseline";
@@ -141,7 +142,7 @@ const baselineModelFamilies = [
   { family: "W6", models: ["OLED77W69LA", "OLED83W69LA"] },
 ];
 
-const baselineModels = baselineModelFamilies.flatMap((family) => family.models);
+const baselineModels = baselineModelFamilies.flatMap((family) => family.models).filter(isTrackedModel);
 
 const knownBaselineUrls = {
   "John Lewis": {
@@ -476,21 +477,6 @@ const currysProducts = [
   },
   {
     "year": "2025",
-    "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED65G54LW",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-65-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled65g54lw-10280771.html",
-    "model": "OLED65G54LW",
-    "series": "G",
-    "gen": "5",
-    "previousPrice": "£2,499.00"
-  },
-  {
-    "year": "2025",
     "title": "LG G5 65\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED65G56LS",
     "size": 65,
     "price": "Not listed",
@@ -506,21 +492,6 @@ const currysProducts = [
   },
   {
     "year": "2025",
-    "title": "LG M5 65\" OLED evo AI 4K HDR True Wireless Smart TV 2025 - OLED65M59LA",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-m5-65-oled-evo-ai-4k-hdr-true-wireless-smart-tv-2025-oled65m59la-10282096.html",
-    "model": "OLED65M59LA",
-    "series": "M",
-    "gen": "5",
-    "previousPrice": "Not available"
-  },
-  {
-    "year": "2025",
     "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED55G54LW",
     "size": 55,
     "price": "£1,599.00",
@@ -531,21 +502,6 @@ const currysProducts = [
     "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled55g54lw-10280772.html",
     "model": "OLED55G54LW",
     "previousPrice": "£1,499.00",
-    "series": "G",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED55G56LS",
-    "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled55g56ls-10282094.html",
-    "model": "OLED55G56LS",
-    "previousPrice": "£1,499.99",
     "series": "G",
     "gen": "5"
   },
@@ -566,111 +522,6 @@ const currysProducts = [
   },
   {
     "year": "2025",
-    "title": "LG C5 83\" OLED evo AI 4K HDR Smart TV 2025 - OLED83C54LA",
-    "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-83-oled-evo-ai-4k-hdr-smart-tv-2025-oled83c54la-10282101.html",
-    "model": "OLED83C54LA",
-    "previousPrice": "£2,734.00",
-    "series": "C",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 77\" OLED evo AI 4K HDR Smart TV 2025 - OLED77C54LA",
-    "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c54la-10281779.html",
-    "model": "OLED77C54LA",
-    "series": "C",
-    "gen": "5",
-    "previousPrice": "£2,299.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 77\" OLED evo AI 4K HDR Smart TV 2025 - OLED77C56LB",
-    "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-77-oled-evo-ai-4k-hdr-smart-tv-2025-oled77c56lb-10281778.html",
-    "model": "OLED77C56LB",
-    "previousPrice": "£2,599.00",
-    "series": "C",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C54LA",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c54la-10281777.html",
-    "model": "OLED65C54LA",
-    "series": "C",
-    "gen": "5",
-    "previousPrice": "£1,599.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 65\" OLED evo AI 4K HDR Smart TV 2025 - OLED65C56LB",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-65-oled-evo-ai-4k-hdr-smart-tv-2025-oled65c56lb-10281775.html",
-    "model": "OLED65C56LB",
-    "series": "C",
-    "gen": "5",
-    "previousPrice": "£1,499.99"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 55\" OLED evo AI 4K HDR Smart TV 2025 - OLED55C54LA",
-    "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c54la-10281549.html",
-    "model": "OLED55C54LA",
-    "previousPrice": "£999.00",
-    "series": "C",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG C5 55\" OLED evo AI 4K HDR Smart TV 2025 - OLED55C56LB",
-    "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-55-oled-evo-ai-4k-hdr-smart-tv-2025-oled55c56lb-10281769.html",
-    "model": "OLED55C56LB",
-    "previousPrice": "£1,099.99",
-    "series": "C",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
     "size": 48,
     "price": "£999.00",
@@ -686,21 +537,6 @@ const currysProducts = [
   },
   {
     "year": "2025",
-    "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C56LB",
-    "size": 48,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c56lb-10282100.html",
-    "model": "OLED48C56LB",
-    "previousPrice": "£949.00",
-    "series": "C",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
     "price": "£899.00",
@@ -713,81 +549,6 @@ const currysProducts = [
     "previousPrice": "£849.00",
     "series": "C",
     "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG B5 series 83\" OLED TV 2025 - OLED83B56LA",
-    "size": 83,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-b5-83-oled-ai-4k-ultra-hd-hdr-smart-tv-2025-oled83b56la-10282099.html",
-    "model": "OLED83B56LA",
-    "baselineMissing": true,
-    "series": "B",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG B5 77\" OLED AI 4K HDR Smart TV 2025 - OLED77B56LA",
-    "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-b5-77-oled-ai-4k-hdr-smart-tv-2025-oled77b56la-10281774.html",
-    "model": "OLED77B56LA",
-    "previousPrice": "£1,799.00",
-    "series": "B",
-    "gen": "5"
-  },
-  {
-    "year": "2025",
-    "title": "LG B5 65\" OLED AI 4K HDR Smart TV 2025 - OLED65B56LA",
-    "size": 65,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-b5-65-oled-ai-4k-hdr-smart-tv-2025-oled65b56la-10281772.html",
-    "model": "OLED65B56LA",
-    "series": "B",
-    "gen": "5",
-    "previousPrice": "£1,299.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG B5 55\" OLED AI 4K HDR Smart TV 2025 - OLED55B56LA",
-    "size": 55,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-b5-55-oled-ai-4k-hdr-smart-tv-2025-oled55b56la-10281768.html",
-    "model": "OLED55B56LA",
-    "series": "B",
-    "gen": "5",
-    "previousPrice": "£899.00"
-  },
-  {
-    "year": "2025",
-    "title": "LG B5 48\" OLED AI 4K HDR Smart TV 2025 - OLED48B56LA",
-    "size": 48,
-    "price": "Not listed",
-    "availability": "Product page redirected",
-    "offers": [
-      "Official Currys product page did not expose matching model data during this update"
-    ],
-    "url": "https://www.currys.co.uk/products/lg-b5-48-oled-ai-4k-hdr-smart-tv-2025-oled48b56la-10282097.html",
-    "model": "OLED48B56LA",
-    "series": "B",
-    "gen": "5",
-    "previousPrice": "£729.00"
   },
   {
     "year": "2026",

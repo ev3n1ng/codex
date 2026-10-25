@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { execFileSync, spawnSync } = require("child_process");
+const { isTrackedModel } = require("./retailer-tracking-policy");
 
 const ROOT = __dirname;
 const GENERATOR = `${ROOT}/generate_retailer_portal.js`;
@@ -128,6 +129,7 @@ function looksLikeProductPage(html, product) {
 }
 
 function fetchProductPage(product) {
+  if (!isTrackedModel(product.model)) throw new Error(`Retired model: ${product.model}`);
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
   if (cacheOnly && fs.existsSync(file)) return file;
@@ -342,7 +344,7 @@ function changeReport(before, after) {
   }
 }
 
-const products = readCurrysProducts();
+const products = readCurrysProducts().filter((product) => isTrackedModel(product.model));
 const refreshed = products.map((product, index) => {
   try {
     const html = fs.readFileSync(fetchProductPage(product), "utf8");

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { spawnSync } = require("child_process");
+const { isTrackedModel } = require("./retailer-tracking-policy");
 
 const ROOT = __dirname;
 const LISTING_URL =
@@ -202,6 +203,7 @@ function unavailableJohnLewisProduct(product) {
 }
 
 function fetchProductPage(product) {
+  if (!isTrackedModel(product.model)) throw new Error(`Retired model: ${product.model}`);
   fs.mkdirSync(PAGE_DIR, { recursive: true });
   const file = `${PAGE_DIR}/${product.model}.html`;
   const tmp = `${file}.tmp`;
@@ -465,8 +467,8 @@ if (liveProducts.length < minLiveProducts) {
   throw new Error(`John Lewis listing only returned ${liveProducts.length} products; refusing to update generated data.`);
 }
 
-const baselineProducts = loadBaselineProducts();
-const liveByModel = new Map(listingProducts().map(parseListingProduct).map((product) => [product.model, product]));
+const baselineProducts = loadBaselineProducts().filter((product) => isTrackedModel(product.model));
+const liveByModel = new Map(listingProducts().map(parseListingProduct).filter((product) => isTrackedModel(product.model)).map((product) => [product.model, product]));
 const baselineModels = new Set(baselineProducts.map((product) => product.model));
 const newLiveProducts = [...liveByModel.values()].filter((product) => !baselineModels.has(product.model));
 const refreshProducts = [...baselineProducts, ...newLiveProducts];
