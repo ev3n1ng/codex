@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { isTrackedModel } = require("./retailer-tracking-policy");
+const { modelOf, mrgbModels, mrgbSeeds } = require("./retailer-models");
 
 const runDate = new Date().toLocaleString("en-GB", { timeZone: "Europe/London", dateStyle: "full", timeStyle: "short" });
 const manualBaselineMode = process.env.DATA_REFRESH_MODE === "manual-baseline";
@@ -65,10 +66,6 @@ function footballChooserTheme(html) {
 
 function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-}
-
-function modelOf(title) {
-  return title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || title.match(/OLED[A-Z0-9]+/i)?.[0] || "LG OLED";
 }
 
 function seriesOf(model) {
@@ -140,6 +137,8 @@ const baselineModelFamilies = [
   { family: "M5", models: ["OLED65M59LA"] },
   { family: "M4", models: ["OLED65M49LA"] },
   { family: "W6", models: ["OLED77W69LA", "OLED83W69LA"] },
+  { family: "MRGB88/86", models: mrgbModels.filter((model) => !model.includes("MRGB96")) },
+  { family: "MRGB96", models: mrgbModels.filter((model) => model.includes("MRGB96")) },
 ];
 
 const baselineModels = baselineModelFamilies.flatMap((family) => family.models).filter(isTrackedModel);
@@ -320,10 +319,12 @@ function baselineFamilyOf(model) {
 }
 
 function sizeOf(model) {
+  if (model.includes("MRGB")) return Number(model.match(/^\d+/)?.[0] || 0);
   return Number(model.match(/^OLED(\d+)/i)?.[1] || 0);
 }
 
 function seriesLabel(family) {
+  if (family.startsWith("MRGB")) return family;
   const series = family[0];
   if (series === "M") return "M5 True Wireless";
   if (series === "W") return "W6 Wallpaper";
@@ -332,8 +333,8 @@ function seriesLabel(family) {
 
 function titleForModel(model) {
   const family = baselineFamilyOf(model);
-  const year = family.endsWith("6") ? "2026" : "2025";
-  return `LG ${seriesLabel(family)} ${sizeOf(model)}" OLED TV ${year} - ${model}`;
+  const year = family.endsWith("6") || family.startsWith("MRGB") ? "2026" : "2025";
+  return `LG ${seriesLabel(family)} ${sizeOf(model)}" ${family.startsWith("MRGB") ? "RGB" : "OLED"} TV ${year} - ${model}`;
 }
 
 function retailerSearchUrl(retailer, model) {
@@ -345,7 +346,7 @@ function retailerSearchUrl(retailer, model) {
 function unavailableProduct(model, retailer) {
   const family = baselineFamilyOf(model);
   return {
-    year: family.endsWith("6") ? "2026" : "2025",
+    year: family.endsWith("6") || family.startsWith("MRGB") ? "2026" : "2025",
     title: titleForModel(model),
     size: sizeOf(model),
     price: "Not available",
@@ -359,7 +360,7 @@ function unavailableProduct(model, retailer) {
 
 function normalizeToBaseline(products, retailer) {
   const byModel = new Map();
-  for (const product of products) {
+  for (const product of [...products, ...mrgbSeeds(retailer)]) {
     const model = product.model || modelOf(product.title);
     if (baselineModels.includes(model) && !byModel.has(model)) {
       byModel.set(model, { ...product, model, size: product.size || sizeOf(model) });
@@ -417,6 +418,8 @@ function withDailyChangesPanel(html) {
 }
 
 function category(product) {
+  if (/MRGB(?:88|86)/.test(product.model)) return { rank: 6, key: "2026-mrgb88-86", label: "2026 MRGB88/86 series" };
+  if (/MRGB96/.test(product.model)) return { rank: 7, key: "2026-mrgb96", label: "2026 MRGB96 series" };
   const series = product.series;
   const gen = product.gen;
   const year = product.year;
@@ -975,6 +978,170 @@ const currysProducts = [
     "series": "B",
     "gen": "6",
     "previousPrice": "£999.00"
+  },
+  {
+    "model": "86MRGB88B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb88-86-mini-rgb-ai-4k-hdr-smart-tv-2026-86mrgb88b6b-10301926.html",
+    "year": "2026",
+    "size": 86,
+    "title": "LG MRGB88 86\" Mini RGB AI 4K HDR Smart TV 2026 - 86MRGB88B6B",
+    "price": "£2,199.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £800.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "year": "2026",
+    "title": "LG MRGB88/86 75\" RGB TV 2026 - 75MRGB86B6A",
+    "size": 75,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/search?q=75MRGB86B6A",
+    "model": "75MRGB86B6A",
+    "baselineMissing": true,
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "75MRGB88B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb88-75-mini-rgb-ai-4k-hdr-smart-tv-2026-75mrgb88b6b-10301922.html",
+    "year": "2026",
+    "size": 75,
+    "title": "LG MRGB88 75\" Mini RGB AI 4K HDR Smart TV 2026 - 75MRGB88B6B",
+    "price": "£1,699.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £600.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "year": "2026",
+    "title": "LG MRGB88/86 65\" RGB TV 2026 - 65MRGB86B6A",
+    "size": 65,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/search?q=65MRGB86B6A",
+    "model": "65MRGB86B6A",
+    "baselineMissing": true,
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "65MRGB88B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb88-65-mini-rgb-ai-4k-hdr-smart-tv-2026-65mrgb88b6b-10301919.html",
+    "year": "2026",
+    "size": 65,
+    "title": "LG MRGB88 65\" Mini RGB AI 4K HDR Smart TV 2026 - 65MRGB88B6B",
+    "price": "£1,099.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £500.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "year": "2026",
+    "title": "LG MRGB88/86 55\" RGB TV 2026 - 55MRGB86B6A",
+    "size": 55,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/search?q=55MRGB86B6A",
+    "model": "55MRGB86B6A",
+    "baselineMissing": true,
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "55MRGB88B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb88-55-mini-rgb-ai-4k-hdr-smart-tv-2026-55mrgb88b6b-10301924.html",
+    "year": "2026",
+    "size": 55,
+    "title": "LG MRGB88 55\" Mini RGB AI 4K HDR Smart TV 2026 - 55MRGB88B6B",
+    "price": "£899.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £400.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "year": "2026",
+    "title": "LG MRGB88/86 50\" RGB TV 2026 - 50MRGB86B6A",
+    "size": 50,
+    "price": "Not listed",
+    "availability": "Product page redirected",
+    "offers": [
+      "Official Currys product page did not expose matching model data during this update"
+    ],
+    "url": "https://www.currys.co.uk/search?q=50MRGB86B6A",
+    "model": "50MRGB86B6A",
+    "baselineMissing": true,
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "50MRGB88B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb88-50-mini-rgb-ai-4k-hdr-smart-tv-2026-50mrgb88b6b-10301888.html",
+    "year": "2026",
+    "size": 50,
+    "title": "LG MRGB88 50\" Mini RGB AI 4K HDR Smart TV 2026 - 50MRGB88B6B",
+    "price": "£699.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £400.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "100MRGB96B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb96-100-micro-rgb-ai-4k-hdr-smart-tv-2026-100mrgb96b6b-10301997.html",
+    "year": "2026",
+    "size": 100,
+    "title": "LG MRGB96 100\" Micro RGB AI 4K HDR Smart TV 2026 - 100MRGB96B6B",
+    "price": "£12,999.00",
+    "availability": "Listed",
+    "offers": [
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
+  },
+  {
+    "model": "86MRGB96B6B",
+    "url": "https://www.currys.co.uk/products/lg-mrgb96-86-micro-rgb-ai-4k-hdr-smart-tv-2026-86mrgb96b6b-10301918.html",
+    "year": "2026",
+    "size": 86,
+    "title": "LG MRGB96 86\" Micro RGB AI 4K HDR Smart TV 2026 - 86MRGB96B6B",
+    "price": "£5,799.00",
+    "availability": "Listed",
+    "offers": [
+      "Save £0.99",
+      "Free delivery"
+    ],
+    "series": "Other",
+    "gen": ""
   },
   {
     "year": "2025",

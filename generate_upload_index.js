@@ -29,7 +29,7 @@ function category(product) {
   return { rank: r, key: `${year || "undated"}-${series}${gen}`, label: `${year || "Undated"} ${series}${gen} series` };
 }
 function normaliseOffer(offer) {
-  const text = clean(offer).replace(/ for new & existing My John Lewis members/g, "").replace(/ \(via promo code, see product page for details\)/g, "").replace(/ \(via redemption\)/g, "").replace(/ at no extra cost/g, "");
+  const text = clean(offer).replace(/ for new & existing My John Lewis members/g, " (MyJL members)").replace(/ \(via promo code, see product page for details\)/g, "").replace(/ \(via redemption\)/g, "").replace(/ at no extra cost/g, "");
   if (/free wall mount installation/i.test(text)) return `Free wall install (${wallInstallValue} value)`;
   let m = text.match(/Claim GBP\s*([0-9.,]+) John Lewis E-Gift Card/i); if (m) return `GBP ${m[1]} John Lewis e-gift card`;
   m = text.match(/Save\s+([0-9]+)% on price shown/i); if (m) return `${m[1]}% MyJL member discount`;

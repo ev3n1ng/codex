@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { spawnSync } = require("child_process");
 const { isTrackedModel } = require("./retailer-tracking-policy");
+const { modelOf } = require("./retailer-models");
 
 const ROOT = __dirname;
 const LISTING_URL =
@@ -265,7 +266,7 @@ function normaliseOffer(offer) {
     return `GBP ${match[1]} MyJL member discount${match[2] ? ` (ends ${match[2]})` : ""}`;
   }
   const text = rawText
-    .replace(/ for new & existing My John Lewis members/g, "")
+    .replace(/ for new & existing My John Lewis members/g, " (MyJL members)")
     .replace(/ \(via promo code, see product page for details\)/g, "")
     .replace(/ \(via redemption\)/g, "")
     .replace(/ at no extra cost/g, "");
@@ -340,7 +341,7 @@ function parseProductPage(product, html) {
   const pageProduct = nextData.props?.pageProps?.product || {};
   const jsonLd = productJsonLd(html) || {};
   const title = clean(jsonLd.name || pageProduct.title || product.title);
-  const model = title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || product.model;
+  const model = modelOf(title) === "LG OLED" ? product.model : modelOf(title);
   const year = title.match(/\((\d{4})\)/)?.[1] || product.year || "";
   const size = Number(title.match(/(\d+)\s*inch/i)?.[1] || product.size || 0);
   const offers = [...new Set(
@@ -378,7 +379,7 @@ function parseProductPage(product, html) {
 
 function parseListingProduct(product) {
   const title = clean(product.title);
-  const model = title.match(/OLED\d+[A-Z0-9]+/i)?.[0] || product.productId;
+  const model = modelOf(title) === "LG OLED" ? product.productId : modelOf(title);
   const year = title.match(/\((\d{4})\)/)?.[1] || "";
   const size = Number(title.match(/(\d+)\s*inch/i)?.[1] || 0);
   const offers = [...new Set(

@@ -3,6 +3,15 @@ const fs = require("node:fs");
 const vm = require("node:vm");
 const { test } = require("node:test");
 const { isTrackedModel } = require("./retailer-tracking-policy");
+const { modelOf, mrgbModels, mrgbSeeds } = require("./retailer-models");
+
+test("MRGB models retain retailer suffixes and three-digit screen sizes", () => {
+  assert.equal(modelOf('LG MRGB96 100" TV - 100MRGB96B6B'), "100MRGB96B6B");
+  assert.equal(modelOf("LG 65MRGB86B6A (2026) Mini RGB"), "65MRGB86B6A");
+  assert.equal(modelOf("LG OLED55C66LB"), "OLED55C66LB");
+  assert.equal(mrgbModels.length, 11);
+  assert.equal(mrgbSeeds("Currys").find(p => p.model === "100MRGB96B6B").size, 100);
+});
 
 test("retired models cannot be rediscovered; available older models remain tracked", () => {
   for (const model of ["OLED65G54LW", "OLED65M59LA", "OLED65B56LA", "OLED77C54LA"]) {
