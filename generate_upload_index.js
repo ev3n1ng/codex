@@ -35,7 +35,10 @@ function normaliseOffer(offer) {
   m = text.match(/Save\s+([0-9]+)% on price shown/i); if (m) return `${m[1]}% MyJL member discount`;
   m = text.match(/Save GBP\s*([0-9.,]+) on a LG ([A-Z0-9]+).*Soundbar/i); if (m) return `Soundbar saving: GBP ${m[1]} on LG ${m[2]}`;
   m = text.match(/Price matched:\s*save GBP\s*([0-9.,]+)/i); if (m) return `Price matched: save GBP ${m[1]}`;
-  if (/Free Standard Delivery/i.test(text)) return "Free standard delivery";
+  if (/Free Standard Delivery/i.test(text)) {
+    const code = text.match(/with code\s+([A-Z0-9]+)/i)?.[1];
+    return `Free standard delivery${code ? ` with code ${code}` : ""}`;
+  }
   return text;
 }
 function offerRank(offer) {

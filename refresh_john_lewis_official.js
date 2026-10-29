@@ -348,7 +348,11 @@ function parseProductPage(product, html) {
     (pageProduct.messaging || [])
       .filter((message) => message.type === "promotional")
       .filter(promotionalMessageIsCurrent)
-      .map((message) => normaliseOffer(message.title))
+      .map((message) => {
+        const offer = normaliseOffer(message.title);
+        const code = clean(message.description || "").match(/promo(?:tional)? code\s+([A-Z0-9]+)/i)?.[1];
+        return /free standard delivery/i.test(offer) && code ? `${offer} with code ${code}` : offer;
+      })
       .filter(Boolean),
   )];
   const services = [
