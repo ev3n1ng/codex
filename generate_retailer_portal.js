@@ -633,7 +633,7 @@ const currysProducts = [
     "price": "£2,399.00",
     "availability": "Listed",
     "offers": [
-      "Save £600.99",
+      "Save £1,200.99",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c64la-10302008.html",
