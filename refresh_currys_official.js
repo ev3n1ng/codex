@@ -209,6 +209,7 @@ function parseProduct(product, html) {
   }
 
   const pricedExact =
+    objects.find((object) => String(object.name || "").includes(product.model) && object.offers?.price && object.offers?.availability) ||
     objects.find((object) => String(object.name || "").includes(product.model) && object.offers?.price) ||
     objects.find((object) => String(object.sku || "") === id && object.offers?.price);
   const price = pricedExact?.offers?.price ? money(pricedExact.offers.price) : product.price;
@@ -240,10 +241,14 @@ function parseProduct(product, html) {
   const filteredOffers = [...new Set(offers.map(clean).filter(Boolean))].filter(
     (offer) => !ignoredOffers.test(offer),
   );
-  const availability = /out of stock|currently unavailable|sold out/i.test(area)
-    || /OutOfStock/i.test(String(exact.offers?.availability || ""))
+  const structuredAvailability = String(pricedExact?.offers?.availability || exact.offers?.availability || "");
+  const availability = /OutOfStock/i.test(structuredAvailability)
     ? "Out of stock"
-    : "Listed";
+    : /InStock/i.test(structuredAvailability)
+      ? "Listed"
+      : /out of stock|currently unavailable|sold out/i.test(area)
+        ? "Out of stock"
+        : "Listed";
   const next = {
     ...product,
     baselineMissing: undefined,

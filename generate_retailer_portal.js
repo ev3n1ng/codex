@@ -1007,17 +1007,17 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
     "size": 77,
-    "price": "£2,949.00",
-    "availability": "Listed",
+    "price": "£1,999.97",
+    "availability": "Out of stock",
     "offers": [
-      "Save £700.00",
+      "Save £1,599.03",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
     "model": "OLED77G54LW",
     "series": "G",
     "gen": "5",
-    "previousPrice": "£3,279.00"
+    "previousPrice": "£2,949.00"
   },
   {
     "year": "2025",
@@ -1038,15 +1038,15 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 55\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED55G54LW",
     "size": 55,
-    "price": "£1,599.00",
+    "price": "£1,149.97",
     "availability": "Listed",
     "offers": [
-      "Save £120.00",
+      "Save £449.03",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-55-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled55g54lw-10280772.html",
     "model": "OLED55G54LW",
-    "previousPrice": "£1,499.00",
+    "previousPrice": "£1,599.00",
     "series": "G",
     "gen": "5"
   },
@@ -1054,15 +1054,15 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 48\" OLED evo AI 4K HDR Smart TV 2025 (Stand Version) - OLED48G56LS",
     "size": 48,
-    "price": "£1,199.00",
+    "price": "£749.97",
     "availability": "Listed",
     "offers": [
-      "Save £50.00",
+      "Save £449.03",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-48-oled-evo-ai-4k-hdr-smart-tv-2025-stand-version-oled48g56ls-10281558.html",
     "model": "OLED48G56LS",
-    "previousPrice": "£1,044.00",
+    "previousPrice": "£1,199.00",
     "series": "G",
     "gen": "5"
   },
@@ -1070,31 +1070,31 @@ const currysProducts = [
     "year": "2025",
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
     "size": 48,
-    "price": "£999.00",
-    "availability": "Listed",
+    "price": "£649.97",
+    "availability": "Out of stock",
     "offers": [
-      "Save £50.00",
+      "Save £349.03",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-48-oled-evo-ai-4k-hdr-smart-tv-2025-oled48c54la-10281782.html",
     "model": "OLED48C54LA",
     "series": "C",
     "gen": "5",
-    "previousPrice": "£949.00"
+    "previousPrice": "£999.00"
   },
   {
     "year": "2025",
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
-    "price": "£899.00",
+    "price": "£549.97",
     "availability": "Listed",
     "offers": [
-      "Save £50.00",
+      "Save £349.03",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c5-42-oled-evo-ai-4k-hdr-smart-tv-2025-oled42c54la-10281538.html",
     "model": "OLED42C54LA",
-    "previousPrice": "£849.00",
+    "previousPrice": "£899.00",
     "series": "C",
     "gen": "5"
   },

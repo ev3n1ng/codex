@@ -44,3 +44,19 @@ for (const file of ["refresh_john_lewis_official.js", "refresh_currys_official.j
     assert.throws(() => context.fetchProductPage({ model: excluded }), /Retired model/);
   });
 }
+
+test("Currys stock uses the priced offer rather than a variant entry or unrelated page text", () => {
+  const source = fs.readFileSync(`${__dirname}/refresh_currys_official.js`, "utf8");
+  const helpers = source.slice(source.indexOf("function decode("), source.indexOf("function extractReportData("));
+  const parser = source.slice(source.indexOf("function parseProduct("), source.indexOf("\nfunction ", source.indexOf("function parseProduct(") + 1));
+  const context = vm.createContext({ ignoredOffers: /never-match/, canonicalProductUrl: () => "" });
+  vm.runInContext(helpers + "\n" + parser, context);
+  const product = { model: "OLED48C54LA", url: "https://www.currys.co.uk/products/oled48c54la-10281782.html", price: "GBP 999" };
+  for (const stock of ["OutOfStock", "InStock"]) {
+    const html = `<script type="application/ld+json">${JSON.stringify([
+      { name: product.model, sku: "10281782", offers: { price: "649.97" } },
+      { name: product.model, sku: "10281782", offers: { price: "649.97", availability: `https://schema.org/${stock}` } },
+    ])}</script> An unrelated item is out of stock`;
+    assert.equal(context.parseProduct(product, html).availability, stock === "OutOfStock" ? "Out of stock" : "Listed");
+  }
+});
