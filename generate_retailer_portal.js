@@ -1007,11 +1007,10 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
     "size": 77,
-    "price": "£1,999.97",
-    "availability": "Out of stock",
+    "price": "Not listed",
+    "availability": "Product page redirected",
     "offers": [
-      "Save £1,599.03",
-      "Free delivery"
+      "Official Currys product page did not expose matching model data during this update"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
     "model": "OLED77G54LW",
@@ -1071,7 +1070,7 @@ const currysProducts = [
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
     "size": 48,
     "price": "£649.97",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £349.03",
       "Free delivery"
@@ -1087,7 +1086,7 @@ const currysProducts = [
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
     "price": "£549.97",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £349.03",
       "Free delivery"

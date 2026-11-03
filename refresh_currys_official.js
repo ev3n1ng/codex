@@ -185,7 +185,6 @@ function fetchProductPage(product) {
   }
 
   fs.rmSync(tmp, { force: true });
-  if (fs.existsSync(file)) return file;
   throw new Error(`Currys returned a blocked or non-product page for ${product.model}`);
 }
 

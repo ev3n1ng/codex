@@ -60,3 +60,18 @@ test("Currys stock uses the priced offer rather than a variant entry or unrelate
     assert.equal(context.parseProduct(product, html).availability, stock === "OutOfStock" ? "Out of stock" : "Listed");
   }
 });
+
+test("Currys live redirects cannot silently reuse an old cached product page", () => {
+  const source = fs.readFileSync(`${__dirname}/refresh_currys_official.js`, "utf8");
+  const start = source.indexOf("function fetchProductPage(product) {");
+  const end = source.indexOf("\nfunction ", start + 1);
+  const reads = [];
+  const context = vm.createContext({
+    isTrackedModel, cacheOnly: false, PAGE_DIR: "/tmp/currys-pages", USER_AGENT: "test", verbose: false,
+    execFileSync: () => {}, looksLikeProductPage: () => false, searchResultProductUrl: () => null,
+    fs: { mkdirSync: () => {}, existsSync: () => true, rmSync: () => {}, readFileSync: (file) => { reads.push(file); return "Catalogue redirect"; } },
+  });
+  vm.runInContext(source.slice(start, end), context);
+  assert.throws(() => context.fetchProductPage({ model: "OLED77G54LW", url: "https://www.currys.co.uk/product" }), /blocked or non-product page/);
+  assert.deepEqual(reads, ["/tmp/currys-pages/OLED77G54LW.html.tmp"]);
+});
