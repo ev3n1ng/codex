@@ -75,3 +75,16 @@ test("Currys live redirects cannot silently reuse an old cached product page", (
   assert.throws(() => context.fetchProductPage({ model: "OLED77G54LW", url: "https://www.currys.co.uk/product" }), /blocked or non-product page/);
   assert.deepEqual(reads, ["/tmp/currys-pages/OLED77G54LW.html.tmp"]);
 });
+
+test("daily changes ignore generic savings in either currency format but retain member and bundle offers", () => {
+  const source = fs.readFileSync(`${__dirname}/generate_retailer_portal.js`, "utf8");
+  const start = source.indexOf("function meaningfulOffer(offer) {");
+  const context = vm.createContext({});
+  vm.runInContext(source.slice(start, source.indexOf("\nfunction ", start + 1)), context);
+  for (const offer of ["Save GBP 800", "Save GBP 200 (price includes saving)", "Save £50.00"]) {
+    assert.equal(context.meaningfulOffer(offer), false);
+  }
+  for (const offer of ["GBP 200 MyJL member discount", "Save GBP 500 on selected soundbars", "Free wall install (GBP 135 value)"]) {
+    assert.equal(context.meaningfulOffer(offer), true);
+  }
+});

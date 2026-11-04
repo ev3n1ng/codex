@@ -459,6 +459,7 @@ const currysProducts = [
     "price": "£15,999.00",
     "availability": "Listed",
     "offers": [
+      "Save £50.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-97-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled97g64lw-10301387.html",
@@ -1070,7 +1071,7 @@ const currysProducts = [
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
     "size": 48,
     "price": "£649.97",
-    "availability": "Out of stock",
+    "availability": "Listed",
     "offers": [
       "Save £349.03",
       "Free delivery"
@@ -1140,6 +1141,7 @@ function moneyValue(value) {
 
 function meaningfulOffer(offer) {
   const text = String(offer || "");
+  if (/^Save\s+(?:GBP|£)\s*[\d,.]+(?:\s*\(price includes saving\))?$/i.test(text)) return false;
   return /myjl|my john lewis|member|install|gift|voucher|code|price matched|soundbar|trade in|recycling|^Save GBP/i.test(text)
     && !/^Save £/i.test(text)
     && !/free delivery/i.test(text);
