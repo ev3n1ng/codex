@@ -1070,7 +1070,7 @@ const currysProducts = [
     "title": "LG C5 48\" OLED evo AI 4K HDR Smart TV 2025 - OLED48C54LA",
     "size": 48,
     "price": "£649.97",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £349.03",
       "Free delivery"
