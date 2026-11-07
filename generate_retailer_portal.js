@@ -633,7 +633,7 @@ const currysProducts = [
     "price": "£2,799.00",
     "availability": "Listed",
     "offers": [
-      "Save £23.00",
+      "Save £75.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c64la-10302008.html",
@@ -1086,7 +1086,7 @@ const currysProducts = [
     "title": "LG C5 42\" OLED evo AI 4K HDR Smart TV 2025 - OLED42C54LA",
     "size": 42,
     "price": "£549.97",
-    "availability": "Listed",
+    "availability": "Out of stock",
     "offers": [
       "Save £349.03",
       "Free delivery"

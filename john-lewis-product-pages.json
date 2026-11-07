@@ -60,10 +60,11 @@
     "series": "G",
     "gen": "6",
     "size": 77,
-    "price": "£3,699.00",
+    "price": "£3,499.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
+      "Price matched",
       "Save £850 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
       "Free standard delivery with code DELIVERYTV"
     ],
@@ -178,10 +179,11 @@
     "series": "C",
     "gen": "6",
     "size": 83,
-    "price": "£3,599.00",
+    "price": "£3,399.00",
     "availability": "Available to order",
     "offers": [
       "Free wall install (GBP 135 value)",
+      "Price matched",
       "Save £850 on the LG S95TR Bluetooth Wi-Fi Soundbar when bought with this item",
       "Free standard delivery with code DELIVERYTV"
     ],
@@ -628,7 +630,7 @@
     "gen": "5",
     "size": 48,
     "price": "£699.00",
-    "availability": "Available to order",
+    "availability": "Currently out of stock online",
     "offers": [
       "Save £40 on the LG US40TR Bluetooth Soundbar, Black when bought with this item",
       "Free standard delivery with code DELIVERYTV"
