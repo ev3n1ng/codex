@@ -502,17 +502,17 @@ const currysProducts = [
     "year": "2026",
     "title": "LG G6 77\" OLED AI 4K HDR Smart TV 2026 (Wall Mount Version) - OLED77G64LW",
     "size": 77,
-    "price": "£3,699.00",
+    "price": "£3,499.00",
     "availability": "Listed",
     "offers": [
-      "Save £35.00",
+      "Save £400.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g6-77-oled-ai-4k-hdr-smart-tv-2026-wall-mount-version-oled77g64lw-10301402.html",
     "model": "OLED77G64LW",
     "series": "G",
     "gen": "6",
-    "previousPrice": "£3,499.00"
+    "previousPrice": "£3,699.00"
   },
   {
     "year": "2026",
@@ -614,33 +614,33 @@ const currysProducts = [
     "year": "2026",
     "title": "LG C6 83\" OLED AI 4K HDR Smart TV 2026 - OLED83C64LA",
     "size": 83,
-    "price": "£3,599.00",
+    "price": "£3,399.00",
     "availability": "Listed",
     "offers": [
-      "Save £400.00",
+      "Save £600.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-83-oled-ai-4k-hdr-smart-tv-2026-oled83c64la-10301872.html",
     "model": "OLED83C64LA",
     "series": "C",
     "gen": "6",
-    "previousPrice": "£3,799.00"
+    "previousPrice": "£3,599.00"
   },
   {
     "year": "2026",
     "title": "LG C6 77\" OLED AI 4K HDR Smart TV 2026 - OLED77C64LA",
     "size": 77,
-    "price": "£2,799.00",
+    "price": "£2,399.00",
     "availability": "Listed",
     "offers": [
-      "Save £75.00",
+      "Save £1,200.99",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-c6-77-oled-ai-4k-hdr-smart-tv-2026-oled77c64la-10302008.html",
     "model": "OLED77C64LA",
     "series": "C",
     "gen": "6",
-    "previousPrice": "£2,399.00"
+    "previousPrice": "£2,799.00"
   },
   {
     "year": "2026",
@@ -850,33 +850,33 @@ const currysProducts = [
     "year": "2026",
     "title": "LG B6 55\" OLED AI 4K HDR Smart TV 2026 - OLED55B65LA",
     "size": 55,
-    "price": "£999.00",
+    "price": "£974.00",
     "availability": "Listed",
     "offers": [
-      "Save £300.00",
+      "Save £625.99",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b6-55-oled-ai-4k-hdr-smart-tv-2026-oled55b65la-10301871.html",
     "model": "OLED55B65LA",
     "series": "B",
     "gen": "6",
-    "previousPrice": "£1,199.00"
+    "previousPrice": "£999.00"
   },
   {
     "year": "2026",
     "title": "LG B6 48\" OLED AI 4K HDR Smart TV 2026 - OLED48B65LA",
     "size": 48,
-    "price": "£799.00",
+    "price": "£774.00",
     "availability": "Listed",
     "offers": [
-      "Save £300.00",
+      "Save £325.00",
       "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-b6-48-oled-ai-4k-hdr-smart-tv-2026-oled48b65la-10301903.html",
     "model": "OLED48B65LA",
     "series": "B",
     "gen": "6",
-    "previousPrice": "£899.00"
+    "previousPrice": "£799.00"
   },
   {
     "model": "86MRGB88B6B",
@@ -887,7 +887,7 @@ const currysProducts = [
     "price": "£1,999.00",
     "availability": "Listed",
     "offers": [
-      "Save £1,000.99",
+      "Save £75.00",
       "Free delivery"
     ],
     "series": "Other",
@@ -903,7 +903,7 @@ const currysProducts = [
     "price": "£1,499.00",
     "availability": "Listed",
     "offers": [
-      "Save £800.99",
+      "Save £12.00",
       "Free delivery"
     ],
     "series": "Other",
@@ -919,7 +919,7 @@ const currysProducts = [
     "price": "£999.00",
     "availability": "Listed",
     "offers": [
-      "Save £600.99",
+      "Save £200.00",
       "Free delivery"
     ],
     "series": "Other",
@@ -935,7 +935,7 @@ const currysProducts = [
     "price": "£799.00",
     "availability": "Listed",
     "offers": [
-      "Save £500.99",
+      "Save £50.00",
       "Free delivery"
     ],
     "series": "Other",
@@ -951,7 +951,7 @@ const currysProducts = [
     "price": "£599.00",
     "availability": "Listed",
     "offers": [
-      "Save £500.99",
+      "Save £50.00",
       "Free delivery"
     ],
     "series": "Other",
@@ -979,14 +979,15 @@ const currysProducts = [
     "year": "2026",
     "size": 86,
     "title": "LG MRGB96 86\" Micro RGB AI 4K HDR Smart TV 2026 - 86MRGB96B6B",
-    "price": "£5,799.00",
+    "price": "£4,799.00",
     "availability": "Listed",
     "offers": [
-      "Save £0.99",
+      "Save £1,000.00",
       "Free delivery"
     ],
     "series": "Other",
-    "gen": ""
+    "gen": "",
+    "previousPrice": "£5,799.00"
   },
   {
     "year": "2025",
@@ -1007,10 +1008,11 @@ const currysProducts = [
     "year": "2025",
     "title": "LG G5 77\" OLED evo AI 4K HDR Smart TV 2025 (Wall Mount Version) - OLED77G54LW",
     "size": 77,
-    "price": "Not listed",
-    "availability": "Product page redirected",
+    "price": "£1,999.97",
+    "availability": "Out of stock",
     "offers": [
-      "Official Currys product page did not expose matching model data during this update"
+      "Save £1,599.03",
+      "Free delivery"
     ],
     "url": "https://www.currys.co.uk/products/lg-g5-77-oled-evo-ai-4k-hdr-smart-tv-2025-wall-mount-version-oled77g54lw-10280777.html",
     "model": "OLED77G54LW",
